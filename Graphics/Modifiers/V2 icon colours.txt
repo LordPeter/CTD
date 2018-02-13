@@ -1,0 +1,30 @@
+Unscharf maskieren Values:
+1,0
+0,15
+5
+
+Wenn Frames immer:
+Size 8
+
+
+Slavery-Related:
+BB914E
+
+Infrastructure:
+6F4219
+
+Capital Buildings:
+(only standard)
+
+Treasury:
+6F4219 + DEB911 + DE8E11 + 603712
+
+Currecies:
+D4AF37
+C0C0C0
+D4AF37 + C0C0C0 + B57204
+85BB65
+8B572A
+D05502
+
+
