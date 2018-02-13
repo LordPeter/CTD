@@ -1,5 +1,5 @@
 # CTD
-C[_redaced_], Trade &amp; D[_redaced_]
+Climate, Trade &amp; Demographics
 
 Greetings,
 this repo is still under construction.
