@@ -1,0 +1,958 @@
+##################
+# Decisions events
+# 
+# by LordPeter
+##################
+
+namespace = CTD
+
+######################
+# ranges CTD.0401-0499
+######################
+
+### Enact Edict
+
+## Growth Incentives
+
+province_event = {	# Province fires invisible event to be in scope, then fires player decision
+	id = CTD.0401
+	desc =  CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes		# by decision
+	
+	hide_window = yes
+	
+	immediate = {
+		save_event_target_as = target_edict_province	# save province
+		owner = {
+			character_event = {	# Give owner actual choice now
+				id = CTD.0402
+			}
+		}
+	}
+}
+
+character_event = {	# Owner is given edict choice (part 1/3)
+	id = CTD.0402
+	desc =  CTDDESC_0402
+	picture = "GFX_evt_council"
+	
+	is_triggered_only = yes		# by event
+	
+	option = {
+		name = CTDOPTA_0402	# Growth Incentive: Peasants
+		# Cost depends on existing pop amount (cheaper if low pops):
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					NOT = {
+						check_variable = {
+							which = province_population_peasants
+							value = 10
+						}
+					}
+				}
+			}
+			wealth = -25
+		}
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					check_variable = {
+						which = province_population_peasants
+						value = 10
+					}
+				}
+			}
+			wealth = -50
+		}
+		event_target:target_edict_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = peasants_growth_incentive
+				duration = 1825	# 5 years
+				hidden = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						can_grow_peasants_CTD_trigger = yes
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTB_0402	# Growth Incentive: Artisans
+		custom_tooltip = {
+			text = CTDTOOL_0402
+		}
+		event_target:target_edict_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = artisans_growth_incentive
+				duration = 1825	# 5 years
+				hidden = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						can_grow_artisans_CTD_trigger = yes
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTC_0402	# Growth Incentive: Merchants
+		# Cost depends on existing pop amount (cheaper if low pops):
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					NOT = {
+						check_variable = {
+							which = province_population_merchants
+							value = 6
+						}
+					}
+				}
+			}
+			prestige = -12.5
+			wealth = -25
+		}
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					check_variable = {
+						which = province_population_merchants
+						value = 6
+					}
+				}
+			}
+			prestige = -25
+			wealth = -50
+		}
+		event_target:target_edict_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = merchants_growth_incentive
+				duration = 1825	# 5 years
+				hidden = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						can_grow_merchants_CTD_trigger = yes
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTD_0402	# Show next options
+		character_event = {
+			id = CTD.0403
+		}
+																												# NOTE: not correct, needs additive?_modifiers... IMPORTANT
+		ai_chance = {
+			factor = 5	# 5-times as likely since four cycling options remain
+			# modifier = {	# x3 if at least one of the later options could grow (total: 5+2=7)
+				# factor = 3
+				# any_province_holding = {
+					# calc_true_if = {
+						# amount = 1
+						# can_grow_elite_CTD_trigger = yes
+						# OR = {
+							# can_grow_soldiers_CTD_trigger = yes
+							# can_grow_patricians_CTD_trigger = yes
+							# can_grow_clerics_CTD_trigger = yes
+						# }
+						# can_grow_scum_CTD_trigger = yes
+						# will_shrink_scum_CTD_trigger = yes
+					# }
+				# }
+			# }
+			# modifier = {	# x2 if at least two of the later options could grow (total: x6)
+				# factor = 3
+				# any_province_holding = {
+					# calc_true_if = {
+						# amount = 1
+						# can_grow_elite_CTD_trigger = yes
+						# OR = {
+							# can_grow_soldiers_CTD_trigger = yes
+							# can_grow_patricians_CTD_trigger = yes
+							# can_grow_clerics_CTD_trigger = yes
+						# }
+						# can_grow_scum_CTD_trigger = yes
+						# will_shrink_scum_CTD_trigger = yes
+					# }
+				# }
+			# }
+		}
+	}
+}
+
+character_event = {	# Owner is given edict choice (part 2/3)
+	id = CTD.0403
+	desc =  CTDDESC_0403
+	picture = "GFX_evt_council"
+	
+	is_triggered_only = yes		# by event
+	
+	option = {
+		name = CTDOPTA_0403	# Growth Incentive: Elite
+		# Cost depends on existing pop amount (cheaper if low pops):
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					NOT = {
+						check_variable = {
+							which = province_population_elite
+							value = 4
+						}
+					}
+				}
+			}
+			prestige = -50
+		}
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					check_variable = {
+						which = province_population_elite
+						value = 4
+					}
+				}
+			}
+			prestige = -100
+		}
+		event_target:target_edict_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = elite_growth_incentive
+				duration = 1825	# 5 years
+				hidden = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						can_grow_elite_CTD_trigger = yes
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTB_0403	# Growth Incentive: Special
+		# Cost depends on existing pop amount (cheaper if low pops):
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					NOT = {
+						check_variable = {
+							which = province_population_special
+							value = 10
+						}
+					}
+				}
+			}
+			prestige = -50
+		}
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					check_variable = {
+						which = province_population_special
+						value = 10
+					}
+				}
+			}
+			prestige = -100
+		}
+		event_target:target_edict_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = special_growth_incentive
+				duration = 1825	# 5 years
+				hidden = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						OR = {
+							can_grow_soldiers_CTD_trigger = yes
+							can_grow_patricians_CTD_trigger = yes
+							can_grow_clerics_CTD_trigger = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTC_0403	# Show next options
+		character_event = {
+			id = CTD.0404
+		}
+		ai_chance = {
+			factor = 3	# 3-times as likely since three cycling options remain
+			modifier = {	# More likely if one of the later options can be grown currently
+				factor = 3
+				any_province_holding = {
+					can_grow_scum_CTD_trigger = yes
+				}
+			}
+			modifier = {	# More likely if one of the later options can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						will_shrink_scum_CTD_trigger = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+character_event = {	# Owner is given edict choice (part 3/3)
+	id = CTD.0404
+	desc =  CTDDESC_0404
+	picture = "GFX_evt_council"
+	
+	is_triggered_only = yes		# by event
+	
+	option = {
+		name = CTDOPTA_0404	# Growth Incentive: Scum
+		# Cost depends on existing pop amount (cheaper if low pops):
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					NOT = {
+						check_variable = {
+							which = province_population_scum
+							value = 10
+						}
+					}
+				}
+			}
+			piety = -25
+		}
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					check_variable = {
+						which = province_population_scum
+						value = 10
+					}
+				}
+			}
+			piety = -50
+		}
+		event_target:target_edict_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = scum_growth_incentive
+				duration = 1825	# 5 years
+				hidden = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						can_grow_scum_CTD_trigger = yes
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTB_0404	# Enforce Law: Scum
+		# Cost depends on existing pop amount (*cheaper* if high pops!):
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					NOT = {
+						check_variable = {
+							which = province_population_scum
+							value = 10
+						}
+					}
+				}
+			}
+			wealth = -12.5
+			prestige = -12.5
+		}
+		if = {
+			limit = {
+				event_target:target_edict_province = {
+					check_variable = {
+						which = province_population_scum
+						value = 10
+					}
+				}
+			}
+			wealth = -25
+			prestige = -25
+		}
+		event_target:target_edict_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = enforced_law_on_scum
+				duration = 1825	# 5 years
+				hidden = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if can be grown currently
+				factor = 3
+				event_target:target_edict_province = {
+					any_province_holding = {
+						will_shrink_scum_CTD_trigger = yes
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTC_0404	# Do nothing
+		# NOTE: Add AI blocking timer maybe?
+		ai_chance = {
+			factor = 1
+			modifier = {	# More likely if NOTHING can be grown currently
+				factor = 3
+				NOT = {
+					event_target:target_edict_province = {
+						any_province_holding = {
+							OR = {
+								can_grow_peasants_CTD_trigger = yes
+								can_grow_artisans_CTD_trigger = yes
+								can_grow_merchants_CTD_trigger = yes
+								can_grow_elite_CTD_trigger = yes
+								OR = {
+									can_grow_soldiers_CTD_trigger = yes
+									can_grow_patricians_CTD_trigger = yes
+									can_grow_clerics_CTD_trigger = yes
+								}
+								can_grow_scum_CTD_trigger = yes
+								will_shrink_scum_CTD_trigger = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDOPTD_0404	# Show next options
+		trigger = {
+			ai = no	# AI can not cycle back - but it can chose nothing (option above)
+		}
+		character_event = {
+			id = CTD.0402
+		}
+	}
+}
+
+
+### Special Features
+
+## Trade Fair
+
+province_event = {	# Province fires invisible event to be in scope, then fires player decision
+	id = CTD.0410
+	desc =  CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes		# by decision
+	
+	hide_window = yes
+	
+	immediate = {
+		save_event_target_as = target_trade_fair_province	# save province
+		owner = {
+			character_event = {	# Give owner actual choice now
+				id = CTD.0411
+			}
+		}
+	}
+}
+
+character_event = {	# Owner is asked to confirm
+	id = CTD.0411
+	desc =  CTDDESC_0411
+	picture = "GFX_evt_market"
+	
+	is_triggered_only = yes		# by event
+	
+	option = {	# Yes
+		name = CTDOPTA_0411
+		wealth = -100
+		prestige = -100
+		event_target:target_trade_fair_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = feature_trade_fair
+				duration = -1
+				hidden = yes
+			}
+			# Also clear flag:
+			clr_province_flag = trade_fair_decision_taken
+		}
+	}
+	
+	option = {	# No
+		name = CTDOPTB_0411
+		event_target:target_trade_fair_province = {
+			# Clear flag:
+			clr_province_flag = trade_fair_decision_taken
+		}
+	}
+}
+
+## Staple Right
+
+province_event = {	# Province fires invisible event to be in scope, then fires player decision
+	id = CTD.0412
+	desc =  CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes		# by decision
+	
+	hide_window = yes
+	
+	immediate = {
+		save_event_target_as = target_staple_right_province	# save province
+		owner = {
+			character_event = {	# Give owner actual choice now
+				id = CTD.0413
+			}
+		}
+	}
+}
+
+character_event = {	# Owner is asked to confirm
+	id = CTD.0413
+	desc =  CTDDESC_0413
+	picture = "GFX_evt_market"
+	
+	is_triggered_only = yes		# by event
+	
+	option = {	# Yes
+		name = CTDOPTA_0413
+		wealth = -50
+		prestige = -200
+		event_target:target_staple_right_province = {
+			add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+				name = feature_staple_right
+				duration = -1
+				hidden = yes
+			}
+			# Also clear flag:
+			clr_province_flag = staple_right_decision_taken
+		}
+	}
+	
+	option = {	# No
+		name = CTDOPTB_0413
+		event_target:target_staple_right_province = {
+			# Clear flag:
+			clr_province_flag = staple_right_decision_taken
+		}
+	}
+}
+
+
+### Fake mapmodes
+
+## Allow player to chose fake mapmode via decision on self
+
+character_event = {	# Primary event to decide which type of mapmode to consider
+	id = CTD.0420
+	desc =  CTDDESC_0420
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Nature
+		name = CTDOPTA_0420
+		character_event = {
+			id = CTD.0421
+		}
+	}
+	
+	option = {	# Population
+		name = CTDOPTB_0420
+		character_event = {
+			id = CTD.0422
+		}
+	}
+	
+	option = {	# Trade
+		name = CTDOPTC_0420
+		character_event = {
+			id = CTD.0423
+		}
+	}
+}
+
+character_event = {	# Now decide which Subcategory (Nature)
+	id = CTD.0421
+	desc =  CTDDESC_0421
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Terrain
+		name = CTDOPTA_0421
+		character_event = {
+			id = CTD.0424
+		}
+	}
+	
+	option = {	# Climate
+		name = CTDOPTB_0421
+		character_event = {
+			id = CTD.0425
+		}
+	}
+}
+
+character_event = {	# Now decide which Subcategory (Population)
+	id = CTD.0422
+	desc =  CTDDESC_0422
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# 
+		name = CTDOPTA_0422
+		character_event = {
+			id = CTD.0426
+		}
+	}
+	
+	option = {	# 
+		name = CTDOPTB_0422
+		character_event = {
+			id = CTD.0427
+		}
+	}
+	
+	option = {	# 
+		name = CTDOPTC_0422
+		character_event = {
+			id = CTD.0428
+		}
+	}
+	
+	option = {	# 
+		name = CTDOPTD_0422
+		character_event = {
+			id = CTD.0429
+		}
+	}
+}
+
+# ... usw... finish design first!
+
+character_event = {	# Now decide which Type (Climate)
+	id = CTD.0425
+	desc =  CTDDESC_0425
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# General
+		name = CTDOPTA_0425
+		character_event = {
+			id = CTD.0440
+		}
+	}
+	
+	option = {	# Current
+		name = CTDOPTB_0425
+		character_event = {
+			id = CTD.0441
+		}
+	}
+}
+
+character_event = {	# Finally, decide on a mapmode (General)
+	id = CTD.0440
+	desc =  CTDDESC_0440
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Climate Type
+		name = CTDOPTA_0440
+		clear_all_mapmode_flags_CTD_effect = yes	# remove any previous flag
+		set_character_flag = fake_mapmode_nature_climate_general_climatetype
+	}
+	
+	option = {	# Seasonal System
+		name = CTDOPTB_0440
+		
+	}
+}
+
+character_event = {	# Finally, decide on a mapmode (Current)
+	id = CTD.0441
+	desc =  CTDDESC_0441
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Season
+		name = CTDOPTA_0441
+		clear_all_mapmode_flags_CTD_effect = yes	# remove any previous flag
+		set_character_flag = fake_mapmode_nature_climate_current_season
+	}
+	
+	option = {	# Weather
+		name = CTDOPTB_0441
+		
+	}
+}
+
+
+
+
+
+# ### Start slave trade
+
+# ## Initial event to save all scopes as targets
+
+# character_event = {	# Important to cache the scopes immediately, can't be done later!
+	# id = CTD.0430
+	# desc =  CTDDESC_0001		# Generic "invisible" localisation
+	
+	# is_triggered_only = yes		# by decision
+	
+	# hide_window = yes
+	
+	# immediate = {
+		# # The great cacheing:
+		# ROOT = {
+			# save_event_target_as = target_slaver	# decison taker is enslaving
+			# location = {	# IMPORTANT: Character must not have moved - safety check neccessary? Not sure, because the event happens immediately, but maybe...
+				# save_event_target_as = target_enslaved_province	# province is enslaved
+			# }
+			# # Follow-up event reports back to decision taker and presents choices:
+			# character_event = {
+				# id = CTD.0431
+			# }
+		# }
+	# }
+# }
+
+# character_event = {	# Chose an "origin" province for the new slaves
+	# id = CTD.0431
+	# desc =  CTDDESC_0431
+	
+	# is_triggered_only = yes		# by event
+	
+	# immediate = {
+		# # Set temporary flags to differencate the potential origin provinces
+		# event_target:target_enslaved_province = {
+			# ROOT = {
+				# # Flag 1:
+				# random_demesne_province = {	# Must be within range of a "trade origin" designated province
+					# limit = {
+						# slave_origin_province_is_in_range_CTD_trigger = yes
+					# }
+					# # Set the temp flag:
+					# set_province_flag = possible_new_slave_origin_province_1
+				# }
+				# # Flag 2 (check if possible now beforehand):
+				# if = {
+					# limit = {
+						# any_demesne_province = {
+							# AND = {
+								# slave_origin_province_is_in_range_CTD_trigger = yes
+								# NOT = {
+									# has_province_flag = possible_new_slave_origin_province_1
+								# }
+							# }
+						# }
+					# }
+					# random_demesne_province = {	# Must be within range of a "trade origin" designated province
+						# limit = {
+							# AND = {
+								# slave_origin_province_is_in_range_CTD_trigger = yes
+								# NOT = {
+									# has_province_flag = possible_new_slave_origin_province_1
+								# }
+							# }
+						# }
+						# # Set the temp flag:
+						# set_province_flag = possible_new_slave_origin_province_2
+					# }
+				# }
+				# # Flag 3 (also check):
+				# if = {
+					# limit = {
+						# any_demesne_province = {
+							# AND = {
+								# slave_origin_province_is_in_range_CTD_trigger = yes
+								# NOR = {
+									# has_province_flag = possible_new_slave_origin_province_1
+									# has_province_flag = possible_new_slave_origin_province_2
+								# }
+							# }
+						# }
+					# }
+					# random_demesne_province = {	# Must be within range of a "trade origin" designated province
+						# limit = {
+							# AND = {
+								# slave_origin_province_is_in_range_CTD_trigger = yes
+								# NOR = {
+									# has_province_flag = possible_new_slave_origin_province_1
+									# has_province_flag = possible_new_slave_origin_province_2
+								# }
+							# }
+						# }
+						# # Set the temp flag:
+						# set_province_flag = possible_new_slave_origin_province_3
+					# }
+				# }
+			# }
+		# }
+	# }
+	
+	# option = {	# First possible origin province
+		# name = CTDOPTA_0431
+		# trigger = {
+			# any_demesne_province = {
+				# has_province_flag = possible_new_slave_origin_province_1
+			# }
+		# }
+		# # Set modifier & "abduct" (or import) slaves:
+		# random_demesne_province = {
+			# limit = {
+				# has_province_flag = possible_new_slave_origin_province_1
+			# }
+			# remove_province_modifier = potential_slave_origin_province
+			# add_province_modifier = {
+				# name = slave_origin_province
+				# days = -1
+			# }
+			# event_target:target_enslaved_province = {
+				# abduct_enslaved_population_to_slavery_origin_province_CTD_effect = yes
+			# }
+		# }
+		# # Clear the temp flags:
+		# any_demesne_province = {
+			# limit = {
+				# OR = {
+					# has_province_flag = possible_new_slave_origin_province_1
+					# has_province_flag = possible_new_slave_origin_province_2
+					# has_province_flag = possible_new_slave_origin_province_3
+				# }
+			# }
+			# clr_province_flag = possible_new_slave_origin_province_1
+			# clr_province_flag = possible_new_slave_origin_province_2
+			# clr_province_flag = possible_new_slave_origin_province_3
+		# }
+		# # Important: Also remember the decision flag!
+		# clr_character_flag = started_slave_hunt
+	# }
+	
+	# option = {	# Second possible origin province
+		# name = CTDOPTB_0431
+		# trigger = {
+			# any_demesne_province = {
+				# has_province_flag = possible_new_slave_origin_province_2
+			# }
+		# }
+		# # Set modifier & "abduct" (or import) slaves:
+		# random_demesne_province = {
+			# limit = {
+				# has_province_flag = possible_new_slave_origin_province_2
+			# }
+			# remove_province_modifier = potential_slave_origin_province
+			# add_province_modifier = {
+				# name = slave_origin_province
+				# days = -1
+			# }
+			# event_target:target_enslaved_province = {
+				# abduct_enslaved_population_to_slavery_origin_province_CTD_effect = yes
+			# }
+		# }
+		# # Clear the temp flags:
+		# any_demesne_province = {
+			# limit = {
+				# OR = {
+					# has_province_flag = possible_new_slave_origin_province_1
+					# has_province_flag = possible_new_slave_origin_province_2
+					# has_province_flag = possible_new_slave_origin_province_3
+				# }
+			# }
+			# clr_province_flag = possible_new_slave_origin_province_1
+			# clr_province_flag = possible_new_slave_origin_province_2
+			# clr_province_flag = possible_new_slave_origin_province_3
+		# }
+		# # Important: Also remember the decision flag!
+		# clr_character_flag = started_slave_hunt
+	# }
+	
+	# option = {	# Third possible origin province
+		# name = CTDOPTC_0431
+		# trigger = {
+			# any_demesne_province = {
+				# has_province_flag = possible_new_slave_origin_province_3
+			# }
+		# }
+		# # Set modifier & "abduct" (or import) slaves:
+		# random_demesne_province = {
+			# limit = {
+				# has_province_flag = possible_new_slave_origin_province_3
+			# }
+			# remove_province_modifier = potential_slave_origin_province
+			# add_province_modifier = {
+				# name = slave_origin_province
+				# days = -1
+			# }
+			# event_target:target_enslaved_province = {
+				# abduct_enslaved_population_to_slavery_origin_province_CTD_effect = yes
+			# }
+		# }
+		# # Clear the temp flags:
+		# any_demesne_province = {
+			# limit = {
+				# OR = {
+					# has_province_flag = possible_new_slave_origin_province_1
+					# has_province_flag = possible_new_slave_origin_province_2
+					# has_province_flag = possible_new_slave_origin_province_3
+				# }
+			# }
+			# clr_province_flag = possible_new_slave_origin_province_1
+			# clr_province_flag = possible_new_slave_origin_province_2
+			# clr_province_flag = possible_new_slave_origin_province_3
+		# }
+		# # Important: Also remember the decision flag!
+		# clr_character_flag = started_slave_hunt
+	# }
+# }

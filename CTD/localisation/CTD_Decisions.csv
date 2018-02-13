@@ -1,0 +1,25 @@
+### Regular Decisions:
+
+## Player Convenience Decisions
+# Fake Mapmodes
+choose_fake_mapmode;Ponder on Cartography;;;;;;;;;;;;;x
+choose_fake_mapmode_desc;Fires an event that allows you to decide which "Fake Mapmode" you want to see displayed via the "Fabricate Cartography" job action of your [Root.job_treasurer.GetJobTitle].;;;;;;;;;;;;;x
+
+
+## Province (Title) Decisions
+# Enact Edict
+enact_incentive_edict;Growth Incentive Edict;;;;;;;;;;;;;x
+enact_incentive_edict_desc;Enact an edict to facilitate the growth of a certain population type.;;;;;;;;;;;;;x
+
+# Add feature
+establish_trade_fair;Establish Trade Fair;;;;;;;;;;;;;x
+establish_trade_fair_desc;Establish a Trade Fair in this province.;;;;;;;;;;;;;x
+grant_staple_right;Grant Staple Right;;;;;;;;;;;;;x
+grant_staple_right_desc;Grant the Right of Staple to this province.;;;;;;;;;;;;;x
+
+
+## General Decisions
+# Hunt Slaves
+hunt_slaves;Hunt for Slaves;;;;;;;;;;;;;x
+hunt_slaves_desc;Hunt slaves click here dadada.;;;;;;;;;;;;;x
+START_SLAVE_HUNT;Start the hunt for slaves.;;;;;;;;;;;;;x

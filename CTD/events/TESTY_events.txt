@@ -1,0 +1,471 @@
+
+namespace = TST
+
+### Test event - increase supplies to test pop growth
+
+character_event = {
+	id = TST.1
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_greater
+		hidden_tooltip = {
+			any_province = {
+				change_variable = {
+					which = province_supply_food
+					value = 10
+				}
+			}
+		}
+	}
+	option = {
+		name = CTDDESC_equal
+		hidden_tooltip = {
+			any_province = {
+				change_variable = {
+					which = province_supply_clothing
+					value = 10
+				}
+			}
+		}
+	}
+	option = {
+		name = CTDDESC_lower
+		hidden_tooltip = {
+			any_province = {
+				change_variable = {
+					which = province_supply_materials
+					value = 10
+				}
+			}
+		}
+	}
+	option = {
+		name = CTDDESC_0702
+		hidden_tooltip = {
+			any_province = {
+				change_variable = {
+					which = province_supply_luxuries
+					value = 10
+				}
+			}
+		}
+	}
+}
+
+# Check if character has lieges
+
+character_event = {
+	id = TST.2
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_greater
+		trigger = {
+			independent = yes
+		}
+	}
+	option = {
+		name = CTDDESC_equal
+		trigger = {
+			AND = {
+				independent = no
+				liege = {
+					independent = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = CTDDESC_lower
+		trigger = {
+			AND = {
+				independent = no
+				liege = {
+					independent = no
+				}
+				liege = {
+					liege = {
+						independent = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# Test global priority level assignment
+
+character_event = {
+	id = TST.3
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		update_global_import_priority_levels_CTD_effect = yes
+	}
+}
+
+# Test some stuff. Currently: global variables
+
+character_event = {
+	id = TST.4
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_greater
+		set_variable = {	# Copy local province value to global comparison variable
+			which = global_import_priority_comparison_variable
+			value = 42
+		}
+	}
+}
+
+# Test some more stuff. Currently: currency modifiers
+
+character_event = {
+	id = TST.5
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		if = {
+			limit = {
+				NOR = {
+					has_character_modifier = currency_gold_coins
+					has_character_modifier = currency_silver_coins
+					has_character_modifier = currency_foreign_coins
+					has_character_modifier = currency_paper_money
+					has_character_modifier = currency_cowrie_shells
+					has_character_modifier = currency_squirrel_skins
+				}
+			}
+			add_character_modifier = {
+				name = currency_gold_coins
+				duration = -1
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = currency_gold_coins
+			}
+			remove_character_modifier = currency_gold_coins
+			add_character_modifier = {
+				name = currency_silver_coins
+				duration = -1
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = currency_silver_coins
+			}
+			remove_character_modifier = currency_silver_coins
+			add_character_modifier = {
+				name = currency_foreign_coins
+				duration = -1
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = currency_foreign_coins
+			}
+			remove_character_modifier = currency_foreign_coins
+			add_character_modifier = {
+				name = currency_paper_money
+				duration = -1
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = currency_paper_money
+			}
+			remove_character_modifier = currency_paper_money
+			add_character_modifier = {
+				name = currency_cowrie_shells
+				duration = -1
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = currency_cowrie_shells
+			}
+			remove_character_modifier = currency_cowrie_shells
+			add_character_modifier = {
+				name = currency_squirrel_skins
+				duration = -1
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = currency_squirrel_skins
+			}
+			remove_character_modifier = currency_squirrel_skins
+			add_character_modifier = {
+				name = currency_gold_coins
+				duration = -1
+			}
+			break = yes
+		}
+	}
+}
+
+### Change values of variables
+
+character_event = {
+	id = TST.11
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_supply_food
+				value = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.12
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_demand_food
+				value = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.21
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_supply_clothing
+				value = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.22
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_demand_clothing
+				value = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.31
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_supply_materials
+				value = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.32
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_demand_materials
+				value = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.41
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_supply_luxuries
+				value = 1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.42
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_scope = {
+			change_variable = {
+				which = province_demand_luxuries
+				value = 1
+			}
+		}
+	}
+}
+
+### New events that change building, and automatically do everything else
+
+# Increase Peasants
+character_event = {
+	id = TST.301
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_holding = {	# The holding
+			incr_peasants_holding_pop_CTD_effect = yes
+		}
+	}
+}
+
+# Increase Artisans
+character_event = {
+	id = TST.302
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_holding = {	# The holding
+			incr_artisans_holding_pop_CTD_effect = yes
+		}
+	}
+}
+
+# Increase Merchants
+character_event = {
+	id = TST.303
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_holding = {	# The holding
+			incr_merchants_holding_pop_CTD_effect = yes
+		}
+	}
+}
+
+# Increase Elite
+character_event = {
+	id = TST.304
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_holding = {	# The holding
+			incr_elite_holding_pop_CTD_effect = yes
+		}
+	}
+}
+
+# Increase Special
+character_event = {
+	id = TST.305
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_holding = {	# The holding
+			incr_special_holding_pop_CTD_effect = yes
+		}
+	}
+}
+
+# Increase Scum
+character_event = {
+	id = TST.306
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_holding = {	# The holding
+			incr_scum_holding_pop_CTD_effect = yes
+		}
+	}
+}
+
+# Decrease Scum
+character_event = {
+	id = TST.307
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		capital_holding = {	# The holding
+			decr_scum_holding_pop_CTD_effect = yes
+		}
+	}
+}

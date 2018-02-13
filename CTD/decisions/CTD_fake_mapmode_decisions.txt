@@ -1,0 +1,29 @@
+targetted_decisions = {
+	choose_fake_mapmode = {
+		only_playable = yes	# pre-trigger
+		filter = self
+		ai_target_filter = self	# but ai should not use this anyway
+		from_potential = {
+			ai = no
+		}
+		potential = {
+			ai = no
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			character_event = {	# Opens event to allow player to chose which mapmode the steward action will display
+				id = CTD.0420
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			always = no # ai can never do this anyway
+		}
+	}
+}
+
+# NOTE: Also do a fake province (title) decision that allows to display a) diplomatic ranges b) trade ranges from THAT province!

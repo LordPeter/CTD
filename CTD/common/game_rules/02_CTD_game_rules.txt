@@ -1,0 +1,184 @@
+#
+# List of options showing in the Game Rules screen
+#
+# format is:
+# rule_token = {
+#	name = "TEXT_KEY_FOR_NAME"
+#	desc = "TEXT_KEY_FOR_LONG_DESC"
+#	group = "TEXT_KEY_FOR_GROUP"					# Used for filtering. A single rule can be in multiple groups 
+#	option = {										# please note that the first option is always the default option
+#		name = option_token
+#		text = "TEXT_KEY_FOR_OPTION_NAME"
+#		achievements = no							# by default achievements = yes, allows or disallows achievements
+#	}
+# }
+
+local_resources = {
+	name = "LOCAL_RESOURCES_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = historical
+		text = "RESOURCES_HISTORICAL"
+		desc = "LOCAL_RESOURCES_HISTORICAL_DESC"
+	}
+	option = {
+		name = random
+		text = "RESOURCES_RANDOM"
+		desc = "LOCAL_RESOURCES_RANDOM_DESC"
+	}
+}
+
+currencies = {
+	name = "CURRENCIES_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = enabled
+		text = "CURRENCIES_ENABLED"
+		desc = "CURRENCIES_ENABLED_DESC"
+	}
+	option = {
+		name = disabled
+		text = "CURRENCIES_DISABLED"
+		desc = "CURRENCIES_DISABLED_DESC"
+	}
+}
+
+natural_features = {
+	name = "NATURAL_FEATURES_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = enabled_historical
+		text = "FEATURES_ENABLED_HISTORICAL"
+		desc = "NATURAL_FEATURES_ENABLED_HISTORICAL_DESC"
+	}
+	option = {
+		name = enabled_random
+		text = "FEATURES_ENABLED_RANDOM"
+		desc = "NATURAL_FEATURES_ENABLED_RANDOM_DESC"
+	}
+	option = {
+		name = disabled
+		text = "FEATURES_DISABLED"
+		desc = "NATURAL_FEATURES_DISABLED_DESC"
+	}
+}
+
+weather = {
+	name = "WEATHER_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = disabled
+		text = "WEATHER_DISABLED"
+		desc = "WEATHER_DISABLED_DESC"
+	}
+	option = {
+		name = enabled
+		text = "WEATHER_ENABLED"
+		desc = "WEATHER_ENABLED_DESC"
+	}
+}
+
+disasters = {
+	name = "DISASTERS_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = disabled
+		text = "DISASTERS_DISABLED"
+		desc = "DISASTERS_DISABLED_DESC"
+	}
+	option = {
+		name = enabled
+		text = "DISASTERS_ENABLED"
+		desc = "DISASTERS_ENABLED_DESC"
+	}
+}
+
+slavery = {
+	name = "SLAVERY_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = enabled
+		text = "SLAVERY_ENABLED"
+		desc = "SLAVERY_ENABLED_DESC"
+	}
+	option = {
+		name = disabled
+		text = "SLAVERY_DISABLED"
+		desc = "SLAVERY_DISABLED_DESC"
+	}
+}
+
+minorities = {
+	name = "MINORITIES_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = enabled
+		text = "MINORITIES_ENABLED"
+		desc = "MINORITIES_ENABLED_DESC"
+	}
+	option = {
+		name = disabled
+		text = "MINORITIES_DISABLED"
+		desc = "MINORITIES_DISABLED_DESC"
+	}
+}
+
+jewish_diaspora = {
+	name = "JEWISH_DIASPORA_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = enabled
+		text = "JEWISH_DIASPORA_ENABLED"
+		desc = "JEWISH_DIASPORA_ENABLED_DESC"
+	}
+	option = {
+		name = disabled
+		text = "JEWISH_DIASPORA_DISABLED"
+		desc = "JEWISH_DIASPORA_DISABLED_DESC"
+	}
+}
+
+romani = {	# aka Gypsies
+	name = "ROMANI_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = enabled
+		text = "ROMANI_ENABLED"
+		desc = "ROMANI_ENABLED_DESC"
+	}
+	option = {
+		name = disabled
+		text = "ROMANI_DISABLED"
+		desc = "ROMANI_DISABLED_DESC"
+	}
+}
+
+refugees = {
+	name = "REFUGEES_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = enabled
+		text = "REFUGEES_ENABLED"
+		desc = "REFUGEES_ENABLED_DESC"
+	}
+	option = {
+		name = disabled
+		text = "REFUGEES_DISABLED"
+		desc = "REFUGEES_DISABLED_DESC"
+	}
+}
+
+buildings = {
+	name = "BUILDINGS_TITLE"
+	group = "RULE_GROUP_FPS"
+	option = {
+		name = new
+		text = "BUILDINGS_NEW"
+		desc = "BUILDINGS_NEW_DESC"
+	}
+	option = {
+		name = old
+		text = "BUILDINGS_OLD"
+		desc = "BUILDINGS_OLD_DESC"
+	}
+}

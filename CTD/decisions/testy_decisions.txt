@@ -1,0 +1,30 @@
+targetted_decisions = {
+	testy_decision_1 = {
+		is_high_prio = yes
+		filter = all	# Expensive, but only for testing you know
+		ai_target_filter = spouse	# Just kidding, ai should not use this
+		from_potential = {
+			ai = no
+		}
+		potential = {
+			ai = yes
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			ROOT = {
+				add_favor = FROM
+			}
+			FROM = {
+				add_favor = ROOT
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			always = no # Only for testing
+		}
+	}
+}

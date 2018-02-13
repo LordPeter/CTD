@@ -1,0 +1,2974 @@
+#######################
+# Initialization events
+# 
+# by LordPeter
+#######################
+
+namespace = CTD
+
+######################
+# ranges CTD.0001-0099
+######################
+
+### Initial Assignment on startup
+
+character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible event that targets all provinces, since provinces can not directly be targeted via on_startup
+	id = CTD.0001
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# via on_action "on_chronicle_start"
+	
+	trigger = {	# should only be fired once, no more if global flag has been set (to avoid weirdness with ruler-designed characters)
+		NOT = {
+			has_global_flag = FPS_module_running_CTD
+		}
+	}
+	
+	immediate = {
+		# Set golbal flag to allow other modules to be aware of each other (and also to prevent this event firing again, because of a ruler-designer bug)
+		set_global_flag = FPS_module_running_CTD
+		
+		# Initialize global variables
+		set_variable = {
+			which = global_import_priority_comparison_variable	# <- This is a global variable!
+			value = 0
+		}
+		set_variable = {
+			which = global_reference_number_of_provinces_variable	# <- This is a global variable!
+			value = 0
+		}
+		
+		# Just for a mapmode test:
+		any_province = {
+			if = {
+				limit = {
+					num_of_max_settlements == 1
+				}
+				change_variable = {
+					which = province_mapmode_thingy_settlements
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					num_of_max_settlements == 2
+				}
+				change_variable = {
+					which = province_mapmode_thingy_settlements
+					value = 2
+				}
+			}
+			if = {
+				limit = {
+					num_of_max_settlements == 3
+				}
+				change_variable = {
+					which = province_mapmode_thingy_settlements
+					value = 3
+				}
+			}
+			if = {
+				limit = {
+					num_of_max_settlements == 4
+				}
+				change_variable = {
+					which = province_mapmode_thingy_settlements
+					value = 4
+				}
+			}
+			if = {
+				limit = {
+					num_of_max_settlements == 5
+				}
+				change_variable = {
+					which = province_mapmode_thingy_settlements
+					value = 5
+				}
+			}
+			if = {
+				limit = {
+					num_of_max_settlements == 6
+				}
+				change_variable = {
+					which = province_mapmode_thingy_settlements
+					value = 6
+				}
+			}
+			if = {
+				limit = {
+					num_of_max_settlements == 7
+				}
+				change_variable = {
+					which = province_mapmode_thingy_settlements
+					value = 7
+				}
+			}
+			county = {	# the county
+				dejure_liege_title = {	# the de jure duchy
+					if = {
+						limit = {
+							PREVPREV = {
+								is_variable_equal = {
+									which = province_mapmode_thingy_settlements
+									value = 1
+								}
+							}
+						}
+						change_variable = {
+							which = duchy_holding_count_variable
+							value = 1
+						}
+					}
+					if = {
+						limit = {
+							PREVPREV = {
+								is_variable_equal = {
+									which = province_mapmode_thingy_settlements
+									value = 2
+								}
+							}
+						}
+						change_variable = {
+							which = duchy_holding_count_variable
+							value = 2
+						}
+					}
+					if = {
+						limit = {
+							PREVPREV = {
+								is_variable_equal = {
+									which = province_mapmode_thingy_settlements
+									value = 3
+								}
+							}
+						}
+						change_variable = {
+							which = duchy_holding_count_variable
+							value = 3
+						}
+					}
+					if = {
+						limit = {
+							PREVPREV = {
+								is_variable_equal = {
+									which = province_mapmode_thingy_settlements
+									value = 4
+								}
+							}
+						}
+						change_variable = {
+							which = duchy_holding_count_variable
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							PREVPREV = {
+								is_variable_equal = {
+									which = province_mapmode_thingy_settlements
+									value = 5
+								}
+							}
+						}
+						change_variable = {
+							which = duchy_holding_count_variable
+							value = 5
+						}
+					}
+					if = {
+						limit = {
+							PREVPREV = {
+								is_variable_equal = {
+									which = province_mapmode_thingy_settlements
+									value = 6
+								}
+							}
+						}
+						change_variable = {
+							which = duchy_holding_count_variable
+							value = 6
+						}
+					}
+					if = {
+						limit = {
+							PREVPREV = {
+								is_variable_equal = {
+									which = province_mapmode_thingy_settlements
+									value = 7
+								}
+							}
+						}
+						change_variable = {
+							which = duchy_holding_count_variable
+							value = 7
+						}
+					}
+				}
+			}
+		}
+		
+		any_province = {	# NOTE: Expensive, but only used once for an entire campaign
+			# Assign Climates:
+			# A
+			# Af
+			if = {
+				limit = {
+					OR = {
+						# Sri Lanka:
+						province_id = 1215
+						province_id = 1279
+					}
+				}
+				set_province_flag = climate_koeppen_A_f
+			}
+			# Am
+			if = {
+				limit = {
+					OR = {
+						# Sri Lanka:
+						province_id = 1414
+						# Maldives:
+						province_id = 1360
+						# South-West Coast of India:
+						province_id = 1413
+						province_id = 1114
+						province_id = 1117
+						province_id = 1200
+						province_id = 1124
+						province_id = 1220
+						province_id = 1125
+						# Eastern Edge of India:
+						province_id = 1318
+						province_id = 1131
+						province_id = 1324
+						province_id = 1381
+					}
+				}
+				set_province_flag = climate_koeppen_A_m
+			}
+			# As
+			if = {
+				limit = {
+					OR = {
+						# Sri Lanka:
+						province_id = 1194
+						province_id = 1195
+						# South India:
+						province_id = 1214
+						# Central India:
+						province_id = 1164
+						province_id = 1170
+						province_id = 1150
+						province_id = 1288
+						province_id = 1148
+					}
+				}
+				set_province_flag = climate_koeppen_A_s
+			}
+			# Aw
+			if = {
+				limit = {
+					OR = {
+						# India - East:
+						province_id = 1325
+						province_id = 1151
+						province_id = 1243
+						province_id = 1242
+						province_id = 1237
+						province_id = 1238
+						province_id = 1232
+						province_id = 1235
+						province_id = 1236
+						province_id = 1240
+						province_id = 1323
+						province_id = 1293
+						province_id = 1233
+						province_id = 1239
+						# India - Central East:
+						province_id = 1247
+						province_id = 1231
+						province_id = 1129
+						province_id = 1225
+						province_id = 1224
+						province_id = 1128
+						province_id = 1415
+						province_id = 1123
+						province_id = 1221
+						province_id = 1207
+						province_id = 1208
+						province_id = 1222
+						province_id = 1252
+						province_id = 1157
+						province_id = 1258
+						province_id = 1259
+						province_id = 1261
+						province_id = 1285
+						province_id = 1286
+						province_id = 1159
+						province_id = 1270
+						province_id = 1272
+						province_id = 1277
+						province_id = 1249
+						province_id = 1156
+						province_id = 1229
+						province_id = 1228
+						province_id = 1226
+						province_id = 1227
+						province_id = 1269
+						province_id = 1254
+						province_id = 1160
+						province_id = 1155
+						province_id = 1230
+						# India - South:
+						province_id = 1204
+						province_id = 1119
+						province_id = 1115
+						province_id = 1112
+						province_id = 1116
+						province_id = 1219
+						province_id = 1120
+						province_id = 1216
+						province_id = 1196
+						# India - South-West:
+						province_id = 1197
+						province_id = 1140
+						province_id = 1198
+						province_id = 1416
+						province_id = 1213
+						province_id = 1260
+						province_id = 1264
+						province_id = 1126
+						province_id = 1127
+						province_id = 1133
+						province_id = 1289
+						# Africa - South-East:
+						province_id = 873
+						province_id = 883
+						province_id = 1436
+						province_id = 885
+						province_id = 881
+						province_id = 1428
+						# Africa - South-West:
+						province_id = 863
+						province_id = 923
+						province_id = 1542
+						province_id = 925
+						province_id = 1538
+						province_id = 1537
+						province_id = 915
+						province_id = 1539
+						province_id = 1544
+						province_id = 1543
+						province_id = 926
+						province_id = 1547
+					}
+				}
+				set_province_flag = climate_koeppen_A_w
+			}
+			# B
+			# BW
+			# BWh
+			if = {
+				limit = {
+					OR = {
+						# Africa - West:
+						province_id = 922
+						province_id = 914
+						province_id = 917
+						province_id = 919
+						province_id = 1541
+						province_id = 920
+						province_id = 921
+						province_id = 862
+						province_id = 916
+						# Africa - North:
+						province_id = 1553
+						province_id = 849
+						province_id = 1554
+						province_id = 847
+						province_id = 918
+						province_id = 824
+						province_id = 818
+						province_id = 814
+						province_id = 829
+						province_id = 825
+						province_id = 830
+						province_id = 836
+						province_id = 809
+						province_id = 805
+						province_id = 804
+						province_id = 803
+						province_id = 802
+						province_id = 799
+						province_id = 798
+						province_id = 789
+						province_id = 797
+						province_id = 801
+						province_id = 796
+						province_id = 790
+						province_id = 800
+						province_id = 1468
+						province_id = 795
+						province_id = 791
+						province_id = 794
+						province_id = 1334
+						province_id = 1467
+						province_id = 792
+						# Africa - East:
+						province_id = 1332
+						province_id = 1330
+						province_id = 793
+						province_id = 1373
+						province_id = 1379
+						province_id = 1549
+						province_id = 1320
+						province_id = 1335
+						province_id = 861
+						province_id = 1343
+						province_id = 880
+						province_id = 1437
+						province_id = 1322
+						province_id = 878
+						province_id = 879
+						province_id = 1326
+						province_id = 874
+						province_id = 872
+						province_id = 871
+						province_id = 1369
+						# Middle East - Levant & Mesopotamia:
+						province_id = 788
+						province_id = 787
+						province_id = 786
+						province_id = 784
+						province_id = 722
+						province_id = 783
+						province_id = 1531
+						province_id = 1530
+						province_id = 724
+						province_id = 714
+						province_id = 726
+						province_id = 713
+						province_id = 727
+						province_id = 729
+						province_id = 711
+						province_id = 712
+						province_id = 715
+						province_id = 695
+						province_id = 692
+						province_id = 696
+						province_id = 693
+						province_id = 654
+						province_id = 655
+						province_id = 691
+						province_id = 689
+						province_id = 656
+						province_id = 690
+						province_id = 648
+						province_id = 649
+						# Middle East - Arabia:
+						province_id = 721
+						province_id = 720
+						province_id = 1640
+						province_id = 1639
+						province_id = 864
+						province_id = 718
+						province_id = 1638
+						province_id = 719
+						province_id = 857
+						province_id = 1380
+						province_id = 1644
+						province_id = 858
+						province_id = 1637
+						province_id = 856
+						province_id = 855
+						province_id = 866
+						province_id = 869
+						province_id = 868
+						province_id = 867
+						province_id = 1642
+						province_id = 870
+						province_id = 652
+						province_id = 1643
+						province_id = 653
+						province_id = 651
+						province_id = 865
+						province_id = 1641
+						province_id = 717
+						province_id = 716
+						# Persia - South-East:
+						province_id = 642
+						province_id = 641
+						province_id = 854
+						province_id = 637
+						province_id = 853
+						province_id = 899
+						province_id = 894
+						province_id = 1275
+						province_id = 299
+						province_id = 1183
+						province_id = 1113
+						province_id = 1139
+						province_id = 1370
+						# India - West:
+						province_id = 1297
+						province_id = 1303
+						province_id = 1138
+						province_id = 1333
+						province_id = 1137
+						province_id = 1331
+						province_id = 1295
+						province_id = 1294
+						province_id = 1174
+						province_id = 1130
+						province_id = 1176
+						province_id = 1354
+						province_id = 1350
+						province_id = 1352
+						province_id = 1363
+						province_id = 1361
+						province_id = 1178
+						province_id = 1349
+						province_id = 1304
+						province_id = 1336
+						province_id = 1175
+					}
+				}
+				set_province_flag = climate_koeppen_B_W_h
+			}
+			# BWk
+			if = {
+				limit = {
+					OR = {
+						# Africa - North:
+						province_id = 837
+						# Middle East - Sinai:
+						province_id = 785
+						province_id = 782
+						# Arabia - Yemen:
+						province_id = 860
+						# Persia - South:
+						province_id = 639
+						province_id = 906
+						province_id = 852
+						province_id = 1371
+						province_id = 1372
+						# Steppes - Karakum Desert:
+						province_id = 631
+						province_id = 627
+						province_id = 629
+						province_id = 630
+						province_id = 1649
+						province_id = 628
+						province_id = 902
+						province_id = 901
+						province_id = 900
+						province_id = 623
+						province_id = 621
+						province_id = 624
+						province_id = 625
+						province_id = 1378
+						province_id = 626
+						# Steppes - Tarim Basin:
+						province_id = 1626
+						province_id = 1627
+						province_id = 1628
+						province_id = 1445
+						province_id = 1629
+						province_id = 1444
+						province_id = 1443
+						province_id = 1622
+						province_id = 1621
+						province_id = 1442
+						province_id = 1663
+						province_id = 1441
+						province_id = 1623
+						province_id = 1624
+						province_id = 1440
+						province_id = 1625
+						province_id = 1438
+						# Steppes - East:
+						province_id = 1449
+						province_id = 1452
+						province_id = 1620
+						province_id = 1447
+						province_id = 1619
+						province_id = 1616
+						province_id = 1657
+						province_id = 1614
+						province_id = 1615
+						province_id = 1456
+						province_id = 1453
+						province_id = 1450
+						province_id = 1448
+						province_id = 1408
+					}
+				}
+				set_province_flag = climate_koeppen_B_W_k
+			}
+			# BS
+			# BSh
+			if = {
+				limit = {
+					OR = {
+						# Africa - West:
+						province_id = 927
+						province_id = 928
+						province_id = 911
+						province_id = 1540
+						province_id = 913
+						province_id = 912
+						province_id = 1546
+						province_id = 1545
+						# Africa - North:
+						province_id = 843
+						province_id = 816
+						province_id = 815
+						province_id = 813
+						province_id = 811
+						province_id = 810
+						province_id = 807
+						province_id = 806
+						# Africa - East:
+						province_id = 1636
+						province_id = 875
+						province_id = 876
+						province_id = 1280
+						province_id = 877
+						province_id = 1429
+						province_id = 1417
+						# Asia Minor - Cyprus:
+						province_id = 757
+						# Middle East - Levant & Mesopotamia:
+						province_id = 781
+						province_id = 779
+						province_id = 709
+						province_id = 710
+						province_id = 698
+						province_id = 697
+						province_id = 687
+						province_id = 694
+						province_id = 647
+						province_id = 645
+						province_id = 643
+						# Persia - Central:
+						province_id = 636
+						province_id = 638
+						# India - West:
+						province_id = 1339
+						province_id = 1337
+						province_id = 1338
+						province_id = 1340
+						province_id = 1192
+						province_id = 1362
+						province_id = 1364
+						province_id = 1366
+						province_id = 1359
+						province_id = 1172
+						province_id = 1355
+						province_id = 1357
+						province_id = 1353
+						province_id = 1346
+						province_id = 1300
+						province_id = 1302
+						province_id = 1345
+						province_id = 1291
+						province_id = 1292
+						province_id = 1290
+						province_id = 1267
+						province_id = 1135
+						province_id = 1266
+						province_id = 1134
+						province_id = 1136
+						province_id = 1268
+						province_id = 1267
+						# India - Central-South:
+						province_id = 1149
+						province_id = 1147
+						province_id = 1287
+						province_id = 1262
+						province_id = 1263
+						province_id = 1145
+						province_id = 1142
+						province_id = 1212
+						province_id = 1158
+						province_id = 1255
+						province_id = 1256
+						province_id = 1144
+						province_id = 1209
+						province_id = 1253
+						province_id = 1122
+						province_id = 1199
+						province_id = 1217
+						province_id = 1118
+						province_id = 1121
+						province_id = 1202
+						province_id = 1218
+						province_id = 1203
+						province_id = 1211
+						province_id = 1257
+						province_id = 1210
+						province_id = 1265
+						province_id = 1206
+						province_id = 1146
+						province_id = 1143
+						# India - South:
+						province_id = 1201
+					}
+				}
+				set_province_flag = climate_koeppen_B_S_h
+			}
+			# BSk
+			if = {
+				limit = {
+					OR = {
+						# Europe - Spain:
+						province_id = 197
+						province_id = 168
+						province_id = 169
+						province_id = 170
+						province_id = 179
+						province_id = 172
+						# Africa - North:
+						province_id = 846
+						province_id = 845
+						province_id = 834
+						province_id = 833
+						province_id = 823
+						# Asia Minor:
+						province_id = 759
+						province_id = 668
+						province_id = 667
+						# Middle East - Levant:
+						province_id = 778
+						province_id = 777
+						province_id = 723
+						province_id = 773
+						province_id = 725
+						province_id = 769
+						province_id = 728
+						province_id = 730
+						province_id = 708
+						# Persia - Central:
+						province_id = 640
+						province_id = 1555
+						province_id = 644
+						province_id = 646
+						province_id = 659
+						# Persia - East:
+						province_id = 1191
+						province_id = 1375
+						province_id = 1374
+						province_id = 1184
+						province_id = 1557
+						# Steppes - Karakum Desert:
+						province_id = 604
+						province_id = 620
+						province_id = 617
+						province_id = 618
+						province_id = 897
+						province_id = 896
+						province_id = 622
+						province_id = 1273
+						province_id = 1433
+						province_id = 1434
+						province_id = 1426
+						province_id = 1432
+						province_id = 1431
+						province_id = 1186
+						province_id = 1181
+						province_id = 903
+						province_id = 1561
+						province_id = 1562
+						province_id = 1648
+						province_id = 1647
+						province_id = 905
+						province_id = 1646
+						province_id = 1645
+						province_id = 634
+						province_id = 632
+						province_id = 635
+						# Steppes - East:
+						province_id = 1457
+						province_id = 1458
+						province_id = 1459
+						province_id = 1455
+						province_id = 1617
+						province_id = 1618
+						province_id = 1446
+						# Steppes - Tian Shan:
+						province_id = 1425
+						province_id = 1423
+						province_id = 1559
+						# Himalayas - North-East:
+						province_id = 1681
+						province_id = 1661
+						province_id = 1599
+						province_id = 1662
+						# Himalayas - South-East:
+						province_id = 1594
+						# Himalayas - West:
+						province_id = 1464
+						province_id = 1667
+						# Himalayas - South:
+						province_id = 1658
+					}
+				}
+				set_province_flag = climate_koeppen_B_S_k
+			}
+			# C
+			# Cs
+			# Csa
+			if = {
+				limit = {
+					OR = {
+						# India - Central:
+						province_id = 1299
+						province_id = 1298
+						province_id = 1274
+						province_id = 1171
+						province_id = 1301
+						province_id = 1169
+						# Himalayas - Hindu Kush:
+						province_id = 1342
+						province_id = 904
+						province_id = 1560
+						province_id = 1188
+						# Persia - Caspian Sea:
+						province_id = 633
+						province_id = 661
+						province_id = 662
+						province_id = 666
+						# Middle East - Levant & Mesopotamia:
+						province_id = 657
+						province_id = 688
+						province_id = 1552
+						province_id = 685
+						province_id = 684
+						province_id = 700
+						province_id = 683
+						province_id = 701
+						province_id = 702
+						province_id = 699
+						province_id = 734
+						province_id = 735
+						province_id = 763
+						province_id = 733
+						province_id = 764
+						province_id = 766
+						province_id = 765
+						province_id = 732
+						province_id = 731
+						province_id = 768
+						province_id = 767
+						province_id = 770
+						province_id = 771
+						province_id = 772
+						province_id = 775
+						province_id = 774
+						province_id = 776
+						province_id = 780
+						# Asia Minor - South-West:
+						province_id = 762
+						province_id = 761
+						province_id = 756
+						province_id = 758
+						province_id = 747
+						province_id = 746
+						province_id = 748
+						province_id = 745
+						province_id = 744
+						province_id = 743
+						# Europe - Greece:
+						province_id = 496
+						province_id = 495
+						province_id = 494
+						province_id = 491
+						province_id = 487
+						province_id = 486
+						province_id = 489
+						province_id = 1612
+						province_id = 488
+						province_id = 485
+						province_id = 484
+						province_id = 483
+						province_id = 480
+						province_id = 479
+						province_id = 482
+						province_id = 481
+						province_id = 478
+						province_id = 477
+						province_id = 476
+						province_id = 474
+						province_id = 475
+						province_id = 473
+						province_id = 1495
+						province_id = 472
+						province_id = 1610
+						province_id = 470
+						province_id = 1633
+						province_id = 468
+						province_id = 467
+						# Europe - Italy:
+						province_id = 345
+						province_id = 344
+						province_id = 337
+						province_id = 338
+						province_id = 343
+						province_id = 812
+						province_id = 342
+						province_id = 341
+						province_id = 340
+						province_id = 935
+						province_id = 334
+						province_id = 851
+						province_id = 1503
+						province_id = 333
+						province_id = 243
+						province_id = 332
+						province_id = 331
+						province_id = 327
+						province_id = 323
+						province_id = 1526
+						province_id = 233
+						province_id = 1523
+						province_id = 1654
+						province_id = 1529
+						province_id = 325
+						province_id = 326
+						# Europe - France:
+						province_id = 220
+						province_id = 212
+						province_id = 211
+						# Europe - Spain:
+						province_id = 205
+						province_id = 204
+						province_id = 173
+						province_id = 826
+						province_id = 827
+						province_id = 1532
+						province_id = 170
+						province_id = 171
+						province_id = 178
+						province_id = 177
+						province_id = 1492
+						province_id = 196
+						province_id = 1494
+						province_id = 180
+						province_id = 167
+						province_id = 166
+						province_id = 165
+						province_id = 164
+						province_id = 163
+						province_id = 162
+						province_id = 161
+						province_id = 186
+						province_id = 1490
+						province_id = 193
+						province_id = 186
+						province_id = 185
+						province_id = 183
+						province_id = 182
+						province_id = 181
+						province_id = 184
+						province_id = 195
+						# Africa - North
+						province_id = 839
+						province_id = 841
+						province_id = 844
+						province_id = 840
+						province_id = 838
+						province_id = 835
+						province_id = 832
+						province_id = 831
+						province_id = 828
+						province_id = 822
+						province_id = 821
+						province_id = 820
+						province_id = 819
+						province_id = 817
+						province_id = 808
+					}
+				}
+				set_province_flag = climate_koeppen_C_s_a
+			}
+			# Csb
+			if = {
+				limit = {
+					OR = {
+						# Africa - North:
+						province_id = 842
+						# Europe - Spain:
+						province_id = 160
+						province_id = 159
+						province_id = 187
+						province_id = 192
+						province_id = 194
+						province_id = 198
+						province_id = 191
+						province_id = 188
+						province_id = 189
+						province_id = 156
+						province_id = 157
+						province_id = 158
+						province_id = 203
+						# Europe - France:
+						province_id = 221
+						province_id = 230
+						province_id = 1524
+						province_id = 1525
+						province_id = 324
+						province_id = 1653
+						# Europe - Italy:
+						province_id = 336
+						province_id = 339
+						province_id = 1655
+						# Europe - Greece:
+						province_id = 1611
+						# Asia Minor - West:
+						province_id = 755
+						province_id = 754
+						province_id = 749
+						province_id = 742
+						province_id = 750
+						province_id = 753
+						province_id = 760
+						province_id = 752
+					}
+				}
+				set_province_flag = climate_koeppen_C_s_b
+			}
+			# Cw
+			# Cwa
+			if = {
+				limit = {
+					OR = {
+						# Middle East - Arabia:
+						province_id = 859
+						# India - North:
+						province_id = 1177
+						province_id = 1418
+						province_id = 1296
+						province_id = 1246
+						province_id = 1321
+						province_id = 1244
+						province_id = 1153
+						province_id = 1419
+						province_id = 1152
+						province_id = 1234
+						province_id = 1154
+						province_id = 1276
+						province_id = 1327
+						province_id = 1241
+						province_id = 1248
+						province_id = 1271
+						province_id = 1165
+						province_id = 1278
+						province_id = 1281
+						province_id = 1251
+						province_id = 1162
+						province_id = 1420
+						province_id = 1328
+						province_id = 1163
+						province_id = 1166
+						province_id = 1421
+						province_id = 1250
+						province_id = 1284
+						province_id = 1283
+						province_id = 1356
+						province_id = 1167
+						province_id = 1422
+						province_id = 1358
+						province_id = 1141
+						province_id = 1365
+						province_id = 1173
+						province_id = 1168
+						province_id = 1368
+						province_id = 1367
+						province_id = 1193
+						province_id = 1179
+						province_id = 1190
+						province_id = 1319
+						province_id = 1575
+					}
+				}
+				set_province_flag = climate_koeppen_C_w_a
+			}
+			# Cwb
+			if = {
+				limit = {
+					OR = {
+						# Africa - East:
+						province_id = 884
+						province_id = 882
+						# India - North:
+						province_id = 1245
+						province_id = 1582
+						province_id = 1581
+						province_id = 1580
+						province_id = 1579
+						province_id = 1578
+						province_id = 1577
+						province_id = 1576
+						province_id = 1573
+						province_id = 1572
+						province_id = 1571
+						province_id = 1569
+						province_id = 1568
+					}
+				}
+				set_province_flag = climate_koeppen_C_w_b
+			}
+			# Cf
+			# Cfa
+			if = {
+				limit = {
+					OR = {
+						# India - North-West:
+						province_id = 1180
+						province_id = 1341
+						# Asia Minor - North-East:
+						province_id = 670
+						province_id = 669
+						province_id = 673
+						province_id = 675
+						province_id = 677
+						# Steppes - Crimea:
+						province_id = 598
+						province_id = 562
+						province_id = 561
+						province_id = 560
+						province_id = 559
+						province_id = 558
+						# Europe - Romania:
+						province_id = 511
+						province_id = 510
+						province_id = 514
+						province_id = 515
+						province_id = 516
+						province_id = 498
+						province_id = 499
+						# Europe - Greece:
+						province_id = 492
+						province_id = 490
+						# Europe - Balkans:
+						province_id = 469
+						province_id = 1504
+						province_id = 1505
+						province_id = 466
+						province_id = 465
+						province_id = 459
+						province_id = 458
+						# Europe - Italy:
+						province_id = 356
+						province_id = 357
+						province_id = 355
+						province_id = 319
+						province_id = 354
+						province_id = 320
+						province_id = 234
+						province_id = 232
+						province_id = 353
+						province_id = 352
+						province_id = 351
+						province_id = 350
+						province_id = 1528
+						province_id = 330
+						province_id = 348
+						province_id = 347
+						province_id = 346
+					}
+				}
+				set_province_flag = climate_koeppen_C_f_a
+			}
+			# Cfb
+			if = {
+				limit = {
+					OR = {
+						# India - North-West:
+						province_id = 1161
+						# Steppes - Crimea:
+						province_id = 600
+						# Asia Minor - North:
+						province_id = 679
+						province_id = 678
+						province_id = 705
+						province_id = 738
+						province_id = 739
+						province_id = 740
+						province_id = 741
+						# Europe - Romania:
+						province_id = 512
+						province_id = 509
+						province_id = 508
+						province_id = 497
+						province_id = 506
+						# Europe - Greece:
+						province_id = 493
+						province_id = 471
+						province_id = 501
+						# Europe - Balkans:
+						province_id = 1632
+						province_id = 505
+						province_id = 517
+						province_id = 521
+						province_id = 522
+						province_id = 523
+						province_id = 538
+						province_id = 524
+						province_id = 444
+						province_id = 443
+						province_id = 445
+						province_id = 450
+						province_id = 454
+						province_id = 460
+						province_id = 461
+						province_id = 451
+						province_id = 464
+						province_id = 1551
+						province_id = 463
+						province_id = 1634
+						province_id = 1550
+						province_id = 518
+						province_id = 452
+						province_id = 451
+						province_id = 453
+						province_id = 462
+						province_id = 1651
+						province_id = 457
+						# Europe - Italy:
+						province_id = 335
+						province_id = 1502
+						province_id = 929
+						province_id = 349
+						province_id = 329
+						province_id = 328
+						province_id = 322
+						province_id = 321
+						province_id = 1527
+						province_id = 1521
+						province_id = 1522
+						province_id = 1519
+						province_id = 235
+						province_id = 318
+						province_id = 358
+						# Europe - Spain:
+						province_id = 155
+						province_id = 190
+						province_id = 1493
+						province_id = 154
+						province_id = 153
+						province_id = 199
+						province_id = 200
+						province_id = 175
+						province_id = 176
+						province_id = 1491
+						province_id = 174
+						province_id = 202
+						province_id = 201
+						province_id = 152
+						province_id = 207
+						province_id = 206
+						# Europe - France:
+						AND = {
+							region = world_europe_west_francia
+							NOR = {
+								province_id = 211
+								province_id = 212
+								province_id = 220
+								province_id = 221
+								province_id = 230
+							}
+						}
+						# Europe - Germany:
+						AND = {
+							region = world_europe_west_germania
+							NOR = {
+								province_id = 237
+								province_id = 241
+								province_id = 238
+								province_id = 244
+								province_id = 245
+								province_id = 246
+								province_id = 247
+								province_id = 248
+								province_id = 316
+								province_id = 359
+								province_id = 448
+								province_id = 449
+								province_id = 455
+								province_id = 456
+								province_id = 436
+								province_id = 440
+								province_id = 369
+							}
+						}
+						# Europe - UK:
+						AND = {
+							region = world_europe_west_brittania
+							NOR = {
+								province_id = 1483
+								province_id = 39
+								province_id = 1485
+								province_id = 44
+							}
+						}
+						# Europe - Denmark:
+						region = custom_denmark
+						# Europe - Poland:
+						province_id = 435
+						province_id = 433
+						province_id = 526
+						province_id = 527
+						province_id = 528
+						province_id = 432
+						province_id = 429
+						province_id = 431
+						province_id = 430
+						province_id = 434
+						# Europe - Scandinavia:
+						province_id = 275
+						province_id = 274
+						province_id = 269
+						province_id = 268
+						province_id = 270
+						province_id = 271
+						province_id = 296
+						province_id = 295
+						province_id = 297
+						province_id = 298
+						province_id = 931
+						province_id = 300
+						province_id = 301
+						province_id = 292
+						province_id = 293
+						province_id = 932
+						# Europe - North Sea:
+						province_id = 36
+					}
+				}
+				set_province_flag = climate_koeppen_C_f_b
+			}
+			# Cfc
+			if = {
+				limit = {
+					OR = {
+						# Europe - UK:
+						province_id = 1483
+						province_id = 39
+						province_id = 1485
+						province_id = 44
+						# Europe - North Sea:
+						province_id = 34
+						province_id = 33
+						province_id = 1
+					}
+				}
+				set_province_flag = climate_koeppen_C_f_c
+			}
+			# D
+			# Ds
+			# Dsa
+			if = {
+				limit = {
+					OR = {
+						# Persia - North:
+						province_id = 665
+						province_id = 1650
+						province_id = 686
+						province_id = 658
+						province_id = 1556
+						province_id = 664
+						# India - West:
+						province_id = 1376
+						# Steppes - South-East:
+						province_id = 1424
+					}
+				}
+				set_province_flag = climate_koeppen_D_s_a
+			}
+			# Dsb
+			if = {
+				limit = {
+					OR = {
+						# Asia Minor - Central:
+						province_id = 751
+						province_id = 737
+						province_id = 736
+						province_id = 707
+						province_id = 706
+						province_id = 703
+						province_id = 681
+						province_id = 682
+						# Persia - North:
+						province_id = 663
+						province_id = 660
+						# Himalayas - Hindu Kush:
+						province_id = 907
+						province_id = 1182
+						province_id = 1185
+						province_id = 1187
+						province_id = 1563
+						province_id = 1558
+						
+					}
+				}
+				set_province_flag = climate_koeppen_D_s_b
+			}
+			# Dsc
+			if = {
+				limit = {
+					OR = {
+						# Himalayas - Hindu Kush
+						province_id = 1377
+						province_id = 1189
+						province_id = 1609
+						province_id = 1439
+						province_id = 1558
+					}
+				}
+				set_province_flag = climate_koeppen_D_s_c
+			}
+			# Dw
+			# Dwc
+			if = {
+				limit = {
+					OR = {
+						# Steppes - North-East:
+						province_id = 1460
+						province_id = 1461
+						# Himalayas - East:
+						province_id = 1600
+						province_id = 1670
+						province_id = 1604
+						# Himalayas - South:
+						province_id = 1595
+						province_id = 1596
+						province_id = 1597
+						province_id = 1590
+						province_id = 1591
+						province_id = 1682
+					}
+				}
+				set_province_flag = climate_koeppen_D_w_c
+			}
+			# Df
+			# Dfa
+			if = {
+				limit = {
+					OR = {
+						# Steppes - Central-East:
+						province_id = 1427
+						province_id = 1451
+						# Steppes - West:
+						province_id = 895
+						province_id = 608
+						province_id = 619
+						province_id = 595
+						province_id = 594
+						province_id = 596
+						province_id = 607
+						province_id = 605
+						province_id = 606
+						province_id = 603
+						province_id = 597
+						province_id = 599
+						province_id = 557
+						province_id = 542
+					}
+				}
+				set_province_flag = climate_koeppen_D_f_a
+			}
+			# Dfb
+			if = {
+				limit = {
+					OR = {
+						# Europe - Slavic Realms:
+						AND = {
+							OR = {
+								region = custom_livonia
+								region = custom_lithuania
+								region = custom_rus
+								region = custom_novgorod
+								region = custom_muscovy
+							}
+							NOR = {
+								province_id = 404
+								province_id = 405
+							}
+						}
+						province_id = 369
+						province_id = 428
+						province_id = 529
+						province_id = 530
+						province_id = 531
+						province_id = 532
+						province_id = 525
+						province_id = 442
+						province_id = 440
+						province_id = 436
+						province_id = 543
+						province_id = 541
+						province_id = 513
+						province_id = 545
+						province_id = 519
+						province_id = 520
+						province_id = 537
+						province_id = 533
+						# Europe - Alps:
+						province_id = 449
+						province_id = 448
+						province_id = 455
+						province_id = 456
+						province_id = 231
+						province_id = 1520
+						province_id = 237
+						province_id = 241
+						province_id = 244
+						province_id = 245
+						province_id = 248
+						province_id = 317
+						# Europe - Balkans:
+						province_id = 500
+						province_id = 507
+						province_id = 502
+						province_id = 503
+						province_id = 504
+						# Asia Minor - Caucasus:
+						province_id = 674
+						province_id = 671
+						province_id = 672
+						province_id = 1013
+						province_id = 680
+						province_id = 704
+						province_id = 602
+						# Himalayas - West:
+						province_id = 1589
+						province_id = 1588
+						province_id = 1564
+						# Steppes - North:
+						AND = {
+							OR = {
+								region = custom_cuman
+								region = custom_volga
+							}
+							NOR = {
+								province_id = 893
+								province_id = 1427
+								province_id = 1434
+								province_id = 1433
+								province_id = 1273
+								province_id = 896
+								province_id = 897
+							}
+						}
+						province_id = 886
+						province_id = 924
+						province_id = 566
+						province_id = 565
+						province_id = 564
+						province_id = 563
+						# Europe - Scandinavia:
+						province_id = 381
+						province_id = 382
+						province_id = 291
+						province_id = 286
+						province_id = 290
+						province_id = 289
+						province_id = 294
+						province_id = 288
+						province_id = 272
+					}
+				}
+				set_province_flag = climate_koeppen_D_f_b
+			}
+			# Dfc
+			if = {
+				limit = {
+					OR = {
+						# Himalayas - West:
+						province_id = 1570
+						province_id = 1585
+						province_id = 1567
+						province_id = 1566
+						# Asia Minor - North-East:
+						province_id = 676
+						province_id = 601
+						# Europe - Carpathians:
+						province_id = 539
+						province_id = 540
+						# Europe - Alps:
+						province_id = 359
+						province_id = 316
+						province_id = 247
+						province_id = 246
+						province_id = 238
+						province_id = 236
+						# Europe - Scandinavia:
+						province_id = 273
+						province_id = 276
+						province_id = 287
+						province_id = 285
+						province_id = 284
+						province_id = 277
+						province_id = 278
+						province_id = 282
+						province_id = 283
+						province_id = 281
+						province_id = 279
+						province_id = 280
+						province_id = 386
+						province_id = 387
+						province_id = 850
+						province_id = 385
+						province_id = 384
+						province_id = 383
+						province_id = 390
+						province_id = 392
+						province_id = 388
+						province_id = 393
+						# Europe - Perm:
+						province_id = 404
+						province_id = 403
+						province_id = 394
+						province_id = 395
+						province_id = 396
+						province_id = 397
+						province_id = 398
+						province_id = 399
+						province_id = 405
+						province_id = 402
+						province_id = 400
+						province_id = 612
+						province_id = 888
+						province_id = 889
+						# Steppes - North:
+						province_id = 887
+						province_id = 1223
+						province_id = 890
+						province_id = 893
+						province_id = 1205
+						province_id = 1463
+						province_id = 1462
+						province_id = 1454
+					}
+				}
+				set_province_flag = climate_koeppen_D_f_c
+			}
+			# E
+			# ET
+			if = {
+				limit = {
+					NOR = {
+						# fills every province that has no other climate defined yet:
+						has_province_flag = climate_koeppen_A_f
+						has_province_flag = climate_koeppen_A_m
+						has_province_flag = climate_koeppen_A_s
+						has_province_flag = climate_koeppen_A_w
+						has_province_flag = climate_koeppen_B_W_h
+						has_province_flag = climate_koeppen_B_W_k
+						has_province_flag = climate_koeppen_B_S_h
+						has_province_flag = climate_koeppen_B_S_k
+						has_province_flag = climate_koeppen_C_s_a
+						has_province_flag = climate_koeppen_C_s_b
+						has_province_flag = climate_koeppen_C_w_a
+						has_province_flag = climate_koeppen_C_w_b
+						has_province_flag = climate_koeppen_C_f_a
+						has_province_flag = climate_koeppen_C_f_b
+						has_province_flag = climate_koeppen_C_f_c
+						has_province_flag = climate_koeppen_D_s_a
+						has_province_flag = climate_koeppen_D_s_b
+						has_province_flag = climate_koeppen_D_s_c
+						has_province_flag = climate_koeppen_D_w_c
+						has_province_flag = climate_koeppen_D_f_a
+						has_province_flag = climate_koeppen_D_f_b
+						has_province_flag = climate_koeppen_D_f_c
+					}
+				}
+				set_province_flag = climate_koeppen_E_T
+			}
+			# /End of climate assignment
+			
+			# Adjust Reference Variable "Number of Provinces":
+			change_variable = {
+				which = global_reference_number_of_provinces_variable
+				value = 1	# Increase by 1 for every province currently in the game, so that it dynamically has the correct number for later reference (even if India is disabled etc)
+			}
+			# MAJOR modifier:
+			add_province_modifier = {
+				name = province_economy_major_modifier
+				duration = -1
+			}
+			# Dummy Tradegood modifiers:
+			add_province_modifier = {
+				name = tradegood_slot_dummy_resource_1
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_resource_2
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_resource_3
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_refined_1
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_refined_2
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_refined_3
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_finalized_1
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_finalized_2
+				duration = -1
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_finalized_3
+				duration = -1
+			}
+			# Initialize Trade Variables
+			set_variable = {
+				which = province_import_priority
+				value = 0
+			}
+			set_variable = {
+				which = province_import_export_tradevalue
+				value = 0
+			}
+			# ... and update the value(s):
+			update_province_import_priority_CTD_effect = yes
+			# Initialize Weather/Disaster Effect Variables:
+			set_variable = {
+				which = province_temporary_effect_on_agriculture
+				value = 0
+			}
+			set_variable = {
+				which = province_temporary_effect_on_livestock
+				value = 0
+			}
+			# Initialize Population Variables
+			set_variable = {
+				which = province_population_total
+				value = 0
+			}
+			set_variable = {
+				which = province_population_peasants
+				value = 0
+			}
+			set_variable = {
+				which = province_population_artisans
+				value = 0
+			}
+			set_variable = {
+				which = province_population_merchants
+				value = 0
+			}
+			set_variable = {
+				which = province_population_elite
+				value = 0
+			}
+			set_variable = {
+				which = province_population_special
+				value = 0
+			}
+			set_variable = {
+				which = province_population_scum
+				value = 0
+			}
+			set_variable = {
+				which = province_population_tribals
+				value = 0
+			}
+			set_variable = {
+				which = province_population_slaves
+				value = 0
+			}
+			# Initialize Supply Variables
+			set_variable = {
+				which = province_supply_food
+				value = 0
+			}
+			set_variable = {
+				which = province_supply_clothing
+				value = 0
+			}
+			set_variable = {
+				which = province_supply_materials
+				value = 0
+			}
+			set_variable = {
+				which = province_supply_luxuries
+				value = 0
+			}
+			# Initialize Demand Variables
+			set_variable = {
+				which = province_demand_food
+				value = 0
+			}
+			set_variable = {
+				which = province_demand_clothing
+				value = 0
+			}
+			set_variable = {
+				which = province_demand_materials
+				value = 0
+			}
+			set_variable = {
+				which = province_demand_luxuries
+				value = 0
+			}
+			# Recalculate Province Population (in case holding has pops already)
+			recalc_province_pop_CTD_effect = yes
+			
+			# Set "baseline" resource caps
+			change_variable = {
+				which = province_cap_mining
+				value = 5
+			}
+			change_variable = {
+				which = province_cap_agriculture
+				value = 5
+			}
+			change_variable = {
+				which = province_cap_forests
+				value = 5
+			}
+			change_variable = {
+				which = province_cap_livestock
+				value = 5
+			}
+			change_variable = {
+				which = province_cap_refined
+				value = 5
+			}
+			change_variable = {
+				which = province_cap_finalized
+				value = 5
+			}
+			# India gets a flat bonus to agriculture caps to simulate the increased fertility from the monsoon, and thus allow it to sustain its historically larger population:
+			if = {
+				limit = {
+					region = world_india
+				}
+				change_variable = {
+					which = province_cap_agriculture
+					value = 1
+				}
+				change_variable = {
+					which = province_cap_forests
+					value = 1
+				}
+				change_variable = {
+					which = province_cap_livestock
+					value = 1
+				}
+			}
+			# Initialize base supplies based on local terrain (only food and materials are found in the wild) and also adjust base resource caps ("baseline cap" is currently: 5)
+			trigger_switch = {
+				on_trigger = terrain
+				farmlands = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 9
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 4
+					}
+					# Resource Caps:
+					change_variable = {
+						which = province_cap_mining
+						value = -1
+					}
+					change_variable = {
+						which = province_cap_agriculture
+						value = 3
+					}
+					change_variable = {
+						which = province_cap_forests
+						value = -1
+					}
+					# Livestock: No change
+				}
+				plains = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 7
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 5
+					}
+					# Resource Caps:
+					# Mining: No change
+					change_variable = {
+						which = province_cap_agriculture
+						value = 1
+					}
+					# Forests: No change
+					change_variable = {
+						which = province_cap_livestock
+						value = 1
+					}
+				}
+				steppe = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 6
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 4
+					}
+					# Resource Caps:
+					# Mining: No change
+					change_variable = {
+						which = province_cap_agriculture
+						value = 1
+					}
+					change_variable = {
+						which = province_cap_forests
+						value = -1
+					}
+					change_variable = {
+						which = province_cap_livestock
+						value = 1
+					}
+				}
+				savanna = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 6
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 5
+					}
+					# Resource Caps:
+					# Mining: No change
+					# Agriculture: No change
+					# Forests: No change
+					change_variable = {
+						which = province_cap_livestock
+						value = 1
+					}
+				}
+				jungle = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 5
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 7
+					}
+					# Resource Caps:
+					# Mining: No change
+					# Agriculture: No change
+					change_variable = {
+						which = province_cap_forests
+						value = 2
+					}
+					# Livestock: No change
+				}
+				forest = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 5
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 7
+					}
+					# Resource Caps:
+					# Mining: No change
+					# Agriculture: No change
+					change_variable = {
+						which = province_cap_forests
+						value = 2
+					}
+					# Livestock: No change
+				}
+				hills = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 5
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 6
+					}
+					# Resource Caps:
+					change_variable = {
+						which = province_cap_mining
+						value = 1
+					}
+					# Agriculture: No change
+					change_variable = {
+						which = province_cap_forests
+						value = 1
+					}
+					# Livestock: No change
+				}
+				mountain = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 4
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 6
+					}
+					# Resource Caps:
+					change_variable = {
+						which = province_cap_mining
+						value = 3
+					}
+					change_variable = {
+						which = province_cap_agriculture
+						value = -2
+					}
+					change_variable = {
+						which = province_cap_forests
+						value = -1
+					}
+					change_variable = {
+						which = province_cap_livestock
+						value = -1
+					}
+				}
+				arctic = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 3
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 2
+					}
+					# Resource Caps:
+					change_variable = {
+						which = province_cap_mining
+						value = -1
+					}
+					change_variable = {
+						which = province_cap_agriculture
+						value = -2
+					}
+					change_variable = {
+						which = province_cap_forests
+						value = -1
+					}
+					change_variable = {
+						which = province_cap_livestock
+						value = -1
+					}
+				}
+				desert = {
+					# Supplies:
+					change_variable = {
+						which = province_supply_food
+						value = 2
+					}
+					change_variable = {
+						which = province_supply_materials
+						value = 3
+					}
+					# Resource Caps:
+					# Mining: No change
+					change_variable = {
+						which = province_cap_agriculture
+						value = -2
+					}
+					change_variable = {
+						which = province_cap_forests
+						value = -2
+					}
+					change_variable = {
+						which = province_cap_livestock
+						value = -1
+					}
+				}
+			}
+			# Initialize "generic" supply from current holdings (henceforth done by automation)
+			update_province_holding_supply_CTD_effect = yes
+			
+			# Grow starting pops for every holding, so the world does not start totally unpopulated - NOTE: Possibly also later make it so that later starting dates get more starting population
+			# Peasants #1
+			any_province_holding = {
+				if = {
+					limit = {
+						can_grow_peasants_CTD_trigger = yes
+					}
+					incr_peasants_holding_pop_CTD_effect = yes
+				}
+			}
+			# Artisans #1
+			any_province_holding = {
+				if = {
+					limit = {
+						can_grow_artisans_CTD_trigger = yes
+					}
+					incr_artisans_holding_pop_CTD_effect = yes
+				}
+			}
+			# Peasants #2
+			any_province_holding = {
+				if = {
+					limit = {
+						can_grow_peasants_CTD_trigger = yes
+					}
+					incr_peasants_holding_pop_CTD_effect = yes
+				}
+			}
+			# enough for now. The first peasant pop is nigh guaranteed to spawn, the others might not in harsh climate etc. But the world will get a starting population
+			
+			# Initialize modifier localisation (henceforth done by automation)
+			# Weather
+			set_province_flag = previous_weather_none
+			# Food
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							which = province_supply_food
+							which = province_demand_food
+						}
+						NOT = {
+							check_variable = {
+								which = province_demand_food
+								which = province_supply_food
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = food_supply_mediocre
+				clr_province_flag = food_supply_poor
+				# Set new flag
+				set_province_flag = food_supply_good
+			}
+			if = {
+				limit = {	# Suplly and Demand are equal
+					AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+						check_variable = {
+							which = province_supply_food
+							which = province_demand_food
+						}
+						check_variable = {
+							which = province_demand_food
+							which = province_supply_food
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = food_supply_good
+				clr_province_flag = food_supply_poor
+				# Set new flag
+				set_province_flag = food_supply_mediocre
+			}
+			if = {
+				limit = {	# Demand is lower
+					AND = {
+						check_variable = {
+							which = province_demand_food
+							which = province_supply_food
+						}
+						NOT = {
+							check_variable = {
+								which = province_supply_food
+								which = province_demand_food
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = food_supply_good
+				clr_province_flag = food_supply_mediocre
+				# Set new flag
+				set_province_flag = food_supply_poor
+			}
+			# Clothing
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							which = province_supply_clothing
+							which = province_demand_clothing
+						}
+						NOT = {
+							check_variable = {
+								which = province_demand_clothing
+								which = province_supply_clothing
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = clothing_supply_mediocre
+				clr_province_flag = clothing_supply_poor
+				# Set new flag
+				set_province_flag = clothing_supply_good
+			}
+			if = {
+				limit = {	# Suplly and Demand are equal
+					AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+						check_variable = {
+							which = province_supply_clothing
+							which = province_demand_clothing
+						}
+						check_variable = {
+							which = province_demand_clothing
+							which = province_supply_clothing
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = clothing_supply_good
+				clr_province_flag = clothing_supply_poor
+				# Set new flag
+				set_province_flag = clothing_supply_mediocre
+			}
+			if = {
+				limit = {	# Demand is lower
+					AND = {
+						check_variable = {
+							which = province_demand_clothing
+							which = province_supply_clothing
+						}
+						NOT = {
+							check_variable = {
+								which = province_supply_clothing
+								which = province_demand_clothing
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = clothing_supply_good
+				clr_province_flag = clothing_supply_mediocre
+				# Set new flag
+				set_province_flag = clothing_supply_poor
+			}
+			# Materials
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							which = province_supply_materials
+							which = province_demand_materials
+						}
+						NOT = {
+							check_variable = {
+								which = province_demand_materials
+								which = province_supply_materials
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = materials_supply_mediocre
+				clr_province_flag = materials_supply_poor
+				# Set new flag
+				set_province_flag = materials_supply_good
+			}
+			if = {
+				limit = {	# Suplly and Demand are equal
+					AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+						check_variable = {
+							which = province_supply_materials
+							which = province_demand_materials
+						}
+						check_variable = {
+							which = province_demand_materials
+							which = province_supply_materials
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = materials_supply_good
+				clr_province_flag = materials_supply_poor
+				# Set new flag
+				set_province_flag = materials_supply_mediocre
+			}
+			if = {
+				limit = {	# Demand is lower
+					AND = {
+						check_variable = {
+							which = province_demand_materials
+							which = province_supply_materials
+						}
+						NOT = {
+							check_variable = {
+								which = province_supply_materials
+								which = province_demand_materials
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = materials_supply_good
+				clr_province_flag = materials_supply_mediocre
+				# Set new flag
+				set_province_flag = materials_supply_poor
+			}
+			# Luxuries
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							which = province_supply_luxuries
+							which = province_demand_luxuries
+						}
+						NOT = {
+							check_variable = {
+								which = province_demand_luxuries
+								which = province_supply_luxuries
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = luxuries_supply_mediocre
+				clr_province_flag = luxuries_supply_poor
+				# Set new flag
+				set_province_flag = luxuries_supply_good
+			}
+			if = {
+				limit = {	# Suplly and Demand are equal
+					AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+						check_variable = {
+							which = province_supply_luxuries
+							which = province_demand_luxuries
+						}
+						check_variable = {
+							which = province_demand_luxuries
+							which = province_supply_luxuries
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = luxuries_supply_good
+				clr_province_flag = luxuries_supply_poor
+				# Set new flag
+				set_province_flag = luxuries_supply_mediocre
+			}
+			if = {
+				limit = {	# Demand is lower
+					AND = {
+						check_variable = {
+							which = province_demand_luxuries
+							which = province_supply_luxuries
+						}
+						NOT = {
+							check_variable = {
+								which = province_supply_luxuries
+								which = province_demand_luxuries
+							}
+						}
+					}
+				}
+				# Clear old flags
+				clr_province_flag = luxuries_supply_good
+				clr_province_flag = luxuries_supply_mediocre
+				# Set new flag
+				set_province_flag = luxuries_supply_poor
+			}
+		} # End of any_province scope
+		
+		# Update import priority levels once (this is a global issue, don't fire on individual provinces!):
+		update_global_import_priority_levels_CTD_effect = yes
+		
+		# Start daily automation helper event to find month start - only province No. 1 does this! (NOTE: Province No.1 should always exist, that's why...)
+		random_province = {	# Scope to province
+			limit = {
+				province_id = 1	# IMPORTANT
+			}
+			# Start month search event:
+			province_event = {
+				id = CTD.0002
+				days = 1
+			}
+		}
+	}
+}
+
+province_event = {	# SINGLE-PROVINCE-EVENT Global helper event to find start of month, only at gamestart and only for province number one
+	id = CTD.0002
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Abort and start weather event in all provinces if month start has been found
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_province_flag = searching_for_month_january
+						month = 0
+						NOT = {
+							month = 1
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_february
+						month = 1
+						NOT = {
+							month = 2
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_march
+						month = 2
+						NOT = {
+							month = 3
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_april
+						month = 3
+						NOT = {
+							month = 4
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_may
+						month = 4
+						NOT = {
+							month = 5
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_june
+						month = 5
+						NOT = {
+							month = 6
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_july
+						month = 6
+						NOT = {
+							month = 7
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_august
+						month = 7
+						NOT = {
+							month = 8
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_september
+						month = 8
+						NOT = {
+							month = 9
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_october
+						month = 9
+						NOT = {
+							month = 10
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_november
+						month = 10
+						NOT = {
+							month = 11
+						}
+					}
+					AND = {
+						has_province_flag = searching_for_month_december
+						month = 11
+					}
+				}
+			}
+			# TESTING: Inform player
+			any_playable_ruler = {
+				limit = {
+					ai = no
+				}
+				character_event = {
+					id = TST.1
+				}
+			}
+			
+			# Determine how long it is until the 1st of October, and make it so that the FIRST of all the import/growth events starts at that date - it later calls all the others directly
+			# We know for sure it exactly the 1st of some month - now only need to determine which month. NOTE: trigger_switch not possible, because "0"(January) would evaluate to true for any greater value, too!
+			if = {
+				limit = {
+					AND = {
+						month = 0	# January
+						NOT = {
+							month = 1
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 273	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 354	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 1	# February
+						NOT = {
+							month = 2
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 242	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 323	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 2	# March
+						NOT = {
+							month = 3
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 214	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 295	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 3	# April
+						NOT = {
+							month = 4
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 183	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 264	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 4	# May
+						NOT = {
+							month = 5
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 153	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 234	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 5	# June
+						NOT = {
+							month = 6
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 122	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 203	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 6	# July
+						NOT = {
+							month = 7
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 92	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 173	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 7	# August
+						NOT = {
+							month = 8
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 61	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 142	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 8	# September
+						NOT = {
+							month = 9
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 30	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 111	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 9	# October
+						NOT = {
+							month = 10
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					# In this case it is the first of October, no delay needed! (would have been 365 days otherwise)
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 81	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 10	# November
+						NOT = {
+							month = 11
+						}
+					}
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 334	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 415	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			if = {
+				limit = {
+					month = 11	# December
+				}
+				province_event = {
+					id = CTD.0105	# Re-calculation of priorities and start of import cycle
+					days = 304	# Days it takes until first of October
+				}
+				any_province = {	# NOTE: Expensive
+					# Initialize Quarterly Cycle - used e.g. by event CTD.0101 to keep in sync with the years.
+					# IMPORTANT: If not set here, automation event CTD.0101 will not repeat itself!
+					set_province_flag = quarterly_repetition_cycle_4	# NOTE: This flag will actually mean the event starts with Cycle 1, where this flag is getting cleared
+					# Quarterly Maintenance Event (determines supply level flags):
+					province_event = {
+						id = CTD.0101
+						days = 385	# IMPORTANT order: AFTER the first time event CTD.0105 has first, precisely on the NEXT December 21th, one day before the first population change event (+81 days later than above event)
+					}
+				}
+			}
+			
+			# Clear all searching flags
+			clr_province_flag = searching_for_month_january
+			clr_province_flag = searching_for_month_february
+			clr_province_flag = searching_for_month_march
+			clr_province_flag = searching_for_month_april
+			clr_province_flag = searching_for_month_may
+			clr_province_flag = searching_for_month_june
+			clr_province_flag = searching_for_month_july
+			clr_province_flag = searching_for_month_august
+			clr_province_flag = searching_for_month_september
+			clr_province_flag = searching_for_month_october
+			clr_province_flag = searching_for_month_november
+			clr_province_flag = searching_for_month_december
+			# If Game Rule active, also start weather event in all provinces:
+			if = {
+				limit = {
+					has_game_rule = {
+						name = weather
+						value = enabled
+					}
+				}
+				any_province = {	# NOTE: Expensive, but only used once per game here
+					province_event = {
+						id = CTD.0103	# Weather System
+					}
+				}
+			}
+			
+			# When it has been found, do NOT repeat event again:
+			break = yes	# IMPORTANT
+		}
+		
+		# When searching, set flag to search for to next month
+		if = {
+			limit = {
+				AND = {
+					month = 0
+					NOT = {
+						month = 1
+					}
+				}
+			}
+			set_province_flag = searching_for_month_february
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 1
+					NOT = {
+						month = 2
+					}
+				}
+			}
+			set_province_flag = searching_for_month_march
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 2
+					NOT = {
+						month = 3
+					}
+				}
+			}
+			set_province_flag = searching_for_month_april
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 3
+					NOT = {
+						month = 4
+					}
+				}
+			}
+			set_province_flag = searching_for_month_may
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 4
+					NOT = {
+						month = 5
+					}
+				}
+			}
+			set_province_flag = searching_for_month_june
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 5
+					NOT = {
+						month = 6
+					}
+				}
+			}
+			set_province_flag = searching_for_month_july
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 6
+					NOT = {
+						month = 7
+					}
+				}
+			}
+			set_province_flag = searching_for_month_august
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 7
+					NOT = {
+						month = 8
+					}
+				}
+			}
+			set_province_flag = searching_for_month_september
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 8
+					NOT = {
+						month = 9
+					}
+				}
+			}
+			set_province_flag = searching_for_month_october
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 9
+					NOT = {
+						month = 10
+					}
+				}
+			}
+			set_province_flag = searching_for_month_november
+		}
+		if = {
+			limit = {
+				AND = {
+					month = 10
+					NOT = {
+						month = 11
+					}
+				}
+			}
+			set_province_flag = searching_for_month_december
+		}
+		if = {
+			limit = {
+				month = 11
+			}
+			set_province_flag = searching_for_month_january
+		}
+		
+		repeat_event = {
+			id = CTD.0002
+			days = 1	# Insane, but only at gamestart and for just one province..
+		}
+	}
+}

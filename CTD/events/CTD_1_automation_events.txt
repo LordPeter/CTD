@@ -1,0 +1,3188 @@
+###################
+# Automation events
+# 
+# by LordPeter
+###################
+
+namespace = CTD
+
+######################
+# ranges CTD.0101-0199
+######################
+
+### Main Automation events - fired from initialization
+
+province_event = {	# Set province flags needed for custom localization in modifiers and much more - quarterly
+	id = CTD.0101
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Adjust tradegood production caps based on Technology
+		# TODO NOTE
+		add_province_modifier = {	# TESTING
+			name = currency_foreign_coins
+			duration = -1
+			stacking = yes
+		}
+		
+		# Set dynamic modifier localisation flags
+		# Food
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+					NOT = {
+						check_variable = {
+							which = province_demand_food
+							which = province_supply_food
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = food_supply_mediocre
+			clr_province_flag = food_supply_poor
+			# Set new flag
+			set_province_flag = food_supply_good
+		}
+		if = {
+			limit = {	# Supply and Demand are equal
+				AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+					check_variable = {
+						which = province_demand_food
+						which = province_supply_food
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = food_supply_good
+			clr_province_flag = food_supply_poor
+			# Set new flag
+			set_province_flag = food_supply_mediocre
+		}
+		if = {
+			limit = {	# Demand is higher
+				AND = {
+					check_variable = {
+						which = province_demand_food
+						which = province_supply_food
+					}
+					NOT = {
+						check_variable = {
+							which = province_supply_food
+							which = province_demand_food
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = food_supply_good
+			clr_province_flag = food_supply_mediocre
+			# Set new flag
+			set_province_flag = food_supply_poor
+		}
+		# Clothing
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+					NOT = {
+						check_variable = {
+							which = province_demand_clothing
+							which = province_supply_clothing
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = clothing_supply_mediocre
+			clr_province_flag = clothing_supply_poor
+			# Set new flag
+			set_province_flag = clothing_supply_good
+		}
+		if = {
+			limit = {	# Supply and Demand are equal
+				AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+					check_variable = {
+						which = province_demand_clothing
+						which = province_supply_clothing
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = clothing_supply_good
+			clr_province_flag = clothing_supply_poor
+			# Set new flag
+			set_province_flag = clothing_supply_mediocre
+		}
+		if = {
+			limit = {	# Demand is higher
+				AND = {
+					check_variable = {
+						which = province_demand_clothing
+						which = province_supply_clothing
+					}
+					NOT = {
+						check_variable = {
+							which = province_supply_clothing
+							which = province_demand_clothing
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = clothing_supply_good
+			clr_province_flag = clothing_supply_mediocre
+			# Set new flag
+			set_province_flag = clothing_supply_poor
+		}
+		# Materials
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+					NOT = {
+						check_variable = {
+							which = province_demand_materials
+							which = province_supply_materials
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = materials_supply_mediocre
+			clr_province_flag = materials_supply_poor
+			# Set new flag
+			set_province_flag = materials_supply_good
+		}
+		if = {
+			limit = {	# Supply and Demand are equal
+				AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+					check_variable = {
+						which = province_demand_materials
+						which = province_supply_materials
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = materials_supply_good
+			clr_province_flag = materials_supply_poor
+			# Set new flag
+			set_province_flag = materials_supply_mediocre
+		}
+		if = {
+			limit = {	# Demand is higher
+				AND = {
+					check_variable = {
+						which = province_demand_materials
+						which = province_supply_materials
+					}
+					NOT = {
+						check_variable = {
+							which = province_supply_materials
+							which = province_demand_materials
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = materials_supply_good
+			clr_province_flag = materials_supply_mediocre
+			# Set new flag
+			set_province_flag = materials_supply_poor
+		}
+		# Luxuries
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = province_supply_luxuries
+						which = province_demand_luxuries
+					}
+					NOT = {
+						check_variable = {
+							which = province_demand_luxuries
+							which = province_supply_luxuries
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = luxuries_supply_mediocre
+			clr_province_flag = luxuries_supply_poor
+			# Set new flag
+			set_province_flag = luxuries_supply_good
+		}
+		if = {
+			limit = {	# Supply and Demand are equal
+				AND = {	# Essentially should do the same thing as "is_variable_equal" by checking from both sides (since is_variable_equal does not seem to work...)
+					check_variable = {
+						which = province_supply_luxuries
+						which = province_demand_luxuries
+					}
+					check_variable = {
+						which = province_demand_luxuries
+						which = province_supply_luxuries
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = luxuries_supply_good
+			clr_province_flag = luxuries_supply_poor
+			# Set new flag
+			set_province_flag = luxuries_supply_mediocre
+		}
+		if = {
+			limit = {	# Demand is higher
+				AND = {
+					check_variable = {
+						which = province_demand_luxuries
+						which = province_supply_luxuries
+					}
+					NOT = {
+						check_variable = {
+							which = province_supply_luxuries
+							which = province_demand_luxuries
+						}
+					}
+				}
+			}
+			# Clear old flags
+			clr_province_flag = luxuries_supply_good
+			clr_province_flag = luxuries_supply_mediocre
+			# Set new flag
+			set_province_flag = luxuries_supply_poor
+		}
+		
+		# FAMINE TRACKING: Checks based on food flags set above whether a famine is imminent, or over
+		famine_tracking_CTD_effect = yes
+		
+		# Repeat, but do not increase FROM stacks, to avoid overflow - which in this case (indefinite repetition) would otherwise be guaranteed!
+		# Repeat event quarter year (~3 months) - needs workaround, since only days can be specified
+		# Should fire every 91,25 days - the following guarantees that overall, it does:
+		# Cycle 1
+		if = {
+			limit = {
+				has_province_flag = quarterly_repetition_cycle_4
+			}
+			clr_province_flag = quarterly_repetition_cycle_4
+			set_province_flag = quarterly_repetition_cycle_1
+			repeat_event = {
+				id = CTD.0101
+				days = 91
+			}
+			# EXTREMELY IMPORTANT: Without this break, the events will ALL fire, and performance will drop until the game crashes!
+			break = yes	# <- IMPORTANT!
+		}
+		# Cycle 2
+		if = {
+			limit = {
+				has_province_flag = quarterly_repetition_cycle_1
+			}
+			clr_province_flag = quarterly_repetition_cycle_1
+			set_province_flag = quarterly_repetition_cycle_2
+			repeat_event = {
+				id = CTD.0101
+				days = 91
+			}
+			# EXTREMELY IMPORTANT: Without this break, the events will ALL fire, and performance will drop until the game crashes!
+			break = yes	# <- IMPORTANT!
+		}
+		# Cycle 3
+		if = {
+			limit = {
+				has_province_flag = quarterly_repetition_cycle_2
+			}
+			clr_province_flag = quarterly_repetition_cycle_2
+			set_province_flag = quarterly_repetition_cycle_3
+			repeat_event = {
+				id = CTD.0101
+				days = 91
+			}
+			# EXTREMELY IMPORTANT: Without this break, the events will ALL fire, and performance will drop until the game crashes!
+			break = yes	# <- IMPORTANT!
+		}
+		# Cycle 4 - fires one day later to compensate
+		if = {
+			limit = {
+				has_province_flag = quarterly_repetition_cycle_3
+			}
+			clr_province_flag = quarterly_repetition_cycle_3
+			set_province_flag = quarterly_repetition_cycle_4
+			repeat_event = {
+				id = CTD.0101
+				days = 92
+			}
+			# EXTREMELY IMPORTANT: Without this break, the events will ALL fire, and performance will drop until the game crashes!
+			break = yes	# <- IMPORTANT!
+		}
+	}
+}
+
+province_event = {	# Calculate population growth - yearly, but does not repeat on its own
+	id = CTD.0102
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		add_province_modifier = {	# TESTING
+			name = currency_squirrel_skins
+			duration = -1
+			stacking = yes
+		}
+		# Calculated pop growth/shrink
+		any_province_holding = {
+			# Peasants
+			if = {
+				limit = {
+					can_grow_peasants_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Pops are drawn to capitals
+							factor = 1.5
+							is_capital = yes
+						}
+						modifier = {	# Good Food supply (>100%) increases chances (since peasants really "grow" [=have babies], while other pops are "climbing up the ladder" as well)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = food_supply_good
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 3
+							location = {	# The province
+								has_province_modifier = peasants_growth_incentive
+							}
+						}
+						modifier = {	# Province is not part of any war (peasants care about war, since they are the victims mostly)
+							factor = 2
+							location = {	# The province
+								owner = {	# The province owner
+									AND = {
+										war = no	# Owner is at peace
+										any_liege = {
+											war = no	# All lieges are at peace
+										}
+									}
+								}
+							}
+						}
+						# TERRAIN type influence (generic, shared between all pops):
+						modifier = {	# Farmlands: x1.0
+							factor = 1.1
+							location = {	# The province
+								terrain = farmlands
+							}
+						}
+						# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+						modifier = {	# Savanna, Forest & Hills: x0.9
+							factor = 0.9
+							location = {	# The province
+								OR = {
+									terrain = savanna
+									terrain = forest
+									terrain = hills
+								}
+							}
+						}
+						modifier = {	# Jungle, Mountains & Desert: x0.8
+							factor = 0.8
+							location = {	# The province
+								OR = {
+									terrain = jungle
+									terrain = mountain
+									terrain = desert
+								}
+							}
+						}
+						modifier = {	# Arctic: x0.7
+							factor = 0.7
+							location = {	# The province
+								terrain = arctic
+							}
+						}
+						# End of terrain type influence.
+						# Peasants don't care about other pops.
+						# Do pop increase:
+						incr_peasants_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no growth this cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					will_shrink_peasants_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Poor Food supply (<100%) increases chances (since peasants starve first)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = food_supply_poor
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 0.5
+							location = {	# The province
+								has_province_modifier = peasants_growth_incentive
+							}
+						}
+						modifier = {	# Peasants more likely to shrink during wartime (since they are the victims mostly)
+							factor = 2
+							AND = {
+								holding_type = castle
+								location = {	# The province
+									owner = {	# The province owner
+										OR = {
+											war = yes	# Owner is at war!
+											any_liege = {
+												war = yes	# Any liege is at war!
+											}
+										}
+									}
+								}
+							}
+						}
+						# Peasants don't care about other pops.
+						# Do pop increase:
+						decr_peasants_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no shrinking this cycle
+					}
+				}
+			}
+			# Artisans
+			if = {
+				limit = {
+					can_grow_artisans_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Pops are drawn to capitals
+							factor = 1.5
+							is_capital = yes
+						}
+						modifier = {	# Good Material supply (>100%) increases chances (since artisans need stuff to work with)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = materials_supply_good
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 3
+							location = {	# The province
+								has_province_modifier = artisans_growth_incentive
+							}
+						}
+						# TERRAIN type influence (generic, shared between all pops):
+						modifier = {	# Farmlands: x1.0
+							factor = 1.1
+							location = {	# The province
+								terrain = farmlands
+							}
+						}
+						# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+						modifier = {	# Savanna, Forest & Hills: x0.9
+							factor = 0.9
+							location = {	# The province
+								OR = {
+									terrain = savanna
+									terrain = forest
+									terrain = hills
+								}
+							}
+						}
+						modifier = {	# Jungle, Mountains & Desert: x0.8
+							factor = 0.8
+							location = {	# The province
+								OR = {
+									terrain = jungle
+									terrain = mountain
+									terrain = desert
+								}
+							}
+						}
+						modifier = {	# Arctic: x0.7
+							factor = 0.7
+							location = {	# The province
+								terrain = arctic
+							}
+						}
+						# End of terrain type influence.
+						modifier = {	# Has lots more peasants than artisans (at least 2 more currently)
+							factor = 1.5
+							OR = {
+								AND = {
+									NOR = {
+										has_building = ca_population_artisans_1
+										has_building = ct_population_artisans_1
+										has_building = tp_population_artisans_1
+										has_building = tb_population_artisans_1
+									}
+									OR = {
+										has_building = ca_population_peasants_2
+										has_building = ct_population_peasants_2
+										has_building = tp_population_peasants_2
+										has_building = tb_population_peasants_2
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_artisans_2
+										has_building = ct_population_artisans_2
+										has_building = tp_population_artisans_2
+										has_building = tb_population_artisans_2
+									}
+									OR = {
+										has_building = ca_population_peasants_3
+										has_building = ct_population_peasants_3
+										has_building = tp_population_peasants_3
+										has_building = tb_population_peasants_3
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_artisans_3
+										has_building = ct_population_artisans_3
+										has_building = tp_population_artisans_3
+										has_building = tb_population_artisans_3
+									}
+									OR = {
+										has_building = ca_population_peasants_4
+										has_building = ct_population_peasants_4
+										has_building = tp_population_peasants_4
+										has_building = tb_population_peasants_4
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_artisans_4
+										has_building = ct_population_artisans_4
+										has_building = tp_population_artisans_4
+										has_building = tb_population_artisans_4
+									}
+									OR = {
+										has_building = ca_population_peasants_5
+										has_building = ct_population_peasants_5
+										has_building = tp_population_peasants_5
+										has_building = tb_population_peasants_5
+									}
+								}
+							}
+						}
+						# Do pop increase:
+						incr_artisans_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no growth this cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					will_shrink_artisans_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Poor Material supply (<100%) increases chances (since artisans lack stuff to work with)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = materials_supply_poor
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 0.5
+							location = {	# The province
+								has_province_modifier = artisans_growth_incentive
+							}
+						}
+						modifier = {	# Has lots less peasants than artisans (at least 2 less currently)
+							factor = 1.5
+							OR = {
+								# Not possible for artisans_1, so no faster shrinking here
+								AND = {
+									OR = {
+										has_building = ca_population_artisans_2
+										has_building = ct_population_artisans_2
+										has_building = tp_population_artisans_2
+										has_building = tb_population_artisans_2
+									}
+									NOR = {
+										has_building = ca_population_peasants_1
+										has_building = ct_population_peasants_1
+										has_building = tp_population_peasants_1
+										has_building = tb_population_peasants_1
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_artisans_3
+										has_building = ct_population_artisans_3
+										has_building = tp_population_artisans_3
+										has_building = tb_population_artisans_3
+									}
+									NOR = {
+										has_building = ca_population_peasants_2
+										has_building = ct_population_peasants_2
+										has_building = tp_population_peasants_2
+										has_building = tb_population_peasants_2
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_artisans_4
+										has_building = ct_population_artisans_4
+										has_building = tp_population_artisans_4
+										has_building = tb_population_artisans_4
+									}
+									NOR = {
+										has_building = ca_population_peasants_3
+										has_building = ct_population_peasants_3
+										has_building = tp_population_peasants_3
+										has_building = tb_population_peasants_3
+									}
+								}
+							}
+						}
+						# Do pop decrease:
+						decr_artisans_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no shrinking this cycle
+					}
+				}
+			}
+			# Merchants
+			if = {
+				limit = {
+					can_grow_merchants_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Pops are drawn to capitals
+							factor = 1.5
+							is_capital = yes
+						}
+						modifier = {	# Good Luxuries supply (>100%) increases chances (because merchants become rich trading them)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = luxuries_supply_good
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 3
+							location = {	# The province
+								has_province_modifier = merchants_growth_incentive
+							}
+						}
+						# TERRAIN type influence (generic, shared between all pops):
+						modifier = {	# Farmlands: x1.0
+							factor = 1.1
+							location = {	# The province
+								terrain = farmlands
+							}
+						}
+						# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+						modifier = {	# Savanna, Forest & Hills: x0.9
+							factor = 0.9
+							location = {	# The province
+								OR = {
+									terrain = savanna
+									terrain = forest
+									terrain = hills
+								}
+							}
+						}
+						modifier = {	# Jungle, Mountains & Desert: x0.8
+							factor = 0.8
+							location = {	# The province
+								OR = {
+									terrain = jungle
+									terrain = mountain
+									terrain = desert
+								}
+							}
+						}
+						modifier = {	# Arctic: x0.7
+							factor = 0.7
+							location = {	# The province
+								terrain = arctic
+							}
+						}
+						# End of terrain type influence.
+						modifier = {	# Has lots more artisans than merchants (at least 2 more currently)
+							factor = 1.5
+							OR = {
+								AND = {
+									NOR = {
+										has_building = ca_population_merchants_1
+										has_building = ct_population_merchants_1
+										has_building = tp_population_merchants_1
+										has_building = tb_population_merchants_1
+									}
+									OR = {
+										has_building = ca_population_artisans_2
+										has_building = ct_population_artisans_2
+										has_building = tp_population_artisans_2
+										has_building = tb_population_artisans_2
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_merchants_2
+										has_building = ct_population_merchants_2
+										has_building = tp_population_merchants_2
+										has_building = tb_population_merchants_2
+									}
+									OR = {
+										has_building = ca_population_artisans_3
+										has_building = ct_population_artisans_3
+										has_building = tp_population_artisans_3
+										has_building = tb_population_artisans_3
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_merchants_3
+										has_building = ct_population_merchants_3
+										has_building = tp_population_merchants_3
+										has_building = tb_population_merchants_3
+									}
+									OR = {
+										has_building = ca_population_artisans_4
+										has_building = ct_population_artisans_4
+										has_building = tp_population_artisans_4
+										has_building = tb_population_artisans_4
+									}
+								}
+							}
+						}
+						# Do pop increase:
+						incr_merchants_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no growth this cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					will_shrink_merchants_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+						modifier = {	# Poor Luxuries supply (<100%) increases chances (without luxuries merchants can't trade)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = luxuries_supply_poor
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 0.5
+							location = {	# The province
+								has_province_modifier = merchants_growth_incentive
+							}
+						}
+						modifier = {	# Has lots less artisans than merchants (at least 2 less currently)
+							factor = 1.5
+							OR = {
+								# Not possible for merchants_1, so no faster shrinking here
+								AND = {
+									OR = {
+										has_building = ca_population_merchants_2
+										has_building = ct_population_merchants_2
+										has_building = tp_population_merchants_2
+										has_building = tb_population_merchants_2
+									}
+									NOR = {
+										has_building = ca_population_artisans_1
+										has_building = ct_population_artisans_1
+										has_building = tp_population_artisans_1
+										has_building = tb_population_artisans_1
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_merchants_3
+										has_building = ct_population_merchants_3
+										has_building = tp_population_merchants_3
+										has_building = tb_population_merchants_3
+									}
+									NOR = {
+										has_building = ca_population_artisans_2
+										has_building = ct_population_artisans_2
+										has_building = tp_population_artisans_2
+										has_building = tb_population_artisans_2
+									}
+								}
+							}
+						}
+						# Do pop decrease:
+						decr_merchants_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no shrinking this cycle
+					}
+				}
+			}
+			# Elite
+			if = {
+				limit = {
+					can_grow_elite_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Pops are drawn to capitals
+							factor = 1.5
+							is_capital = yes
+						}
+						modifier = {	# Good Luxuries supply (>100%) increases chances (because elite love luxuries)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = luxuries_supply_good
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 3
+							location = {	# The province
+								has_province_modifier = elite_growth_incentive
+							}
+						}
+						modifier = {	# Elite flocks to prestigeous people's capital
+							factor = 1.5
+							AND = {
+								is_capital = yes
+								owner = {	# The -holding- owner
+									prestige = 2000
+								}
+							}
+						}
+						# TERRAIN type influence (generic, shared between all pops):
+						modifier = {	# Farmlands: x1.0
+							factor = 1.1
+							location = {	# The province
+								terrain = farmlands
+							}
+						}
+						# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+						modifier = {	# Savanna, Forest & Hills: x0.9
+							factor = 0.9
+							location = {	# The province
+								OR = {
+									terrain = savanna
+									terrain = forest
+									terrain = hills
+								}
+							}
+						}
+						modifier = {	# Jungle, Mountains & Desert: x0.8
+							factor = 0.8
+							location = {	# The province
+								OR = {
+									terrain = jungle
+									terrain = mountain
+									terrain = desert
+								}
+							}
+						}
+						modifier = {	# Arctic: x0.7
+							factor = 0.7
+							location = {	# The province
+								terrain = arctic
+							}
+						}
+						# End of terrain type influence.
+						modifier = {	# Has lots more merchants than elite (at least 2 more currently)
+							factor = 1.5
+							OR = {
+								AND = {
+									NOR = {
+										has_building = ca_population_elite_1
+										has_building = ct_population_elite_1
+										has_building = tp_population_elite_1
+										has_building = tb_population_elite_1
+									}
+									OR = {
+										has_building = ca_population_merchants_2
+										has_building = ct_population_merchants_2
+										has_building = tp_population_merchants_2
+										has_building = tb_population_merchants_2
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_elite_2
+										has_building = ct_population_elite_2
+										has_building = tp_population_elite_2
+										has_building = tb_population_elite_2
+									}
+									OR = {
+										has_building = ca_population_merchants_3
+										has_building = ct_population_merchants_3
+										has_building = tp_population_merchants_3
+										has_building = tb_population_merchants_3
+									}
+								}
+							}
+						}
+						# Do pop increase:
+						incr_elite_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no growth this cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					will_shrink_elite_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+						modifier = {	# Poor Luxuries supply (<100%) greatly increases chances (without luxuries elite moves away)
+							factor = 3
+							location = {	# The province
+								has_province_flag = luxuries_supply_poor
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 0.5
+							location = {	# The province
+								has_province_modifier = elite_growth_incentive
+							}
+						}
+						modifier = {	# Elite dislikes negative prestige capitals
+							factor = 1.5
+							AND = {
+								is_capital = yes
+								owner = {	# The -holding- owner
+									NOT = {
+										prestige = 0	# So has negative prestige
+									}
+								}
+							}
+						}
+						modifier = {	# Has lots more merchants than elite (at least 2 more currently)
+							factor = 1.5
+							OR = {
+								# Not possible for elite_1, so no faster shrinking here
+								AND = {
+									OR = {
+										has_building = ca_population_elite_2
+										has_building = ct_population_elite_2
+										has_building = tp_population_elite_2
+										has_building = tb_population_elite_2
+									}
+									NOR = {
+										has_building = ca_population_merchants_1
+										has_building = ct_population_merchants_1
+										has_building = tp_population_merchants_1
+										has_building = tb_population_merchants_1
+									}
+								}
+							}
+						}
+						# Do pop decrease:
+						decr_elite_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no shrinking this cycle
+					}
+				}
+			}
+			# Special
+			if = {
+				limit = {
+					OR = {
+						can_grow_soldiers_CTD_trigger = yes
+						can_grow_patricians_CTD_trigger = yes
+						can_grow_clerics_CTD_trigger = yes
+					}
+				}
+				random_list = {
+					25 = {
+						# Modifiers for all three types
+						modifier = {	# Pops are drawn to capitals
+							factor = 1.5
+							is_capital = yes
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 3
+							location = {	# The province
+								has_province_modifier = special_growth_incentive
+							}
+						}
+						# TERRAIN type influence (generic, shared between all pops):
+						modifier = {	# Farmlands: x1.0
+							factor = 1.1
+							location = {	# The province
+								terrain = farmlands
+							}
+						}
+						# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+						modifier = {	# Savanna, Forest & Hills: x0.9
+							factor = 0.9
+							location = {	# The province
+								OR = {
+									terrain = savanna
+									terrain = forest
+									terrain = hills
+								}
+							}
+						}
+						modifier = {	# Jungle, Mountains & Desert: x0.8
+							factor = 0.8
+							location = {	# The province
+								OR = {
+									terrain = jungle
+									terrain = mountain
+									terrain = desert
+								}
+							}
+						}
+						modifier = {	# Arctic: x0.7
+							factor = 0.7
+							location = {	# The province
+								terrain = arctic
+							}
+						}
+						# End of terrain type influence.
+						# Modifiers for Soldiers (holding is castle)
+						modifier = {	# Soldiers grow in wartime
+							factor = 2
+							AND = {
+								holding_type = castle
+								location = {	# The province
+									owner = {	# The province owner
+										OR = {
+											war = yes	# Owner is at war!
+											any_liege = {
+												war = yes	# Any liege is at war!
+											}
+										}
+									}
+								}
+							}
+						}
+						modifier = {	# Slightly more likely in feudal realms
+							factor = 1.5
+							AND = {
+								holding_type = castle
+								location = {	# The province
+									owner = {	# The province owner
+										is_feudal = yes
+									}
+								}
+							}
+						}
+						# Modifiers for Patricians (holding is city)
+						modifier = {	# Patricians grow where trade is
+							factor = 2
+							AND = {
+								holding_type = city
+								location = {	# The province
+									OR = {	# Is either laying on a tradroute or has a tradepost built
+										lies_on_any_traderoute_CTD_trigger = yes
+										has_trade_post = yes
+									}
+								}
+							}
+						}
+						modifier = {	# Slightly more likely in republic realms
+							factor = 1.5
+							AND = {
+								holding_type = city
+								location = {	# The province
+									owner = {	# The province owner
+										is_republic = yes
+									}
+								}
+							}
+						}
+						# Modifiers for Clerics (holding is temple)
+						modifier = {	# Clerics grow where infidels/heretics or holy sites are
+							factor = 2
+							AND = {
+								holding_type = temple
+								location = {	# The province
+									owner = {	# The province owner
+										ROOT = {	# Also the province
+											OR = {
+												# Province is heretic or infidel from the viewpoint of its owner
+												is_heresy_of = PREV
+												NOT = {
+													religion = PREV
+												}
+												any_province_holding = {
+													is_holy_site = PREVPREV	# Is a holy site for province owner (can only be checked against characters)
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						modifier = {	# Slightly more likely in theocratic realms
+							factor = 1.5
+							AND = {
+								holding_type = temple
+								location = {	# The province
+									owner = {	# The province owner
+										is_theocracy = yes
+									}
+								}
+							}
+						}
+						modifier = {	# Has lots more artisans than special (at least 2 more currently)
+							factor = 1.5
+							OR = {
+								AND = {
+									NOR = {
+										has_building = ca_population_soldiers_1
+										has_building = ct_population_patricians_1
+										has_building = tp_population_clerics_1
+									}
+									OR = {
+										has_building = ca_population_artisans_2
+										has_building = ct_population_artisans_2
+										has_building = tp_population_artisans_2
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_soldiers_2
+										has_building = ct_population_patricians_2
+										has_building = tp_population_clerics_2
+									}
+									OR = {
+										has_building = ca_population_artisans_3
+										has_building = ct_population_artisans_3
+										has_building = tp_population_artisans_3
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_soldiers_3
+										has_building = ct_population_patricians_3
+										has_building = tp_population_clerics_3
+									}
+									OR = {
+										has_building = ca_population_artisans_4
+										has_building = ct_population_artisans_4
+										has_building = tp_population_artisans_4
+									}
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_soldiers_4
+										has_building = ct_population_patricians_4
+										has_building = tp_population_clerics_4
+									}
+									OR = {	# There is no "artisans_5", so it's artisans_4 & merchants_1 instead
+										AND = {
+											has_building = ca_population_artisans_4
+											has_building = ca_population_merchants_1
+										}
+										AND = {
+											has_building = ct_population_artisans_4
+											has_building = ct_population_merchants_1
+										}
+										AND = {
+											has_building = tp_population_artisans_4
+											has_building = tp_population_merchants_1
+										}
+									}
+								}
+								# Not possible for <special>_5, so no faster growth here
+							}
+						}
+						# Do pop increase:
+						incr_special_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no growth this cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						will_shrink_soldiers_CTD_trigger = yes
+						will_shrink_patricians_CTD_trigger = yes
+						will_shrink_clerics_CTD_trigger = yes
+					}
+				}
+				random_list = {
+					25 = {
+						# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+						# Modifiers for all three types
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 0.5
+							location = {	# The province
+								has_province_modifier = special_growth_incentive
+							}
+						}
+						# Modifiers for Soldiers (holding is castle)
+						modifier = {	# Soldiers more likely to shrink in peactime
+							factor = 1.5
+							AND = {
+								holding_type = castle
+								location = {	# The province
+									owner = {	# The province owner
+										AND = {
+											war = no	# Owner is at peace
+											any_liege = {
+												war = no	# All lieges are at peace
+											}
+										}
+									}
+								}
+							}
+						}
+						modifier = {	# Slightly more likely in non-feudal realms
+							factor = 1.25
+							AND = {
+								holding_type = castle
+								location = {	# The province
+									owner = {	# The province owner
+										NOT = {
+											is_feudal = yes
+										}
+									}
+								}
+							}
+						}
+						# Modifiers for Patricians (holding is city)
+						modifier = {	# Patricians more likely to shrink where no trade is
+							factor = 1.5
+							AND = {
+								holding_type = city
+								location = {	# The province
+									NOR = {	# Is neither laying on a tradroute nor has a tradepost built
+										lies_on_any_traderoute_CTD_trigger = yes
+										has_trade_post = yes
+									}
+								}
+							}
+						}
+						modifier = {	# Slightly more likely in non-republic realms
+							factor = 1.25
+							AND = {
+								holding_type = city
+								location = {	# The province
+									owner = {	# The province owner
+										NOT = {
+											is_republic = yes
+										}
+									}
+								}
+							}
+						}
+						# Modifiers for Clerics (holding is temple)
+						modifier = {	# Clerics more likely to shrink where there is religious unity
+							factor = 1.5
+							AND = {
+								holding_type = temple
+								location = {	# The province
+									owner = {	# The province owner
+										religion = PREV	# Owner has same religion as province
+									}
+								}
+							}
+						}
+						modifier = {	# Slightly more likely in non-theocratic realms
+							factor = 1.5
+							AND = {
+								holding_type = temple
+								location = {	# The province
+									owner = {	# The province owner
+										NOT = {
+											is_theocracy = yes
+										}
+									}
+								}
+							}
+						}
+						modifier = {	# Has lots less artisans than special (at least 2 less currently)
+							factor = 1.5
+							OR = {
+								# Not possible for <special>_1, so no faster shrinking here
+								AND = {
+									OR = {
+										has_building = ca_population_soldiers_2
+										has_building = ct_population_patricians_2
+										has_building = tp_population_clerics_2
+									}
+									NOR = {
+										has_building = ca_population_artisans_1
+										has_building = ct_population_artisans_1
+										has_building = tp_population_artisans_1
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_soldiers_3
+										has_building = ct_population_patricians_3
+										has_building = tp_population_clerics_3
+									}
+									NOR = {
+										has_building = ca_population_artisans_2
+										has_building = ct_population_artisans_2
+										has_building = tp_population_artisans_2
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_soldiers_4
+										has_building = ct_population_patricians_4
+										has_building = tp_population_clerics_4
+									}
+									NOR = {
+										has_building = ca_population_artisans_3
+										has_building = ct_population_artisans_3
+										has_building = tp_population_artisans_3
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_soldiers_5
+										has_building = ct_population_patricians_5
+										has_building = tp_population_clerics_5
+									}
+									NOR = {
+										has_building = ca_population_artisans_4
+										has_building = ct_population_artisans_4
+										has_building = tp_population_artisans_4
+									}
+								}
+							}
+						}
+						# Do pop decrease:
+						decr_special_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no shrinking this cycle
+					}
+				}
+			}
+			# Scum
+			if = {
+				limit = {
+					can_grow_scum_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Pops are drawn to capitals
+							factor = 1.5
+							is_capital = yes
+						}
+						modifier = {	# Good Luxuries supply (>100%) increases chances (because scum wants to have [=steal?] luxuries as well!)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = luxuries_supply_good
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 3
+							location = {	# The province
+								has_province_modifier = scum_growth_incentive
+							}
+						}
+						modifier = {	# Has made province decision "enforce law"
+							factor = 0.33
+							location = {	# The province
+								has_province_modifier = enforced_law_on_scum
+							}
+						}
+						# TERRAIN type influence (generic, shared between all pops):
+						modifier = {	# Farmlands: x1.0
+							factor = 1.1
+							location = {	# The province
+								terrain = farmlands
+							}
+						}
+						# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+						modifier = {	# Savanna, Forest & Hills: x0.9
+							factor = 0.9
+							location = {	# The province
+								OR = {
+									terrain = savanna
+									terrain = forest
+									terrain = hills
+								}
+							}
+						}
+						modifier = {	# Jungle, Mountains & Desert: x0.8
+							factor = 0.8
+							location = {	# The province
+								OR = {
+									terrain = jungle
+									terrain = mountain
+									terrain = desert
+								}
+							}
+						}
+						modifier = {	# Arctic: x0.7
+							factor = 0.7
+							location = {	# The province
+								terrain = arctic
+							}
+						}
+						# End of terrain type influence.
+						modifier = {	# Has lots more rich pops than scum (at least 2 more than needed)
+							factor = 1.5
+							OR = {
+								AND = {
+									NOR = {
+										has_building = ca_population_scum_1
+										has_building = ct_population_scum_1
+										has_building = tp_population_scum_1
+									}
+									holding_has_04_rich_pops_CTD_trigger = yes
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_scum_2
+										has_building = ct_population_scum_2
+										has_building = tp_population_scum_2
+									}
+									holding_has_06_rich_pops_CTD_trigger = yes
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_scum_3
+										has_building = ct_population_scum_3
+										has_building = tp_population_scum_3
+									}
+									holding_has_08_rich_pops_CTD_trigger = yes
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_scum_4
+										has_building = ct_population_scum_4
+										has_building = tp_population_scum_4
+									}
+									holding_has_10_rich_pops_CTD_trigger = yes
+								}
+								# Not possible for scum_5, so no faster growth here
+							}
+						}
+						# Do pop increase:
+						incr_scum_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no growth this cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					will_shrink_scum_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+						modifier = {	# Poor Luxuries supply (<100%) increases chances (because scum don't want to live in poor places)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = luxuries_supply_poor
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 0.5
+							location = {	# The province
+								has_province_modifier = scum_growth_incentive
+							}
+						}
+						modifier = {	# Has made province decision "enforce law"
+							factor = 0.9	# NOTE: The factor is actually reducing it, because having the modifier in the first place will guarantee (!) the shrinking to be evaluated. If it then always also executes, it'd be too easy.
+							location = {	# The province
+								has_province_modifier = enforced_law_on_scum
+							}
+						}
+						modifier = {	# Has less rich pops than needed for scum (at least 2 [= 1 step] less than needed for stability)
+							factor = 1.5
+							OR = {
+								# Not possible for scum_1, so no faster shrinking here
+								AND = {
+									OR = {
+										has_building = ca_population_scum_2
+										has_building = ct_population_scum_2
+										has_building = tp_population_scum_2
+									}
+									NOT = {
+										holding_has_02_rich_pops_CTD_trigger = yes
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_scum_3
+										has_building = ct_population_scum_3
+										has_building = tp_population_scum_3
+									}
+									NOT = {
+										holding_has_04_rich_pops_CTD_trigger = yes
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_scum_4
+										has_building = ct_population_scum_4
+										has_building = tp_population_scum_4
+									}
+									NOT = {
+										holding_has_06_rich_pops_CTD_trigger = yes
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_scum_5
+										has_building = ct_population_scum_5
+										has_building = tp_population_scum_5
+									}
+									NOT = {
+										holding_has_08_rich_pops_CTD_trigger = yes
+									}
+								}
+							}
+						}
+						# Do pop decrease:
+						decr_scum_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no shrinking this cycle
+					}
+				}
+			}
+			# Category: Tribals (of any kind) - need not check this in other holdings
+			if = {
+				limit = {
+					holding_type = tribal
+				}
+				# Tribal Foragers
+				if = {
+					limit = {
+						can_grow_tribal_foragers_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# Note: Tribals are spread out in the landscape, do not care about capitals
+							modifier = {	# Good Food supply (>100%) increases chances (since tribals really "grow" [=have babies]) - doesn't influence foragers that much though, since they search their own food, too
+								factor = 1.1
+								location = {	# The province
+									has_province_flag = food_supply_good
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 500
+									}
+								}
+							}
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands (stacks with above)
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 1000
+									}
+								}
+							}
+							modifier = {	# Also goes the other way round of course - negative prestige makes them shy away
+								factor = 0.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							# Terrain preference - this is independent from "terrain type influence" below!
+							modifier = {	# Foragers prefer forests, jungles and mountains
+								factor = 1.1
+								location = {	# The province
+									OR = {
+										terrain = forest
+										terrain = jungle
+										terrain = mountain
+									}
+								}
+							}
+							# TERRAIN type influence (generic, shared between all pops):
+							modifier = {	# Farmlands: x1.0
+								factor = 1.1
+								location = {	# The province
+									terrain = farmlands
+								}
+							}
+							# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+							modifier = {	# Savanna, Forest & Hills: x0.9
+								factor = 0.9
+								location = {	# The province
+									OR = {
+										terrain = savanna
+										terrain = forest
+										terrain = hills
+									}
+								}
+							}
+							modifier = {	# Jungle, Mountains & Desert: x0.8
+								factor = 0.8
+								location = {	# The province
+									OR = {
+										terrain = jungle
+										terrain = mountain
+										terrain = desert
+									}
+								}
+							}
+							modifier = {	# Arctic: x0.7
+								factor = 0.7
+								location = {	# The province
+									terrain = arctic
+								}
+							}
+							# End of terrain type influence.
+							modifier = {	# Has lots more empty holding "space" than needed (at least 2 more than needed to grow [= min 3 free])
+								factor = 1.5
+								location = {
+									has_major_surplus_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop increase:
+							incr_tribal_foragers_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no growth this cycle
+						}
+					}
+				}
+				if = {
+					limit = {
+						will_shrink_tribal_foragers_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+							modifier = {	# Poor Food supply (<100%) increases chances (since tribals starve first) - doesn't influence foragers that much though, since they search their own food, too
+								factor = 1.1
+								location = {	# The province
+									has_province_flag = food_supply_poor
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Negative prestige makes tribals move away
+								factor = 1.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							modifier = {	# Province has way more pops currently than possible (3 more than max free space)
+								factor = 1.5
+								location = {
+									has_far_too_less_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop decrease:
+							decr_tribal_foragers_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no shrinking this cycle
+						}
+					}
+				}
+				# Tribal Farmers
+				if = {
+					limit = {
+						can_grow_tribal_farmers_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# Note: Tribals are spread out in the landscape, do not care about capitals
+							modifier = {	# Good Food supply (>100%) increases chances (since tribals really "grow" [=have babies])
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = food_supply_good
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 500
+									}
+								}
+							}
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands (stacks with above)
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 1000
+									}
+								}
+							}
+							modifier = {	# Also goes the other way round of course - negative prestige makes them shy away
+								factor = 0.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							# Terrain preference - this is independent from "terrain type influence" below!
+							modifier = {	# Farmers prefer farmlands and plains
+								factor = 1.1
+								location = {	# The province
+									OR = {
+										terrain = farmlands
+										terrain = plains
+									}
+								}
+							}
+							# TERRAIN type influence (generic, shared between all pops):
+							modifier = {	# Farmlands: x1.0
+								factor = 1.1
+								location = {	# The province
+									terrain = farmlands
+								}
+							}
+							# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+							modifier = {	# Savanna, Forest & Hills: x0.9
+								factor = 0.9
+								location = {	# The province
+									OR = {
+										terrain = savanna
+										terrain = forest
+										terrain = hills
+									}
+								}
+							}
+							modifier = {	# Jungle, Mountains & Desert: x0.8
+								factor = 0.8
+								location = {	# The province
+									OR = {
+										terrain = jungle
+										terrain = mountain
+										terrain = desert
+									}
+								}
+							}
+							modifier = {	# Arctic: x0.7
+								factor = 0.7
+								location = {	# The province
+									terrain = arctic
+								}
+							}
+							# End of terrain type influence.
+							modifier = {	# Has lots more empty holding "space" than needed (at least 2 more than needed to grow [= min 3 free])
+								factor = 1.5
+								location = {
+									has_major_surplus_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop increase:
+							incr_tribal_farmers_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no growth this cycle
+						}
+					}
+				}
+				if = {
+					limit = {
+						will_shrink_tribal_farmers_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+							modifier = {	# Poor Food supply (<100%) increases chances (since tribals starve first)
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = food_supply_poor
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Negative prestige makes tribals move away
+								factor = 1.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							modifier = {	# Province has way more pops currently than possible (3 more than max free space)
+								factor = 1.5
+								location = {
+									has_far_too_less_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop decrease:
+							decr_tribal_farmers_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no shrinking this cycle
+						}
+					}
+				}
+				# Tribal Herdsmen
+				if = {
+					limit = {
+						can_grow_tribal_herdsmen_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# Note: Tribals are spread out in the landscape, do not care about capitals
+							modifier = {	# Good Food supply (>100%) increases chances (since tribals really "grow" [=have babies])
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = food_supply_good
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 500
+									}
+								}
+							}
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands (stacks with above)
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 1000
+									}
+								}
+							}
+							modifier = {	# Also goes the other way round of course - negative prestige makes them shy away
+								factor = 0.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							# Terrain preference - this is independent from "terrain type influence" below!
+							modifier = {	# Herdsmen prefer hills, steppe and savanna
+								factor = 1.1
+								location = {	# The province
+									OR = {
+										terrain = hills
+										terrain = steppe
+										terrain = savanna
+									}
+								}
+							}
+							# TERRAIN type influence (generic, shared between all pops):
+							modifier = {	# Farmlands: x1.0
+								factor = 1.1
+								location = {	# The province
+									terrain = farmlands
+								}
+							}
+							# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+							modifier = {	# Savanna, Forest & Hills: x0.9
+								factor = 0.9
+								location = {	# The province
+									OR = {
+										terrain = savanna
+										terrain = forest
+										terrain = hills
+									}
+								}
+							}
+							modifier = {	# Jungle, Mountains & Desert: x0.8
+								factor = 0.8
+								location = {	# The province
+									OR = {
+										terrain = jungle
+										terrain = mountain
+										terrain = desert
+									}
+								}
+							}
+							modifier = {	# Arctic: x0.7
+								factor = 0.7
+								location = {	# The province
+									terrain = arctic
+								}
+							}
+							# End of terrain type influence.
+							modifier = {	# Has lots more empty holding "space" than needed (at least 2 more than needed to grow [= min 3 free])
+								factor = 1.5
+								location = {
+									has_major_surplus_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop increase:
+							incr_tribal_herdsmen_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no growth this cycle
+						}
+					}
+				}
+				if = {
+					limit = {
+						will_shrink_tribal_herdsmen_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+							modifier = {	# Poor Food supply (<100%) increases chances (since tribals starve first)
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = food_supply_poor
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Negative prestige makes tribals move away
+								factor = 1.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							modifier = {	# Province has way more pops currently than possible (3 more than max free space)
+								factor = 1.5
+								location = {
+									has_far_too_less_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop decrease:
+							decr_tribal_herdsmen_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no shrinking this cycle
+						}
+					}
+				}
+				# Tribal Craftsmen
+				if = {
+					limit = {
+						can_grow_tribal_craftsmen_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# Note: Tribals are spread out in the landscape, do not care about capitals
+							modifier = {	# Good Food supply (>100%) increases chances (since tribals really "grow" [=have babies])
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = food_supply_good
+								}
+							}
+							modifier = {	# Good Material supply (>100%) increases chances (since craftsmen need stuff to work with)
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = materials_supply_good
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 500
+									}
+								}
+							}
+							modifier = {	# Tribals are impressed by prestige, flock to prestigeous rulers' lands (stacks with above)
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 1000
+									}
+								}
+							}
+							modifier = {	# Also goes the other way round of course - negative prestige makes them shy away
+								factor = 0.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							# TERRAIN type influence (generic, shared between all pops):
+							modifier = {	# Farmlands: x1.0
+								factor = 1.1
+								location = {	# The province
+									terrain = farmlands
+								}
+							}
+							# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+							modifier = {	# Savanna, Forest & Hills: x0.9
+								factor = 0.9
+								location = {	# The province
+									OR = {
+										terrain = savanna
+										terrain = forest
+										terrain = hills
+									}
+								}
+							}
+							modifier = {	# Jungle, Mountains & Desert: x0.8
+								factor = 0.8
+								location = {	# The province
+									OR = {
+										terrain = jungle
+										terrain = mountain
+										terrain = desert
+									}
+								}
+							}
+							modifier = {	# Arctic: x0.7
+								factor = 0.7
+								location = {	# The province
+									terrain = arctic
+								}
+							}
+							# End of terrain type influence.
+							modifier = {	# Has lots more empty holding "space" than needed (at least 2 more than needed to grow [= min 3 free])
+								factor = 1.5
+								location = {
+									has_major_surplus_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop increase:
+							incr_tribal_craftsmen_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no growth this cycle
+						}
+					}
+				}
+				if = {
+					limit = {
+						will_shrink_tribal_craftsmen_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+							modifier = {	# Poor Food supply (<100%) increases chances (since tribals starve first)
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = food_supply_poor
+								}
+							}
+							modifier = {	# Poor Material supply (<100%) increases chances (since craftsmen lack stuff to work with)
+								factor = 1.5
+								location = {	# The province
+									has_province_flag = materials_supply_poor
+								}
+							}
+							# Note: Tribals are decentralized, no way to directly influence them via decisions
+							modifier = {	# Negative prestige makes tribals move away
+								factor = 1.5
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							modifier = {	# Province has way more pops currently than possible (3 more than max free space)
+								factor = 1.5
+								location = {
+									has_far_too_less_empty_holdings_for_tribals = yes
+								}
+							}
+							# Do pop decrease:
+							decr_tribal_craftsmen_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no shrinking this cycle
+						}
+					}
+				}
+			}
+			# Shudras
+			if = {
+				limit = {
+					can_grow_shudras_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						modifier = {	# Pops are drawn to capitals
+							factor = 1.5
+							is_capital = yes
+						}
+						modifier = {	# Good Food supply (>100%) increases chances (since shudras aren't rich, yet they care for food because only a rich/surplus area can feed them)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = food_supply_good
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 3
+							location = {	# The province
+								has_province_modifier = special_growth_incentive	# Shudras count as special
+							}
+						}
+						# TERRAIN type influence (generic, shared between all pops):
+						modifier = {	# Farmlands: x1.0
+							factor = 1.1
+							location = {	# The province
+								terrain = farmlands
+							}
+						}
+						# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+						modifier = {	# Savanna, Forest & Hills: x0.9
+							factor = 0.9
+							location = {	# The province
+								OR = {
+									terrain = savanna
+									terrain = forest
+									terrain = hills
+								}
+							}
+						}
+						modifier = {	# Jungle, Mountains & Desert: x0.8
+							factor = 0.8
+							location = {	# The province
+								OR = {
+									terrain = jungle
+									terrain = mountain
+									terrain = desert
+								}
+							}
+						}
+						modifier = {	# Arctic: x0.7
+							factor = 0.7
+							location = {	# The province
+								terrain = arctic
+							}
+						}
+						# End of terrain type influence.
+						modifier = {	# Has lots more rich pops than shudras (at least 2 more than needed)
+							factor = 1.5
+							OR = {
+								AND = {
+									NOR = {
+										has_building = ca_population_shudras_1
+										has_building = ct_population_shudras_1
+										has_building = tp_population_shudras_1
+										has_building = tb_population_shudras_1
+									}
+									holding_has_04_rich_pops_CTD_trigger = yes
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_shudras_2
+										has_building = ct_population_shudras_2
+										has_building = tp_population_shudras_2
+										has_building = tb_population_shudras_2
+									}
+									holding_has_06_rich_pops_CTD_trigger = yes
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_shudras_3
+										has_building = ct_population_shudras_3
+										has_building = tp_population_shudras_3
+										has_building = tb_population_shudras_3
+									}
+									holding_has_08_rich_pops_CTD_trigger = yes
+								}
+								AND = {
+									NOR = {
+										has_building = ca_population_shudras_4
+										has_building = ct_population_shudras_4
+										has_building = tp_population_shudras_4
+										has_building = tb_population_shudras_4
+									}
+									holding_has_10_rich_pops_CTD_trigger = yes
+								}
+								# Not possible for shudras_5, so no faster growth here
+							}
+						}
+						# Do pop increase:
+						incr_shudras_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no growth this cycle
+					}
+				}
+			}
+			if = {
+				limit = {
+					will_shrink_shudras_CTD_trigger = yes
+				}
+				random_list = {
+					25 = {
+						# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+						modifier = {	# Poor Food supply (<100%) increases chances (since shudras also tend to starve early)
+							factor = 1.5
+							location = {	# The province
+								has_province_flag = food_supply_poor
+							}
+						}
+						modifier = {	# Has made province decision "growth incentive"
+							factor = 0.5
+							location = {	# The province
+								has_province_modifier = special_growth_incentive
+							}
+						}
+						modifier = {	# Has less rich pops than needed for shudras (at least 2 [= 1 step] less than needed for stability)
+							factor = 1.5
+							OR = {
+								# Not possible for shudras_1, so no faster shrinking here
+								AND = {
+									OR = {
+										has_building = ca_population_shudras_2
+										has_building = ct_population_shudras_2
+										has_building = tp_population_shudras_2
+										has_building = tb_population_shudras_2
+									}
+									NOT = {
+										holding_has_02_rich_pops_CTD_trigger = yes
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_shudras_3
+										has_building = ct_population_shudras_3
+										has_building = tp_population_shudras_3
+										has_building = tb_population_shudras_3
+									}
+									NOT = {
+										holding_has_04_rich_pops_CTD_trigger = yes
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_shudras_4
+										has_building = ct_population_shudras_4
+										has_building = tp_population_shudras_4
+										has_building = tb_population_shudras_4
+									}
+									NOT = {
+										holding_has_06_rich_pops_CTD_trigger = yes
+									}
+								}
+								AND = {
+									OR = {
+										has_building = ca_population_shudras_5
+										has_building = ct_population_shudras_5
+										has_building = tp_population_shudras_5
+										has_building = tb_population_shudras_5
+									}
+									NOT = {
+										holding_has_08_rich_pops_CTD_trigger = yes
+									}
+								}
+							}
+						}
+						# Do pop decrease:
+						decr_shudras_holding_pop_CTD_effect = yes
+					}
+					75 = {
+						# no shrinking this cycle
+					}
+				}
+			}
+		}
+		
+		# Recalculate Province Population, Demand etc. - mostly also automatically done on growth/shrink, but for unexpected things such as pop "buildings" getting destroyed during sieges
+		recalc_province_pop_CTD_effect = yes
+	}
+}
+
+province_event = {	# Weather event - MONTHLY (!)
+	id = CTD.0103
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# First remove any current weather and set a new "previous weather" flag for that, also remove old flags of course...
+		if = {
+			limit = {
+				has_province_modifier = weather_mild
+			}
+			remove_province_modifier = weather_mild
+			# Remove old flags
+			clr_province_flag = previous_weather_none
+			clr_province_flag = previous_weather_hailstorms
+			# Set new flag
+			set_province_flag = previous_weather_mild
+		}
+		if = {
+			limit = {
+				has_province_modifier = weather_hailstorms
+			}
+			remove_province_modifier = weather_hailstorms
+			# Remove old flags
+			clr_province_flag = previous_weather_none
+			clr_province_flag = previous_weather_mild
+			# Set new flag
+			set_province_flag = previous_weather_hailstorms
+		}
+		# NOTE: more weathers here!
+		
+		# Next calculate which season it is in this part of the world
+		# 4 seasons - Europe & Other Regions:
+		if = {
+			limit = {
+				OR = {	# Note: These regions differ greatly and still get unqie weather patterns, they just share the seasons in general
+					region = world_europe
+					region = world_steppe
+					region = world_asia_minor
+					region = world_persia
+					AND = {
+						region = world_middle_east
+						NOT = {
+							province_id = 855	# "Khareef", the little bit of the monsoon that hits Oman around modern Salalah. Nowadays it is mostly located in the Dhofar region, but ingame Salalah lies in the Mahra province.
+						}
+					}
+					region = world_africa_north
+					region = custom_nubia	# Nubia belongs to North Africa in regards to climate (actually basically is always dry, but won't get an extra category ffs)
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 2	# March
+						NOT = {
+							month = 5	# June
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_summer
+				clr_province_flag = season_autumn
+				clr_province_flag = season_winter
+				# Set new season
+				set_province_flag = season_spring
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 5	# June
+						NOT = {
+							month = 8	# September
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring
+				clr_province_flag = season_autumn
+				clr_province_flag = season_winter
+				# Set new season
+				set_province_flag = season_summer
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 8	# September
+						NOT = {
+							month = 11	# December
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring
+				clr_province_flag = season_summer
+				clr_province_flag = season_winter
+				# Set new season
+				set_province_flag = season_autumn
+			}
+			if = {
+				limit = {
+					OR = {	# Has to be split because there is no logical connections between December and January
+						month = 11	# December
+						AND = {
+							month = 0	# January
+							NOT = {
+								month = 2	# March
+							}
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring
+				clr_province_flag = season_summer
+				clr_province_flag = season_autumn
+				# Set new season
+				set_province_flag = season_winter
+			}
+		}
+		# 6 seasons - India:
+		if = {
+			limit = {
+				OR = {
+					region = world_india
+					province_id = 855	# "Khareef", the little bit of the monsoon that hits Oman around modern Salalah. Nowadays it is mostly located in the Dhofar region, but ingame Salalah lies in the Mahra province.
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 2	# March
+						NOT = {
+							month = 4	# May
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_summer		# Very Hot
+				clr_province_flag = season_monsoon		# Monsoon
+				clr_province_flag = season_autumn		# Retreating Monsoon
+				clr_province_flag = season_pre_winter	# Also pleasant and mild
+				clr_province_flag = season_winter		# Cold, regional snow
+				# Set new season
+				set_province_flag = season_spring		# Pleasant and mild
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 4	# May
+						NOT = {
+							month = 6	# July
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring		# Pleasant and mild
+				clr_province_flag = season_monsoon		# Monsoon
+				clr_province_flag = season_autumn		# Retreating Monsoon
+				clr_province_flag = season_pre_winter	# Also pleasant and mild
+				clr_province_flag = season_winter		# Cold, regional snow
+				# Set new season
+				set_province_flag = season_summer		# Very Hot
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 6	# July
+						NOT = {
+							month = 8	# September
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring		# Pleasant and mild
+				clr_province_flag = season_summer		# Very Hot
+				clr_province_flag = season_autumn		# Retreating Monsoon
+				clr_province_flag = season_pre_winter	# Also pleasant and mild
+				clr_province_flag = season_winter		# Cold, regional snow
+				# Set new season
+				set_province_flag = season_monsoon		# Monsoon
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 8	# September
+						NOT = {
+							month = 10	# November
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring		# Pleasant and mild
+				clr_province_flag = season_summer		# Very Hot
+				clr_province_flag = season_monsoon		# Monsoon
+				clr_province_flag = season_pre_winter	# Also pleasant and mild
+				clr_province_flag = season_winter		# Cold, regional snow
+				# Set new season
+				set_province_flag = season_autumn		# Retreating Monsoon
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 10	# November
+						# ...to January - but would be wrong to checking for January, it is in the next year!
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring		# Pleasant and mild
+				clr_province_flag = season_summer		# Very Hot
+				clr_province_flag = season_monsoon		# Monsoon
+				clr_province_flag = season_autumn		# Retreating Monsoon
+				clr_province_flag = season_winter		# Cold, regional snow
+				# Set new season
+				set_province_flag = season_pre_winter	# Also pleasant and mild
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 0	# January
+						NOT = {
+							month = 2	# March
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring		# Pleasant and mild
+				clr_province_flag = season_summer		# Very Hot
+				clr_province_flag = season_monsoon		# Monsoon
+				clr_province_flag = season_autumn		# Retreating Monsoon
+				clr_province_flag = season_pre_winter	# Also pleasant and mild
+				# Set new season
+				set_province_flag = season_winter		# Cold, regional snow
+			}
+		}
+		# 1 season - Sahara:
+		if = {
+			limit = {
+				region = custom_sahara
+			}
+			set_province_flag = season_dry_season
+		}
+		# 2 seasons - East Africa:
+		if = {
+			limit = {
+				AND = {
+					region = world_africa_east
+					NOT = {
+						region = custom_nubia
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 3	# April
+						NOT = {
+							month = 9	# October
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_dry_season
+				# Set new season
+				set_province_flag = season_wet_season
+			}
+			if = {
+				limit = {
+					OR = {	# Has to be split because there is no logical connections between December and January
+						month = 9	# October
+						AND = {
+							month = 0	# January
+							NOT = {
+								month = 3	# April
+							}
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_wet_season
+				# Set new season
+				set_province_flag = season_dry_season
+			}
+		}
+		# 2 seasons - West Africa (different timing):
+		if = {
+			limit = {
+				AND = {
+					region = world_africa_west
+					NOT = {
+						region = custom_sahara
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 4	# May
+						NOT = {
+							month = 10	# November
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_dry_season
+				# Set new season
+				set_province_flag = season_wet_season
+			}
+			if = {
+				limit = {
+					OR = {	# Has to be split because there is no logical connections between December and January
+						month = 10	# November
+						AND = {
+							month = 0	# January
+							NOT = {
+								month = 4	# May
+							}
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_wet_season
+				# Set new season
+				set_province_flag = season_dry_season
+			}
+		}
+		# 4 seasons - Tibet (not equally long!):
+		if = {
+			limit = {
+				OR = {
+					region = world_himalayas
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 2	# March
+						NOT = {
+							month = 5	# June
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_monsoon
+				clr_province_flag = season_autumn
+				clr_province_flag = season_winter
+				# Set new season
+				set_province_flag = season_spring
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 5	# June
+						NOT = {
+							month = 9	# October
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring
+				clr_province_flag = season_autumn
+				clr_province_flag = season_winter
+				# Set new season
+				set_province_flag = season_monsoon
+			}
+			if = {
+				limit = {
+					AND = {
+						month = 9	# October
+						NOT = {
+							month = 11	# December
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring
+				clr_province_flag = season_monsoon
+				clr_province_flag = season_winter
+				# Set new season
+				set_province_flag = season_autumn
+			}
+			if = {
+				limit = {
+					OR = {	# Has to be split because there is no logical connections between December and January
+						month = 11	# December
+						AND = {
+							month = 0	# January
+							NOT = {
+								month = 2	# March
+							}
+						}
+					}
+				}
+				# Clear all other seasons
+				clr_province_flag = season_spring
+				clr_province_flag = season_monsoon
+				clr_province_flag = season_autumn
+				# Set new season
+				set_province_flag = season_winter
+			}
+		}
+		# Greenland would have only two seasons (winter & summer) - just saying...
+		
+		# Then add a new weather and calculate its effect on agriculture
+		random_list = {
+			50 = {
+				add_province_modifier = {
+					name = weather_mild
+					duration = -1
+				}
+				# Get the weather's effect on agriculture based on current season:
+				mild_weather_agriculture_effect_CTD_effect = yes
+			}
+			50 = {
+				add_province_modifier = {
+					name = weather_hailstorms
+					duration = -1
+				}
+				# Get the weather's effect on agriculture based on current season:
+				hailstorms_weather_agriculture_effect_CTD_effect = yes
+			}
+			# more weathers here
+		}
+		
+		# Repeat event precisely at start of month	- NOTE: Could also be used to count days to start events on specific days (e.g. set flag wants_to_celebrae_christmas, event checks for it in december and starts it after 24 days)
+		if = {
+			limit = {	# Months with 28 days (February only)
+				AND = {
+					month = 1	# February
+					NOT = {
+						month = 2	# March
+					}
+				}
+			}
+			repeat_event = {
+				id = CTD.0103
+				days = 28
+			}
+		}
+		if = {
+			limit = {	# Months with 30 days
+				OR = {
+					AND = {
+						month = 3	# April
+						NOT = {
+							month = 4	# May
+						}
+					}
+					AND = {
+						month = 5	# June
+						NOT = {
+							month = 6	# July
+						}
+					}
+					AND = {
+						month = 8	# September
+						NOT = {
+							month = 9	# October
+						}
+					}
+					AND = {
+						month = 10	# November
+						NOT = {
+							month = 11	# December
+						}
+					}
+				}
+			}
+			repeat_event = {
+				id = CTD.0103
+				days = 30
+			}
+		}
+		if = {
+			limit = {	# Months with 31 days
+				OR = {
+					AND = {
+						month = 0	# January
+						NOT = {
+							month = 1	# February
+						}
+					}
+					AND = {
+						month = 2	# March
+						NOT = {
+							month = 3	# April
+						}
+					}
+					AND = {
+						month = 4	# May
+						NOT = {
+							month = 5	# June
+						}
+					}
+					AND = {
+						month = 6	# July	(includes August!)
+						NOT = {
+							month = 8	# September
+						}
+					}
+					AND = {
+						month = 9	# October
+						NOT = {
+							month = 10	# November
+						}
+					}
+					month = 11	# December
+				}
+			}
+			repeat_event = {
+				id = CTD.0103
+				days = 31
+			}
+		}
+	}
+}
+
+character_event = {	# Short event to update supply bonus from holdings & (if can) give a starting pop when a new holding is built (a character event because fired from on_actions !)
+	id = CTD.0104
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From on_action
+	
+	immediate = {
+		FROM = {	# The new settlement
+			location = {	# The province
+				update_province_holding_supply_CTD_effect = yes
+			}
+			# Free Peasants #1 (we are in holding scope, it's fine)
+			if = {
+				limit = {
+					can_grow_peasants_CTD_trigger = yes
+				}
+				incr_peasants_holding_pop_CTD_effect = yes
+			}
+		}
+	}
+}
+
+province_event = {	# SINGLE-PROVINCE-EVENT - IMPORTANT: Re-calculation of holding supply, import priorities and start of import cycle - yearly
+	id = CTD.0105
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {	# This event basically cycles and every year calls all the other major maintenance events
+		any_province = {	# NOTE: Expensive
+			update_province_holding_supply_CTD_effect = yes
+			update_province_import_priority_CTD_effect = yes
+		}
+		update_global_import_priority_levels_CTD_effect = yes	# Expensive effect, use sparingly
+		# TESTING: Inform player
+		any_playable_ruler = {
+			limit = {
+				ai = no
+			}
+			character_event = {
+				id = TST.1
+			}
+		}
+		
+		# Start this years import/growth cycle:
+		any_province = {	# NOTE: Expensive
+			if = {
+				limit = {
+					has_province_flag = import_priority_10
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 1
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_9
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 2
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_8
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 3
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_7
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 4
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_6
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 5
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_5
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 6
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_4
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 7
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_3
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 8
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_2
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 9
+				}
+			}
+			if = {
+				limit = {
+					has_province_flag = import_priority_1
+				}
+				province_event = {
+					id = CTD.0106	# Import for Refining 1st
+					days = 10
+				}
+			}
+		}
+		# Determine unused/lacking tradegoods
+		province_event = {
+			id = CTD.0114
+			days = 92	# After the very end of the entire cycle, on January 1st of the following year
+		}
+		
+		# Repeat, but do not increase FROM stacks, to avoid overflow - which in this case (indefinite repetition) would otherwise be guaranteed!
+		repeat_event = {
+			id = CTD.0105
+			days = 365	# Repeat every year
+		}
+	}
+}
+
+province_event = {	# Import for Refining 1st - yearly, but does not repeat on its own
+	id = CTD.0106
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		add_province_modifier = {	# TESTING
+			name = yet_another_test_modifier
+			duration = -1
+			stacking = yes
+		}
+		
+		province_event = {
+			id = CTD.0107	# Import for Refining 2nd
+			days = 10
+		}
+	}
+}
+
+province_event = {	# Import for Refining 2nd - yearly, but does not repeat on its own
+	id = CTD.0107
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		province_event = {
+			id = CTD.0108	# Import for Refining 3rd
+			days = 10
+		}
+	}
+}
+
+province_event = {	# Import for Refining 3rd - yearly, but does not repeat on its own
+	id = CTD.0108
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		province_event = {
+			id = CTD.0109	# Import for Finalizing (All)
+			days = 10
+		}
+	}
+}
+
+province_event = {	# Import for Finalizing (All) - yearly, but does not repeat on its own
+	id = CTD.0109
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		province_event = {
+			id = CTD.0110	# Import for Consumption: Food
+			days = 10
+		}
+	}
+}
+
+province_event = {	# Import for Consumption: Food - yearly, but does not repeat on its own
+	id = CTD.0110
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		province_event = {
+			id = CTD.0111	# Import for Consumption: Material
+			days = 10
+		}
+	}
+}
+
+province_event = {	# Import for Consumption: Material - yearly, but does not repeat on its own
+	id = CTD.0111
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		province_event = {
+			id = CTD.0112	# Import for Consumption: Clothing
+			days = 10
+		}
+	}
+}
+
+province_event = {	# Import for Consumption: Clothing - yearly, but does not repeat on its own
+	id = CTD.0112
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		province_event = {
+			id = CTD.0113	# Import for Consumption: Luxuries
+			days = 10
+		}
+	}
+}
+
+province_event = {	# Import for Consumption: Luxuries - yearly, but does not repeat on its own
+	id = CTD.0113
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		province_event = {
+			id = CTD.0102	# Calculate population growth
+			days = 11	# IMPORTANT: 1 Day later than previous, because quarterly supply level check event needs to fire before!
+		}
+	}
+}
+
+province_event = {	# SINGLE-PROVINCE-EVENT Flag unused/lacking tradegoods - yearly, but does not repeat on its own
+	id = CTD.0114
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	hide_window = yes
+	
+	is_triggered_only = yes	# From event
+	
+	immediate = {
+		# Do stuff
+		
+		# TESTING: Inform player (to see if it indeed fires on January 1st)
+		any_playable_ruler = {
+			limit = {
+				ai = no
+			}
+			character_event = {
+				id = TST.1
+			}
+		}
+	}
+}

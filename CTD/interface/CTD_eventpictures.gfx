@@ -1,0 +1,14 @@
+spriteTypes = {
+	# Debug Stuff (hidden)
+	spriteType = {
+		name = "GFX_evt_debug_robot"
+		texturefile = "gfx/event_pictures/debug_robot.tga"
+		allwaystransparent = yes
+	}
+	# Normal Event Pictures:
+	spriteType = {
+		name = "GFX_evt_medieval_map"
+		texturefile = "gfx/event_pictures/authentic_medieval_map.tga"
+		allwaystransparent = yes
+	}
+}

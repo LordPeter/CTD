@@ -1,0 +1,77 @@
+### Events
+
+# Generic INVISIBLE EVENT:
+CTDDESC_0001;You shouldn't be seeing this. This is an automatic maintenance event. If you are seeing this, it means you are either an AI merely disguised as a human, or you have encountered a bug. Report this in the latter case, please refrain from killing humanity in the former.;;;;;;;;;;;;;x
+
+
+
+## Maintenance
+
+# Fake Mapmodes - Accidentally sent Steward returns:
+CTDDESC_0201;Your [Root.job_treasurer.GetJobTitle] has returned from his studies into cartography, and is at your disposal again.;;;;;;;;;;;;;x
+CTDOPTA_0201;I see...;;;;;;;;;;;;;x
+
+
+## Player Info
+
+# Famine:
+CTDDESC_0301;Famine has struck [target_famine_province.GetName]! The local populace is dying, the economy is down, defences are weakend. Unless the food supply improves, things are looking quite grim...;;;;;;;;;;;;;x
+CTDOPTA_0301;Alas!;;;;;;;;;;;;;x
+CTDDESC_0302;The famine in [target_famine_province.GetName] is over at last. The local population is recovering, and slowly life is returning to normal.;;;;;;;;;;;;;x
+CTDOPTA_0302;Finally!;;;;;;;;;;;;;x
+
+
+## Decisions
+
+# Edicts:
+CTDDESC_0402;Decide which edict to enact in [target_edict_province.GetName]. Every edict lasts for 5 years.;;;;;;;;;;;;;x
+CTDOPTA_0402;Distribute Land. (Peasant Growth Incentive);;;;;;;;;;;;;x
+CTDOPTB_0402;Reduce Taxes. (Artisans Growth Incentive);;;;;;;;;;;;;x
+CTDTOOL_0402;Will reduce local taxes by 10% for the duration!;;;;;;;;;;;;;x
+CTDOPTC_0402;Grant market rights. (Merchants Growth Incentive);;;;;;;;;;;;;x
+CTDOPTD_0402;Show more options.;;;;;;;;;;;;;x
+CTDDESC_0403;Decide which edict to enact in [target_edict_province.GetName]. Every edict lasts for 5 years.;;;;;;;;;;;;;x
+CTDOPTA_0403;Grant titles. (Elite Growth Incentive);;;;;;;;;;;;;x
+CTDOPTB_0403;Promote Diversification. (Special Growth Incentive);;;;;;;;;;;;;x
+CTDOPTC_0403;Show even more options.;;;;;;;;;;;;;x
+CTDDESC_0404;Decide which edict to enact in [target_edict_province.GetName]. Every edict lasts for 5 years.;;;;;;;;;;;;;x
+CTDOPTA_0404;Turn a blind eye. (Scum Growth Incentive);;;;;;;;;;;;;x
+CTDOPTB_0404;Enforce the law. (Scum §PRemoval§! Edict);;;;;;;;;;;;;x
+CTDOPTC_0404;On second thought, this is not necessary.;;;;;;;;;;;;;x
+CTDOPTD_0404;Show the first options again.;;;;;;;;;;;;;x
+
+# Features:
+CTDDESC_0411;You are about to establish a §YTrade Fair§! in [target_trade_fair_province.GetName]. It will allow the province to import goods from §Y5%§! further away than usual, and also boost its tradevalue.;;;;;;;;;;;;;x
+CTDOPTA_0411;Make it so!;;;;;;;;;;;;;x
+CTDOPTB_0411;No, I have changed my mind.;;;;;;;;;;;;;x
+CTDDESC_0413;You are about to grant the §YRight of Staple§! to [target_staple_right_province.GetName]. It will allow the province to import goods before other provinces without this feature, and also slightly boost its tradevalue.;;;;;;;;;;;;;x
+CTDOPTA_0413;Make it so!;;;;;;;;;;;;;x
+CTDOPTB_0413;No, I have changed my mind.;;;;;;;;;;;;;x
+
+# Fake Mapmodes:
+CTDDESC_0420;First, you must decide to which general area of knowledge the map should belong: Either Nature, Population or Trade.;;;;;;;;;;;;;x
+CTDOPTA_0420;Nature;;;;;;;;;;;;;x
+CTDOPTB_0420;Population §R(WIP)§!;;;;;;;;;;;;;x
+CTDOPTC_0420;Trade §R(WIP)§!;;;;;;;;;;;;;x
+CTDDESC_0421;Now, you must choose whether it should be about Terrain or Climate.;;;;;;;;;;;;;x
+CTDOPTA_0421;Terrain §R(WIP)§!;;;;;;;;;;;;;x
+CTDOPTB_0421;Climate;;;;;;;;;;;;;x
+CTDDESC_0425;Should the map focus on static, General Information or on the dynamic, Current Situation?;;;;;;;;;;;;;x
+CTDOPTA_0425;General Information;;;;;;;;;;;;;x
+CTDOPTB_0425;Current Situation;;;;;;;;;;;;;x
+CTDDESC_0440;Finally, which of these mapmodes do you want to see:;;;;;;;;;;;;;x
+CTDOPTA_0440;Climate Type;;;;;;;;;;;;;x
+CTDOPTB_0440;Seasonal System §R(WIP)§!;;;;;;;;;;;;;x
+CTDDESC_0441;Finally, which of these mapmodes do you want to see:;;;;;;;;;;;;;x
+CTDOPTA_0441;Season;;;;;;;;;;;;;x
+CTDOPTB_0441;Weather §R(WIP)§!;;;;;;;;;;;;;x
+
+
+
+# Slavery System:
+CTDDESC_0702;You.;;;;;;;;;;;;;x
+
+# testy:
+CTDDESC_greater;Greater.;;;;;;;;;;;;;x
+CTDDESC_equal;Equal.;;;;;;;;;;;;;x
+CTDDESC_lower;Lower.;;;;;;;;;;;;;x

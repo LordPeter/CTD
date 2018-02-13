@@ -1,0 +1,728 @@
+#AVIALABLE CUSTOM LOCALISATION KEYS
+#When adding new custom loc keys, add them to the appropriate category (or add a new one) and describe them. Name the strings "String_X" where x is its content.
+# To not display anything, you can use 'localisation_key = ""'
+
+## Import Priority Level
+# Food
+defined_text = {
+	name = Province_Import_Priority_Level_Check
+	
+	text = {
+		trigger = {
+			has_province_flag = import_priority_10
+		}
+		localisation_key = Import_Priority_10
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_9
+		}
+		localisation_key = Import_Priority_9
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_8
+		}
+		localisation_key = Import_Priority_8
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_7
+		}
+		localisation_key = Import_Priority_7
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_6
+		}
+		localisation_key = Import_Priority_6
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_5
+		}
+		localisation_key = Import_Priority_5
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_4
+		}
+		localisation_key = Import_Priority_4
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_3
+		}
+		localisation_key = Import_Priority_3
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_2
+		}
+		localisation_key = Import_Priority_2
+	}
+	text = {
+		trigger = {
+			has_province_flag = import_priority_1
+		}
+		localisation_key = Import_Priority_1
+	}
+}
+
+## Coloured Variables for supply/demand situation
+# Food
+defined_text = {
+	name = Coloured_Food
+	
+	text = {
+		trigger = {
+			has_province_flag = food_supply_good
+		}
+		localisation_key = Good_Food
+	}
+	text = {
+		trigger = {
+			has_province_flag = food_supply_mediocre
+		}
+		localisation_key = Mediocre_Food
+	}
+	text = {
+		trigger = {
+			has_province_flag = food_supply_poor
+		}
+		localisation_key = Poor_Food
+	}
+}
+# Clothing
+defined_text = {
+	name = Coloured_Clothing
+	
+	text = {
+		trigger = {
+			has_province_flag = clothing_supply_good
+		}
+		localisation_key = Good_Clothing
+	}
+	text = {
+		trigger = {
+			has_province_flag = clothing_supply_mediocre
+		}
+		localisation_key = Mediocre_Clothing
+	}
+	text = {
+		trigger = {
+			has_province_flag = clothing_supply_poor
+		}
+		localisation_key = Poor_Clothing
+	}
+}
+# Materials
+defined_text = {
+	name = Coloured_Materials
+	
+	text = {
+		trigger = {
+			has_province_flag = materials_supply_good
+		}
+		localisation_key = Good_Materials
+	}
+	text = {
+		trigger = {
+			has_province_flag = materials_supply_mediocre
+		}
+		localisation_key = Mediocre_Materials
+	}
+	text = {
+		trigger = {
+			has_province_flag = materials_supply_poor
+		}
+		localisation_key = Poor_Materials
+	}
+}
+# Luxuries
+defined_text = {
+	name = Coloured_Luxuries
+	
+	text = {
+		trigger = {
+			has_province_flag = luxuries_supply_good
+		}
+		localisation_key = Good_Luxuries
+	}
+	text = {
+		trigger = {
+			has_province_flag = luxuries_supply_mediocre
+		}
+		localisation_key = Mediocre_Luxuries
+	}
+	text = {
+		trigger = {
+			has_province_flag = luxuries_supply_poor
+		}
+		localisation_key = Poor_Luxuries
+	}
+}
+
+## Dynamic info about special province "features"
+# Special Features in general
+defined_text = {
+	name = Special_Economy_Features_Check
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_province_modifier = feature_staple_right
+				has_province_modifier = feature_trade_fair
+			}
+		}
+		localisation_key = No_Province_Feature
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_province_modifier = feature_staple_right
+				has_province_modifier = feature_trade_fair
+			}
+		}
+		localisation_key = Special_Features_Present
+	}
+}
+# Individual Features
+defined_text = {
+	name = Special_Province_Features
+	
+	text = {
+		trigger = {
+			AND = {
+				has_province_modifier = feature_staple_right
+				NOT = {
+					has_province_modifier = feature_trade_fair
+				}
+			}
+		}
+		localisation_key = Staple_Right_Feature
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_province_modifier = feature_trade_fair
+				NOT = {
+					has_province_modifier = feature_staple_right
+				}
+			}
+		}
+		localisation_key = Trade_Fair_Feature
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_province_modifier = feature_staple_right
+				has_province_modifier = feature_trade_fair
+			}
+		}
+		localisation_key = Both_Features
+	}
+}
+
+## Dynamic info about active growth incentive - only one can be active at once!
+# Growth Incentive
+defined_text = {
+	name = Active_Edict
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_province_modifier = peasants_growth_incentive
+				has_province_modifier = artisans_growth_incentive
+				has_province_modifier = merchants_growth_incentive
+				has_province_modifier = elite_growth_incentive
+				has_province_modifier = special_growth_incentive
+				has_province_modifier = scum_growth_incentive
+				has_province_modifier = enforced_law_on_scum
+				# Note: Just a reminder, tribals can not be influenced by edicts
+			}
+		}
+		localisation_key = No_Growth_Incentive
+	}
+	text = {
+		trigger = {
+			has_province_modifier = peasants_growth_incentive
+		}
+		localisation_key = Growth_Incentive_Peasants
+	}
+	text = {
+		trigger = {
+			has_province_modifier = artisans_growth_incentive
+		}
+		localisation_key = Growth_Incentive_Artisans
+	}
+	text = {
+		trigger = {
+			has_province_modifier = merchants_growth_incentive
+		}
+		localisation_key = Growth_Incentive_Merchants
+	}
+	text = {
+		trigger = {
+			has_province_modifier = elite_growth_incentive
+		}
+		localisation_key = Growth_Incentive_Elite
+	}
+	text = {
+		trigger = {
+			has_province_modifier = special_growth_incentive
+		}
+		localisation_key = Growth_Incentive_Special
+	}
+	text = {
+		trigger = {
+			has_province_modifier = scum_growth_incentive
+		}
+		localisation_key = Growth_Incentive_Scum
+	}
+	text = {
+		trigger = {
+			has_province_modifier = enforced_law_on_scum
+		}
+		localisation_key = Law_Enforced_On_Scum
+	}
+}
+
+## Hide Slavery if gamerule set to disabled
+# Slaves Population in the Main Modifier(s)
+defined_text = {
+	name = Major_Modifier_Slavery_Pops
+	
+	text = {
+		trigger = {
+			has_game_rule = {	# Only active if game rule is
+				name = slavery
+				value = enabled
+			}
+		}
+		localisation_key = Major_Modifier_Slavery_Pops_Show
+	}
+	text = {
+		trigger = {
+			has_game_rule = {	# Only active if game rule is
+				name = slavery
+				value = disabled
+			}
+		}
+		localisation_key = Major_Modifier_Slavery_Pops_Hide
+	}
+}
+
+## Dynamic Weather
+# Current Season
+defined_text = {
+	name = Current_Province_Season
+	
+	text = {
+		trigger = {
+			has_province_flag = season_spring
+		}
+		localisation_key = Season_Spring
+	}
+	text = {
+		trigger = {
+			has_province_flag = season_summer
+		}
+		localisation_key = Season_Summer
+	}
+	text = {
+		trigger = {
+			has_province_flag = season_autumn
+		}
+		localisation_key = Season_Autumn
+	}
+	text = {
+		trigger = {
+			has_province_flag = season_winter
+		}
+		localisation_key = Season_Winter
+	}
+	text = {
+		trigger = {
+			has_province_flag = season_monsoon
+		}
+		localisation_key = Season_Monsoon
+	}
+	text = {
+		trigger = {
+			has_province_flag = season_pre_winter
+		}
+		localisation_key = Season_Pre_Winter
+	}
+	text = {
+		trigger = {
+			has_province_flag = season_dry_season
+		}
+		localisation_key = Season_Dry_Season
+	}
+	text = {
+		trigger = {
+			has_province_flag = season_wet_season
+		}
+		localisation_key = Season_Wet_Season
+	}
+}
+# Previous Weather
+defined_text = {
+	name = Previous_Weather
+	
+	text = {
+		trigger = {	# Only at gamestart
+			has_province_flag = previous_weather_none
+		}
+		localisation_key = Previous_Weather_None
+	}
+	text = {
+		trigger = {
+			has_province_flag = previous_weather_mild
+		}
+		localisation_key = Previous_Weather_Mild
+	}
+	text = {
+		trigger = {
+			has_province_flag = previous_weather_hailstorms
+		}
+		localisation_key = Previous_Weather_Hailstorms
+	}
+	# more weathers here
+}
+# Province Seasonal System
+defined_text = {
+	name = Province_Seasonal_System
+	
+	text = {
+		trigger = {
+			OR = {	# Note: These regions differ greatly and still get unqie weather patterns, they just share the seasons in general
+				region = world_europe
+				region = world_steppe
+				region = world_asia_minor
+				region = world_persia
+				AND = {
+					region = world_middle_east
+					NOT = {
+						province_id = 855	# "Khareef", the little bit of the monsoon that hits Oman around modern Salalah. Nowadays it is mostly located in the Dhofar region, but ingame Salalah lies in the Mahra province.
+					}
+				}
+				region = world_africa_north
+				region = custom_nubia	# Nubia belongs to North Africa in regards to climate (actually basically is always dry, but won't get an extra category ffs)
+			}
+		}
+		localisation_key = System_4_seasons_Europe_Co
+	}
+	text = {
+		trigger = {
+			OR = {
+				region = world_india
+				province_id = 855	# "Khareef", the little bit of the monsoon that hits Oman around modern Salalah. Nowadays it is mostly located in the Dhofar region, but ingame Salalah lies in the Mahra province.
+			}
+		}
+		localisation_key = System_6_seasons_India
+	}
+	text = {
+		trigger = {
+			region = custom_sahara
+		}
+		localisation_key = System_1_seasons_Sahara
+	}
+	text = {
+		trigger = {
+			OR = {	# Both parts of Africa (only timing differs)
+				AND = {
+					region = world_africa_east
+					NOT = {
+						region = custom_nubia
+					}
+				}
+				AND = {
+					region = world_africa_west
+					NOT = {
+						region = custom_sahara
+					}
+				}
+			}
+		}
+		localisation_key = System_2_seasons_Africa
+	}
+	text = {
+		trigger = {
+			OR = {
+				region = world_himalayas
+			}
+		}
+		localisation_key = System_4_seasons_Tibet
+	}
+	# text = {
+		# trigger = {
+			# always = no	# Disabled for now
+		# }
+		# localisation_key = Climate_2_seasons_Greenland
+	# }
+}
+# Province Climate Type
+defined_text = {	# All in Koeppen abbreviation, not really readable here but actual localisation is
+	name = Province_Climate_Type
+	
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_A_f
+		}
+		localisation_key = Province_Climate_Koeppen_A_f
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_A_m
+		}
+		localisation_key = Province_Climate_Koeppen_A_m
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_A_w
+		}
+		localisation_key = Province_Climate_Koeppen_A_w
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_B_W_h
+		}
+		localisation_key = Province_Climate_Koeppen_B_W_h
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_B_W_k
+		}
+		localisation_key = Province_Climate_Koeppen_B_W_k
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_B_S_h
+		}
+		localisation_key = Province_Climate_Koeppen_B_S_h
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_B_S_k
+		}
+		localisation_key = Province_Climate_Koeppen_B_S_k
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_C_s_a
+		}
+		localisation_key = Province_Climate_Koeppen_C_s_a
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_C_s_b
+		}
+		localisation_key = Province_Climate_Koeppen_C_s_b
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_C_w_a
+		}
+		localisation_key = Province_Climate_Koeppen_C_w_a
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_C_w_b
+		}
+		localisation_key = Province_Climate_Koeppen_C_w_b
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_C_f_a
+		}
+		localisation_key = Province_Climate_Koeppen_C_f_a
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_C_f_b
+		}
+		localisation_key = Province_Climate_Koeppen_C_f_b
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_s_a
+		}
+		localisation_key = Province_Climate_Koeppen_D_s_a
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_s_b
+		}
+		localisation_key = Province_Climate_Koeppen_D_s_b
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_s_c
+		}
+		localisation_key = Province_Climate_Koeppen_D_s_c
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_w_b
+		}
+		localisation_key = Province_Climate_Koeppen_D_w_b
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_w_c
+		}
+		localisation_key = Province_Climate_Koeppen_D_w_c
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_f_a
+		}
+		localisation_key = Province_Climate_Koeppen_D_f_a
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_f_b
+		}
+		localisation_key = Province_Climate_Koeppen_D_f_b
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_D_f_c
+		}
+		localisation_key = Province_Climate_Koeppen_D_f_c
+	}
+	text = {
+		trigger = {
+			has_province_flag = climate_koeppen_E_T
+		}
+		localisation_key = Province_Climate_Koeppen_E_T
+	}
+}
+# Effect on Agriculture
+defined_text = {
+	name = Weather_Agriculture_Effect
+	
+	text = {
+		trigger = {
+			has_province_flag = weather_agriculture_effect_good
+		}
+		localisation_key = Agriculture_Effect_Good
+	}
+	text = {
+		trigger = {
+			has_province_flag = weather_agriculture_effect_neutral
+		}
+		localisation_key = Agriculture_Effect_Neutral
+	}
+	text = {
+		trigger = {
+			has_province_flag = weather_agriculture_effect_bad
+		}
+		localisation_key = Agriculture_Effect_Bad
+	}
+	text = {
+		trigger = {
+			has_province_flag = weather_agriculture_effect_catastrophic
+		}
+		localisation_key = Agriculture_Effect_Catastrophic
+	}
+}
+
+
+## Helpers to show fulfilled/not fulfilled conditions in slave law via coloured asterisk (the little star thingy) - actually negative ones aren't asterisks, but nevermind...
+# Condition X: All individual conditions fulfilled
+defined_text = {
+	name = Slave_Law_Condition_X_All
+	
+	text = {
+		trigger = {
+			holder_scope = {
+				AND = {
+					can_abolish_slavery_CTD_trigger = yes
+					has_law = slavery_law_1
+					war = no
+				}
+			}
+		}
+		localisation_key = Asterisk_Yes
+	}
+	text = {
+		trigger = {
+			holder_scope = {
+				NAND = {
+					can_abolish_slavery_CTD_trigger = yes
+					has_law = slavery_law_1
+					war = no
+				}
+			}
+		}
+		localisation_key = Asterisk_No
+	}
+}
+# Condition 1: Custom trigger
+defined_text = {
+	name = Slave_Law_Condition_1_Custom
+	
+	text = {
+		trigger = {
+			holder_scope = {
+				can_abolish_slavery_CTD_trigger = yes
+			}
+		}
+		localisation_key = Asterisk_Yes
+	}
+	text = {
+		trigger = {
+			holder_scope = {
+				can_abolish_slavery_CTD_trigger = no
+			}
+		}
+		localisation_key = Asterisk_No
+	}
+}
+# Condition 2: Has middle law
+defined_text = {
+	name = Slave_Law_Condition_2_Law
+	
+	text = {
+		trigger = {
+			holder_scope = {
+				has_law = slavery_law_1
+			}
+		}
+		localisation_key = Asterisk_Yes
+	}
+	text = {
+		trigger = {
+			holder_scope = {
+				NOT = {
+					has_law = slavery_law_1
+				}
+			}
+		}
+		localisation_key = Asterisk_No
+	}
+}
+# Condition 3: Is at peace
+defined_text = {
+	name = Slave_Law_Condition_3_Peace
+	
+	text = {
+		trigger = {
+			holder_scope = {
+				war = no
+			}
+		}
+		localisation_key = Asterisk_Yes
+	}
+	text = {
+		trigger = {
+			holder_scope = {
+				war = yes
+			}
+		}
+		localisation_key = Asterisk_No
+	}
+}

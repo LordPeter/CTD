@@ -1,0 +1,92 @@
+#### Event Modifiers
+
+### MAJOR Modifiers
+
+province_economy_major_modifier;Province Economy;;;;;;;;;;;;;x
+nonesense_a;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;;;;;;;;;;;;;x
+province_economy_major_modifier_desc;§FPOPULATION§!\nTotal Population: [province_population_total.GetValue]\nPeasants: [province_population_peasants.GetValue] / Artisans: [province_population_artisans.GetValue] / Merchants: [province_population_merchants.GetValue] / Elite: [province_population_elite.GetValue] / Special: [province_population_special.GetValue] / Scum: [province_population_scum.GetValue] / Tribals: [province_population_tribals.GetValue][Major_Modifier_Slavery_Pops]\n---\n§YActive Edict§!: [Active_Edict]\n---\n§FCONSUMPTION§!\n[Coloured_Food]: [province_demand_food.GetValue]/[province_supply_food.GetValue]\n[Coloured_Clothing]: [province_demand_clothing.GetValue]/[province_supply_clothing.GetValue]\n[Coloured_Materials]: [province_demand_materials.GetValue]/[province_supply_materials.GetValue]\n[Coloured_Luxuries]: [province_demand_luxuries.GetValue]/[province_supply_luxuries.GetValue]\n---\n§FSPECIAL FEATURES§!\n[Special_Economy_Features_Check]\n---\n§FTRADE§!\nImport Priority: [Province_Import_Priority_Level_Check] ([province_import_priority.GetValue])\nTradevalue from Import/Export: §Y[province_import_export_tradevalue.GetValue]§!\n---\n§FRESOURCE CAPS§!\n§CMining§!: [province_cap_mining.GetValue] / §GAgriculture§!: [province_cap_agriculture.GetValue] / §YLivestock§!: [province_cap_livestock.GetValue] / §BRefined Goods§!: [province_cap_refined.GetValue] / §PFinalized Goods§!: [province_cap_finalized.GetValue]\n---\nExplanation here.;;;;;;;;;;;;;x
+thisisjustheretobeabletoeditbetterinnotepad++muhahahaprovince_economy_major_modifier_descmuhaha;POPULATION\nTotal Population: [province_population_total.GetValue]\nPeasants: [province_population_peasants.GetValue] / Artisans: [province_population_artisans.GetValue] / Merchants: [province_population_merchants.GetValue] / Elite: [province_population_elite.GetValue] / Special: [province_population_special.GetValue] / Scum: [province_population_scum.GetValue] / Slaves: [province_population_slaves.GetValue]\nCONSUMPTION\nFood: [province_supply_food.GetValue][Population_As_Numbers]/[province_demand_food.GetValue]\nClothing: [province_supply_clothing.GetValue]/[province_demand_clothing.GetValue]\nMaterials: [province_supply_materials.GetValue]/[province_demand_materials.GetValue]\nLuxuries: [province_supply_luxuries.GetValue]/[province_demand_luxuries.GetValue]\nExplanation here.asants: [province_population_peasants.GetValue] / Artisans: [province_population_artisans.GetValue] /lue / Artisans: [province_population_artisans.GetValue]lue / Artisans: [province_population_artisans.GetValue]/ Artisans: [province_population_artisans.GetValue] / Animals() [province_cap_animals.GetValue] / Animals() [province_cap_animals.GetValue] / Animals() [province_cap_animals.GetValue] / Animals() [province_cap_animals.GetValue];;;;;;;;;;;;;x
+province_economy_major_modifier_famine;Province Economy;;;;;;;;;;;;;x
+thisisjustheretobeabletoeditbetterinnotepad++muhahahaprovince_economy_major_modifier_descmuhahanonesenseV2;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;;;;;;;;;;;;;x
+province_economy_major_modifier_famine_desc;§YThis province is currently experiencing a famine!§!\n---\n§FPOPULATION§!\nTotal Population: [province_population_total.GetValue]\nPeasants: [province_population_peasants.GetValue] / Artisans: [province_population_artisans.GetValue] / Merchants: [province_population_merchants.GetValue] / Elite: [province_population_elite.GetValue] / Special: [province_population_special.GetValue] / Scum: [province_population_scum.GetValue] / Tribals: [province_population_tribals.GetValue][Major_Modifier_Slavery_Pops]\n---\n§YActive Edict§!: [Active_Edict]\n---\n§FCONSUMPTION§!\n[Coloured_Food]: [province_demand_food.GetValue]/[province_supply_food.GetValue]\n[Coloured_Clothing]: [province_demand_clothing.GetValue]/[province_supply_clothing.GetValue]\n[Coloured_Materials]: [province_demand_materials.GetValue]/[province_supply_materials.GetValue]\n[Coloured_Luxuries]: [province_demand_luxuries.GetValue]/[province_supply_luxuries.GetValue]\n---\n§FSPECIAL FEATURES§!\n[Special_Economy_Features_Check]\n---\n§FTRADE§!\nImport Priority: [Province_Import_Priority_Level_Check] ([province_import_priority.GetValue])\nTradevalue from Import/Export: §Y[province_import_export_tradevalue.GetValue]§!\n---\n§FRESOURCE CAPS§!\n§CMining§!: [province_cap_mining.GetValue] / §GAgriculture§!: [province_cap_agriculture.GetValue] / §YLivestock§!: [province_cap_livestock.GetValue] / §BRefined Goods§!: [province_cap_refined.GetValue] / §PFinalized Goods§!: [province_cap_finalized.GetValue]\n---\nExplanation here.;;;;;;;;;;;;;x
+thisisjustheretobeabletoeditbetterinnotepad++muhahahaprovince_economy_major_modifier_descmuhaha;POPULATION\nTotal Population: [province_population_total.GetValue]\nPeasants: [province_population_peasants.GetValue] / Artisans: [province_population_artisans.GetValue] / Merchants: [province_population_merchants.GetValue] / Elite: [province_population_elite.GetValue] / Special: [province_population_special.GetValue] / Scum: [province_population_scum.GetValue] / Slaves: [province_population_slaves.GetValue]\nCONSUMPTION\nFood: [province_supply_food.GetValue][Population_As_Numbers]/[province_demand_food.GetValue]\nClothing: [province_supply_clothing.GetValue]/[province_demand_clothing.GetValue]\nMaterials: [province_supply_materials.GetValue]/[province_demand_materials.GetValue]\nLuxuries: [province_supply_luxuries.GetValue]/[province_demand_luxuries.GetValue]\nExplanation here.asants: [province_population_peasants.GetValue] / Artisans: [province_population_artisans.GetValue] /asants: [province_population_peasants.GetValue] / Artisans: [province_population_artisans.GetValue] // Artisans: [province_population_artisans.GetValue]/ Artisans: [province_population_artisans.GetValue]/ Artisans: [province_population_artisans.GetValue] / Animals() [province_cap_animals.GetValue] / Animals() [province_cap_animals.GetValue] / Animals() [province_cap_animals.GetValue] / Animals() [province_cap_animals.GetValue] / Animals() [province_cap_animals.GetValue];;;;;;;;;;;;;x
+
+### Edicts
+## Growth Incentives:
+# most are hidden, but this one is visible in the holding!
+artisans_growth_incentive;"Taxes Reduced";;;;;;;;;;;;;x
+
+### Province Features
+## Natural Features:
+natural_feature_deep_woods;Natural Feature: Deep Woods;;;;;;;;;;;;;x
+natural_feature_deep_woods_desc;";;;;;;;;;;;;;x
+natural_feature_swamps;Natural Feature: Swamps;;;;;;;;;;;;;x
+natural_feature_swamps_desc;";;;;;;;;;;;;;x
+natural_feature_mangroves;Natural Feature: Mangroves;;;;;;;;;;;;;x
+natural_feature_mangroves_desc;";;;;;;;;;;;;;x
+natural_feature_heath;Natural Feature: Heath;;;;;;;;;;;;;x
+natural_feature_heath_desc;";;;;;;;;;;;;;x
+natural_feature_volcano;Natural Feature: Volcano;;;;;;;;;;;;;x
+natural_feature_volcano_desc;";;;;;;;;;;;;;x
+natural_feature_mountain_pass;Natural Feature: Mountain Pass;;;;;;;;;;;;;x
+natural_feature_mountain_pass_desc;";;;;;;;;;;;;;x
+natural_feature_hot_springs;Natural Feature: Hot Springs;;;;;;;;;;;;;x
+natural_feature_hot_springs_desc;";;;;;;;;;;;;;x
+natural_feature_estuary;Natural Feature: Estuary;;;;;;;;;;;;;x
+natural_feature_estuary_desc;";;;;;;;;;;;;;x
+natural_feature_natural_harbour;Natural Feature: Natural Harbour;;;;;;;;;;;;;x
+natural_feature_natural_harbour_desc;";;;;;;;;;;;;;x
+natural_feature_coral_reefs;Natural Feature: Coral Reefs;;;;;;;;;;;;;x
+natural_feature_coral_reefs_desc;";;;;;;;;;;;;;x
+natural_feature_flood_plains;Natural Feature: Flood Plains;;;;;;;;;;;;;x
+natural_feature_flood_plains_desc;";;;;;;;;;;;;;x
+natural_feature_salt_pans;Natural Feature: Salt Pans;;;;;;;;;;;;;x
+natural_feature_salt_pans_desc;";;;;;;;;;;;;;x
+natural_feature_caves;Natural Feature: Caves;;;;;;;;;;;;;x
+natural_feature_caves_desc;";;;;;;;;;;;;;x
+natural_feature_glaciers;Natural Feature: Glaciers;;;;;;;;;;;;;x
+natural_feature_glaciers_desc;";;;;;;;;;;;;;x
+
+## Weather:
+weather_mild;Weather: Mild;;;;;;;;;;;;;x
+weather_mild_desc;The weather is unusually mild and forgiving, a pleasant mixture of sun, clouds and rain.\n(Previous weather: [Previous_Weather])\nCurrent Season: [Current_Province_Season]\n(Seasonal System: [Province_Seasonal_System])\nProvince Climate: [Province_Climate_Type]\nEffect on agriculture: [Weather_Agriculture_Effect]\n;;;;;;;;;;;;;x
+weather_hailstorms;Weather: Hailstorms;;;;;;;;;;;;;x
+weather_hailstorms_desc;Severe hailstorms have struck this province, wreaking havok on crops especially.\n(Previous weather: [Previous_Weather])\nCurrent Season: [Current_Province_Season]\n(Seasonal System: [Province_Seasonal_System])\nProvince Climate: [Province_Climate_Type]\nEffect on agriculture: [Weather_Agriculture_Effect]\n;;;;;;;;;;;;;x
+
+## Slavery
+slave_hunt_province;Slave Hunts;;;;;;;;;;;;;x
+slave_hunt_province_desc;Enslaved Amount: §Y[province_slaves_production.GetValue]§! (20% of province total population)\nThis province is regularily raided by slavers, its unlucky population abducted.\n(Note that fractions of the above variable are ignored by gameplay.);;;;;;;;;;;;;x
+potential_slave_origin_province;Potential Slave Origin;;;;;;;;;;;;;x
+potential_slave_origin_province_desc;This province could become a primary origin of freshly caught slaves, if a nearby hunt yields slaves.;;;;;;;;;;;;;x
+slave_origin_province;Slave Origin;;;;;;;;;;;;;x
+slave_origin_province_desc;Slave Trade: §Y[province_slaves_traded_away.GetValue]§!/§Y[province_slaves_brought_to.GetValue]§!\nNearby slave raids have yielded slaves that are brought to this province, to be from here on traded further away.;;;;;;;;;;;;;x
+slave_trade_province;Slave Trade;;;;;;;;;;;;;x
+slave_trade_province_desc;Slave Trade: §Y[province_slaves_traded_away.GetValue]§!/§Y[province_slaves_traded_to.GetValue]§!\nThis province is a hub of the slave trade: Though slaves might not be caught in its direct vicinity, they are brought from far away to this place, to be traded away even further.;;;;;;;;;;;;;x
+slave_usage_province;Slave Usage;;;;;;;;;;;;;x
+slave_usage_province_desc;Slave Pops: §Y[province_population_slaves.GetValue]§!\nSlaves are brought to work in this province. They need little supply and can greatly help with building construction, but beware their wrath if they might revolt...;;;;;;;;;;;;;x
+
+
+### Tradegoods
+## Dummies:
+tradegood_slot_dummy_resource_1;Empty Slot: Resource;;;;;;;;;;;;;x
+tradegood_slot_dummy_resource_1_desc;This province could produce another type of resource! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_resource_2;Empty Slot: Resource;;;;;;;;;;;;;x
+tradegood_slot_dummy_resource_2_desc;This province could produce another type of resource! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_resource_3;Empty Slot: Resource;;;;;;;;;;;;;x
+tradegood_slot_dummy_resource_3_desc;This province could produce another type of resource! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_refined_1;Empty Slot: Refined;;;;;;;;;;;;;x
+tradegood_slot_dummy_refined_1_desc;This province could produce another type of refined tradegood! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_refined_2;Empty Slot: Refined;;;;;;;;;;;;;x
+tradegood_slot_dummy_refined_2_desc;This province could produce another type of refined tradegood! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_refined_3;Empty Slot: Refined;;;;;;;;;;;;;x
+tradegood_slot_dummy_refined_3_desc;This province could produce another type of refined tradegood! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_finalized_1;Empty Slot: Finalized;;;;;;;;;;;;;x
+tradegood_slot_dummy_finalized_1_desc;This province could produce another type of finalized tradegood! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_finalized_2;Empty Slot: Finalized;;;;;;;;;;;;;x
+tradegood_slot_dummy_finalized_2_desc;This province could produce another type of finalized tradegood! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+tradegood_slot_dummy_finalized_3;Empty Slot: Finalized;;;;;;;;;;;;;x
+tradegood_slot_dummy_finalized_3_desc;This province could produce another type of finalized tradegood! Use the province decision to evaluate possible options.;;;;;;;;;;;;;x
+## Resources:
+# Mining
+tradegood_mining_gold_ore;Gold Ore\nUsed/Total Amount: 29/30;;;;;;;;;;;;;x
+tradegood_mining_gold_ore_desc;Supply (per unit): 0.1 Materials\nGold Ore is blabla.\n-Production-\nTrade range: §MShort§!\nProcessed into: §YGold§!;;;;;;;;;;;;;x

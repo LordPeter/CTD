@@ -1,0 +1,4700 @@
+#################################
+# CTD population scripted effects
+#
+# by LordPeter
+#################################
+
+
+### Set/remove special population demand
+## These MUST be called in a province scope to work properly
+# They add/subtract the demand of one pop of a certain population (for multiple pops, has to be repeated). Originally because certain pops are indistinguishable on province scope.
+
+# Peasants: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
+add_one_peasants_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1
+	}
+	# 0 Luxuries
+}
+remove_one_peasants_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1
+	}
+	# 0 Luxuries
+}
+
+# Artisans: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
+add_one_artisans_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 2
+	}
+	# 0 Luxuries
+}
+remove_one_artisans_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -2
+	}
+	# 0 Luxuries
+}
+
+# Merchants: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
+add_one_merchants_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = 1
+	}
+}
+remove_one_merchants_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = -1
+	}
+}
+
+# Elite: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
+add_one_elite_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = 2
+	}
+}
+remove_one_elite_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = -2
+	}
+}
+
+# Soldiers:
+add_one_soldiers_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = 0.5
+	}
+}
+remove_one_soldiers_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = -0.5
+	}
+}
+
+# Patricians:
+add_one_patricians_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = 1
+	}
+}
+remove_one_patricians_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = -1
+	}
+}
+
+# Clercis:
+add_one_clerics_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = 1
+	}
+}
+remove_one_clerics_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = -1
+	}
+}
+
+# Scum: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
+add_one_scum_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = 0.5
+	}
+}
+remove_one_scum_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = -0.5
+	}
+}
+
+# Tribal Foragers:
+add_one_tribal_foragers_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 0.5
+	}
+	# 0 Luxuries
+}
+remove_one_tribal_foragers_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -0.5
+	}
+	# 0 Luxuries
+}
+
+# Tribal Farmers:
+add_one_tribal_farmers_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1
+	}
+	# 0 Luxuries
+}
+remove_one_tribal_farmers_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1
+	}
+	# 0 Luxuries
+}
+
+# Tribal Herdsmen:
+add_one_tribal_herdsmen_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 1
+	}
+	# 0 Luxuries
+}
+remove_one_tribal_herdsmen_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -1
+	}
+	# 0 Luxuries
+}
+
+# Tribal Craftsmen:
+add_one_tribal_craftsmen_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 2
+	}
+	# 0 Luxuries
+}
+remove_one_tribal_craftsmen_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -2
+	}
+	# 0 Luxuries
+}
+
+# Shudras:
+add_one_shudras_demand = {	# Shudras counted as "special" on province level, so they also need individual demand setting
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 0.5
+	}
+	# 0 Luxuries
+}
+remove_one_shudras_demand = {	# Shudras counted as "special" on province level, so they also need individual demand setting
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -0.5
+	}
+	# 0 Luxuries
+}
+
+# Slaves are *only* done in "recalc_province_pop_CTD_effect" - here just for reference:
+# 1 Food
+# 0.5 Clothing
+# 0.5 Materials
+# 0 Luxuries
+
+
+### Recalculate Province Population
+## This MUST be called in a province scope to work properly
+# Very important: This calculates the correct province population based on all population buildings (+slaves), and also set the demand of the population - rather costly now though, don't use too often!
+
+recalc_province_pop_CTD_effect = {
+	# Reset all first
+	set_variable = {
+		which = province_population_total
+		value = 0
+	}
+	set_variable = {
+		which = province_population_peasants
+		value = 0
+	}
+	set_variable = {
+		which = province_population_artisans
+		value = 0
+	}
+	set_variable = {
+		which = province_population_merchants
+		value = 0
+	}
+	set_variable = {
+		which = province_population_elite
+		value = 0
+	}
+	set_variable = {
+		which = province_population_special
+		value = 0
+	}
+	set_variable = {
+		which = province_population_scum
+		value = 0
+	}
+	set_variable = {
+		which = province_population_tribals
+		value = 0
+	}
+	# IMPORTANT: NOT slaves! They are set per province and thus already right; if they'd be reset they would be lost!!!
+	# Also reset demand
+	set_variable = {
+		which = province_demand_food
+		value = 0
+	}
+	set_variable = {
+		which = province_demand_clothing
+		value = 0
+	}
+	set_variable = {
+		which = province_demand_materials
+		value = 0
+	}
+	set_variable = {
+		which = province_demand_luxuries
+		value = 0
+	}
+	# Now increase the individual types to their correct amount
+	any_province_holding = {
+		# Peasants
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_peasants_1
+						has_building = ct_population_peasants_1
+						has_building = tp_population_peasants_1
+						has_building = tb_population_peasants_1
+					}
+					NOR = {
+						has_building = ca_population_peasants_2
+						has_building = ct_population_peasants_2
+						has_building = tp_population_peasants_2
+						has_building = tb_population_peasants_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_peasants
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_peasants_2
+						has_building = ct_population_peasants_2
+						has_building = tp_population_peasants_2
+						has_building = tb_population_peasants_2
+					}
+					NOR = {
+						has_building = ca_population_peasants_3
+						has_building = ct_population_peasants_3
+						has_building = tp_population_peasants_3
+						has_building = tb_population_peasants_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_peasants
+					value = 2
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_peasants_3
+						has_building = ct_population_peasants_3
+						has_building = tp_population_peasants_3
+						has_building = tb_population_peasants_3
+					}
+					NOR = {
+						has_building = ca_population_peasants_4
+						has_building = ct_population_peasants_4
+						has_building = tp_population_peasants_4
+						has_building = tb_population_peasants_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_peasants
+					value = 3
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_peasants_4
+						has_building = ct_population_peasants_4
+						has_building = tp_population_peasants_4
+						has_building = tb_population_peasants_4
+					}
+					NOR = {
+						has_building = ca_population_peasants_5
+						has_building = ct_population_peasants_5
+						has_building = tp_population_peasants_5
+						has_building = tb_population_peasants_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_peasants
+					value = 4
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = ca_population_peasants_5
+					has_building = ct_population_peasants_5
+					has_building = tp_population_peasants_5
+					has_building = tb_population_peasants_5
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_peasants
+					value = 5
+				}
+			}
+		}
+		# Artisans
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_artisans_1
+						has_building = ct_population_artisans_1
+						has_building = tp_population_artisans_1
+						has_building = tb_population_artisans_1
+					}
+					NOR = {
+						has_building = ca_population_artisans_2
+						has_building = ct_population_artisans_2
+						has_building = tp_population_artisans_2
+						has_building = tb_population_artisans_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_artisans
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_artisans_2
+						has_building = ct_population_artisans_2
+						has_building = tp_population_artisans_2
+						has_building = tb_population_artisans_2
+					}
+					NOR = {
+						has_building = ca_population_artisans_3
+						has_building = ct_population_artisans_3
+						has_building = tp_population_artisans_3
+						has_building = tb_population_artisans_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_artisans
+					value = 2
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_artisans_3
+						has_building = ct_population_artisans_3
+						has_building = tp_population_artisans_3
+						has_building = tb_population_artisans_3
+					}
+					NOR = {
+						has_building = ca_population_artisans_4
+						has_building = ct_population_artisans_4
+						has_building = tp_population_artisans_4
+						has_building = tb_population_artisans_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_artisans
+					value = 3
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = ca_population_artisans_4
+					has_building = ct_population_artisans_4
+					has_building = tp_population_artisans_4
+					has_building = tb_population_artisans_4
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_artisans
+					value = 4
+				}
+			}
+		}
+		# Merchants
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_merchants_1
+						has_building = ct_population_merchants_1
+						has_building = tp_population_merchants_1
+						has_building = tb_population_merchants_1
+					}
+					NOR = {
+						has_building = ca_population_merchants_2
+						has_building = ct_population_merchants_2
+						has_building = tp_population_merchants_2
+						has_building = tb_population_merchants_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_merchants
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_merchants_2
+						has_building = ct_population_merchants_2
+						has_building = tp_population_merchants_2
+						has_building = tb_population_merchants_2
+					}
+					NOR = {
+						has_building = ca_population_merchants_3
+						has_building = ct_population_merchants_3
+						has_building = tp_population_merchants_3
+						has_building = tb_population_merchants_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_merchants
+					value = 2
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = ca_population_merchants_3
+					has_building = ct_population_merchants_3
+					has_building = tp_population_merchants_3
+					has_building = tb_population_merchants_3
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_merchants
+					value = 3
+				}
+			}
+		}
+		# Elite
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_elite_1
+						has_building = ct_population_elite_1
+						has_building = tp_population_elite_1
+						has_building = tb_population_elite_1
+					}
+					NOR = {
+						has_building = ca_population_elite_2
+						has_building = ct_population_elite_2
+						has_building = tp_population_elite_2
+						has_building = tb_population_elite_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_elite
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = ca_population_elite_2
+					has_building = ct_population_elite_2
+					has_building = tp_population_elite_2
+					has_building = tb_population_elite_2
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_elite
+					value = 2
+				}
+			}
+		}
+		# Soldiers
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_1
+					NOT = {
+						has_building = ca_population_soldiers_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 1
+				}
+				add_one_soldiers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_2
+					NOT = {
+						has_building = ca_population_soldiers_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 2
+				}
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_3
+					NOT = {
+						has_building = ca_population_soldiers_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 3
+				}
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_4
+					NOT = {
+						has_building = ca_population_soldiers_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 4
+				}
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				has_building = ca_population_soldiers_5
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 5
+				}
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+				add_one_soldiers_demand = yes
+			}
+		}
+		# Patricians
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_1
+					NOT = {
+						has_building = ct_population_patricians_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 1
+				}
+				add_one_patricians_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_2
+					NOT = {
+						has_building = ct_population_patricians_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 2
+				}
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_3
+					NOT = {
+						has_building = ct_population_patricians_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 3
+				}
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_4
+					NOT = {
+						has_building = ct_population_patricians_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 4
+				}
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_5
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 5
+				}
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+				add_one_patricians_demand = yes
+			}
+		}
+		# Clerics
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_1
+					NOT = {
+						has_building = tp_population_clerics_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 1
+				}
+				add_one_clerics_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_2
+					NOT = {
+						has_building = tp_population_clerics_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 2
+				}
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_3
+					NOT = {
+						has_building = tp_population_clerics_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 3
+				}
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_4
+					NOT = {
+						has_building = tp_population_clerics_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 4
+				}
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				has_building = tp_population_clerics_5
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 5
+				}
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+				add_one_clerics_demand = yes
+			}
+		}
+		# Scum
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_scum_1
+						has_building = ct_population_scum_1
+						has_building = tp_population_scum_1
+					}
+					NOR = {
+						has_building = ca_population_scum_2
+						has_building = ct_population_scum_2
+						has_building = tp_population_scum_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_scum
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_scum_2
+						has_building = ct_population_scum_2
+						has_building = tp_population_scum_2
+					}
+					NOR = {
+						has_building = ca_population_scum_3
+						has_building = ct_population_scum_3
+						has_building = tp_population_scum_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_scum
+					value = 2
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_scum_3
+						has_building = ct_population_scum_3
+						has_building = tp_population_scum_3
+					}
+					NOR = {
+						has_building = ca_population_scum_4
+						has_building = ct_population_scum_4
+						has_building = tp_population_scum_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_scum
+					value = 3
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_scum_4
+						has_building = ct_population_scum_4
+						has_building = tp_population_scum_4
+					}
+					NOR = {
+						has_building = ca_population_scum_5
+						has_building = ct_population_scum_5
+						has_building = tp_population_scum_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_scum
+					value = 4
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = ca_population_scum_5
+					has_building = ct_population_scum_5
+					has_building = tp_population_scum_5
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_scum
+					value = 5
+				}
+			}
+		}
+		# Tribal Foragers
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_1
+					NOT = {
+						has_building = tb_population_tribal_foragers_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 1
+				}
+				add_one_tribal_foragers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_2
+					NOT = {
+						has_building = tb_population_tribal_foragers_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 2
+				}
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_3
+					NOT = {
+						has_building = tb_population_tribal_foragers_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 3
+				}
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_4
+					NOT = {
+						has_building = tb_population_tribal_foragers_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 4
+				}
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_5
+					NOT = {
+						has_building = tb_population_tribal_foragers_6
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 5
+				}
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_foragers_6
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 6
+				}
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+				add_one_tribal_foragers_demand = yes
+			}
+		}
+		# Tribal Farmers
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_1
+					NOT = {
+						has_building = tb_population_tribal_farmers_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 1
+				}
+				add_one_tribal_farmers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_2
+					NOT = {
+						has_building = tb_population_tribal_farmers_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 2
+				}
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_3
+					NOT = {
+						has_building = tb_population_tribal_farmers_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 3
+				}
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_4
+					NOT = {
+						has_building = tb_population_tribal_farmers_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 4
+				}
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_5
+					NOT = {
+						has_building = tb_population_tribal_farmers_6
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 5
+				}
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_farmers_6
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 6
+				}
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+				add_one_tribal_farmers_demand = yes
+			}
+		}
+		# Tribal Herdsmen
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_1
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 1
+				}
+				add_one_tribal_herdsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_2
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 2
+				}
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_3
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 3
+				}
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_4
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 4
+				}
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_5
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_6
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 5
+				}
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_herdsmen_6
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 6
+				}
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+				add_one_tribal_herdsmen_demand = yes
+			}
+		}
+		# Tribal Craftsmen
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_1
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 1
+				}
+				add_one_tribal_craftsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_2
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 2
+				}
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_3
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 3
+				}
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_4
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 4
+				}
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_5
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_6
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 5
+				}
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_craftsmen_6
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_tribals
+					value = 6
+				}
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+				add_one_tribal_craftsmen_demand = yes
+			}
+		}
+		# Shudras (Indian Laborers - counted as Special)
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_shudras_1
+						has_building = ct_population_shudras_1
+						has_building = tp_population_shudras_1
+						has_building = tb_population_shudras_1
+					}
+					NOR = {
+						has_building = ca_population_shudras_2
+						has_building = ct_population_shudras_2
+						has_building = tp_population_shudras_2
+						has_building = tb_population_shudras_2
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 1
+				}
+				add_one_shudras_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_shudras_2
+						has_building = ct_population_shudras_2
+						has_building = tp_population_shudras_2
+						has_building = tb_population_shudras_2
+					}
+					NOR = {
+						has_building = ca_population_shudras_3
+						has_building = ct_population_shudras_3
+						has_building = tp_population_shudras_3
+						has_building = tb_population_shudras_3
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 2
+				}
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_shudras_3
+						has_building = ct_population_shudras_3
+						has_building = tp_population_shudras_3
+						has_building = tb_population_shudras_3
+					}
+					NOR = {
+						has_building = ca_population_shudras_4
+						has_building = ct_population_shudras_4
+						has_building = tp_population_shudras_4
+						has_building = tb_population_shudras_4
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 3
+				}
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_building = ca_population_shudras_4
+						has_building = ct_population_shudras_4
+						has_building = tp_population_shudras_4
+						has_building = tb_population_shudras_4
+					}
+					NOR = {
+						has_building = ca_population_shudras_5
+						has_building = ct_population_shudras_5
+						has_building = tp_population_shudras_5
+						has_building = tb_population_shudras_5
+					}
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 4
+				}
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_building = ca_population_shudras_5
+					has_building = ct_population_shudras_5
+					has_building = tp_population_shudras_5
+					has_building = tb_population_shudras_5
+				}
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = province_population_special
+					value = 5
+				}
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+				add_one_shudras_demand = yes
+			}
+		}
+	}
+	# Add demand for normal population (not Special or Tribals) using a helper variable.
+	# Peasants:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_peasants
+	}
+	change_variable = {	# 1 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 1 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Multiply x0.5
+		which = helper_variable_population_demand
+		value = 0.5
+	}
+	change_variable = {	# 0.5 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	# Artisans:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_artisans
+	}
+	change_variable = {	# 1 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 1 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Multiply x2
+		which = helper_variable_population_demand
+		value = 2
+	}
+	change_variable = {	# 2 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	# Merchants:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_merchants
+	}
+	change_variable = {	# 1 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 1 Luxuries
+		which = province_demand_luxuries
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Multiply x1.5
+		which = helper_variable_population_demand
+		value = 1.5
+	}
+	change_variable = {	# 1.5 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 1.5 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	# Elite:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_elite
+	}
+	change_variable = {	# 1 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Multiply x2
+		which = helper_variable_population_demand
+		value = 2
+	}
+	change_variable = {	# 2 Luxuries
+		which = province_demand_luxuries
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Multiply x0.5 (=reset)
+		which = helper_variable_population_demand
+		value = 0.5
+	}
+	multiply_variable = {	# Multiply x1.5
+		which = helper_variable_population_demand
+		value = 1.5
+	}
+	change_variable = {	# 1.5 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 1.5 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	# Scum:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_scum
+	}
+	change_variable = {	# 1 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Rather multiply in case it is zero, and with divide stuff would get bad for some reason...
+		which = helper_variable_population_demand
+		value = 0.5
+	}
+	change_variable = {	# 0.5 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 0.5 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 0.5 Luxuries
+		which = province_demand_luxuries
+		which = helper_variable_population_demand
+	}
+	# Slaves:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_slaves
+	}
+	change_variable = {	# 1 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Rather multiply in case it is zero, and with divide stuff would get bad for some reason...
+		which = helper_variable_population_demand
+		value = 0.5
+	}
+	change_variable = {	# 0.5 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 0.5 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	# Reset helper variable so it can be cleared from savegame
+	set_variable = {
+		which = helper_variable_population_demand
+		value = 0
+	}
+	# End of normal population demand calculation.
+	# Now increase the total to be the sum of all individual types
+	change_variable = {
+		which = province_population_total
+		which = province_population_peasants
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_artisans
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_merchants
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_elite
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_special
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_scum
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_tribals
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_slaves
+	}
+}
+
+
+### Change Holding Population
+## These MUST be called in a holding scope to work properly
+# They increase or decrease a certain population one pop at a time, and automatically chose the right building for each holding. They also automatically call an event to adjust province population
+
+# Increase:
+incr_peasants_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				has_building = ca_population_peasants_4
+			}
+			add_building = ca_population_peasants_5
+		}
+		if = {
+			limit = {
+				has_building = ca_population_peasants_3
+			}
+			add_building = ca_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_peasants_2
+			}
+			add_building = ca_population_peasants_3
+		}
+		if = {
+			limit = {
+				has_building = ca_population_peasants_1
+			}
+			add_building = ca_population_peasants_2
+		}
+		add_building = ca_population_peasants_1
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_peasants_4
+			}
+			add_building = ct_population_peasants_5
+		}
+		if = {
+			limit = {
+				has_building = ct_population_peasants_3
+			}
+			add_building = ct_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_peasants_2
+			}
+			add_building = ct_population_peasants_3
+		}
+		if = {
+			limit = {
+				has_building = ct_population_peasants_1
+			}
+			add_building = ct_population_peasants_2
+		}
+		add_building = ct_population_peasants_1
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				has_building = tp_population_peasants_4
+			}
+			add_building = tp_population_peasants_5
+		}
+		if = {
+			limit = {
+				has_building = tp_population_peasants_3
+			}
+			add_building = tp_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_peasants_2
+			}
+			add_building = tp_population_peasants_3
+		}
+		if = {
+			limit = {
+				has_building = tp_population_peasants_1
+			}
+			add_building = tp_population_peasants_2
+		}
+		add_building = tp_population_peasants_1
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_peasants_4
+			}
+			add_building = tb_population_peasants_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_peasants_3
+			}
+			add_building = tb_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_peasants_2
+			}
+			add_building = tb_population_peasants_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_peasants_1
+			}
+			add_building = tb_population_peasants_2
+		}
+		add_building = tb_population_peasants_1
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		add_one_peasants_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_peasants
+			value = 1
+		}
+		change_variable = {
+			which = province_population_total
+			value = 1
+		}
+	}
+}
+
+incr_artisans_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				has_building = ca_population_artisans_3
+			}
+			add_building = ca_population_artisans_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_artisans_2
+			}
+			add_building = ca_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = ca_population_artisans_1
+			}
+			add_building = ca_population_artisans_2
+		}
+		add_building = ca_population_artisans_1
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_artisans_3
+			}
+			add_building = ct_population_artisans_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_artisans_2
+			}
+			add_building = ct_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = ct_population_artisans_1
+			}
+			add_building = ct_population_artisans_2
+		}
+		add_building = ct_population_artisans_1
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				has_building = tp_population_artisans_3
+			}
+			add_building = tp_population_artisans_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_artisans_2
+			}
+			add_building = tp_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = tp_population_artisans_1
+			}
+			add_building = tp_population_artisans_2
+		}
+		add_building = tp_population_artisans_1
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_artisans_3
+			}
+			add_building = tb_population_artisans_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_artisans_2
+			}
+			add_building = tb_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_artisans_1
+			}
+			add_building = tb_population_artisans_2
+		}
+		add_building = tb_population_artisans_1
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		add_one_artisans_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_artisans
+			value = 1
+		}
+		change_variable = {
+			which = province_population_total
+			value = 1
+		}
+	}
+}
+
+incr_merchants_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				has_building = ca_population_merchants_2
+			}
+			add_building = ca_population_merchants_3
+		}
+		if = {
+			limit = {
+				has_building = ca_population_merchants_1
+			}
+			add_building = ca_population_merchants_2
+		}
+		add_building = ca_population_merchants_1
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_merchants_2
+			}
+			add_building = ct_population_merchants_3
+		}
+		if = {
+			limit = {
+				has_building = ct_population_merchants_1
+			}
+			add_building = ct_population_merchants_2
+		}
+		add_building = ct_population_merchants_1
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				has_building = tp_population_merchants_2
+			}
+			add_building = tp_population_merchants_3
+		}
+		if = {
+			limit = {
+				has_building = tp_population_merchants_1
+			}
+			add_building = tp_population_merchants_2
+		}
+		add_building = tp_population_merchants_1
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_merchants_2
+			}
+			add_building = tb_population_merchants_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_merchants_1
+			}
+			add_building = tb_population_merchants_2
+		}
+		add_building = tb_population_merchants_1
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		add_one_merchants_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_merchants
+			value = 1
+		}
+		change_variable = {
+			which = province_population_total
+			value = 1
+		}
+	}
+}
+
+incr_elite_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				has_building = ca_population_elite_1
+			}
+			add_building = ca_population_elite_2
+		}
+		add_building = ca_population_elite_1
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_elite_1
+			}
+			add_building = ct_population_elite_2
+		}
+		add_building = ct_population_elite_1
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				has_building = tp_population_elite_1
+			}
+			add_building = tp_population_elite_2
+		}
+		add_building = tp_population_elite_1
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_elite_1
+			}
+			add_building = tb_population_elite_2
+		}
+		add_building = tb_population_elite_1
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		add_one_elite_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_elite
+			value = 1
+		}
+		change_variable = {
+			which = province_population_total
+			value = 1
+		}
+	}
+}
+
+incr_special_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Castle - Soldiers
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				has_building = ca_population_soldiers_4
+			}
+			add_building = ca_population_soldiers_5
+		}
+		if = {
+			limit = {
+				has_building = ca_population_soldiers_3
+			}
+			add_building = ca_population_soldiers_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_soldiers_2
+			}
+			add_building = ca_population_soldiers_3
+		}
+		if = {
+			limit = {
+				has_building = ca_population_soldiers_1
+			}
+			add_building = ca_population_soldiers_2
+		}
+		add_building = ca_population_soldiers_1
+		# Now also directly change demand on province level (for special can't do at the end, do in the if clauses!):
+		location = {	# The province
+			add_one_soldiers_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_special
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# City - Patricians
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_4
+			}
+			add_building = ct_population_patricians_5
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_3
+			}
+			add_building = ct_population_patricians_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_2
+			}
+			add_building = ct_population_patricians_3
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_1
+			}
+			add_building = ct_population_patricians_2
+		}
+		add_building = ct_population_patricians_1
+		# Now also directly change demand on province level (for special can't do at the end, do in the if clauses!):
+		location = {	# The province
+			add_one_patricians_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_special
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# Temple - Clerics
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				has_building = tp_population_clerics_4
+			}
+			add_building = tp_population_clerics_5
+		}
+		if = {
+			limit = {
+				has_building = tp_population_clerics_3
+			}
+			add_building = tp_population_clerics_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_clerics_2
+			}
+			add_building = tp_population_clerics_3
+		}
+		if = {
+			limit = {
+				has_building = tp_population_clerics_1
+			}
+			add_building = tp_population_clerics_2
+		}
+		add_building = tp_population_clerics_1
+		# Now also directly change demand on province level (for special can't do at the end, do in the if clauses!):
+		location = {	# The province
+			add_one_clerics_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_special
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# Tribal - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+incr_scum_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				has_building = ca_population_scum_4
+			}
+			add_building = ca_population_scum_5
+		}
+		if = {
+			limit = {
+				has_building = ca_population_scum_3
+			}
+			add_building = ca_population_scum_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_scum_2
+			}
+			add_building = ca_population_scum_3
+		}
+		if = {
+			limit = {
+				has_building = ca_population_scum_1
+			}
+			add_building = ca_population_scum_2
+		}
+		add_building = ca_population_scum_1
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_scum_4
+			}
+			add_building = ct_population_scum_5
+		}
+		if = {
+			limit = {
+				has_building = ct_population_scum_3
+			}
+			add_building = ct_population_scum_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_scum_2
+			}
+			add_building = ct_population_scum_3
+		}
+		if = {
+			limit = {
+				has_building = ct_population_scum_1
+			}
+			add_building = ct_population_scum_2
+		}
+		add_building = ct_population_scum_1
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				has_building = tp_population_scum_4
+			}
+			add_building = tp_population_scum_5
+		}
+		if = {
+			limit = {
+				has_building = tp_population_scum_3
+			}
+			add_building = tp_population_scum_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_scum_2
+			}
+			add_building = tp_population_scum_3
+		}
+		if = {
+			limit = {
+				has_building = tp_population_scum_1
+			}
+			add_building = tp_population_scum_2
+		}
+		add_building = tp_population_scum_1
+	}
+	# Now also directly change demand on province level:
+	if = {
+		limit = {	# Safety check, actually unnecessary, but yeah, to be sure...
+			NOT = {
+				holding_type = tribal
+			}
+		}
+		location = {	# The province
+			add_one_scum_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_scum
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# Tribal - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+incr_tribal_foragers_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_foragers_5
+			}
+			add_building = tb_population_tribal_foragers_6
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_foragers_4
+			}
+			add_building = tb_population_tribal_foragers_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_foragers_3
+			}
+			add_building = tb_population_tribal_foragers_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_foragers_2
+			}
+			add_building = tb_population_tribal_foragers_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_foragers_1
+			}
+			add_building = tb_population_tribal_foragers_2
+		}
+		add_building = tb_population_tribal_foragers_1
+		# Now also directly change demand on province level:
+		location = {	# The province
+			add_one_tribal_foragers_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+incr_tribal_farmers_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_farmers_5
+			}
+			add_building = tb_population_tribal_farmers_6
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_farmers_4
+			}
+			add_building = tb_population_tribal_farmers_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_farmers_3
+			}
+			add_building = tb_population_tribal_farmers_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_farmers_2
+			}
+			add_building = tb_population_tribal_farmers_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_farmers_1
+			}
+			add_building = tb_population_tribal_farmers_2
+		}
+		add_building = tb_population_tribal_farmers_1
+		# Now also directly change demand on province level:
+		location = {	# The province
+			add_one_tribal_farmers_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+incr_tribal_herdsmen_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_herdsmen_5
+			}
+			add_building = tb_population_tribal_herdsmen_6
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_herdsmen_4
+			}
+			add_building = tb_population_tribal_herdsmen_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_herdsmen_3
+			}
+			add_building = tb_population_tribal_herdsmen_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_herdsmen_2
+			}
+			add_building = tb_population_tribal_herdsmen_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_herdsmen_1
+			}
+			add_building = tb_population_tribal_herdsmen_2
+		}
+		add_building = tb_population_tribal_herdsmen_1
+		# Now also directly change demand on province level:
+		location = {	# The province
+			add_one_tribal_herdsmen_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+incr_tribal_craftsmen_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_craftsmen_5
+			}
+			add_building = tb_population_tribal_craftsmen_6
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_craftsmen_4
+			}
+			add_building = tb_population_tribal_craftsmen_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_craftsmen_3
+			}
+			add_building = tb_population_tribal_craftsmen_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_craftsmen_2
+			}
+			add_building = tb_population_tribal_craftsmen_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_craftsmen_1
+			}
+			add_building = tb_population_tribal_craftsmen_2
+		}
+		add_building = tb_population_tribal_craftsmen_1
+		# Now also directly change demand on province level:
+		location = {	# The province
+			add_one_tribal_craftsmen_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+incr_shudras_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				has_building = ca_population_shudras_4
+			}
+			add_building = ca_population_shudras_5
+		}
+		if = {
+			limit = {
+				has_building = ca_population_shudras_3
+			}
+			add_building = ca_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_shudras_2
+			}
+			add_building = ca_population_shudras_3
+		}
+		if = {
+			limit = {
+				has_building = ca_population_shudras_1
+			}
+			add_building = ca_population_shudras_2
+		}
+		add_building = ca_population_shudras_1
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_shudras_4
+			}
+			add_building = ct_population_shudras_5
+		}
+		if = {
+			limit = {
+				has_building = ct_population_shudras_3
+			}
+			add_building = ct_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_shudras_2
+			}
+			add_building = ct_population_shudras_3
+		}
+		if = {
+			limit = {
+				has_building = ct_population_shudras_1
+			}
+			add_building = ct_population_shudras_2
+		}
+		add_building = ct_population_shudras_1
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				has_building = tp_population_shudras_4
+			}
+			add_building = tp_population_shudras_5
+		}
+		if = {
+			limit = {
+				has_building = tp_population_shudras_3
+			}
+			add_building = tp_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_shudras_2
+			}
+			add_building = tp_population_shudras_3
+		}
+		if = {
+			limit = {
+				has_building = tp_population_shudras_1
+			}
+			add_building = tp_population_shudras_2
+		}
+		add_building = tp_population_shudras_1
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				has_building = tb_population_shudras_4
+			}
+			add_building = tb_population_shudras_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_shudras_3
+			}
+			add_building = tb_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_shudras_2
+			}
+			add_building = tb_population_shudras_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_shudras_1
+			}
+			add_building = tb_population_shudras_2
+		}
+		add_building = tb_population_shudras_1
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		add_one_shudras_demand = yes
+		# & change population counters!
+		change_variable = {	# Shudras counted as special on province level:
+			which = province_population_special
+			value = 1
+		}
+		change_variable = {
+			which = province_population_total
+			value = 1
+		}
+	}
+}
+
+# Decrease:
+decr_peasants_holding_pop_CTD_effect = {
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_peasants_1
+					NOT = {
+						has_building = ca_population_peasants_2
+					}
+				}
+			}
+			remove_building = ca_population_peasants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_peasants_2
+					NOT = {
+						has_building = ca_population_peasants_3
+					}
+				}
+			}
+			remove_building = ca_population_peasants_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_peasants_3
+					NOT = {
+						has_building = ca_population_peasants_4
+					}
+				}
+			}
+			remove_building = ca_population_peasants_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_peasants_4
+					NOT = {
+						has_building = ca_population_peasants_5
+					}
+				}
+			}
+			remove_building = ca_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_peasants_5
+			}
+			remove_building = ca_population_peasants_5
+		}
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_peasants_1
+					NOT = {
+						has_building = ct_population_peasants_2
+					}
+				}
+			}
+			remove_building = ct_population_peasants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_peasants_2
+					NOT = {
+						has_building = ct_population_peasants_3
+					}
+				}
+			}
+			remove_building = ct_population_peasants_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_peasants_3
+					NOT = {
+						has_building = ct_population_peasants_4
+					}
+				}
+			}
+			remove_building = ct_population_peasants_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_peasants_4
+					NOT = {
+						has_building = ct_population_peasants_5
+					}
+				}
+			}
+			remove_building = ct_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_peasants_5
+			}
+			remove_building = ct_population_peasants_5
+		}
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_peasants_1
+					NOT = {
+						has_building = tp_population_peasants_2
+					}
+				}
+			}
+			remove_building = tp_population_peasants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_peasants_2
+					NOT = {
+						has_building = tp_population_peasants_3
+					}
+				}
+			}
+			remove_building = tp_population_peasants_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_peasants_3
+					NOT = {
+						has_building = tp_population_peasants_4
+					}
+				}
+			}
+			remove_building = tp_population_peasants_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_peasants_4
+					NOT = {
+						has_building = tp_population_peasants_5
+					}
+				}
+			}
+			remove_building = tp_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_peasants_5
+			}
+			remove_building = tp_population_peasants_5
+		}
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_peasants_1
+					NOT = {
+						has_building = tb_population_peasants_2
+					}
+				}
+			}
+			remove_building = tb_population_peasants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_peasants_2
+					NOT = {
+						has_building = tb_population_peasants_3
+					}
+				}
+			}
+			remove_building = tb_population_peasants_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_peasants_3
+					NOT = {
+						has_building = tb_population_peasants_4
+					}
+				}
+			}
+			remove_building = tb_population_peasants_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_peasants_4
+					NOT = {
+						has_building = tb_population_peasants_5
+					}
+				}
+			}
+			remove_building = tb_population_peasants_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_peasants_5
+			}
+			remove_building = tb_population_peasants_5
+		}
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		remove_one_peasants_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_peasants
+			value = -1
+		}
+		change_variable = {
+			which = province_population_total
+			value = -1
+		}
+	}
+}
+
+decr_artisans_holding_pop_CTD_effect = {
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_artisans_1
+					NOT = {
+						has_building = ca_population_artisans_2
+					}
+				}
+			}
+			remove_building = ca_population_artisans_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_artisans_2
+					NOT = {
+						has_building = ca_population_artisans_3
+					}
+				}
+			}
+			remove_building = ca_population_artisans_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_artisans_3
+					NOT = {
+						has_building = ca_population_artisans_4
+					}
+				}
+			}
+			remove_building = ca_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = ca_population_artisans_4
+			}
+			remove_building = ca_population_artisans_4
+		}
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_artisans_1
+					NOT = {
+						has_building = ct_population_artisans_2
+					}
+				}
+			}
+			remove_building = ct_population_artisans_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_artisans_2
+					NOT = {
+						has_building = ct_population_artisans_3
+					}
+				}
+			}
+			remove_building = ct_population_artisans_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_artisans_3
+					NOT = {
+						has_building = ct_population_artisans_4
+					}
+				}
+			}
+			remove_building = ct_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = ct_population_artisans_4
+			}
+			remove_building = ct_population_artisans_4
+		}
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_artisans_1
+					NOT = {
+						has_building = tp_population_artisans_2
+					}
+				}
+			}
+			remove_building = tp_population_artisans_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_artisans_2
+					NOT = {
+						has_building = tp_population_artisans_3
+					}
+				}
+			}
+			remove_building = tp_population_artisans_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_artisans_3
+					NOT = {
+						has_building = tp_population_artisans_4
+					}
+				}
+			}
+			remove_building = tp_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = tp_population_artisans_4
+			}
+			remove_building = tp_population_artisans_4
+		}
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_artisans_1
+					NOT = {
+						has_building = tb_population_artisans_2
+					}
+				}
+			}
+			remove_building = tb_population_artisans_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_artisans_2
+					NOT = {
+						has_building = tb_population_artisans_3
+					}
+				}
+			}
+			remove_building = tb_population_artisans_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_artisans_3
+					NOT = {
+						has_building = tb_population_artisans_4
+					}
+				}
+			}
+			remove_building = tb_population_artisans_3
+		}
+		if = {
+			limit = {
+				has_building = tb_population_artisans_4
+			}
+			remove_building = tb_population_artisans_4
+		}
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		remove_one_artisans_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_artisans
+			value = -1
+		}
+		change_variable = {
+			which = province_population_total
+			value = -1
+		}
+	}
+}
+
+decr_merchants_holding_pop_CTD_effect = {
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_merchants_1
+					NOT = {
+						has_building = ca_population_merchants_2
+					}
+				}
+			}
+			remove_building = ca_population_merchants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_merchants_2
+					NOT = {
+						has_building = ca_population_merchants_3
+					}
+				}
+			}
+			remove_building = ca_population_merchants_2
+		}
+		if = {
+			limit = {
+				has_building = ca_population_merchants_3
+			}
+			remove_building = ca_population_merchants_3
+		}
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_merchants_1
+					NOT = {
+						has_building = ct_population_merchants_2
+					}
+				}
+			}
+			remove_building = ct_population_merchants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_merchants_2
+					NOT = {
+						has_building = ct_population_merchants_3
+					}
+				}
+			}
+			remove_building = ct_population_merchants_2
+		}
+		if = {
+			limit = {
+				has_building = ct_population_merchants_3
+			}
+			remove_building = ct_population_merchants_3
+		}
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_merchants_1
+					NOT = {
+						has_building = tp_population_merchants_2
+					}
+				}
+			}
+			remove_building = tp_population_merchants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_merchants_2
+					NOT = {
+						has_building = tp_population_merchants_3
+					}
+				}
+			}
+			remove_building = tp_population_merchants_2
+		}
+		if = {
+			limit = {
+				has_building = tp_population_merchants_3
+			}
+			remove_building = tp_population_merchants_3
+		}
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_merchants_1
+					NOT = {
+						has_building = tb_population_merchants_2
+					}
+				}
+			}
+			remove_building = tb_population_merchants_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_merchants_2
+					NOT = {
+						has_building = tb_population_merchants_3
+					}
+				}
+			}
+			remove_building = tb_population_merchants_2
+		}
+		if = {
+			limit = {
+				has_building = tb_population_merchants_3
+			}
+			remove_building = tb_population_merchants_3
+		}
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		remove_one_merchants_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_merchants
+			value = -1
+		}
+		change_variable = {
+			which = province_population_total
+			value = -1
+		}
+	}
+}
+
+decr_elite_holding_pop_CTD_effect = {
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_elite_1
+					NOT = {
+						has_building = ca_population_elite_2
+					}
+				}
+			}
+			remove_building = ca_population_elite_1
+		}
+		if = {
+			limit = {
+				has_building = ca_population_elite_2
+			}
+			remove_building = ca_population_elite_2
+		}
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_elite_1
+					NOT = {
+						has_building = ct_population_elite_2
+					}
+				}
+			}
+			remove_building = ct_population_elite_1
+		}
+		if = {
+			limit = {
+				has_building = ct_population_elite_2
+			}
+			remove_building = ct_population_elite_2
+		}
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_elite_1
+					NOT = {
+						has_building = tp_population_elite_2
+					}
+				}
+			}
+			remove_building = tp_population_elite_1
+		}
+		if = {
+			limit = {
+				has_building = tp_population_elite_2
+			}
+			remove_building = tp_population_elite_2
+		}
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_elite_1
+					NOT = {
+						has_building = tb_population_elite_2
+					}
+				}
+			}
+			remove_building = tb_population_elite_1
+		}
+		if = {
+			limit = {
+				has_building = tb_population_elite_2
+			}
+			remove_building = tb_population_elite_2
+		}
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		remove_one_elite_demand = yes
+		# & change population counters!
+		change_variable = {
+			which = province_population_elite
+			value = -1
+		}
+		change_variable = {
+			which = province_population_total
+			value = -1
+		}
+	}
+}
+
+decr_special_holding_pop_CTD_effect = {
+	# Castle - Soldiers
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_1
+					NOT = {
+						has_building = ca_population_soldiers_2
+					}
+				}
+			}
+			remove_building = ca_population_soldiers_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_2
+					NOT = {
+						has_building = ca_population_soldiers_3
+					}
+				}
+			}
+			remove_building = ca_population_soldiers_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_3
+					NOT = {
+						has_building = ca_population_soldiers_4
+					}
+				}
+			}
+			remove_building = ca_population_soldiers_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_soldiers_4
+					NOT = {
+						has_building = ca_population_soldiers_5
+					}
+				}
+			}
+			remove_building = ca_population_soldiers_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_soldiers_5
+			}
+			remove_building = ca_population_soldiers_5
+		}
+		# Now also directly change demand on province level (for special can't do at the end, do in the if clauses!):
+		location = {	# The province
+			remove_one_soldiers_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_special
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# City - Patricians
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_1
+					NOT = {
+						has_building = ct_population_patricians_2
+					}
+				}
+			}
+			remove_building = ct_population_patricians_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_2
+					NOT = {
+						has_building = ct_population_patricians_3
+					}
+				}
+			}
+			remove_building = ct_population_patricians_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_3
+					NOT = {
+						has_building = ct_population_patricians_4
+					}
+				}
+			}
+			remove_building = ct_population_patricians_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_patricians_4
+					NOT = {
+						has_building = ct_population_patricians_5
+					}
+				}
+			}
+			remove_building = ct_population_patricians_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_5
+			}
+			remove_building = ct_population_patricians_5
+		}
+		# Now also directly change demand on province level (for special can't do at the end, do in the if clauses!):
+		location = {	# The province
+			remove_one_patricians_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_special
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# Temple - Clerics
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_1
+					NOT = {
+						has_building = tp_population_clerics_2
+					}
+				}
+			}
+			remove_building = tp_population_clerics_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_2
+					NOT = {
+						has_building = tp_population_clerics_3
+					}
+				}
+			}
+			remove_building = tp_population_clerics_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_3
+					NOT = {
+						has_building = tp_population_clerics_4
+					}
+				}
+			}
+			remove_building = tp_population_clerics_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_clerics_4
+					NOT = {
+						has_building = tp_population_clerics_5
+					}
+				}
+			}
+			remove_building = tp_population_clerics_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_clerics_5
+			}
+			remove_building = tp_population_clerics_5
+		}
+		# Now also directly change demand on province level (for special can't do at the end, do in the if clauses!):
+		location = {	# The province
+			remove_one_clerics_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_special
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# Tribal - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+decr_scum_holding_pop_CTD_effect = {
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_scum_1
+					NOT = {
+						has_building = ca_population_scum_2
+					}
+				}
+			}
+			remove_building = ca_population_scum_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_scum_2
+					NOT = {
+						has_building = ca_population_scum_3
+					}
+				}
+			}
+			remove_building = ca_population_scum_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_scum_3
+					NOT = {
+						has_building = ca_population_scum_4
+					}
+				}
+			}
+			remove_building = ca_population_scum_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_scum_4
+					NOT = {
+						has_building = ca_population_scum_5
+					}
+				}
+			}
+			remove_building = ca_population_scum_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_scum_5
+			}
+			remove_building = ca_population_scum_5
+		}
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_scum_1
+					NOT = {
+						has_building = ct_population_scum_2
+					}
+				}
+			}
+			remove_building = ct_population_scum_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_scum_2
+					NOT = {
+						has_building = ct_population_scum_3
+					}
+				}
+			}
+			remove_building = ct_population_scum_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_scum_3
+					NOT = {
+						has_building = ct_population_scum_4
+					}
+				}
+			}
+			remove_building = ct_population_scum_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_scum_4
+					NOT = {
+						has_building = ct_population_scum_5
+					}
+				}
+			}
+			remove_building = ct_population_scum_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_scum_5
+			}
+			remove_building = ct_population_scum_5
+		}
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_scum_1
+					NOT = {
+						has_building = tp_population_scum_2
+					}
+				}
+			}
+			remove_building = tp_population_scum_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_scum_2
+					NOT = {
+						has_building = tp_population_scum_3
+					}
+				}
+			}
+			remove_building = tp_population_scum_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_scum_3
+					NOT = {
+						has_building = tp_population_scum_4
+					}
+				}
+			}
+			remove_building = tp_population_scum_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_scum_4
+					NOT = {
+						has_building = tp_population_scum_5
+					}
+				}
+			}
+			remove_building = tp_population_scum_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_scum_5
+			}
+			remove_building = tp_population_scum_5
+		}
+	}
+	# Now also directly change demand on province level:
+	if = {
+		limit = {	# Safety check, actually unnecessary, but yeah, to be sure...
+			NOT = {
+				holding_type = tribal
+			}
+		}
+		location = {	# The province
+			remove_one_scum_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_scum
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# Tribal - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+decr_tribal_foragers_holding_pop_CTD_effect = {
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_1
+					NOT = {
+						has_building = tb_population_tribal_foragers_2
+					}
+				}
+			}
+			remove_building = tb_population_tribal_foragers_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_2
+					NOT = {
+						has_building = tb_population_tribal_foragers_3
+					}
+				}
+			}
+			remove_building = tb_population_tribal_foragers_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_3
+					NOT = {
+						has_building = tb_population_tribal_foragers_4
+					}
+				}
+			}
+			remove_building = tb_population_tribal_foragers_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_4
+					NOT = {
+						has_building = tb_population_tribal_foragers_5
+					}
+				}
+			}
+			remove_building = tb_population_tribal_foragers_4
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_foragers_5
+					NOT = {
+						has_building = tb_population_tribal_foragers_6
+					}
+				}
+			}
+			remove_building = tb_population_tribal_foragers_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_foragers_6
+			}
+			remove_building = tb_population_tribal_foragers_6
+		}
+		# Now also directly change demand on province level:
+		location = {	# The province
+			remove_one_tribal_foragers_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+decr_tribal_farmers_holding_pop_CTD_effect = {
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_1
+					NOT = {
+						has_building = tb_population_tribal_farmers_2
+					}
+				}
+			}
+			remove_building = tb_population_tribal_farmers_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_2
+					NOT = {
+						has_building = tb_population_tribal_farmers_3
+					}
+				}
+			}
+			remove_building = tb_population_tribal_farmers_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_3
+					NOT = {
+						has_building = tb_population_tribal_farmers_4
+					}
+				}
+			}
+			remove_building = tb_population_tribal_farmers_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_4
+					NOT = {
+						has_building = tb_population_tribal_farmers_5
+					}
+				}
+			}
+			remove_building = tb_population_tribal_farmers_4
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_farmers_5
+					NOT = {
+						has_building = tb_population_tribal_farmers_6
+					}
+				}
+			}
+			remove_building = tb_population_tribal_farmers_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_farmers_6
+			}
+			remove_building = tb_population_tribal_farmers_6
+		}
+		# Now also directly change demand on province level:
+		location = {	# The province
+			remove_one_tribal_farmers_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+decr_tribal_herdsmen_holding_pop_CTD_effect = {
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_1
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_2
+					}
+				}
+			}
+			remove_building = tb_population_tribal_herdsmen_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_2
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_3
+					}
+				}
+			}
+			remove_building = tb_population_tribal_herdsmen_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_3
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_4
+					}
+				}
+			}
+			remove_building = tb_population_tribal_herdsmen_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_4
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_5
+					}
+				}
+			}
+			remove_building = tb_population_tribal_herdsmen_4
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_herdsmen_5
+					NOT = {
+						has_building = tb_population_tribal_herdsmen_6
+					}
+				}
+			}
+			remove_building = tb_population_tribal_herdsmen_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_herdsmen_6
+			}
+			remove_building = tb_population_tribal_herdsmen_6
+		}
+		# Now also directly change demand on province level:
+		location = {	# The province
+			remove_one_tribal_herdsmen_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+decr_tribal_craftsmen_holding_pop_CTD_effect = {
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_1
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_2
+					}
+				}
+			}
+			remove_building = tb_population_tribal_craftsmen_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_2
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_3
+					}
+				}
+			}
+			remove_building = tb_population_tribal_craftsmen_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_3
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_4
+					}
+				}
+			}
+			remove_building = tb_population_tribal_craftsmen_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_4
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_5
+					}
+				}
+			}
+			remove_building = tb_population_tribal_craftsmen_4
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_tribal_craftsmen_5
+					NOT = {
+						has_building = tb_population_tribal_craftsmen_6
+					}
+				}
+			}
+			remove_building = tb_population_tribal_craftsmen_5
+		}
+		if = {
+			limit = {
+				has_building = tb_population_tribal_craftsmen_6
+			}
+			remove_building = tb_population_tribal_craftsmen_6
+		}
+		# Now also directly change demand on province level:
+		location = {	# The province
+			remove_one_tribal_craftsmen_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_tribals
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+decr_shudras_holding_pop_CTD_effect = {
+	# Castle
+	if = {
+		limit = {
+			holding_type = castle
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_shudras_1
+					NOT = {
+						has_building = ca_population_shudras_2
+					}
+				}
+			}
+			remove_building = ca_population_shudras_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_shudras_2
+					NOT = {
+						has_building = ca_population_shudras_3
+					}
+				}
+			}
+			remove_building = ca_population_shudras_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_shudras_3
+					NOT = {
+						has_building = ca_population_shudras_4
+					}
+				}
+			}
+			remove_building = ca_population_shudras_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ca_population_shudras_4
+					NOT = {
+						has_building = ca_population_shudras_5
+					}
+				}
+			}
+			remove_building = ca_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = ca_population_shudras_5
+			}
+			remove_building = ca_population_shudras_5
+		}
+	}
+	# City
+	if = {
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_shudras_1
+					NOT = {
+						has_building = ct_population_shudras_2
+					}
+				}
+			}
+			remove_building = ct_population_shudras_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_shudras_2
+					NOT = {
+						has_building = ct_population_shudras_3
+					}
+				}
+			}
+			remove_building = ct_population_shudras_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_shudras_3
+					NOT = {
+						has_building = ct_population_shudras_4
+					}
+				}
+			}
+			remove_building = ct_population_shudras_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = ct_population_shudras_4
+					NOT = {
+						has_building = ct_population_shudras_5
+					}
+				}
+			}
+			remove_building = ct_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = ct_population_shudras_5
+			}
+			remove_building = ct_population_shudras_5
+		}
+	}
+	# Temple
+	if = {
+		limit = {
+			holding_type = temple
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_shudras_1
+					NOT = {
+						has_building = tp_population_shudras_2
+					}
+				}
+			}
+			remove_building = tp_population_shudras_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_shudras_2
+					NOT = {
+						has_building = tp_population_shudras_3
+					}
+				}
+			}
+			remove_building = tp_population_shudras_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_shudras_3
+					NOT = {
+						has_building = tp_population_shudras_4
+					}
+				}
+			}
+			remove_building = tp_population_shudras_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tp_population_shudras_4
+					NOT = {
+						has_building = tp_population_shudras_5
+					}
+				}
+			}
+			remove_building = tp_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = tp_population_shudras_5
+			}
+			remove_building = tp_population_shudras_5
+		}
+	}
+	# Tribal
+	if = {
+		limit = {
+			holding_type = tribal
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_shudras_1
+					NOT = {
+						has_building = tb_population_shudras_2
+					}
+				}
+			}
+			remove_building = tb_population_shudras_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_shudras_2
+					NOT = {
+						has_building = tb_population_shudras_3
+					}
+				}
+			}
+			remove_building = tb_population_shudras_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_shudras_3
+					NOT = {
+						has_building = tb_population_shudras_4
+					}
+				}
+			}
+			remove_building = tb_population_shudras_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = tb_population_shudras_4
+					NOT = {
+						has_building = tb_population_shudras_5
+					}
+				}
+			}
+			remove_building = tb_population_shudras_4
+		}
+		if = {
+			limit = {
+				has_building = tb_population_shudras_5
+			}
+			remove_building = tb_population_shudras_5
+		}
+	}
+	# Now also directly change demand on province level:
+	location = {	# The province
+		remove_one_shudras_demand = yes
+		# & change population counters!
+		change_variable = {	# Shudras counted as special on province level:
+			which = province_population_special
+			value = -1
+		}
+		change_variable = {
+			which = province_population_total
+			value = -1
+		}
+	}
+}

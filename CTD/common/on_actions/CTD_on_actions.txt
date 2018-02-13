@@ -1,0 +1,13 @@
+#character
+on_chronicle_start = {	# Only fires when a new session is started, not when loading a save!
+	events = {
+		CTD.0001		# Initialization event
+	}
+}
+
+# ROOT = Builder, FROM = Title
+on_settlement_construction_completed = {
+	events = {
+		CTD.0104
+	}
+}

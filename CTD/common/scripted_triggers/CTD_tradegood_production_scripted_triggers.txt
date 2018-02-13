@@ -1,0 +1,22 @@
+############################################
+# CTD tradegood production scripted triggers
+#
+# by LordPeter
+############################################
+
+### Can produce tradegood
+## These MUST be called in a province scope to work properly
+# They check if a province can produce a new stack of certain (refined/finalized) tradegood by checking for the amounts of resources needed
+
+can_produce_gold_CTD_trigger = {
+	OR = {
+		AND = {
+			gold_ore_amount_X_access_CTD_trigger = yes
+			OR = {
+				coal_amount_X_access_CTD_trigger = yes
+				charcoal_amount_X_access_CTD_trigger = yes
+			}
+		}
+		
+	}
+}

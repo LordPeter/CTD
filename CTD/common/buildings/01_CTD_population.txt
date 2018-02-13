@@ -1,0 +1,2345 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+ 
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #	
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+ 
+# None of the population buildings can be build directly - it's all done automated via events
+castle = {
+	# Peasants
+	ca_population_peasants_1 = {
+		desc = population_peasants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ca_population_peasants_2 = {
+		desc = population_peasants_desc
+		upgrades_from = ca_population_peasants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_peasants_3 = {
+		desc = population_peasants_desc
+		upgrades_from = ca_population_peasants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_peasants_4 = {
+		desc = population_peasants_desc
+		upgrades_from = ca_population_peasants_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_peasants_5 = {
+		desc = population_peasants_desc
+		upgrades_from = ca_population_peasants_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Artisans
+	ca_population_artisans_1 = {
+		desc = population_artisans_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ca_population_artisans_2 = {
+		desc = population_artisans_desc
+		upgrades_from = ca_population_artisans_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_artisans_3 = {
+		desc = population_artisans_desc
+		upgrades_from = ca_population_artisans_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_artisans_4 = {
+		desc = population_artisans_desc
+		upgrades_from = ca_population_artisans_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Merchants
+	ca_population_merchants_1 = {
+		desc = population_merchants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ca_population_merchants_2 = {
+		desc = population_merchants_desc
+		upgrades_from = ca_population_merchants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_merchants_3 = {
+		desc = population_merchants_desc
+		upgrades_from = ca_population_merchants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Elite
+	ca_population_elite_1 = {
+		desc = population_elite_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ca_population_elite_2 = {
+		desc = population_elite_desc
+		upgrades_from = ca_population_elite_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Soldiers - Special
+	ca_population_soldiers_1 = {
+		desc = population_soldiers_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		retinuesize = 10	# Soldiers give 10 retinuesize per Pop...
+		levy_size = 0.02	# Every Pop gives a %-increase in levy and garrison size	#... and also 1% more levy_size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ca_population_soldiers_2 = {
+		desc = population_soldiers_desc
+		upgrades_from = ca_population_soldiers_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		retinuesize = 10	# Soldiers give 10 retinuesize per Pop...
+		levy_size = 0.02	# Every Pop gives a %-increase in levy and garrison size	#... and also 1% more levy_size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_soldiers_3 = {
+		desc = population_soldiers_desc
+		upgrades_from = ca_population_soldiers_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		retinuesize = 10	# Soldiers give 10 retinuesize per Pop...
+		levy_size = 0.02	# Every Pop gives a %-increase in levy and garrison size	#... and also 1% more levy_size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_soldiers_4 = {
+		desc = population_soldiers_desc
+		upgrades_from = ca_population_soldiers_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		retinuesize = 10	# Soldiers give 10 retinuesize per Pop...
+		levy_size = 0.02	# Every Pop gives a %-increase in levy and garrison size	#... and also 1% more levy_size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_soldiers_5 = {
+		desc = population_soldiers_desc
+		upgrades_from = ca_population_soldiers_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		retinuesize = 10	# Soldiers give 10 retinuesize per Pop...
+		levy_size = 0.02	# Every Pop gives a %-increase in levy and garrison size	#... and also 1% more levy_size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Scum
+	ca_population_scum_1 = {
+		desc = population_scum_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ca_population_scum_2 = {
+		desc = population_scum_desc
+		upgrades_from = ca_population_scum_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_scum_3 = {
+		desc = population_scum_desc
+		upgrades_from = ca_population_scum_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_scum_4 = {
+		desc = population_scum_desc
+		upgrades_from = ca_population_scum_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_scum_5 = {
+		desc = population_scum_desc
+		upgrades_from = ca_population_scum_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Indian Bonus: Shudra (Laborers)
+	ca_population_shudras_1 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ca_population_shudras_2 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ca_population_shudras_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_shudras_3 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ca_population_shudras_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_shudras_4 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ca_population_shudras_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ca_population_shudras_5 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ca_population_shudras_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+}
+
+city = {
+	# Peasants
+	ct_population_peasants_1 = {
+		desc = population_peasants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ct_population_peasants_2 = {
+		desc = population_peasants_desc
+		upgrades_from = ct_population_peasants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_peasants_3 = {
+		desc = population_peasants_desc
+		upgrades_from = ct_population_peasants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_peasants_4 = {
+		desc = population_peasants_desc
+		upgrades_from = ct_population_peasants_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_peasants_5 = {
+		desc = population_peasants_desc
+		upgrades_from = ct_population_peasants_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Artisans
+	ct_population_artisans_1 = {
+		desc = population_artisans_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ct_population_artisans_2 = {
+		desc = population_artisans_desc
+		upgrades_from = ct_population_artisans_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_artisans_3 = {
+		desc = population_artisans_desc
+		upgrades_from = ct_population_artisans_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_artisans_4 = {
+		desc = population_artisans_desc
+		upgrades_from = ct_population_artisans_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Merchants
+	ct_population_merchants_1 = {
+		desc = population_merchants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ct_population_merchants_2 = {
+		desc = population_merchants_desc
+		upgrades_from = ct_population_merchants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_merchants_3 = {
+		desc = population_merchants_desc
+		upgrades_from = ct_population_merchants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Elite
+	ct_population_elite_1 = {
+		desc = population_elite_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ct_population_elite_2 = {
+		desc = population_elite_desc
+		upgrades_from = ct_population_elite_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Patricians - Special
+	ct_population_patricians_1 = {
+		desc = population_patricians_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0	# Patricians just give 0.5 more gold per Pop and
+		tradevalue = 0.5	# also 0.5 tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ct_population_patricians_2 = {
+		desc = population_patricians_desc
+		upgrades_from = ct_population_patricians_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0	# Patricians just give 0.5 more gold per Pop and
+		tradevalue = 0.5	# also 0.5 tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_patricians_3 = {
+		desc = population_patricians_desc
+		upgrades_from = ct_population_patricians_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0	# Patricians just give 0.5 more gold per Pop and
+		tradevalue = 0.5	# also 0.5 tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_patricians_4 = {
+		desc = population_patricians_desc
+		upgrades_from = ct_population_patricians_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0	# Patricians just give 0.5 more gold per Pop and
+		tradevalue = 0.5	# also 0.5 tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_patricians_5 = {
+		desc = population_patricians_desc
+		upgrades_from = ct_population_patricians_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0	# Patricians just give 0.5 more gold per Pop and
+		tradevalue = 0.5	# also 0.5 tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Scum
+	ct_population_scum_1 = {
+		desc = population_scum_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ct_population_scum_2 = {
+		desc = population_scum_desc
+		upgrades_from = ct_population_scum_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_scum_3 = {
+		desc = population_scum_desc
+		upgrades_from = ct_population_scum_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_scum_4 = {
+		desc = population_scum_desc
+		upgrades_from = ct_population_scum_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_scum_5 = {
+		desc = population_scum_desc
+		upgrades_from = ct_population_scum_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Indian Bonus: Shudra (Laborers)
+	ct_population_shudras_1 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	ct_population_shudras_2 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ct_population_shudras_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_shudras_3 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ct_population_shudras_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_shudras_4 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ct_population_shudras_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	ct_population_shudras_5 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = ct_population_shudras_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+}
+
+temple = {
+	# Peasants
+	tp_population_peasants_1 = {
+		desc = population_peasants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tp_population_peasants_2 = {
+		desc = population_peasants_desc
+		upgrades_from = tp_population_peasants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_peasants_3 = {
+		desc = population_peasants_desc
+		upgrades_from = tp_population_peasants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_peasants_4 = {
+		desc = population_peasants_desc
+		upgrades_from = tp_population_peasants_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_peasants_5 = {
+		desc = population_peasants_desc
+		upgrades_from = tp_population_peasants_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Artisans
+	tp_population_artisans_1 = {
+		desc = population_artisans_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tp_population_artisans_2 = {
+		desc = population_artisans_desc
+		upgrades_from = tp_population_artisans_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_artisans_3 = {
+		desc = population_artisans_desc
+		upgrades_from = tp_population_artisans_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_artisans_4 = {
+		desc = population_artisans_desc
+		upgrades_from = tp_population_artisans_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Merchants
+	tp_population_merchants_1 = {
+		desc = population_merchants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tp_population_merchants_2 = {
+		desc = population_merchants_desc
+		upgrades_from = tp_population_merchants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_merchants_3 = {
+		desc = population_merchants_desc
+		upgrades_from = tp_population_merchants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Elite
+	tp_population_elite_1 = {
+		desc = population_elite_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tp_population_elite_2 = {
+		desc = population_elite_desc
+		upgrades_from = tp_population_elite_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Clerics - Special
+	tp_population_clerics_1 = {
+		desc = population_clerics_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		tech_growth_modifier = 0.01	# Clerics give 1% tech growth per Pop
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tp_population_clerics_2 = {
+		desc = population_clerics_desc
+		upgrades_from = tp_population_clerics_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		tech_growth_modifier = 0.01	# Clerics give 1% tech growth per Pop
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_clerics_3 = {
+		desc = population_clerics_desc
+		upgrades_from = tp_population_clerics_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		tech_growth_modifier = 0.01	# Clerics give 1% tech growth per Pop
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_clerics_4 = {
+		desc = population_clerics_desc
+		upgrades_from = tp_population_clerics_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		tech_growth_modifier = 0.01	# Clerics give 1% tech growth per Pop
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_clerics_5 = {
+		desc = population_clerics_desc
+		upgrades_from = tp_population_clerics_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		tech_growth_modifier = 0.01	# Clerics give 1% tech growth per Pop
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Scum
+	tp_population_scum_1 = {
+		desc = population_scum_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tp_population_scum_2 = {
+		desc = population_scum_desc
+		upgrades_from = tp_population_scum_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_scum_3 = {
+		desc = population_scum_desc
+		upgrades_from = tp_population_scum_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_scum_4 = {
+		desc = population_scum_desc
+		upgrades_from = tp_population_scum_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_scum_5 = {
+		desc = population_scum_desc
+		upgrades_from = tp_population_scum_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = -0.5	# Thieves etc. actually steal money...
+		monthly_character_piety = 0.01	# ...but giving alms to them grants piety
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Indian Bonus: Shudra (Laborers)
+	tp_population_shudras_1 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tp_population_shudras_2 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tp_population_shudras_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_shudras_3 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tp_population_shudras_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_shudras_4 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tp_population_shudras_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tp_population_shudras_5 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tp_population_shudras_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+}
+
+tribal = {
+	# Peasants
+	tb_population_peasants_1 = {
+		desc = population_peasants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_peasants_2 = {
+		desc = population_peasants_desc
+		upgrades_from = tb_population_peasants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_peasants_3 = {
+		desc = population_peasants_desc
+		upgrades_from = tb_population_peasants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_peasants_4 = {
+		desc = population_peasants_desc
+		upgrades_from = tb_population_peasants_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_peasants_5 = {
+		desc = population_peasants_desc
+		upgrades_from = tb_population_peasants_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Artisans
+	tb_population_artisans_1 = {
+		desc = population_artisans_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_artisans_2 = {
+		desc = population_artisans_desc
+		upgrades_from = tb_population_artisans_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_artisans_3 = {
+		desc = population_artisans_desc
+		upgrades_from = tb_population_artisans_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_artisans_4 = {
+		desc = population_artisans_desc
+		upgrades_from = tb_population_artisans_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Merchants
+	tb_population_merchants_1 = {
+		desc = population_merchants_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_merchants_2 = {
+		desc = population_merchants_desc
+		upgrades_from = tb_population_merchants_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_merchants_3 = {
+		desc = population_merchants_desc
+		upgrades_from = tb_population_merchants_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.0
+		tradevalue = 1	# Merchants give tradevalue
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Elite
+	tb_population_elite_1 = {
+		desc = population_elite_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_elite_2 = {
+		desc = population_elite_desc
+		upgrades_from = tb_population_elite_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 2.5
+		monthly_character_prestige = 0.01	# Elite (petty nobles etc.) give prestige
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Tribals: Foragers
+	tb_population_tribal_foragers_1 = {
+		desc = population_tribal_foragers_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.75
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_tribal_foragers_2 = {
+		desc = population_tribal_foragers_desc
+		upgrades_from = tb_population_tribal_foragers_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.75
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_foragers_3 = {
+		desc = population_tribal_foragers_desc
+		upgrades_from = tb_population_tribal_foragers_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.75
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_foragers_4 = {
+		desc = population_tribal_foragers_desc
+		upgrades_from = tb_population_tribal_foragers_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.75
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_foragers_5 = {
+		desc = population_tribal_foragers_desc
+		upgrades_from = tb_population_tribal_foragers_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.75
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_foragers_6 = {	# Tribal special pops get up to 6, not 5! (because max of 6 empty holding slots)
+		desc = population_tribal_foragers_desc
+		upgrades_from = tb_population_tribal_foragers_5
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.75
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Tribals: Farmers
+	tb_population_tribal_farmers_1 = {
+		desc = population_tribal_farmers_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_tribal_farmers_2 = {
+		desc = population_tribal_farmers_desc
+		upgrades_from = tb_population_tribal_farmers_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_farmers_3 = {
+		desc = population_tribal_farmers_desc
+		upgrades_from = tb_population_tribal_farmers_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_farmers_4 = {
+		desc = population_tribal_farmers_desc
+		upgrades_from = tb_population_tribal_farmers_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_farmers_5 = {
+		desc = population_tribal_farmers_desc
+		upgrades_from = tb_population_tribal_farmers_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_farmers_6 = {	# Tribal special pops get up to 6, not 5! (because max of 6 empty holding slots)
+		desc = population_tribal_farmers_desc
+		upgrades_from = tb_population_tribal_farmers_5
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Tribals: Herdsmen
+	tb_population_tribal_herdsmen_1 = {
+		desc = population_tribal_herdsmen_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_tribal_herdsmen_2 = {
+		desc = population_tribal_herdsmen_desc
+		upgrades_from = tb_population_tribal_herdsmen_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_herdsmen_3 = {
+		desc = population_tribal_herdsmen_desc
+		upgrades_from = tb_population_tribal_herdsmen_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_herdsmen_4 = {
+		desc = population_tribal_herdsmen_desc
+		upgrades_from = tb_population_tribal_herdsmen_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_herdsmen_5 = {
+		desc = population_tribal_herdsmen_desc
+		upgrades_from = tb_population_tribal_herdsmen_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_herdsmen_6 = {	# Tribal special pops get up to 6, not 5! (because max of 6 empty holding slots)
+		desc = population_tribal_herdsmen_desc
+		upgrades_from = tb_population_tribal_herdsmen_5
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.0
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Tribals: Craftsmen
+	tb_population_tribal_craftsmen_1 = {
+		desc = population_tribal_craftsmen_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_tribal_craftsmen_2 = {
+		desc = population_tribal_craftsmen_desc
+		upgrades_from = tb_population_tribal_craftsmen_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_craftsmen_3 = {
+		desc = population_tribal_craftsmen_desc
+		upgrades_from = tb_population_tribal_craftsmen_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_craftsmen_4 = {
+		desc = population_tribal_craftsmen_desc
+		upgrades_from = tb_population_tribal_craftsmen_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_craftsmen_5 = {
+		desc = population_tribal_craftsmen_desc
+		upgrades_from = tb_population_tribal_craftsmen_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_tribal_craftsmen_6 = {	# Tribal special pops get up to 6, not 5! (because max of 6 empty holding slots)
+		desc = population_tribal_craftsmen_desc
+		upgrades_from = tb_population_tribal_craftsmen_5
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 1.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	# Indian Bonus: Shudra (Laborers)
+	tb_population_shudras_1 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	tb_population_shudras_2 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tb_population_shudras_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_shudras_3 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tb_population_shudras_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_shudras_4 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tb_population_shudras_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+	tb_population_shudras_5 = {
+		desc = population_shudras_desc
+		potential = {	# Show only in India region
+			region = world_india
+		}
+		upgrades_from = tb_population_shudras_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		tax_income = 0.5
+		levy_size = 0.01	# Every Pop gives a %-increase in levy and garrison size
+		garrison_size = 0.01
+		
+		extra_tech_building_start = 10.0
+	}
+}

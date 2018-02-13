@@ -1,0 +1,39 @@
+####################
+# Player Info events
+# 
+# by LordPeter
+####################
+
+namespace = CTD
+
+######################
+# ranges CTD.0301-0399
+######################
+
+## Famine
+
+# Inform player famine has struck province
+character_event = {
+	id = CTD.0301
+	desc =  CTDDESC_0301
+	picture = "GFX_evt_bring_out_your_dead"
+	
+	is_triggered_only = yes		# by event
+	
+	option = {
+		name = CTDOPTA_0301	# Alas
+	}
+}
+
+# Inform player famine is over
+character_event = {
+	id = CTD.0302
+	desc =  CTDDESC_0302
+	picture = "GFX_evt_fishing"
+	
+	is_triggered_only = yes		# by event
+	
+	option = {
+		name = CTDOPTA_0302	# Finally
+	}
+}

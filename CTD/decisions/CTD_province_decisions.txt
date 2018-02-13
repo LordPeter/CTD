@@ -1,0 +1,218 @@
+title_decisions = {
+	# Chose Growth Incentive Edict
+	enact_incentive_edict = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {	# Nomads and Tribals can't enact edicts
+			NOR = {
+				is_tribal = yes
+				is_nomadic = yes
+			}
+		}
+		potential = {
+			AND = {
+				tier = COUNT	# IMPORTANT: If you want provinces, then always check for county!!!
+				location = {
+					AND = {
+						NOR = {	# Not possible if already has an active Incentive Edict
+							has_province_modifier = peasants_growth_incentive
+							has_province_modifier = artisans_growth_incentive
+							has_province_modifier = merchants_growth_incentive
+							has_province_modifier = elite_growth_incentive
+							has_province_modifier = special_growth_incentive
+							has_province_modifier = scum_growth_incentive
+							has_province_modifier = enforced_law_on_scum
+							# Note: Just a reminder, tribals can not be influenced by edicts
+						}
+						has_any_holding_CTD_trigger = yes	# Not possible in empty provinces
+					}
+				}
+				# Safety check so only works with owner provinces - NOTE: How do I even need this?!
+				owner = {
+					character = FROM
+				}
+			}
+        }
+        allow = {
+			always = yes	# Artisans Incentive is free, so no use checking for anything...
+        }
+        effect = {
+            ROOT = {	# Note: The title - not the province yet!
+				location = {	# Fire an event for the province so we get it as an event target
+					province_event = {
+						id = CTD.0401
+					}
+				}
+			}
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 0	# NOTE: For now only testing
+        }
+    }
+	
+	# Establish Trade Fair
+	establish_trade_fair = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {	# Nomads and Tribals can't have tradefairs
+			NOR = {
+				is_tribal = yes
+				is_nomadic = yes
+			}
+		}
+		potential = {
+			AND = {
+				tier = COUNT	# IMPORTANT: If you want provinces, then always check for county!!!
+				location = {
+					AND = {
+						# Not possible if already clicked:
+						NOT = {
+							has_province_flag = trade_fair_decision_taken
+						}
+						# Only possible on traderoutes:
+						lies_on_any_traderoute_CTD_trigger = yes
+						NOR = {	# Not possible if already has a trade fair or other trade fair within 100 range (or neighboring, in case of big provinces):
+							has_province_modifier = feature_trade_fair
+							any_neighbor_province = {
+								has_province_modifier = feature_trade_fair
+							}
+							any_trade_route_province = {
+								AND = {
+									NOT = {
+										distance = {
+											where = PREV	# This should be the current province
+											value = 100
+										}
+									}
+									has_province_modifier = feature_trade_fair
+								}
+							}
+						}
+						has_feudal_holding_CTD_trigger = yes	# Only possible in developed provinces
+						# Has enough tech:
+						TECH_TRADE_PRACTICES = 4	# should mean becoming common around ~1100
+					}
+				}
+				# Safety check so only works with owner provinces - NOTE: How do I even need this?!
+				owner = {
+					character = FROM
+				}
+			}
+        }
+        allow = {
+			FROM = {	# only if owner can pay
+				AND = {
+					wealth = 100
+					prestige = 100
+					# NOT = {
+						# # add AI_austerity or what it's called here
+					# }
+				}
+			}
+        }
+        effect = {
+            ROOT = {	# Note: The title - not the province yet!
+				location = {
+					# Set flag so decision can not be clicked again:
+					set_province_flag = trade_fair_decision_taken
+					# Fire an event for the province so we get it as an event target:
+					province_event = {
+						id = CTD.0410
+					}
+				}
+			}
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 0	# NOTE: For now only testing
+        }
+    }
+	
+	# Grant Staple Right
+	grant_staple_right = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {	# Nomads and Tribals can't have staple right
+			NOR = {
+				is_tribal = yes
+				is_nomadic = yes
+			}
+		}
+		potential = {
+			AND = {
+				tier = COUNT	# IMPORTANT: If you want provinces, then always check for county!!!
+				location = {
+					AND = {
+						# Not possible if already clicked:
+						NOT = {
+							has_province_flag = staple_right_decision_taken
+						}
+						# Only possible on traderoutes:
+						lies_on_any_traderoute_CTD_trigger = yes
+						NOR = {	# Not possible if already has a staple right or other staple right within 75 range (or neighboring, in case of big provinces):
+							has_province_modifier = feature_staple_right
+							any_neighbor_province = {
+								has_province_modifier = feature_staple_right
+							}
+							any_trade_route_province = {
+								AND = {
+									NOT = {
+										distance = {
+											where = PREV	# This should be the current province
+											value = 75
+										}
+									}
+									has_province_modifier = feature_staple_right
+								}
+							}
+						}
+						has_feudal_holding_CTD_trigger = yes	# Only possible in developed provinces
+						# Has enough tech:
+						TECH_TRADE_PRACTICES = 5	# should mean becoming common around ~1200
+					}
+				}
+				# Safety check so only works with owner provinces - NOTE: How do I even need this?!
+				owner = {
+					character = FROM
+				}
+			}
+        }
+        allow = {
+			FROM = {	# only if owner can pay
+				AND = {
+					wealth = 50
+					prestige = 200
+					# NOT = {
+						# # add AI_austerity or what it's called here
+					# }
+				}
+			}
+        }
+        effect = {
+            ROOT = {	# Note: The title - not the province yet!
+				location = {
+					# Set flag so decision can not be clicked again:
+					set_province_flag = staple_right_decision_taken
+					# Fire an event for the province so we get it as an event target:
+					province_event = {
+						id = CTD.0412
+					}
+				}
+			}
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 0	# NOTE: For now only testing
+        }
+    }
+}

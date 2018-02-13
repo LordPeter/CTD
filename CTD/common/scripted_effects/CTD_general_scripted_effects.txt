@@ -1,0 +1,1956 @@
+##############################
+# CTD general scripted effects
+#
+# by LordPeter
+##############################
+
+
+### Update Import Priority
+## This MUST be called in an province scope to work properly
+# Updates the province's import priority value based on several factors
+
+# Update Import Priority
+update_province_import_priority_CTD_effect = {
+	# Reset first
+	set_variable = {
+		which = province_import_priority
+		value = 0
+	}
+	# Trade Features
+	if = {
+		limit = {
+			has_province_modifier = feature_staple_right
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 10
+		}
+	}
+	if = {
+		limit = {
+			has_province_modifier = feature_trade_fair
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	# Natural Features
+	if = {
+		limit = {
+			has_province_modifier = natural_feature_estuary
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			has_province_modifier = natural_feature_natural_harbour
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 2
+		}
+	}
+	# Infrastructure
+	# Road: Cumultative, so only adds one amount per check!	# NOTE check if it is indeed cumultativ, this checking method
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 1
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 2
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 3
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 4
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	# Bridge: Same as roads
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_major_bridge
+				amount = 1
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_major_bridge
+				amount = 2
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_major_bridge
+				amount = 3
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	# Holdings
+	any_province_holding = {	# Scope to any holding so it gets done exactly <number_of_holdings> times. Easier than conditions here imo
+		PREV = {	# The province
+			change_variable = {
+				which = province_import_priority
+				value = 1
+			}
+		}
+	}
+	# Technology
+	# again, cumultative
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 1
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 2
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 3
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 4
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 5
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 6
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 7
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			TECH_TRADE_PRACTICES = 8
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	# Population
+	# done via helper variable
+	# First: Merchants (+1 per 3)
+	set_variable = {
+		which = import_priority_helper
+		which = province_population_merchants
+	}
+	divide_variable = {
+		which = import_priority_helper
+		value = 3
+	}
+	change_variable = {
+		which = province_import_priority
+		which = import_priority_helper
+	}
+	# Second: Patricians (+1 per 5)
+	set_variable = {	# need to reset here first
+		which = import_priority_helper
+		value = 0
+	}
+	any_province_holding = {	# I'm again following the "cumultative approach" here - only inverted here ofc
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_5
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_4
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_3
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_2
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_1
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+	}
+	change_variable = {
+		which = province_import_priority
+		which = import_priority_helper
+	}
+	# Third: Total Pops (+1 per 20)
+	set_variable = {
+		which = import_priority_helper
+		which = province_population_total
+	}
+	divide_variable = {
+		which = import_priority_helper
+		value = 20
+	}
+	change_variable = {
+		which = province_import_priority
+		which = import_priority_helper
+	}
+	# Fourth: Reset Helper so it can be cleared from savegame
+	set_variable = {
+		which = import_priority_helper
+		value = 0
+	}
+}
+
+
+### Update Global Import Priority Levels
+## This CAN be called in any scope to work properly, because it scopes to all provinces immediately anyway
+# Rearranges the global import priority levels - expensive, so use sparingly
+
+# Update Import Priority
+update_global_import_priority_levels_CTD_effect = {
+	# First reset global variables:
+	set_variable = {
+		which = global_import_priority_comparison_variable
+		value = 0
+	}
+	set_variable = {
+		which = global_priority_counting_helper_variable
+		which = global_reference_number_of_provinces_variable	# Exact number of provinces in the game in this session!
+	}
+	# Second remove old flags:
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		clr_province_flag = import_priority_10
+		clr_province_flag = import_priority_9
+		clr_province_flag = import_priority_8
+		clr_province_flag = import_priority_7
+		clr_province_flag = import_priority_6
+		clr_province_flag = import_priority_5
+		clr_province_flag = import_priority_4
+		clr_province_flag = import_priority_3
+		clr_province_flag = import_priority_2
+		clr_province_flag = import_priority_1
+		clr_province_flag = had_import_priority_tested
+	}
+	# Third check which province has the highest value:
+	while = {
+		limit = {
+			check_variable = {	# simple counting
+				which = global_priority_counting_helper_variable
+				value = 0
+			}
+		}
+		random_province = {	# Scope to a random of the remaining provinces
+			limit = {
+				NOT = {
+					has_province_flag = had_import_priority_tested
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {	# Check if local variable is bigger (or equal) than golbal one
+						which = province_import_priority
+						which = global_import_priority_comparison_variable
+					}
+				}
+				set_variable = {	# Copy local province value to global comparison variable
+					which = global_import_priority_comparison_variable
+					which = province_import_priority
+				}
+			}
+			set_province_flag = had_import_priority_tested
+			add_province_modifier = {	# TESTING
+				name = testy_the_test_modifier
+				duration = -1
+				stacking = yes
+			}
+		}
+		change_variable = {	# Counting
+			which = global_priority_counting_helper_variable
+			value = -1
+		}
+	}
+	# Fourth (re-)initialize a global helper variable:
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 10% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.1
+	}
+	# Fifth sort the provinces according to the new ranking:
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					# province level flags are not yet relevant since none have been applied hitherto
+				}
+			}
+			set_province_flag = import_priority_1
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 20% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.2
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+				}
+			}
+			set_province_flag = import_priority_2
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 30% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.3
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+				}
+			}
+			set_province_flag = import_priority_3
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 40% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.4
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+				}
+			}
+			set_province_flag = import_priority_4
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 50% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.5
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+				}
+			}
+			set_province_flag = import_priority_5
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 60% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.6
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+				}
+			}
+			set_province_flag = import_priority_6
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 70% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.7
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+				}
+			}
+			set_province_flag = import_priority_7
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 80% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.8
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+					has_province_flag = import_priority_7
+				}
+			}
+			set_province_flag = import_priority_8
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 90% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.9
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+					has_province_flag = import_priority_7
+					has_province_flag = import_priority_8
+				}
+			}
+			set_province_flag = import_priority_9
+		}
+	}
+	# Going to the next priority level is now irrelebant, as only one level remains
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {
+					# Test for not-assigned province suffices
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+					has_province_flag = import_priority_7
+					has_province_flag = import_priority_8
+					has_province_flag = import_priority_9
+				}
+			}
+			set_province_flag = import_priority_10
+		}
+	}
+	# Sixth reset the helper variable:
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		value = 0
+	}
+	set_variable = {
+		which = global_priority_counting_helper_variable
+		value = 0
+	}
+}
+
+
+### Famine Tracking
+## This MUST be called in an province scope to work properly
+# This tracks food shortages, and should be called from quarterly automation since it will set "famine" status in a province after 1.5 years of continuos food shortage - also fires player info event
+
+# Track famine potential
+famine_tracking_CTD_effect = {
+	# Increase:
+	# NOTE: Inverted order is -yet again- crucial! (But not for "decrease" below - there it is right already)
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_poor
+				has_province_flag = potential_famine_timer_5
+				NOT = {
+					has_province_flag = potential_famine_timer_6
+				}
+			}
+		}
+		clr_province_flag = potential_famine_timer_5
+		set_province_flag = potential_famine_timer_6
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_poor
+				has_province_flag = potential_famine_timer_4
+				NOR = {
+					has_province_flag = potential_famine_timer_5
+					has_province_flag = potential_famine_timer_6
+				}
+			}
+		}
+		clr_province_flag = potential_famine_timer_4
+		set_province_flag = potential_famine_timer_5
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_poor
+				has_province_flag = potential_famine_timer_3
+				NOR = {
+					has_province_flag = potential_famine_timer_4
+					has_province_flag = potential_famine_timer_5
+					has_province_flag = potential_famine_timer_6
+				}
+			}
+		}
+		clr_province_flag = potential_famine_timer_3
+		set_province_flag = potential_famine_timer_4
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_poor
+				has_province_flag = potential_famine_timer_2
+				NOR = {
+					has_province_flag = potential_famine_timer_3
+					has_province_flag = potential_famine_timer_4
+					has_province_flag = potential_famine_timer_5
+					has_province_flag = potential_famine_timer_6
+				}
+			}
+		}
+		clr_province_flag = potential_famine_timer_2
+		set_province_flag = potential_famine_timer_3
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_poor
+				has_province_flag = potential_famine_timer_1
+				NOR = {
+					has_province_flag = potential_famine_timer_2
+					has_province_flag = potential_famine_timer_3
+					has_province_flag = potential_famine_timer_4
+					has_province_flag = potential_famine_timer_5
+					has_province_flag = potential_famine_timer_6
+				}
+			}
+		}
+		clr_province_flag = potential_famine_timer_1
+		set_province_flag = potential_famine_timer_2
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_poor
+				NOR = {
+					has_province_flag = potential_famine_timer_1
+					has_province_flag = potential_famine_timer_2
+					has_province_flag = potential_famine_timer_3
+					has_province_flag = potential_famine_timer_4
+					has_province_flag = potential_famine_timer_5
+					has_province_flag = potential_famine_timer_6
+				}
+			}
+		}
+		set_province_flag = potential_famine_timer_1
+	}
+	# Decrease:
+	# by 2 steps when mediocre supply
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_mediocre
+				has_province_flag = potential_famine_timer_1
+			}
+		}
+		clr_province_flag = potential_famine_timer_1
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_mediocre
+				has_province_flag = potential_famine_timer_2
+			}
+		}
+		clr_province_flag = potential_famine_timer_2
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_mediocre
+				has_province_flag = potential_famine_timer_3
+			}
+		}
+		clr_province_flag = potential_famine_timer_3
+		set_province_flag = potential_famine_timer_1
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_mediocre
+				has_province_flag = potential_famine_timer_4
+			}
+		}
+		clr_province_flag = potential_famine_timer_4
+		set_province_flag = potential_famine_timer_2
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_mediocre
+				has_province_flag = potential_famine_timer_5
+			}
+		}
+		clr_province_flag = potential_famine_timer_5
+		set_province_flag = potential_famine_timer_3
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_mediocre
+				has_province_flag = potential_famine_timer_6
+			}
+		}
+		clr_province_flag = potential_famine_timer_6
+		set_province_flag = potential_famine_timer_4
+	}
+	# by 3 steps when good supply
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_good
+				has_province_flag = potential_famine_timer_1
+			}
+		}
+		clr_province_flag = potential_famine_timer_1
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_good
+				has_province_flag = potential_famine_timer_2
+			}
+		}
+		clr_province_flag = potential_famine_timer_2
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_good
+				has_province_flag = potential_famine_timer_3
+			}
+		}
+		clr_province_flag = potential_famine_timer_3
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_good
+				has_province_flag = potential_famine_timer_4
+			}
+		}
+		clr_province_flag = potential_famine_timer_4
+		set_province_flag = potential_famine_timer_1
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_good
+				has_province_flag = potential_famine_timer_5
+			}
+		}
+		clr_province_flag = potential_famine_timer_5
+		set_province_flag = potential_famine_timer_2
+	}
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = food_supply_good
+				has_province_flag = potential_famine_timer_6
+			}
+		}
+		clr_province_flag = potential_famine_timer_6
+		set_province_flag = potential_famine_timer_3
+	}
+	
+	
+	# DECLARE FAMINE:
+	if = {
+		limit = {
+			AND = {
+				has_province_flag = potential_famine_timer_6
+				has_province_flag = food_supply_poor
+				NOT = {	# Doesn't already have famine
+					has_province_modifier = province_economy_major_modifier_famine
+				}
+			}
+		}
+		# Remove normal and set famine major modifier
+		remove_province_modifier = province_economy_major_modifier
+		add_province_modifier = {
+			name = province_economy_major_modifier_famine
+			duration = -1
+		}
+		# Also add province embelishment (bad) for fluff:
+		add_province_modifier = {
+			name = depopulated_2
+			duration = -1
+			hidden = yes
+		}
+		# Inform player owner with event
+		if = {
+			limit = {
+				owner = {	# owner is a player
+					ai = no
+				}
+			}
+			save_event_target_as = target_famine_province
+			owner = {
+				character_event = {
+					id = CTD.0301
+				}
+			}
+		}
+	}
+	
+	# FAMINE OVER:
+	if = {
+		limit = {
+			AND = {
+				has_province_modifier = province_economy_major_modifier_famine	# Still has a famine
+				NOR = {	# But has no longer any famine flag
+					has_province_flag = potential_famine_timer_1
+					has_province_flag = potential_famine_timer_2
+					has_province_flag = potential_famine_timer_3
+					has_province_flag = potential_famine_timer_4
+					has_province_flag = potential_famine_timer_5
+					has_province_flag = potential_famine_timer_6
+				}
+			}
+		}
+		# Remove famine and set normal major modifier
+		remove_province_modifier = province_economy_major_modifier_famine
+		add_province_modifier = {
+			name = province_economy_major_modifier
+			duration = -1
+		}
+		# Also remove province embelishment:
+		remove_province_modifier = depopulated_2
+		# Inform player owner with event
+		if = {
+			limit = {
+				owner = {	# owner is a player
+					ai = no
+				}
+			}
+			save_event_target_as = target_famine_province
+			owner = {
+				character_event = {
+					id = CTD.0302
+				}
+			}
+		}
+	}
+}
+
+
+### "Abduct" Enslaved Population
+## This MUST be called in an province within (!) a province scope to work properly
+# "Imports" slaves from the originally hunted province (current scope) where they are being abducted to the "origin" province (first scope) where they are later traded from, via a nifty while effect
+
+#Abduct Enslaved Population
+abduct_enslaved_population_to_slavery_origin_province_CTD_effect = {
+	# Currently in hunted province scope
+	change_variable = {
+		which = slave_abduction_helper_variable
+		which = province_slaves_production
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = slave_abduction_helper_variable
+				value = 1
+			}
+		}
+		PREV = {	# The "origin" province
+			change_variable = {
+				which = province_slaves_brought_to
+				value = 1
+			}
+		}
+		subtract_variable = {	# Important: Don't do this in prev scope, man! You need to keep track of your scopes, silly.
+			which = slave_abduction_helper_variable
+			value = 1
+		}
+	}
+	set_variable = {
+		which = slave_abduction_helper_variable
+		value = 0
+	}
+}
+
+
+### Update "Generic" Holding Supply
+## This MUST be called in an province scope to work properly
+# Updates the amount of "generic" supply that is gained directly from the holdings
+
+# Update Holding Supply
+update_province_holding_supply_CTD_effect = {
+	# First: substract current helper variables from province supply
+	subtract_variable = {
+		which = province_supply_food
+		which = helper_province_supply_food_holdings
+	}
+	subtract_variable = {
+		which = province_supply_clothing
+		which = helper_province_supply_clothing_holdings
+	}
+	subtract_variable = {
+		which = province_supply_materials
+		which = helper_province_supply_materials_holdings
+	}
+	subtract_variable = {
+		which = province_supply_luxuries
+		which = helper_province_supply_luxuries_holdings
+	}
+	# Second: clear/reset current helper variables
+	set_variable = {
+		which = helper_province_supply_food_holdings
+		value = 0
+	}
+	set_variable = {
+		which = helper_province_supply_clothing_holdings
+		value = 0
+	}
+	set_variable = {
+		which = helper_province_supply_materials_holdings
+		value = 0
+	}
+	set_variable = {
+		which = helper_province_supply_luxuries_holdings
+		value = 0
+	}
+	# Third: Recalculate helper variables
+	any_province_holding = {
+		if = {	# For castles
+			limit = {
+				holding_type = castle
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = helper_province_supply_food_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_clothing_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_materials_holdings
+					value = 3
+				}
+				change_variable = {
+					which = helper_province_supply_luxuries_holdings
+					value = 1
+				}
+			}
+		}
+		if = {	# For cities
+			limit = {
+				holding_type = city
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = helper_province_supply_food_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_clothing_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_materials_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_luxuries_holdings
+					value = 2
+				}
+			}
+		}
+		if = {	# For temples
+			limit = {
+				holding_type = temple
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = helper_province_supply_food_holdings
+					value = 3
+				}
+				change_variable = {
+					which = helper_province_supply_clothing_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_materials_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_luxuries_holdings
+					value = 1
+				}
+			}
+		}
+		if = {	# For tribals
+			limit = {
+				holding_type = tribal
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = helper_province_supply_food_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_clothing_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_materials_holdings
+					value = 2
+				}
+				# Tribals produce no luxuries
+			}
+		}
+	}
+	# Nomads and their holdings ofc do not abide by this, as they don't use CTD's population system at all
+	# Fourth: Add helper supply to province supply
+	change_variable = {
+		which = province_supply_food
+		which = helper_province_supply_food_holdings
+	}
+	change_variable = {
+		which = province_supply_clothing
+		which = helper_province_supply_clothing_holdings
+	}
+	change_variable = {
+		which = province_supply_materials
+		which = helper_province_supply_materials_holdings
+	}
+	change_variable = {
+		which = province_supply_luxuries
+		which = helper_province_supply_luxuries_holdings
+	}
+	# NOTE: Just a reminder, do not clear the helper variables! They are needed when this effect here is called next time!
+}
+
+
+### Set Weather Effect
+## These MUST be called in an province scope to work properly
+# Changes the current weather effect in modifier localisation - and applies it to the province, of course!
+
+# Good
+weather_agriculture_good_CTD_effect = {
+	# Localisation:
+	# Clear all old effects
+	clr_province_flag = weather_agriculture_effect_neutral
+	clr_province_flag = weather_agriculture_effect_bad
+	clr_province_flag = weather_agriculture_effect_catastrophic
+	# Set new effect
+	set_province_flag = weather_agriculture_effect_good
+	# Effects:
+	# NOTE: needs to be done later...
+}
+# Neutral
+weather_agriculture_neutral_CTD_effect = {
+	# Localisation:
+	# Clear all old effects
+	clr_province_flag = weather_agriculture_effect_good
+	clr_province_flag = weather_agriculture_effect_bad
+	clr_province_flag = weather_agriculture_effect_catastrophic
+	# Set new effect
+	set_province_flag = weather_agriculture_effect_neutral
+	# Effects:
+	# NOTE: needs to be done later...
+}
+# Bad
+weather_agriculture_bad_CTD_effect = {
+	# Localisation:
+	# Clear all old effects
+	clr_province_flag = weather_agriculture_effect_good
+	clr_province_flag = weather_agriculture_effect_neutral
+	clr_province_flag = weather_agriculture_effect_catastrophic
+	# Set new effect
+	set_province_flag = weather_agriculture_effect_bad
+	# Effects:
+	# NOTE: needs to be done later...
+}
+# Catastrophic
+weather_agriculture_catastrophic_CTD_effect = {
+	# Localisation:
+	# Clear all old effects
+	clr_province_flag = weather_agriculture_effect_good
+	clr_province_flag = weather_agriculture_effect_neutral
+	clr_province_flag = weather_agriculture_effect_bad
+	# Set new effect
+	set_province_flag = weather_agriculture_effect_catastrophic
+	# Effects:
+	# NOTE: needs to be done later...
+}
+
+
+### Call Weather Effect
+## These MUST be called in an province scope to work properly
+# Calles the current weather's effect based on season
+
+# Mild
+mild_weather_agriculture_effect_CTD_effect = {
+	if = {
+		limit = {
+			has_province_flag = season_spring
+		}
+		weather_agriculture_good_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_summer
+		}
+		weather_agriculture_neutral_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_autumn
+		}
+		weather_agriculture_bad_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_winter
+		}
+		weather_agriculture_catastrophic_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_monsoon
+		}
+		weather_agriculture_catastrophic_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_pre_winter
+		}
+		weather_agriculture_neutral_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_dry_season
+		}
+		weather_agriculture_good_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_wet_season
+		}
+		weather_agriculture_bad_CTD_effect = yes	# Solely for testing
+	}
+}
+# Hailstorms
+hailstorms_weather_agriculture_effect_CTD_effect = {
+	if = {
+		limit = {
+			has_province_flag = season_spring
+		}
+		weather_agriculture_bad_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_summer
+		}
+		weather_agriculture_catastrophic_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_autumn
+		}
+		weather_agriculture_neutral_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_winter
+		}
+		weather_agriculture_good_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_monsoon
+		}
+		weather_agriculture_neutral_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_pre_winter
+		}
+		weather_agriculture_neutral_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_dry_season
+		}
+		weather_agriculture_good_CTD_effect = yes	# Solely for testing
+	}
+	if = {
+		limit = {
+			has_province_flag = season_wet_season
+		}
+		weather_agriculture_neutral_CTD_effect = yes	# Solely for testing
+	}
+}
+
+
+### Change Natural Feature
+## This MUST be called in an province scope to work properly
+# Adds or removes Natural Features from province, and adjusts all corresponding values, e.g. resource caps, supply
+
+# Deep Woods
+gain_deep_woods_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_deep_woods
+		duration = -1
+	}
+	# Supply:
+	change_variable = {
+		which = province_supply_food
+		value = -1
+	}
+	change_variable = {
+		which = province_supply_materials
+		value = 1
+	}
+	# Resource Caps:
+	change_variable = {
+		which = province_cap_mining
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = 2
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = -1
+	}
+}
+remove_deep_woods_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_deep_woods
+	# Supply (inverted):
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	change_variable = {
+		which = province_supply_materials
+		value = -1
+	}
+	# Resource Caps (inverted):
+	change_variable = {
+		which = province_cap_mining
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = -2
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = 1
+	}
+}
+
+# Swamps
+gain_swamps_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_swamps
+		duration = -1
+	}
+	# Supply:
+	# Food: No change
+	change_variable = {
+		which = province_supply_materials
+		value = 1
+	}
+	# Resource Caps:
+	change_variable = {
+		which = province_cap_mining
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	# Forests: No change
+	change_variable = {
+		which = province_cap_livestock
+		value = -1
+	}
+}
+remove_swamps_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_swamps
+	# Supply (inverted):
+	# Food: No change
+	change_variable = {
+		which = province_supply_materials
+		value = -1
+	}
+	# Resource Caps (inverted):
+	change_variable = {
+		which = province_cap_mining
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	# Forests: No change
+	change_variable = {
+		which = province_cap_livestock
+		value = 1
+	}
+}
+
+# Mangroves
+gain_mangroves_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_mangroves
+		duration = -1
+	}
+	# Supply:
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	change_variable = {
+		which = province_supply_materials
+		value = 1
+	}
+	# Resource Caps:
+	change_variable = {
+		which = province_cap_mining
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = -1
+	}
+}
+remove_mangroves_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_mangroves
+	# Supply (inverted):
+	change_variable = {
+		which = province_supply_food
+		value = -1
+	}
+	change_variable = {
+		which = province_supply_materials
+		value = -1
+	}
+	# Resource Caps (inverted):
+	change_variable = {
+		which = province_cap_mining
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = 1
+	}
+}
+
+# Heath
+gain_heath_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_heath
+		duration = -1
+	}
+	# Supply:
+	# Food: No change
+	change_variable = {
+		which = province_supply_materials
+		value = -1
+	}
+	# Resource Caps:
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = -1
+	}
+	# Livestock: No change
+}
+remove_heath_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_heath
+	# Supply (inverted):
+	# Food: No change
+	change_variable = {
+		which = province_supply_materials
+		value = 1
+	}
+	# Resource Caps (inverted):
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = 1
+	}
+	# Livestock: No change
+}
+
+# Volcano
+gain_volcano_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_volcano
+		duration = -1
+	}
+	# Supply:
+	# Food: No change
+	# Materials: No change
+	# Resource Caps:
+	change_variable = {
+		which = province_cap_mining
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = 2
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = 1
+	}
+	# Livestock: No change
+}
+remove_volcano_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_volcano
+	# Supply (inverted):
+	# Food: No change
+	# Materials: No change
+	# Resource Caps (inverted):
+	change_variable = {
+		which = province_cap_mining
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = -2
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = -1
+	}
+	# Livestock: No change
+}
+
+# Mountain Pass
+gain_mountain_pass_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_mountain_pass
+		duration = -1
+	}
+	# Supply:
+	# Food: No change
+	# Materials: No change
+	# Resource Caps:
+	# Mining: No change
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+remove_mountain_pass_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_mountain_pass
+	# Supply (inverted):
+	# Food: No change
+	# Materials: No change
+	# Resource Caps (inverted):
+	# Mining: No change
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+
+# Hot Springs
+gain_hot_springs_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_hot_springs
+		duration = -1
+	}
+	# Supply:
+	# Food: No change
+	# Materials: No change
+	# Resource Caps:
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	# Forests: No change
+	# Livestock: No change
+}
+remove_hot_springs_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_hot_springs
+	# Supply (inverted):
+	# Food: No change
+	# Materials: No change
+	# Resource Caps (inverted):
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	# Forests: No change
+	# Livestock: No change
+}
+
+# Estuary
+gain_estuary_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_estuary
+		duration = -1
+	}
+	# Supply:
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	# Materials: No change
+	# Resource Caps:
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	# Forests: No change
+	# Livestock: No change
+}
+remove_estuary_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_estuary
+	# Supply (inverted):
+	change_variable = {
+		which = province_supply_food
+		value = -1
+	}
+	# Materials: No change
+	# Resource Caps (inverted):
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	# Forests: No change
+	# Livestock: No change
+}
+
+# Natural Harbour
+gain_natural_harbour_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_natural_harbour
+		duration = -1
+	}
+	# Supply:
+	# Food: No change
+	# Materials: No change
+	# Resource Caps:
+	# Mining: No change
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+remove_natural_harbour_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_natural_harbour
+	# Supply (inverted):
+	# Food: No change
+	# Materials: No change
+	# Resource Caps (inverted):
+	# Mining: No change
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+
+# Coral Reefs
+gain_coral_reefs_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_coral_reefs
+		duration = -1
+	}
+	# Supply:
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	# Materials: No change
+	# Resource Caps:
+	# Mining: No change
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+remove_coral_reefs_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_coral_reefs
+	# Supply (inverted):
+	change_variable = {
+		which = province_supply_food
+		value = -1
+	}
+	# Materials: No change
+	# Resource Caps (inverted):
+	# Mining: No change
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+
+# Flood Plains
+gain_flood_plains_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_flood_plains
+		duration = -1
+	}
+	# Supply:
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	# Materials: No change
+	# Resource Caps:
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = 2
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = -1
+	}
+	# Livestock: No change
+}
+remove_flood_plains_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_flood_plains
+	# Supply (inverted):
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	# Materials: No change
+	# Resource Caps (inverted):
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = -2
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = 1
+	}
+	# Livestock: No change
+}
+
+# Salt Pans
+gain_salt_pans_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_salt_pans
+		duration = -1
+	}
+	# Supply:
+	change_variable = {
+		which = province_supply_food
+		value = -1
+	}
+	# Materials: No change
+	# Resource Caps:
+	change_variable = {
+		which = province_cap_mining
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = -1
+	}
+}
+remove_salt_pans_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_salt_pans
+	# Supply (inverted):
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	# Materials: No change
+	# Resource Caps (inverted):
+	change_variable = {
+		which = province_cap_mining
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = 1
+	}
+}
+
+# Caves
+gain_caves_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_caves
+		duration = -1
+	}
+	# Supply:
+	# Food: No change
+	change_variable = {
+		which = province_supply_materials
+		value = 1
+	}
+	# Resource Caps:
+	change_variable = {
+		which = province_cap_mining
+		value = 2
+	}
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+remove_caves_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_caves
+	# Supply (inverted):
+	# Food: No change
+	change_variable = {
+		which = province_supply_materials
+		value = -1
+	}
+	# Resource Caps (inverted):
+	change_variable = {
+		which = province_cap_mining
+		value = -2
+	}
+	# Agriculture: No change
+	# Forests: No change
+	# Livestock: No change
+}
+
+# Glaciers
+gain_glaciers_CTD_effect = {
+	# Modifier:
+	add_province_modifier = {
+		name = natural_feature_glaciers
+		duration = -1
+	}
+	# Supply:
+	change_variable = {
+		which = province_supply_food
+		value = -1
+	}
+	# Materials: No change
+	# Resource Caps:
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = -1
+	}
+}
+remove_glaciers_CTD_effect = {
+	# Modifier:
+	remove_province_modifier = natural_feature_glaciers
+	# Supply (inverted):
+	change_variable = {
+		which = province_supply_food
+		value = 1
+	}
+	# Materials: No change
+	# Resource Caps (inverted):
+	# Mining: No change
+	change_variable = {
+		which = province_cap_agriculture
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_forests
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_livestock
+		value = 1
+	}
+}

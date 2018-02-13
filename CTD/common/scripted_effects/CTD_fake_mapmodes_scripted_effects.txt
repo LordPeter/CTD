@@ -1,0 +1,493 @@
+###################################
+# CTD fake mapmode scripted effects
+#
+# by LordPeter
+###################################
+
+### 
+## This MUST be called in a character scope to work properly
+# 
+
+clear_all_mapmode_flags_CTD_effect = {
+	clr_character_flag = fake_mapmode_nature_climate_current_season
+	clr_character_flag = fake_mapmode_nature_climate_general_climatetype
+	# ...
+}
+
+### Flatten revolt risk
+## This CAN be called in any scope to work properly, since it scopes to all provinces anyway
+# This does some tricky calculations to make sure the resulting setup has excactly zero revolt risk everywhere in the world, for use with fake mapmodes
+
+# Set revolt risk to zero:
+flatten_world_revolt_risk_CTD_effect = {	# NOTE: Expensive! Use sparingly.
+	any_province = {	# WARNING: EXPENSIVE (!)
+		# Step 1: Add 127.5%, so also negative values can be cleared!
+		add_province_modifier = {
+			name = helper_huge_revolt_risk
+			duration = -1
+			hidden = yes
+		}
+		
+		# Step 2: Automatically bring total current revolt risk to excactly 127.5%.
+		# A: Decrease. (The following should hopefully execute one after the other...)
+		if = {
+			limit = {
+				revolt_risk = 1.915	# equals 0.64 + 1.275	# or greater, obviousely
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_64
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.595
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_32
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.435
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_16
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.355
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_08
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.315
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_04
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.295
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_02
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.285
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_01
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.280
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_00.5
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.278
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_00.3
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.277
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_00.2
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				revolt_risk = 1.276
+			}
+			add_province_modifier = {
+				name = helper_remove_revolt_risk_00.1
+				duration = -1
+				hidden = yes
+			}
+		}
+		# Should now be excactly 127.5% - or, B is executed:
+		# B: Increase. (The following should hopefully execute one after the other...)
+		if = {
+			limit = {
+				OR = {	# Can also be *exactly* the value - but only NOT would ignore that!
+					NOT = {
+						revolt_risk = 0.636	# equals 1.275 - 0.64 + 0.01, so that values up to 0.635 are valid!	# or smaller, obviousely
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_64
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 0.956
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_32
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.116
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_16
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.196
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_08
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.236
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_04
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.256
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_02
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.266
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_01
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.271
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_00.5
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.273
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_00.3
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.274
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_00.2
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						revolt_risk = 1.275
+					}
+				}
+			}
+			add_province_modifier = {
+				name = helper_increase_revolt_risk_00.1
+				duration = -1
+				hidden = yes
+			}
+		}
+		# Step 3: Revolt risk should now be exactly 127.5%. Remove big helper modifier.
+		remove_province_modifier = helper_huge_revolt_risk
+		# Step 4: revolt risk should now be exactly zero%. Now, any_province scope is over.
+	}
+}
+
+
+### Increase revolt risk to value of helper variable
+## This MUST be called in a province scope to work properly
+# It increases revolt risk to match a given helper variable, thus displaying a gradient type fake mapmode. NOTE: Its modifiers need to be claread afterwards!
+
+match_revolt_risk_to_helper_variable_CTD_effect = {	# NOTE: Set modifiers need to be cleared later
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 128
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_128
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 64
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_064
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 32
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_032
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 16
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_016
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 8
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_008
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 4
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_004
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 2
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_002
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = helper_variable_fake_mapmode
+				value = 1
+			}
+		}
+		add_province_modifier = {
+			name = fake_mapmode_helper_001
+			duration = -1
+			hidden = yes
+		}
+		subtract_variable = {
+			which = helper_variable_fake_mapmode
+			value = 1
+		}
+	}
+}
+
+
+### Cleanup any fake helper modifiers
+## This CAN be called in any scope to work properly, since it scopes to all provinces anyway
+# It cleans up all the modifiers set by the above two events, thus resetting revolt_risk to its actual value. It does not clear any character modifiers, though.
+
+cleanup_all_fake_mapmode_helper_modifiers_CTD_effect = {
+	any_province = {	# WARNING: EXPENSIVE!
+		# Clear "flattening" modifiers
+		remove_province_modifier = helper_remove_revolt_risk_64
+		remove_province_modifier = helper_remove_revolt_risk_32
+		remove_province_modifier = helper_remove_revolt_risk_16
+		remove_province_modifier = helper_remove_revolt_risk_08
+		remove_province_modifier = helper_remove_revolt_risk_04
+		remove_province_modifier = helper_remove_revolt_risk_02
+		remove_province_modifier = helper_remove_revolt_risk_01
+		remove_province_modifier = helper_remove_revolt_risk_00.5
+		remove_province_modifier = helper_remove_revolt_risk_00.3
+		remove_province_modifier = helper_remove_revolt_risk_00.2
+		remove_province_modifier = helper_remove_revolt_risk_00.1
+		remove_province_modifier = helper_increase_revolt_risk_64
+		remove_province_modifier = helper_increase_revolt_risk_32
+		remove_province_modifier = helper_increase_revolt_risk_16
+		remove_province_modifier = helper_increase_revolt_risk_08
+		remove_province_modifier = helper_increase_revolt_risk_04
+		remove_province_modifier = helper_increase_revolt_risk_02
+		remove_province_modifier = helper_increase_revolt_risk_01
+		remove_province_modifier = helper_increase_revolt_risk_00.5
+		remove_province_modifier = helper_increase_revolt_risk_00.3
+		remove_province_modifier = helper_increase_revolt_risk_00.2
+		remove_province_modifier = helper_increase_revolt_risk_00.1
+		# Clear fake mapmode modifiers
+		remove_province_modifier = fake_mapmode_helper_128
+		remove_province_modifier = fake_mapmode_helper_064
+		remove_province_modifier = fake_mapmode_helper_032
+		remove_province_modifier = fake_mapmode_helper_016
+		remove_province_modifier = fake_mapmode_helper_008
+		remove_province_modifier = fake_mapmode_helper_004
+		remove_province_modifier = fake_mapmode_helper_002
+		remove_province_modifier = fake_mapmode_helper_001
+		set_variable = {	# Just to make 100% sure it is zero, and will get removed from savegames
+			which = helper_variable_fake_mapmode
+			value = 0
+		}
+	}
+}

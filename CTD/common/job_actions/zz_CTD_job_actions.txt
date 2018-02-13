@@ -1,0 +1,1359 @@
+##########################################
+# COUNCILLOR ACTIONS
+##########################################
+# attribute = [diplomacy/stewardship/intrigue/martial/learning] - Character attribute is multiplied with the modifiers
+# trigger = Province scope trigger to determine if the action is meaningful in a province (the player character is FROM)
+# Events that can trigger off this action. This info is only used by the GUI.
+# All modifiers (like 'local_build_time_modifier') are multiplied by the attribute
+
+
+# display_on_map = {
+#	tooltip = JOB_PROSELYTIZE_DIFFERENT_RELIGION  # Key of the loc to add to the tooltip
+#	trigger = {                                   # Trigger for when this should happen. Same scopes as the allow/potential for the job action itself
+#		NOT = { religion = FROM }
+#	}
+#	color = { 255 0 0 }                           # What color to use on the map
+# }
+
+# Marshal
+action_hunt_slaves = {
+	attribute = martial
+	
+	potential = {
+		FROM = {
+			ai = no	# TESTING
+		}
+	}
+	
+	trigger = {
+		owner = {
+			always = yes	# Means that province is not wasteland
+		}
+	}
+	
+	# Display whether slaves can be hunted (and whether they are heathens or same religion), could be under another law or could never
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Spring
+		trigger = {
+			always = yes
+		}
+		color = { 196 255 0 }
+	}
+	
+	events = { }
+}
+
+# Steward
+action_show_fake_mapmode = {
+	attribute = stewardship		# Irrelevant, but without it action might break
+	
+	potential = {
+		FROM = {
+			ai = no		# Only ever allowed for players!
+		}
+	}
+	
+	trigger = {
+		owner = {
+			always = yes	# Means that province is not wasteland
+		}
+	}
+	
+	# It follows a list of every map color + tooltip, displayed under various circumstances:
+	
+	# # DUCHY HOLDINGS:
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 1
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 2
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 32 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 3
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 64 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 4
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 96 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 5
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 128 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 6
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 160 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 7
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 192 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 8
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 224 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 9
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 10
+					# }
+				# }
+			# }
+		# }
+		# color = { 224 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 11
+					# }
+				# }
+			# }
+		# }
+		# color = { 192 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 12
+					# }
+				# }
+			# }
+		# }
+		# color = { 160 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 13
+					# }
+				# }
+			# }
+		# }
+		# color = { 128 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 14
+					# }
+				# }
+			# }
+		# }
+		# color = { 96 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 15
+					# }
+				# }
+			# }
+		# }
+		# color = { 64 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 16
+					# }
+				# }
+			# }
+		# }
+		# color = { 32 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 17
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 18
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 32 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 19
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 64 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 20
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 96 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 21
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 128 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 22
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 160 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 23
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 192 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 24
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 224 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 25
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 26
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 224 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 27
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 192 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 28
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 160 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 29
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 128 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 30
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 96 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 31
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 64 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 32
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 32 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 33
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 34
+					# }
+				# }
+			# }
+		# }
+		# color = { 32 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 35
+					# }
+				# }
+			# }
+		# }
+		# color = { 64 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 36
+					# }
+				# }
+			# }
+		# }
+		# color = { 96 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 37
+					# }
+				# }
+			# }
+		# }
+		# color = { 128 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 38
+					# }
+				# }
+			# }
+		# }
+		# color = { 160 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 39
+					# }
+				# }
+			# }
+		# }
+		# color = { 192 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 40
+					# }
+				# }
+			# }
+		# }
+		# color = { 224 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 41
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 42
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 224 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 43
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 192 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 44
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 160 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 45
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 128 0 }
+	# }
+	# switch to other palette lest confuse it with red from #1
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 46
+					# }
+				# }
+			# }
+		# }
+		# color = { 128 0 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 47
+					# }
+				# }
+			# }
+		# }
+		# color = { 128 0 64 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 48
+					# }
+				# }
+			# }
+		# }
+		# color = { 128 0 128 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 49
+					# }
+				# }
+			# }
+		# }
+		# color = { 64 0 128 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 50
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 0 128 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 51
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 64 128 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 52
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 128 128 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 53
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 128 64 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 54
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 128 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 55
+					# }
+				# }
+			# }
+		# }
+		# color = { 64 128 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {	# the county
+				# dejure_liege_title = {	# the de jure duchy
+					# is_variable_equal = {
+						# which = duchy_holding_count_variable
+						# value = 56
+					# }
+				# }
+			# }
+		# }
+		# color = { 128 128 0 }
+	# }
+	# /Duchy Holdings
+	
+	# # DUCHY DENSITY:
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# AND = {
+						# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+							# count = 1
+						# }
+						# NOT = {
+							# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+								# count = 2
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# AND = {
+						# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+							# count = 2
+						# }
+						# NOT = {
+							# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+								# count = 3
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# AND = {
+						# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+							# count = 3
+						# }
+						# NOT = {
+							# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+								# count = 4
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 0 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# AND = {
+						# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+							# count = 4
+						# }
+						# NOT = {
+							# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+								# count = 5
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# AND = {
+						# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+							# count = 5
+						# }
+						# NOT = {
+							# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+								# count = 6
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# AND = {
+						# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+							# count = 6
+						# }
+						# NOT = {
+							# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+								# count = 7
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 255 0 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# AND = {
+						# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+							# count = 7
+						# }
+						# NOT = {
+							# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+								# count = 8
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+		# color = { 255 255 255 }
+	# }
+	# display_on_map = {
+		# trigger = {
+			# county = {
+				# dejure_liege_title = {	# the deJure duchy
+					# any_direct_de_jure_vassal_title = {	# all of its deJure counties
+						# count = 8
+					# }
+				# }
+			# }
+		# }
+		# color = { 0 0 0 }
+	# }
+	# # /Duchy Density
+	
+	# WINTER:
+	display_on_map = {
+		trigger = {
+			AND = {
+				climate = mild_winter
+			}
+		}
+		color = { 110 200 228 }
+	}
+	display_on_map = {
+		trigger = {
+			AND = {
+				climate = normal_winter
+			}
+		}
+		color = { 156 236 236 }
+	}
+	display_on_map = {
+		trigger = {
+			AND = {
+				climate = severe_winter
+			}
+		}
+		color = { 213 243 241 }
+	}
+	display_on_map = {
+		trigger = {
+			AND = {
+				climate = temperate
+			}
+		}
+		color = { 128 255 0 }
+	}
+	# /Winter
+	
+	# SEASONS:
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Spring
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_spring
+			}
+		}
+		color = { 196 255 0 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Summer
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_summer
+			}
+		}
+		color = { 78 199 8 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Autumn
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_autumn
+			}
+		}
+		color = { 203 109 27 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Winter
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_winter
+			}
+		}
+		color = { 230 255 255 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Monsoon
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_monsoon
+			}
+		}
+		color = { 54 122 225 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Pre_Winter
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_pre_winter
+			}
+		}
+		color = { 85 216 125 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Dry_Season
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_dry_season
+			}
+		}
+		color = { 233 227 49 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Season_Wet_Season
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_current_season
+				}
+				has_province_flag = season_wet_season
+			}
+		}
+		color = { 44 210 72 }
+	}
+	# /Seasons
+	
+	# CLIMATES:
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_A_f
+			}
+		}
+		color = { 19 0 252 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_A_m
+			}
+		}
+		color = { 14 115 252 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_A_s
+			}
+		}
+		color = { 54 154 229 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_A_w
+			}
+		}
+		color = { 108 177 229 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_B_W_h
+			}
+		}
+		color = { 253 0 0 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_B_W_k
+			}
+		}
+		color = { 254 149 148 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_B_S_h
+			}
+		}
+		color = { 246 162 0 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_B_S_k
+			}
+		}
+		color = { 230 198 90 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_C_s_a
+			}
+		}
+		color = { 252 254 4 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_C_s_b
+			}
+		}
+		color = { 206 204 8 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_C_w_a
+			}
+		}
+		color = { 148 254 151 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_C_w_b
+			}
+		}
+		color = { 95 199 101 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_C_f_a
+			}
+		}
+		color = { 197 254 75 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_C_f_b
+			}
+		}
+		color = { 99 253 50 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_C_f_c
+			}
+		}
+		color = { 53 198 0 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_D_s_a
+			}
+		}
+		color = { 252 0 251 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_D_s_b
+			}
+		}
+		color = { 201 0 196 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_D_s_c
+			}
+		}
+		color = { 152 51 150 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_D_w_c
+			}
+		}
+		color = { 72 78 180 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_D_f_a
+			}
+		}
+		color = { 0 252 253 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_D_f_b
+			}
+		}
+		color = { 61 198 250 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_D_f_c
+			}
+		}
+		color = { 0 126 126 }
+	}
+	display_on_map = {
+		tooltip = JOB_FAKE_MAPMODE_Climate_Type_
+		trigger = {
+			AND = {
+				FROM = {
+					has_character_flag = fake_mapmode_nature_climate_general_climatetype
+				}
+				has_province_flag = climate_koeppen_E_T
+			}
+		}
+		color = { 158 159 158 }
+	}
+	# /Climates
+	
+	
+	events = { }
+}

@@ -1,0 +1,12 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_action_show_fake_mapmode"
+		texturefile = "gfx\\interface\\jobs_show_fake_mapmode.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_action_hunt_slaves"
+		texturefile = "gfx\\interface\\jobs_hunt_slaves.dds"
+		noOfFrames = 2
+	}
+}

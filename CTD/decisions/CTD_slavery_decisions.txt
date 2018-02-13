@@ -1,0 +1,200 @@
+decisions = {
+	# The following only triggers when the character is leading an army in a province that can be extorted, for codability reasons...
+	hunt_slaves = {
+		is_high_prio = yes	# Will show an alert once decision is enabled
+		only_playable = yes
+		potential = {
+			AND = {
+				# NOTE: Important: Make it so, that also the marshal is considered if the ruler is not leading troops. That way, a ruler that can not lead troops can still hunt slaves through his marshall!
+				ai = no		# TESTING for now!!! - NOTE: Later on, when removing this MAKE SURE the AI won't "steal" slave provinces from player!!!!
+				# This is the character:
+				is_playable = yes	# Only people with a demesne need these
+				in_command = yes	# Charcter is leading troops
+				NOT = {	# The old safety check to prevent character from spamming the decision immediately and breaking the following chains:
+					has_character_flag = started_slave_hunt
+				}
+				OR = {
+					AND = {
+						has_law = slavery_law_1	# Heathen Slaves
+						location = {	# The province the character is in
+							considered_as_enslavable_religion_CTD_trigger = yes	# Character views province religion majority as enslavable
+						}
+					}
+					has_law = slavery_law_2	# Slavery Allowed for All - character does not have to worry about religion
+				}
+				# Now follow checks on the province:
+				location = {
+					AND = {
+						NOT = {	# Not possible if already exploited
+							has_province_modifier = slave_hunt_province
+						}
+						check_variable = {	# Only possible if province has at least 5 pops, as otherwise slave hunts would not yield anything usable (20% !)
+							which = province_population_total
+							value = 5
+						}
+						ROOT = {	# scope to decision taker's realm
+							any_demesne_province = {	# Must be within range of a "trade origin" designated province
+								slave_origin_province_is_in_range_CTD_trigger = yes
+							}
+						}
+						owner = {	# Owner must be neither fellow vassal, nor of un-enslaveable religion (even if province is!), nor tributary of any sort
+							NOR = {
+								same_realm = ROOT
+								top_liege = {
+									OR = {
+										ROOT = {	# Important: go back to slaver here first else the next check does not make sense...
+											considered_as_enslavable_religion_CTD_trigger = no	# Character views character's religion NOT as enslavable
+										}
+										AND = {
+											is_tributary = yes	# Safety check
+											suzerain = {
+												is_vassal_or_below = ROOT	# This means that their suzerain is also our top liege	#INFO: Testing shows this is correct, and "is_liege_or_above" would be the opposite
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			always = yes	# TEST for now...
+		}
+		effect = {
+			# Reminder: Always set flag before event starts, not after! Else the entire chain breaks for the AI! (the flag is also there to prevent decision spamming)
+			set_character_flag = started_slave_hunt
+			location = {	# Add the province modifier - NOTE: Does not stack anymore for balance reasons!
+				add_province_modifier = {
+					name = slave_hunt_province
+					days = -1
+				}
+				# Set helper variable to total province population:
+				set_variable = {
+					which = slavery_helper_variable
+					which = province_population_total
+				}
+				# Multiply helper variable by 0.2 (20% of total province population)
+				multiply_variable = {
+					which = slavery_helper_variable
+					value = 0.2
+				}
+				# Set helper variable value to "slave production"
+				set_variable = {
+					which = province_slaves_production
+					which = slavery_helper_variable
+				}
+				# Reset helper variable to zero, so it will get cleared from save:
+				set_variable = {
+					which = slavery_helper_variable
+					value = 0
+				}
+			}
+			character_event = {	# Starts the event chain
+				id = CTD.0430
+			}
+			custom_tooltip = {
+				text = START_SLAVE_HUNT
+			}
+		}
+		ai_will_do = {
+			factor = 0	# NOTE: For now only testing
+			# modifier = {	# Tribals even less likely
+				# factor = 0.25
+				# is_tribal = yes
+			# }
+		}
+	}
+}
+
+title_decisions = {
+	# Mark province as destination of hunted slaves
+	mark_province_as_potential_slave_trade_origin = {
+		is_high_prio = yes	# Will show an alert once decision is enabled
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {
+			ai = no		# TESTING for now!!!
+			NOT = {
+				has_law = slavery_law_0		# Slavery Outlawed
+				any_demesne_province = {	# Only a maximum of 3 potential provinces is possible
+					has_province_modifier = potential_slave_origin_province
+					count = 3
+				}
+			}
+		}
+		potential = {
+			AND = {
+				tier = COUNT	# IMPORTANT: If you want provinces, then always check for county!!!
+				location = {
+					AND = {
+						NOR = {	# Not possible if already is designated or neighbor (same demesne) province is
+							has_province_modifier = potential_slave_origin_province
+							any_neighbor_province = {
+								AND = {
+									owner = {	# Not any neighbor province, only from the same owner, lest small counts could be "choked" off of the ability to designate provinces
+										character = FROM
+									}
+									has_province_modifier = potential_slave_origin_province
+								}
+							}
+						}
+						OR = {	# Province lies on or adjancend to a traderoute
+							lies_on_any_traderoute_CTD_trigger = yes
+							any_neighbor_province = {
+								lies_on_any_traderoute_CTD_trigger = yes
+							}
+						}
+					}
+				}
+			}
+        }
+        allow = {
+            always = yes	# for now...
+        }
+        effect = {
+            location = {	# Add the province modifier
+				add_province_modifier = {
+					name = potential_slave_origin_province
+					days = -1
+				}
+			}
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 0	# NOTE: For now only testing
+        }
+    }
+	# Remove above designation
+	remove_province_as_potential_slave_trade_origin = {
+		filter = owned
+		ai_target_filter = owned
+		
+		potential = {
+			AND = {
+				tier = COUNT	# IMPORTANT: If you want provinces, then always check for county!!!
+				location = {
+					has_province_modifier = potential_slave_origin_province
+				}
+			}
+        }
+        allow = {
+            always = yes	# for now...
+        }
+        effect = {
+            location = {	# Add the province modifier
+				remove_province_modifier = potential_slave_origin_province
+			}
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 0	# NOTE: For now only testing
+        }
+    }
+}

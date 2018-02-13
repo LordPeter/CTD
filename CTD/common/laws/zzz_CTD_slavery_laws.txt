@@ -1,0 +1,146 @@
+# Slavery Laws
+law_groups = {
+	slavery_group = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+}
+
+laws = {
+	# Slavery Laws
+	##############################
+	slavery_law_0 = {	# Slavery Abolished/Serfdom Only
+		group = slavery_group
+		
+		potential = {
+			is_primary_holder_title = yes
+			higher_tier_than = BARON
+			holder_scope = {
+				independent = yes
+			}
+			has_game_rule = {	# Only active if game rule is
+				name = slavery
+				value = enabled
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = MAY_ABOLISH_SLAVERY
+				AND = {
+					holder_scope = {
+						can_abolish_slavery_CTD_trigger = yes	# NOTE: Code that! (with high enough -dynamic!- tech type level, no unreformed pagan etc.)
+						AND = {
+							has_law = slavery_law_1
+							war = no
+						}
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			holder_scope = {
+				piety = 50		# It gives piety to outlaw slavery
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				revoke_law = slavery_law_1
+				revoke_law = slavery_law_2
+			}
+		}
+		# Effects while active:
+		tribal_opinion = -10	# Tribals don't understand why slavery would be forbidden
+		global_revolt_risk = -0.005		# Common people are happy they can't ever become slaves, though they might still be serfs
+		# And of course slave raids/usage are disabled, and SLAVE TRADE CAN NOT PASS THROUGH THE REALM! <- Note: investigate if that is feasible
+	}
+	
+	slavery_law_1 = {	# Only Heathen Slaves
+		group = slavery_group
+		default = yes
+		
+		potential = {
+			is_primary_holder_title = yes
+			higher_tier_than = BARON
+			holder_scope = {
+				independent = yes
+			}
+			has_game_rule = {	# Only active if game rule is
+				name = slavery
+				value = enabled
+			}
+		}
+		allow = {
+			holder_scope = {
+				war = no
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			hidden_tooltip = {
+				revoke_law = slavery_law_0
+				revoke_law = slavery_law_2
+			}
+		}
+		# Effects while active:
+		# Disabled slave raids on same-faith provinces, and maybe something else to discourage same-faith slaves... dunno, NOTE investigate
+	}
+	
+	slavery_law_2 = {	# Slavery Completely Allowed
+		group = slavery_group
+		
+		potential = {
+			is_primary_holder_title = yes
+			higher_tier_than = BARON
+			holder_scope = {
+				independent = yes
+			}
+			has_game_rule = {	# Only active if game rule is
+				name = slavery
+				value = enabled
+			}
+		}
+		allow = {
+			holder_scope = {
+				AND = {
+					has_law = slavery_law_1
+					war = no
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			hidden_tooltip = {
+				revoke_law = slavery_law_0
+				revoke_law = slavery_law_1
+				# rightful_religious_head_scope maybe something here that fires for the monotheistic religion heads if law is passed, making them angry
+			}
+		}
+		# Effects while active:
+		temple_opinion = -5		# Priests aren't that happy about their flocks getting enslaved (not too harsh because Pagans care little)
+	}
+}

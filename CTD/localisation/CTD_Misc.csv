@@ -1,0 +1,100 @@
+#### Miscellaneous
+
+### Laws
+
+## Slavery Laws
+# Law Group
+slavery_group;Slavery;;;;;;;;;;;;;x
+slavery_group_desc;This law governs whether slavery is allowed, and to what extent.;;;;;;;;;;;;;x
+# Indivual Laws
+slavery_law_0;No Slavery;;;;;;;;;;;;;x
+slavery_law_0_option;None;;;;;;;;;;;;;x
+slavery_law_0_desc;Slavery is outlawed, and noone can be enslaved or traded as a slave. Serfdom still exists, though.;;;;;;;;;;;;;x
+slavery_law_1;Heathen Slaves;;;;;;;;;;;;;x
+slavery_law_1_option;Heathen;;;;;;;;;;;;;x
+slavery_law_1_desc;Only followers of a heathen religion can be enslaved and traded. This disallows slaves of any religion of the same religion group for Christians, Muslims, Mazdans, Jews & Indians, but not for Pagans (e.g. Germanics can still enslave Hellenics). Heretics can still be slaves!;;;;;;;;;;;;;x
+slavery_law_2;Slavery Allowed;;;;;;;;;;;;;x
+slavery_law_2_option;All;;;;;;;;;;;;;x
+slavery_law_2_desc;Slavery is allowed, and even members of the same religion can be enslaved.;;;;;;;;;;;;;x
+# Tooltips
+MAY_ABOLISH_SLAVERY;Holder:\n     ([Slave_Law_Condition_X_All]) All of the following must be true:\n        ([Slave_Law_Condition_1_Custom]) Can abolish slavery\n        ([Slave_Law_Condition_2_Law]) Has the Law '§YHeathen Slaves§!'\n        ([Slave_Law_Condition_3_Peace]) At Peace;;;;;;;;;;;;;x
+
+
+### Councilor Jobs
+action_hunt_slaves;bla.;;;;;;;;;;;;;x
+action_hunt_slaves_desc;one ring to....;;;;;;;;;;;;;x
+action_show_fake_mapmode;Fabricate Cartography;;;;;;;;;;;;;x
+action_show_fake_mapmode_desc;Your [From.job_treasurer.GetJobTitle] will produce charts with useful information about the known world. To specify the nature of this map, you must decide first which information you want.\n(Use the decision "Ponder on Cartography" on your player character to chose a mapmode that this action will display.);;;;;;;;;;;;;x
+
+
+### Game Rules
+RULE_GROUP_FPS;FPS;;;;;;;;;;;;;x
+
+# Historical Resources
+LOCAL_RESOURCES_TITLE;§PCTD§!: Resource Distribution;;;;;;;;;;;;;x
+RESOURCES_HISTORICAL;Historical;;;;;;;;;;;;;x
+LOCAL_RESOURCES_HISTORICAL_DESC;Provinces with a known economic history will be given the resources they had historically, while the rest will still be assigned random resources.;;;;;;;;;;;;;x
+RESOURCES_RANDOM;Random;;;;;;;;;;;;;x
+LOCAL_RESOURCES_RANDOM_DESC;The resources assigned to provinces at gamestart will be random, within reason.;;;;;;;;;;;;;x
+# Currencies
+CURRENCIES_TITLE;§PCTD§!: Currencies;;;;;;;;;;;;;x
+CURRENCIES_ENABLED;Enabled;;;;;;;;;;;;;x
+CURRENCIES_ENABLED_DESC;Rulers may mint their own currency, and related mechanics are enabled.;;;;;;;;;;;;;x
+CURRENCIES_DISABLED;Disabled;;;;;;;;;;;;;x
+CURRENCIES_DISABLED_DESC;There are no individual currencies in the game.;;;;;;;;;;;;;x
+# Natural Features
+NATURAL_FEATURES_TITLE;§PCTD§!: Natural Features;;;;;;;;;;;;;x
+FEATURES_ENABLED_HISTORICAL;Enabled, Historical;;;;;;;;;;;;;x
+NATURAL_FEATURES_ENABLED_HISTORICAL_DESC;Natural features, such as swamps, coral reefs and volcanoes, will be distributed across the map. Where applicable they will appear in their historical locations, the rest will be distributed randomly.;;;;;;;;;;;;;x
+FEATURES_ENABLED_RANDOM;Enabled, Random;;;;;;;;;;;;;x
+NATURAL_FEATURES_ENABLED_RANDOM_DESC;Natural features, such as swamps, coral reefs and volcanoes, will be distributed across the map. Distribution will be random (and potentially strange), though heavily weighted.;;;;;;;;;;;;;x
+FEATURES_DISABLED;Disabled;;;;;;;;;;;;;x
+NATURAL_FEATURES_DISABLED_DESC;Natural features, such as swamps, coral reefs and volcanoes, will not appear.;;;;;;;;;;;;;x
+# Weather
+WEATHER_TITLE;§PCTD§!: Weather;;;;;;;;;;;;;x
+WEATHER_DISABLED;Disabled;;;;;;;;;;;;;x
+WEATHER_DISABLED_DESC;Weather will not appear.;;;;;;;;;;;;;x
+WEATHER_ENABLED;Enabled;;;;;;;;;;;;;x
+WEATHER_ENABLED_DESC;Weather will dynamically appear in provinces every month, influencing agriculture and warfare. NOTE: Only appears after a short delay, and has a minor performance impact!;;;;;;;;;;;;;x
+# Disasters
+DISASTERS_TITLE;§PCTD§!: Natural Disasters;;;;;;;;;;;;;x
+DISASTERS_DISABLED;Disabled;;;;;;;;;;;;;x
+DISASTERS_DISABLED_DESC;Natural Disasters can not happen.;;;;;;;;;;;;;x
+DISASTERS_ENABLED;Enabled;;;;;;;;;;;;;x
+DISASTERS_ENABLED_DESC;Natural Disasters such as Earthquakes, Flooding and Volcanic Eruptions can happen under certain conditions and wreak havok.;;;;;;;;;;;;;x
+# Slavery
+SLAVERY_TITLE;§PCTD§!: Slavery;;;;;;;;;;;;;x
+SLAVERY_ENABLED;Enabled;;;;;;;;;;;;;x
+SLAVERY_ENABLED_DESC;Slavery will be enabled in the game, and slave trade and enslaved characters may appear.;;;;;;;;;;;;;x
+SLAVERY_DISABLED;Disabled;;;;;;;;;;;;;x
+SLAVERY_DISABLED_DESC;Slavery will be disabled in the game, and no related things can appear.;;;;;;;;;;;;;x
+# Minorities
+MINORITIES_TITLE;§PCTD§!: Minorities;;;;;;;;;;;;;x
+MINORITIES_ENABLED;Enabled;;;;;;;;;;;;;x
+MINORITIES_ENABLED_DESC;Provinces can have cultural or religious minorities, and those will affect conversion.;;;;;;;;;;;;;x
+MINORITIES_DISABLED;Disabled;;;;;;;;;;;;;x
+MINORITIES_DISABLED_DESC;Minorities will be disabled and can't appear.;;;;;;;;;;;;;x
+# Jewish Diaspora
+JEWISH_DIASPORA_TITLE;§PCTD§!: Jewish Diaspora;;;;;;;;;;;;;x
+JEWISH_DIASPORA_ENABLED;Simulated;;;;;;;;;;;;;x
+JEWISH_DIASPORA_ENABLED_DESC;Several Jewish ethno-religious minorities roam the world, settling as communities were allowed. When they are expelled, their Pops will travel to more friendly lands.;;;;;;;;;;;;;x
+JEWISH_DIASPORA_DISABLED;Ignored;;;;;;;;;;;;;x
+JEWISH_DIASPORA_DISABLED_DESC;The Jewish diaspora will not be simulated, and Jewish communities cannot form.;;;;;;;;;;;;;x
+# Romani (Gypsies)
+ROMANI_TITLE;§PCTD§!: Romani Itinerants;;;;;;;;;;;;;x
+ROMANI_ENABLED;Simulated;;;;;;;;;;;;;x
+ROMANI_ENABLED_DESC;The Romani people, often known by their derogatory exonym "Gypsies", will at some point in the game begin their journey from their Indian homelands, to henceforth roam the lands of Europe as itinerant Pops.;;;;;;;;;;;;;x
+ROMANI_DISABLED;Ignored;;;;;;;;;;;;;x
+ROMANI_DISABLED_DESC;The Romani minorities will not be simulated.;;;;;;;;;;;;;x
+# Refugees
+REFUGEES_TITLE;§PCTD§!: Refugees;;;;;;;;;;;;;x
+REFUGEES_ENABLED;Enabled;;;;;;;;;;;;;x
+REFUGEES_ENABLED_DESC;War, Famine or Disasters can promt Pops to leave their home province as refugees to flee to a bordering one.;;;;;;;;;;;;;x
+REFUGEES_DISABLED;Disabled;;;;;;;;;;;;;x
+REFUGEES_DISABLED_DESC;Pops will not attempt to leave their home province, and can't become refugees.;;;;;;;;;;;;;x
+# Buildings
+BUILDINGS_TITLE;§PCTD§!: Buildings;;;;;;;;;;;;;x
+BUILDINGS_NEW;New;;;;;;;;;;;;;x
+BUILDINGS_NEW_DESC;Use the brand new building set designed specifically for CTD.;;;;;;;;;;;;;x
+BUILDINGS_OLD;Old;;;;;;;;;;;;;x
+BUILDINGS_OLD_DESC;Use the old building set from CK2+.;;;;;;;;;;;;;x

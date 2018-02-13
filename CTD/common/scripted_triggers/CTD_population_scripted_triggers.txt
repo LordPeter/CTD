@@ -1,0 +1,2494 @@
+##################################
+# CTD population scripted triggers
+#
+# by LordPeter
+##################################
+
+### Can grow/shrink population
+## These MUST be called in a holding scope to work properly
+# Checks whether the province supply/demand situation and other factors (diseases etc.), as well as holding prerquisites would allow a pop to grow or shrink
+
+# Grow:
+
+can_grow_peasants_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Peasants will grow if they have Food, Clothing and Materials
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+			}
+		}
+		# Peasants can grow regardless of other population
+	}
+}
+
+can_grow_artisans_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Artisans will grow if they have Food, Clothing and Materials
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+			}
+		}
+		# Artisans can only grow if there are at least as many peasants in the holding
+		OR = {
+			AND = {
+				NOR = {
+					has_building = ca_population_artisans_1
+					has_building = ct_population_artisans_1
+					has_building = tp_population_artisans_1
+					has_building = tb_population_artisans_1
+				}
+				OR = {
+					has_building = ca_population_peasants_1
+					has_building = ct_population_peasants_1
+					has_building = tp_population_peasants_1
+					has_building = tb_population_peasants_1
+				}
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_artisans_2
+					has_building = ct_population_artisans_2
+					has_building = tp_population_artisans_2
+					has_building = tb_population_artisans_2
+				}
+				OR = {
+					has_building = ca_population_peasants_2
+					has_building = ct_population_peasants_2
+					has_building = tp_population_peasants_2
+					has_building = tb_population_peasants_2
+				}
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_artisans_3
+					has_building = ct_population_artisans_3
+					has_building = tp_population_artisans_3
+					has_building = tb_population_artisans_3
+				}
+				OR = {
+					has_building = ca_population_peasants_3
+					has_building = ct_population_peasants_3
+					has_building = tp_population_peasants_3
+					has_building = tb_population_peasants_3
+				}
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_artisans_4
+					has_building = ct_population_artisans_4
+					has_building = tp_population_artisans_4
+					has_building = tb_population_artisans_4
+				}
+				OR = {
+					has_building = ca_population_peasants_4
+					has_building = ct_population_peasants_4
+					has_building = tp_population_peasants_4
+					has_building = tb_population_peasants_4
+				}
+			}
+		}
+	}
+}
+
+can_grow_merchants_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Merchants will grow if they have Food, Clothing, Materials and Luxuries
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+				check_variable = {
+					which = province_supply_luxuries
+					which = province_demand_luxuries
+				}
+			}
+		}
+		# Merchants can only grow if there are at least as many artisans in the holding
+		OR = {
+			AND = {
+				NOR = {
+					has_building = ca_population_merchants_1
+					has_building = ct_population_merchants_1
+					has_building = tp_population_merchants_1
+					has_building = tb_population_merchants_1
+				}
+				OR = {
+					has_building = ca_population_artisans_1
+					has_building = ct_population_artisans_1
+					has_building = tp_population_artisans_1
+					has_building = tb_population_artisans_1
+				}
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_merchants_2
+					has_building = ct_population_merchants_2
+					has_building = tp_population_merchants_2
+					has_building = tb_population_merchants_2
+				}
+				OR = {
+					has_building = ca_population_artisans_2
+					has_building = ct_population_artisans_2
+					has_building = tp_population_artisans_2
+					has_building = tb_population_artisans_2
+				}
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_merchants_3
+					has_building = ct_population_merchants_3
+					has_building = tp_population_merchants_3
+					has_building = tb_population_merchants_3
+				}
+				OR = {
+					has_building = ca_population_artisans_3
+					has_building = ct_population_artisans_3
+					has_building = tp_population_artisans_3
+					has_building = tb_population_artisans_3
+				}
+			}
+		}
+	}
+}
+
+can_grow_elite_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Elite will grow if they have Food, Clothing, Materials and Luxuries
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+				check_variable = {
+					which = province_supply_luxuries
+					which = province_demand_luxuries
+				}
+			}
+		}
+		# Elite can only grow if there are at least as many merchants in the holding
+		OR = {
+			AND = {
+				NOR = {
+					has_building = ca_population_elite_1
+					has_building = ct_population_elite_1
+					has_building = tp_population_elite_1
+					has_building = tb_population_elite_1
+				}
+				OR = {
+					has_building = ca_population_merchants_1
+					has_building = ct_population_merchants_1
+					has_building = tp_population_merchants_1
+					has_building = tb_population_merchants_1
+				}
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_elite_2
+					has_building = ct_population_elite_2
+					has_building = tp_population_elite_2
+					has_building = tb_population_elite_2
+				}
+				OR = {
+					has_building = ca_population_merchants_2
+					has_building = ct_population_merchants_2
+					has_building = tp_population_merchants_2
+					has_building = tb_population_merchants_2
+				}
+			}
+		}
+	}
+}
+
+can_grow_soldiers_CTD_trigger = {
+	AND = {
+		# Only castles can grow soldiers
+		holding_type = castle
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Soldiers will grow if they have Food, Clothing and Materials
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+			}
+		}
+		# Soldiers can only grow if there are at least as many artisans in the holding
+		OR = {
+			AND = {
+				NOT = {
+					has_building = ca_population_soldiers_1
+				}
+				has_building = ca_population_artisans_1
+			}
+			AND = {
+				NOT = {
+					has_building = ca_population_soldiers_2
+				}
+				has_building = ca_population_artisans_2
+			}
+			AND = {
+				NOT = {
+					has_building = ca_population_soldiers_3
+				}
+				has_building = ca_population_artisans_3
+			}
+			AND = {
+				NOT = {
+					has_building = ca_population_soldiers_4
+				}
+				has_building = ca_population_artisans_4
+			}
+			AND = {
+				NOT = {
+					has_building = ca_population_soldiers_5
+				}
+				AND = {	# There is no "artisans_5", so it's artisans_4 & merchants_1 instead
+					has_building = ca_population_merchants_1
+					has_building = ca_population_artisans_4
+				}
+			}
+		}
+	}
+}
+
+can_grow_patricians_CTD_trigger = {
+	AND = {
+		# Only cities can grow patricians
+		holding_type = city
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Patricians will grow if they have Food, Clothing, Materials and Luxuries
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+				check_variable = {
+					which = province_supply_luxuries
+					which = province_demand_luxuries
+				}
+			}
+		}
+		# Patricians can only grow if there are at least as many artisans in the holding
+		OR = {
+			AND = {
+				NOT = {
+					has_building = ct_population_patricians_1
+				}
+				has_building = ct_population_artisans_1
+			}
+			AND = {
+				NOT = {
+					has_building = ct_population_patricians_2
+				}
+				has_building = ct_population_artisans_2
+			}
+			AND = {
+				NOT = {
+					has_building = ct_population_patricians_3
+				}
+				has_building = ct_population_artisans_3
+			}
+			AND = {
+				NOT = {
+					has_building = ct_population_patricians_4
+				}
+				has_building = ct_population_artisans_4
+			}
+			AND = {
+				NOT = {
+					has_building = ct_population_patricians_5
+				}
+				AND = {	# There is no "artisans_5", so it's artisans_4 & merchants_1 instead
+					has_building = ct_population_merchants_1
+					has_building = ct_population_artisans_4
+				}
+			}
+		}
+	}
+}
+
+can_grow_clerics_CTD_trigger = {
+	AND = {
+		# Only temples can grow clerics
+		holding_type = temple
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Clerics will grow if they have Food, Clothing and Materials
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+			}
+		}
+		# Clerics can only grow if there are at least as many artisans in the holding
+		OR = {
+			AND = {
+				NOT = {
+					has_building = tp_population_clerics_1
+				}
+				has_building = tp_population_artisans_1
+			}
+			AND = {
+				NOT = {
+					has_building = tp_population_clerics_2
+				}
+				has_building = tp_population_artisans_2
+			}
+			AND = {
+				NOT = {
+					has_building = tp_population_clerics_3
+				}
+				has_building = tp_population_artisans_3
+			}
+			AND = {
+				NOT = {
+					has_building = tp_population_clerics_4
+				}
+				has_building = tp_population_artisans_4
+			}
+			AND = {
+				NOT = {
+					has_building = tp_population_clerics_5
+				}
+				AND = {	# There is no "artisans_5", so it's artisans_4 & merchants_1 instead
+					has_building = tp_population_merchants_1
+					has_building = tp_population_artisans_4
+				}
+			}
+		}
+	}
+}
+
+can_grow_scum_CTD_trigger = {
+	AND = {
+		# Scum can not appear in tribal holdings
+		NOT = {
+			holding_type = tribal
+		}
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Scum will grow if they have Food
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+			}
+		}
+		# Scum can only grow if there are at least twice as many "rich" pops in the holding (that are not doomed to immediately shrink)
+		OR = {
+			AND = {
+				NOR = {
+					has_building = ca_population_scum_1
+					has_building = ct_population_scum_1
+					has_building = tp_population_scum_1
+				}
+				holding_has_02_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_scum_2
+					has_building = ct_population_scum_2
+					has_building = tp_population_scum_2
+				}
+				holding_has_04_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_scum_3
+					has_building = ct_population_scum_3
+					has_building = tp_population_scum_3
+				}
+				holding_has_06_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_scum_4
+					has_building = ct_population_scum_4
+					has_building = tp_population_scum_4
+				}
+				holding_has_08_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_scum_5
+					has_building = ct_population_scum_5
+					has_building = tp_population_scum_5
+				}
+				holding_has_10_rich_pops_CTD_trigger = yes
+			}
+		}
+	}
+}
+
+can_grow_tribal_foragers_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Tribal Foragers will grow if they have Food and Clothing (they forage and don't need materials!)
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				# Tribals need enough empty holding slots to grow "in"
+				has_surplus_empty_holdings_for_tribals = yes
+			}
+		}
+		# Tribal Foragers can grow regardless of other population
+	}
+}
+
+can_grow_tribal_farmers_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Tribal Farmers will grow if they have Food, Clothing and Materials
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+				# Tribals need empty holding slots to grow "in"
+				has_surplus_empty_holdings_for_tribals = yes
+			}
+		}
+		# Tribal Farmers can grow regardless of other population
+	}
+}
+
+can_grow_tribal_herdsmen_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Tribal Herdsmen will grow if they have Food, Clothing and Materials
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+				# Tribals need empty holding slots to grow "in"
+				has_surplus_empty_holdings_for_tribals = yes
+			}
+		}
+		# Tribal Herdsmen can grow regardless of other population
+	}
+}
+
+can_grow_tribal_craftsmen_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Tribal Craftsmen will grow if they have Food, Clothing and Materials
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+				# Tribals need empty holding slots to grow "in"
+				has_surplus_empty_holdings_for_tribals = yes
+			}
+		}
+		# Craftsmen can only grow if there are at least as many peasant-type tribals in the holding
+		OR = {
+			AND = {
+				NOT = {
+					has_building = tb_population_tribal_craftsmen_1
+				}
+				holding_has_01_tribal_peasant_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOT = {
+					has_building = tb_population_tribal_craftsmen_2
+				}
+				holding_has_02_tribal_peasant_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOT = {
+					has_building = tb_population_tribal_craftsmen_3
+				}
+				holding_has_03_tribal_peasant_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOT = {
+					has_building = tb_population_tribal_craftsmen_4
+				}
+				holding_has_04_tribal_peasant_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOT = {
+					has_building = tb_population_tribal_craftsmen_5
+				}
+				holding_has_05_tribal_peasant_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOT = {
+					has_building = tb_population_tribal_craftsmen_6
+				}
+				holding_has_06_tribal_peasant_pops_CTD_trigger = yes
+			}
+		}
+	}
+}
+
+can_grow_shudras_CTD_trigger = {
+	AND = {
+		location = {	# The province
+			AND = {
+				region = world_india	# Can only appear in India - not strictly needed because of building potential, but just to be sure and avoid errors
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Shudras will grow if they have Food and Clothing
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+			}
+		}
+		# Shudras can only grow if there are at least twice as many "rich" pops in the holding (that are not doomed to immediately shrink)
+		OR = {
+			AND = {
+				NOR = {
+					has_building = ca_population_shudras_1
+					has_building = ct_population_shudras_1
+					has_building = tp_population_shudras_1
+					has_building = tb_population_shudras_1
+				}
+				holding_has_02_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_shudras_2
+					has_building = ct_population_shudras_2
+					has_building = tp_population_shudras_2
+					has_building = tb_population_shudras_2
+				}
+				holding_has_04_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_shudras_3
+					has_building = ct_population_shudras_3
+					has_building = tp_population_shudras_3
+					has_building = tb_population_shudras_3
+				}
+				holding_has_06_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_shudras_4
+					has_building = ct_population_shudras_4
+					has_building = tp_population_shudras_4
+					has_building = tb_population_shudras_4
+				}
+				holding_has_08_rich_pops_CTD_trigger = yes
+			}
+			AND = {
+				NOR = {
+					has_building = ca_population_shudras_5
+					has_building = ct_population_shudras_5
+					has_building = tp_population_shudras_5
+					has_building = tb_population_shudras_5
+				}
+				holding_has_10_rich_pops_CTD_trigger = yes
+			}
+		}
+	}
+}
+
+# Shrink:
+
+will_shrink_peasants_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Peasants will shrink if they lack Food or Clothing
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+			}
+		}
+		# Peasants will shrink regardless of other population
+	}
+}
+
+will_shrink_artisans_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Artisans will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+			}
+		}
+		# Artisans will also shrink if there aren't at least as many peasants in the holding
+		OR = {
+			AND = {
+				OR = {
+					has_building = ca_population_artisans_1
+					has_building = ct_population_artisans_1
+					has_building = tp_population_artisans_1
+					has_building = tb_population_artisans_1
+				}
+				NOR = {
+					has_building = ca_population_peasants_1
+					has_building = ct_population_peasants_1
+					has_building = tp_population_peasants_1
+					has_building = tb_population_peasants_1
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_artisans_2
+					has_building = ct_population_artisans_2
+					has_building = tp_population_artisans_2
+					has_building = tb_population_artisans_2
+				}
+				NOR = {
+					has_building = ca_population_peasants_2
+					has_building = ct_population_peasants_2
+					has_building = tp_population_peasants_2
+					has_building = tb_population_peasants_2
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_artisans_3
+					has_building = ct_population_artisans_3
+					has_building = tp_population_artisans_3
+					has_building = tb_population_artisans_3
+				}
+				NOR = {
+					has_building = ca_population_peasants_3
+					has_building = ct_population_peasants_3
+					has_building = tp_population_peasants_3
+					has_building = tb_population_peasants_3
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_artisans_4
+					has_building = ct_population_artisans_4
+					has_building = tp_population_artisans_4
+					has_building = tb_population_artisans_4
+				}
+				NOR = {
+					has_building = ca_population_peasants_4
+					has_building = ct_population_peasants_4
+					has_building = tp_population_peasants_4
+					has_building = tb_population_peasants_4
+				}
+			}
+		}
+	}
+}
+
+will_shrink_merchants_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Merchants will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+			}
+		}
+		# Merchants will also shrink if there aren't at least as many artisans in the holding
+		OR = {
+			AND = {
+				OR = {
+					has_building = ca_population_merchants_1
+					has_building = ct_population_merchants_1
+					has_building = tp_population_merchants_1
+					has_building = tb_population_merchants_1
+				}
+				NOR = {
+					has_building = ca_population_artisans_1
+					has_building = ct_population_artisans_1
+					has_building = tp_population_artisans_1
+					has_building = tb_population_artisans_1
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_merchants_2
+					has_building = ct_population_merchants_2
+					has_building = tp_population_merchants_2
+					has_building = tb_population_merchants_2
+				}
+				NOR = {
+					has_building = ca_population_artisans_2
+					has_building = ct_population_artisans_2
+					has_building = tp_population_artisans_2
+					has_building = tb_population_artisans_2
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_merchants_3
+					has_building = ct_population_merchants_3
+					has_building = tp_population_merchants_3
+					has_building = tb_population_merchants_3
+				}
+				NOR = {
+					has_building = ca_population_artisans_3
+					has_building = ct_population_artisans_3
+					has_building = tp_population_artisans_3
+					has_building = tb_population_artisans_3
+				}
+			}
+		}
+	}
+}
+
+will_shrink_elite_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Elite will shrink if they lack Food, Clothing, Materials or Luxuries
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_luxuries
+						which = province_demand_luxuries
+					}
+				}
+			}
+		}
+		# Elite will also shrink if there aren't at least as many merchants in the holding
+		OR = {
+			AND = {
+				OR = {
+					has_building = ca_population_elite_1
+					has_building = ct_population_elite_1
+					has_building = tp_population_elite_1
+					has_building = tb_population_elite_1
+				}
+				NOR = {
+					has_building = ca_population_merchants_1
+					has_building = ct_population_merchants_1
+					has_building = tp_population_merchants_1
+					has_building = tb_population_merchants_1
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_elite_2
+					has_building = ct_population_elite_2
+					has_building = tp_population_elite_2
+					has_building = tb_population_elite_2
+				}
+				NOR = {
+					has_building = ca_population_merchants_2
+					has_building = ct_population_merchants_2
+					has_building = tp_population_merchants_2
+					has_building = tb_population_merchants_2
+				}
+			}
+		}
+	}
+}
+
+will_shrink_soldiers_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Soldiers will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+			}
+		}
+		# Soldiers will also shrink if there aren't at least as many artisans in the holding
+		OR = {
+			AND = {
+				has_building = ca_population_soldiers_1
+				NOT = {
+					has_building = ca_population_artisans_1
+				}
+			}
+			AND = {
+				has_building = ca_population_soldiers_2
+				NOT = {
+					has_building = ca_population_artisans_2
+				}
+			}
+			AND = {
+				has_building = ca_population_soldiers_3
+				NOT = {
+					has_building = ca_population_artisans_3
+				}
+			}
+			AND = {
+				has_building = ca_population_soldiers_4
+				NOT = {
+					has_building = ca_population_artisans_4
+				}
+			}
+			AND = {
+				has_building = ca_population_soldiers_5
+				NAND = {	# There is no "artisans_5", so it's artisans_4 & merchants_1 instead
+					has_building = ca_population_merchants_1
+					has_building = ca_population_artisans_4
+				}
+			}
+		}
+	}
+}
+
+will_shrink_patricians_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Patricians will shrink if they lack Food, Clothing, Materials or Luxuries
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_luxuries
+						which = province_demand_luxuries
+					}
+				}
+			}
+		}
+		# Patricians will also shrink if there aren't at least as many artisans in the holding
+		OR = {
+			AND = {
+				has_building = ct_population_patricians_1
+				NOT = {
+					has_building = ct_population_artisans_1
+				}
+			}
+			AND = {
+				has_building = ct_population_patricians_2
+				NOT = {
+					has_building = ct_population_artisans_2
+				}
+			}
+			AND = {
+				has_building = ct_population_patricians_3
+				NOT = {
+					has_building = ct_population_artisans_3
+				}
+			}
+			AND = {
+				has_building = ct_population_patricians_4
+				NOT = {
+					has_building = ct_population_artisans_4
+				}
+			}
+			AND = {
+				has_building = ct_population_patricians_5
+				NAND = {	# There is no "artisans_5", so it's artisans_4 & merchants_1 instead
+					has_building = ct_population_merchants_1
+					has_building = ct_population_artisans_4
+				}
+			}
+		}
+	}
+}
+
+will_shrink_clerics_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Clerics will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+			}
+		}
+		# Clerics will also shrink if there aren't at least as many artisans in the holding
+		OR = {
+			AND = {
+				has_building = tp_population_clerics_1
+				NOT = {
+					has_building = tp_population_artisans_1
+				}
+			}
+			AND = {
+				has_building = tp_population_clerics_2
+				NOT = {
+					has_building = tp_population_artisans_2
+				}
+			}
+			AND = {
+				has_building = tp_population_clerics_3
+				NOT = {
+					has_building = tp_population_artisans_3
+				}
+			}
+			AND = {
+				has_building = tp_population_clerics_4
+				NOT = {
+					has_building = tp_population_artisans_4
+				}
+			}
+			AND = {
+				has_building = tp_population_clerics_5
+				NAND = {	# There is no "artisans_5", so it's artisans_4 & merchants_1 instead
+					has_building = tp_population_merchants_1
+					has_building = tp_population_artisans_4
+				}
+			}
+		}
+	}
+}
+
+will_shrink_scum_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Scum will shrink if they lack Food
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				# INFO: Aaand Scum will also shrink if the "law enforced" modifier is on the province - they are purged, regardless of whether they want or not!
+				has_province_modifier = enforced_law_on_scum
+			}
+		}
+		# Scum will also shrink if there aren't at least twice as many "rich" pops in the holding (that are not doomed to immediately shrink)
+		OR = {
+			AND = {
+				OR = {
+					has_building = ca_population_scum_1
+					has_building = ct_population_scum_1
+					has_building = tp_population_scum_1
+				}
+				NOT = {
+					holding_has_02_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_scum_2
+					has_building = ct_population_scum_2
+					has_building = tp_population_scum_2
+				}
+				NOT = {
+					holding_has_04_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_scum_3
+					has_building = ct_population_scum_3
+					has_building = tp_population_scum_3
+				}
+				NOT = {
+					holding_has_06_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_scum_4
+					has_building = ct_population_scum_4
+					has_building = tp_population_scum_4
+				}
+				NOT = {
+					holding_has_08_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_scum_5
+					has_building = ct_population_scum_5
+					has_building = tp_population_scum_5
+				}
+				NOT = {
+					holding_has_10_rich_pops_CTD_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+will_shrink_tribal_foragers_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Tribal Foragers will shrink if they lack Food or Clothing
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				# Tribals shrink if there are not enough empty holding slots!
+				NOT = {
+					has_enough_empty_holdings_for_tribals = yes
+				}
+			}
+		}
+		# Tribal Foragers will shrink regardless of other population
+	}
+}
+
+will_shrink_tribal_farmers_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Tribal Farmers will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+				# Tribals shrink if there are not enough empty holding slots!
+				NOT = {
+					has_enough_empty_holdings_for_tribals = yes
+				}
+			}
+		}
+		# Tribal Farmers will shrink regardless of other population
+	}
+}
+
+will_shrink_tribal_herdsmen_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Tribal Herdsmen will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+				# Tribals shrink if there are not enough empty holding slots!
+				NOT = {
+					has_enough_empty_holdings_for_tribals = yes
+				}
+			}
+		}
+		# Tribal Herdsmen will shrink regardless of other population
+	}
+}
+
+will_shrink_tribal_craftsmen_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Tribal Craftsmen will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+				# Tribals shrink if there are not enough empty holding slots!
+				NOT = {
+					has_enough_empty_holdings_for_tribals = yes
+				}
+			}
+		}
+		# Craftsmen will shrink if there aren't at least as many peasant-type tribals in the holding
+		OR = {
+			AND = {
+				has_building = tb_population_tribal_craftsmen_1
+				NOT = {
+					holding_has_01_tribal_peasant_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				has_building = tb_population_tribal_craftsmen_2
+				NOT = {
+					holding_has_02_tribal_peasant_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				has_building = tb_population_tribal_craftsmen_3
+				NOT = {
+					holding_has_03_tribal_peasant_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				has_building = tb_population_tribal_craftsmen_4
+				NOT = {
+					holding_has_04_tribal_peasant_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				has_building = tb_population_tribal_craftsmen_5
+				NOT = {
+					holding_has_05_tribal_peasant_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				has_building = tb_population_tribal_craftsmen_6
+				NOT = {
+					holding_has_06_tribal_peasant_pops_CTD_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+will_shrink_shudras_CTD_trigger = {
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Shudras will shrink if they lack Food or Clothing
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+			}
+		}
+		# Shudras will also shrink if there aren't at least twice as many "rich" pops in the holding (that are not doomed to immediately shrink)
+		OR = {
+			AND = {
+				OR = {
+					has_building = ca_population_shudras_1
+					has_building = ct_population_shudras_1
+					has_building = tp_population_shudras_1
+					has_building = tb_population_shudras_1
+				}
+				NOT = {
+					holding_has_02_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_shudras_2
+					has_building = ct_population_shudras_2
+					has_building = tp_population_shudras_2
+					has_building = tb_population_shudras_2
+				}
+				NOT = {
+					holding_has_04_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_shudras_3
+					has_building = ct_population_shudras_3
+					has_building = tp_population_shudras_3
+					has_building = tb_population_shudras_3
+				}
+				NOT = {
+					holding_has_06_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_shudras_4
+					has_building = ct_population_shudras_4
+					has_building = tp_population_shudras_4
+					has_building = tb_population_shudras_4
+				}
+				NOT = {
+					holding_has_08_rich_pops_CTD_trigger = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_building = ca_population_shudras_5
+					has_building = ct_population_shudras_5
+					has_building = tp_population_shudras_5
+					has_building = tb_population_shudras_5
+				}
+				NOT = {
+					holding_has_10_rich_pops_CTD_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+### Rich holding population size
+## These MUST be called in a holding scope to work properly
+# Checks whether the holding has a certain amount of rich (merchants, elite or special) population (buildings) that will not immdediately shrink
+
+holding_has_02_rich_pops_CTD_trigger = {	# Has at least 2 pops of above artisans type
+	OR = {
+		AND = {	# 2 merchants
+			OR = {
+				has_building = ca_population_merchants_2
+				has_building = ct_population_merchants_2
+				has_building = tp_population_merchants_2
+			}
+		}
+		AND = {	# 2 special
+			OR = {
+				has_building = ca_population_soldiers_2
+				has_building = ct_population_patricians_2
+				has_building = tp_population_clerics_2
+			}
+		}
+		AND = {	# 1 merchant + 1 special/elite
+			OR = {
+				has_building = ca_population_merchants_1
+				has_building = ct_population_merchants_1
+				has_building = tp_population_merchants_1
+			}
+			OR = {
+				OR = {
+					has_building = ca_population_soldiers_1
+					has_building = ct_population_patricians_1
+					has_building = tp_population_clerics_1
+				}
+				OR = {
+					has_building = ca_population_elite_1
+					has_building = ct_population_elite_1
+					has_building = tp_population_elite_1
+				}
+			}
+		}
+	}
+}
+
+holding_has_04_rich_pops_CTD_trigger = {	# Has at least 4 pops of above artisans type
+	OR = {
+		AND = {	# 4 special
+			OR = {
+				has_building = ca_population_soldiers_4
+				has_building = ct_population_patricians_4
+				has_building = tp_population_clerics_4
+			}
+		}
+		AND = {	# 3 merchants + 1 special/elite
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+			OR = {
+				OR = {
+					has_building = ca_population_soldiers_1
+					has_building = ct_population_patricians_1
+					has_building = tp_population_clerics_1
+				}
+				OR = {
+					has_building = ca_population_elite_1
+					has_building = ct_population_elite_1
+					has_building = tp_population_elite_1
+				}
+			}
+		}
+		AND = {	# 2 merchants + 2 special/elite
+			OR = {
+				has_building = ca_population_merchants_2
+				has_building = ct_population_merchants_2
+				has_building = tp_population_merchants_2
+			}
+			OR = {
+				OR = {
+					has_building = ca_population_soldiers_2
+					has_building = ct_population_patricians_2
+					has_building = tp_population_clerics_2
+				}
+				OR = {
+					has_building = ca_population_elite_2
+					has_building = ct_population_elite_2
+					has_building = tp_population_elite_2
+				}
+			}
+		}
+		AND = {	# 1 merchant + 1 elite + 2 special
+			OR = {
+				has_building = ca_population_merchants_1
+				has_building = ct_population_merchants_1
+				has_building = tp_population_merchants_1
+			}
+			OR = {
+				has_building = ca_population_elite_1
+				has_building = ct_population_elite_1
+				has_building = tp_population_elite_1
+			}
+			OR = {
+				has_building = ca_population_soldiers_2
+				has_building = ct_population_patricians_2
+				has_building = tp_population_clerics_2
+			}
+		}
+		AND = {	# 1 merchant + 3 special
+			OR = {
+				has_building = ca_population_merchants_1
+				has_building = ct_population_merchants_1
+				has_building = tp_population_merchants_1
+			}
+			OR = {
+				has_building = ca_population_soldiers_3
+				has_building = ct_population_patricians_3
+				has_building = tp_population_clerics_3
+			}
+		}
+	}
+}
+
+holding_has_06_rich_pops_CTD_trigger = {	# Has at least 6 pops of above artisans type
+	OR = {
+		AND = {	# 5 special + 1 merchant
+			OR = {
+				has_building = ca_population_soldiers_5
+				has_building = ct_population_patricians_5
+				has_building = tp_population_clerics_5
+			}
+			OR = {
+				has_building = ca_population_merchants_1
+				has_building = ct_population_merchants_1
+				has_building = tp_population_merchants_1
+			}
+		}
+		AND = {	# 4 special + 2 merchants
+			OR = {
+				has_building = ca_population_soldiers_4
+				has_building = ct_population_patricians_4
+				has_building = tp_population_clerics_4
+			}
+			OR = {
+				has_building = ca_population_merchants_2
+				has_building = ct_population_merchants_2
+				has_building = tp_population_merchants_2
+			}
+		}
+		AND = {	# 4 special + 1 merchant + 1 elite
+			OR = {
+				has_building = ca_population_soldiers_4
+				has_building = ct_population_patricians_4
+				has_building = tp_population_clerics_4
+			}
+			OR = {
+				has_building = ca_population_merchants_1
+				has_building = ct_population_merchants_1
+				has_building = tp_population_merchants_1
+			}
+			OR = {
+				has_building = ca_population_elite_1
+				has_building = ct_population_elite_1
+				has_building = tp_population_elite_1
+			}
+		}
+		AND = {	# 3 special + 3 merchants
+			OR = {
+				has_building = ca_population_soldiers_3
+				has_building = ct_population_patricians_3
+				has_building = tp_population_clerics_3
+			}
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+		}
+		AND = {	# 3 special + 2 merchants + 1 elite
+			OR = {
+				has_building = ca_population_soldiers_3
+				has_building = ct_population_patricians_3
+				has_building = tp_population_clerics_3
+			}
+			OR = {
+				has_building = ca_population_merchants_2
+				has_building = ct_population_merchants_2
+				has_building = tp_population_merchants_2
+			}
+			OR = {
+				has_building = ca_population_elite_1
+				has_building = ct_population_elite_1
+				has_building = tp_population_elite_1
+			}
+		}
+		AND = {	# 2 special + 2 merchants + 2 elite
+			OR = {
+				has_building = ca_population_soldiers_2
+				has_building = ct_population_patricians_2
+				has_building = tp_population_clerics_2
+			}
+			OR = {
+				has_building = ca_population_merchants_2
+				has_building = ct_population_merchants_2
+				has_building = tp_population_merchants_2
+			}
+			OR = {
+				has_building = ca_population_elite_2
+				has_building = ct_population_elite_2
+				has_building = tp_population_elite_2
+			}
+		}
+		AND = {	# 2 special + 3 merchants + 1 elite
+			OR = {
+				has_building = ca_population_soldiers_2
+				has_building = ct_population_patricians_2
+				has_building = tp_population_clerics_2
+			}
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+			OR = {
+				has_building = ca_population_elite_1
+				has_building = ct_population_elite_1
+				has_building = tp_population_elite_1
+			}
+		}
+		AND = {	# 1 special + 3 merchants + 2 elite
+			OR = {
+				has_building = ca_population_soldiers_1
+				has_building = ct_population_patricians_1
+				has_building = tp_population_clerics_1
+			}
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+			OR = {
+				has_building = ca_population_elite_2
+				has_building = ct_population_elite_2
+				has_building = tp_population_elite_2
+			}
+		}
+	}
+}
+
+holding_has_08_rich_pops_CTD_trigger = {	# Has at least 8 pops of above artisans type
+	OR = {
+		AND = {	# 5 special + 3 merchants
+			OR = {
+				has_building = ca_population_soldiers_5
+				has_building = ct_population_patricians_5
+				has_building = tp_population_clerics_5
+			}
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+		}
+		AND = {	# 4 special + 3 merchants + 1 elite
+			OR = {
+				has_building = ca_population_soldiers_4
+				has_building = ct_population_patricians_4
+				has_building = tp_population_clerics_4
+			}
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+			OR = {
+				has_building = ca_population_elite_1
+				has_building = ct_population_elite_1
+				has_building = tp_population_elite_1
+			}
+		}
+		AND = {	# 4 special + 2 merchants + 2 elite
+			OR = {
+				has_building = ca_population_soldiers_4
+				has_building = ct_population_patricians_4
+				has_building = tp_population_clerics_4
+			}
+			OR = {
+				has_building = ca_population_merchants_2
+				has_building = ct_population_merchants_2
+				has_building = tp_population_merchants_2
+			}
+			OR = {
+				has_building = ca_population_elite_2
+				has_building = ct_population_elite_2
+				has_building = tp_population_elite_2
+			}
+		}
+		AND = {	# 3 special + 3 merchants + 2 elite
+			OR = {
+				has_building = ca_population_soldiers_3
+				has_building = ct_population_patricians_3
+				has_building = tp_population_clerics_3
+			}
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+			OR = {
+				has_building = ca_population_elite_2
+				has_building = ct_population_elite_2
+				has_building = tp_population_elite_2
+			}
+		}
+	}
+}
+
+holding_has_10_rich_pops_CTD_trigger = {	# Has 10 pops of above artisans type
+	AND = {	# Needs to have -all- rich pops in this case!
+		AND = {	# 3 merchants
+			OR = {
+				has_building = ca_population_merchants_3
+				has_building = ct_population_merchants_3
+				has_building = tp_population_merchants_3
+			}
+		}
+		AND = {	# 5 special
+			OR = {
+				has_building = ca_population_soldiers_5
+				has_building = ct_population_patricians_5
+				has_building = tp_population_clerics_5
+			}
+		}
+		AND = {	# 2 elite
+			OR = {
+				has_building = ca_population_elite_2
+				has_building = ct_population_elite_2
+				has_building = tp_population_elite_2
+			}
+		}
+	}
+}
+
+### Enough empty holding slots
+## These MUST be called in a province scope to work properly
+# Checks whether the province has just enough empty holding slots to accomodate a certain amount of tribals (max is 4 pops/empty holding), or place for more pops
+
+has_surplus_empty_holdings_for_tribals = {
+	OR = {
+		AND = {
+			# Excactly 1 empty holding
+			num_of_empty_holdings = 1
+			NOT = {
+				num_of_empty_holdings = 2
+			}
+			# Has less than 4 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 4
+				}
+			}
+		}
+		AND = {
+			# Excactly 2 empty holdings
+			num_of_empty_holdings = 2
+			NOT = {
+				num_of_empty_holdings = 3
+			}
+			# Has less than 8 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 8
+				}
+			}
+		}
+		AND = {
+			# Excactly 3 empty holdings
+			num_of_empty_holdings = 3
+			NOT = {
+				num_of_empty_holdings = 4
+			}
+			# Has less than 12 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 12
+				}
+			}
+		}
+		AND = {
+			# Excactly 4 empty holdings
+			num_of_empty_holdings = 4
+			NOT = {
+				num_of_empty_holdings = 5
+			}
+			# Has less than 16 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 16
+				}
+			}
+		}
+		AND = {
+			# Excactly 5 empty holdings
+			num_of_empty_holdings = 5
+			NOT = {
+				num_of_empty_holdings = 6
+			}
+			# Has less than 20 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 20
+				}
+			}
+		}
+		AND = {
+			# Excactly 6 empty holdings (6 empty holding is the max)
+			num_of_empty_holdings = 6
+			# Has less than 24 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 24
+				}
+			}
+		}
+	}
+}
+
+has_major_surplus_empty_holdings_for_tribals = {	# Same as above, but has 2 more empty spaces
+	OR = {
+		AND = {
+			# Excactly 1 empty holding
+			num_of_empty_holdings = 1
+			NOT = {
+				num_of_empty_holdings = 2
+			}
+			# Has less than 2 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 2
+				}
+			}
+		}
+		AND = {
+			# Excactly 2 empty holdings
+			num_of_empty_holdings = 2
+			NOT = {
+				num_of_empty_holdings = 3
+			}
+			# Has less than 6 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 6
+				}
+			}
+		}
+		AND = {
+			# Excactly 3 empty holdings
+			num_of_empty_holdings = 3
+			NOT = {
+				num_of_empty_holdings = 4
+			}
+			# Has less than 10 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 10
+				}
+			}
+		}
+		AND = {
+			# Excactly 4 empty holdings
+			num_of_empty_holdings = 4
+			NOT = {
+				num_of_empty_holdings = 5
+			}
+			# Has less than 14 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 14
+				}
+			}
+		}
+		AND = {
+			# Excactly 5 empty holdings
+			num_of_empty_holdings = 5
+			NOT = {
+				num_of_empty_holdings = 6
+			}
+			# Has less than 18 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 18
+				}
+			}
+		}
+		AND = {
+			# Excactly 6 empty holdings (6 empty holding is the max)
+			num_of_empty_holdings = 6
+			# Has less than 22 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 22
+				}
+			}
+		}
+	}
+}
+
+has_enough_empty_holdings_for_tribals = {	# Also evaluates true if there is spare room - just to check if overcrowded
+	OR = {
+		AND = {
+			# Excactly 1 empty holding
+			num_of_empty_holdings = 1
+			NOT = {
+				num_of_empty_holdings = 2
+			}
+			# Has less than 5 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 5
+				}
+			}
+		}
+		AND = {
+			# Excactly 2 empty holdings
+			num_of_empty_holdings = 2
+			NOT = {
+				num_of_empty_holdings = 3
+			}
+			# Has less than 9 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 9
+				}
+			}
+		}
+		AND = {
+			# Excactly 3 empty holdings
+			num_of_empty_holdings = 3
+			NOT = {
+				num_of_empty_holdings = 4
+			}
+			# Has less than 13 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 13
+				}
+			}
+		}
+		AND = {
+			# Excactly 4 empty holdings
+			num_of_empty_holdings = 4
+			NOT = {
+				num_of_empty_holdings = 5
+			}
+			# Has less than 17 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 17
+				}
+			}
+		}
+		AND = {
+			# Excactly 5 empty holdings
+			num_of_empty_holdings = 5
+			NOT = {
+				num_of_empty_holdings = 6
+			}
+			# Has less than 21 tribals currently
+			NOT = {
+				check_variable = {
+					which = province_population_tribals
+					value = 21
+				}
+			}
+		}
+		# If province has 6 empty holdings, tribals will always fit:
+		num_of_empty_holdings = 6	# Thus irrelevant to do further checks in this case
+	}
+}
+
+has_far_too_less_empty_holdings_for_tribals = {	# Checks if province has at least 3 more tribals than possible
+	OR = {
+		AND = {
+			# Excactly 1 empty holding
+			num_of_empty_holdings = 1
+			NOT = {
+				num_of_empty_holdings = 2
+			}
+			# Has more than 7 tribals currently - 4 would be possible at most
+			check_variable = {
+				which = province_population_tribals
+				value = 7
+			}
+		}
+		AND = {
+			# Excactly 2 empty holdings
+			num_of_empty_holdings = 2
+			NOT = {
+				num_of_empty_holdings = 3
+			}
+			# Has more than 11 tribals currently
+			check_variable = {
+				which = province_population_tribals
+				value = 11
+			}
+		}
+		AND = {
+			# Excactly 3 empty holdings
+			num_of_empty_holdings = 3
+			NOT = {
+				num_of_empty_holdings = 4
+			}
+			# Has more than 15 tribals currently
+			check_variable = {
+				which = province_population_tribals
+				value = 15
+			}
+		}
+		AND = {
+			# Excactly 4 empty holdings
+			num_of_empty_holdings = 4
+			NOT = {
+				num_of_empty_holdings = 5
+			}
+			# Has more than 19 tribals currently
+			check_variable = {
+				which = province_population_tribals
+				value = 19
+			}
+		}
+		AND = {
+			# Excactly 5 empty holdings
+			num_of_empty_holdings = 5
+			NOT = {
+				num_of_empty_holdings = 6
+			}
+			# Has more than 11 tribals currently
+			check_variable = {
+				which = province_population_tribals
+				value = 23
+			}
+		}
+		# If province has 6 empty holdings, tribals will always fit - thus irrelevant to check
+	}
+}
+
+### Tribals holding population size
+## These MUST be called in a holding scope to work properly
+# Checks whether the holding has a certain amount of peasant-type tribals (foragers, farmers or herdsmen) population (buildings)
+
+holding_has_01_tribal_peasant_pops_CTD_trigger = {	# Has at least 1 pop of foragers, farmers or herdsmen
+	OR = {
+		# 1 of 1 type
+		has_building = tb_population_tribal_foragers_1
+		has_building = tb_population_tribal_farmers_1
+		has_building = tb_population_tribal_herdsmen_1
+	}
+}
+
+holding_has_02_tribal_peasant_pops_CTD_trigger = {	# Has at least 2 pops of foragers, farmers or herdsmen
+	OR = {
+		# 2 of 1 type
+		has_building = tb_population_tribal_foragers_2
+		has_building = tb_population_tribal_farmers_2
+		has_building = tb_population_tribal_herdsmen_2
+		# 1 of 2 types
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_1
+		}
+	}
+}
+
+holding_has_03_tribal_peasant_pops_CTD_trigger = {	# Has at least 3 pops of foragers, farmers or herdsmen
+	OR = {
+		# 3 of 1 type
+		has_building = tb_population_tribal_foragers_3
+		has_building = tb_population_tribal_farmers_3
+		has_building = tb_population_tribal_herdsmen_3
+		# 1 of 3 types
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		# 2 of 1 & 1 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			OR = {
+				has_building = tb_population_tribal_farmers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_2
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_herdsmen_2
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_farmers_1
+			}
+		}
+	}
+}
+
+holding_has_04_tribal_peasant_pops_CTD_trigger = {	# Has at least 4 pops of foragers, farmers or herdsmen
+	OR = {
+		# 4 of 1 type
+		has_building = tb_population_tribal_foragers_4
+		has_building = tb_population_tribal_farmers_4
+		has_building = tb_population_tribal_herdsmen_4
+		# 3 of 1 & 1 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_3
+			OR = {
+				has_building = tb_population_tribal_farmers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_3
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_herdsmen_3
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_farmers_1
+			}
+		}
+		# 2 of 1 & 1 of 2
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_2
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_2
+		}
+		# 2 of 2
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_farmers_2
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_herdsmen_2
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_2
+			has_building = tb_population_tribal_herdsmen_2
+		}
+	}
+}
+
+holding_has_05_tribal_peasant_pops_CTD_trigger = {	# Has at least 5 pops of foragers, farmers or herdsmen
+	OR = {
+		# 5 of 1 type
+		has_building = tb_population_tribal_foragers_5
+		has_building = tb_population_tribal_farmers_5
+		has_building = tb_population_tribal_herdsmen_5
+		# 4 of 1 & 1 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_4
+			OR = {
+				has_building = tb_population_tribal_farmers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_4
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_herdsmen_4
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_farmers_1
+			}
+		}
+		# 3 of 1 & 1 of 2
+		AND = {
+			has_building = tb_population_tribal_foragers_3
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_3
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_3
+		}
+		# 3 of 1 & 2 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_3
+			OR = {
+				has_building = tb_population_tribal_farmers_2
+				has_building = tb_population_tribal_herdsmen_2
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_3
+			OR = {
+				has_building = tb_population_tribal_foragers_2
+				has_building = tb_population_tribal_herdsmen_2
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_herdsmen_3
+			OR = {
+				has_building = tb_population_tribal_foragers_2
+				has_building = tb_population_tribal_farmers_2
+			}
+		}
+		# 2 of 2 & 1 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_farmers_2
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_2
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_2
+			has_building = tb_population_tribal_herdsmen_2
+		}
+	}
+}
+
+holding_has_06_tribal_peasant_pops_CTD_trigger = {	# Has at least 6 pops of foragers, farmers or herdsmen
+	OR = {
+		# 6 of 1 type
+		has_building = tb_population_tribal_foragers_6
+		has_building = tb_population_tribal_farmers_6
+		has_building = tb_population_tribal_herdsmen_6
+		# 5 of 1 & 1 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_5
+			OR = {
+				has_building = tb_population_tribal_farmers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_5
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_herdsmen_1
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_herdsmen_5
+			OR = {
+				has_building = tb_population_tribal_foragers_1
+				has_building = tb_population_tribal_farmers_1
+			}
+		}
+		# 4 of 1 & 1 of 2
+		AND = {
+			has_building = tb_population_tribal_foragers_4
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_4
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_4
+		}
+		# 4 of 1 & 2 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_4
+			OR = {
+				has_building = tb_population_tribal_farmers_2
+				has_building = tb_population_tribal_herdsmen_2
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_4
+			OR = {
+				has_building = tb_population_tribal_foragers_2
+				has_building = tb_population_tribal_herdsmen_2
+			}
+		}
+		AND = {
+			has_building = tb_population_tribal_herdsmen_4
+			OR = {
+				has_building = tb_population_tribal_foragers_2
+				has_building = tb_population_tribal_farmers_2
+			}
+		}
+		# 3 of 1 & 2 of 1 & 1 of 1
+		AND = {
+			has_building = tb_population_tribal_foragers_3
+			has_building = tb_population_tribal_farmers_2
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_3
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_2
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_farmers_3
+			has_building = tb_population_tribal_herdsmen_1
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_3
+			has_building = tb_population_tribal_herdsmen_2
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_farmers_1
+			has_building = tb_population_tribal_herdsmen_3
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_1
+			has_building = tb_population_tribal_farmers_2
+			has_building = tb_population_tribal_herdsmen_3
+		}
+		# 2 of 3
+		AND = {
+			has_building = tb_population_tribal_foragers_2
+			has_building = tb_population_tribal_farmers_2
+			has_building = tb_population_tribal_herdsmen_2
+		}
+		# 3 of 2
+		AND = {
+			has_building = tb_population_tribal_foragers_3
+			has_building = tb_population_tribal_farmers_3
+		}
+		AND = {
+			has_building = tb_population_tribal_foragers_3
+			has_building = tb_population_tribal_herdsmen_3
+		}
+		AND = {
+			has_building = tb_population_tribal_farmers_3
+			has_building = tb_population_tribal_herdsmen_3
+		}
+	}
+}

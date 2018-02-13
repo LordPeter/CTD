@@ -1,0 +1,1225 @@
+###############################
+# CTD general scripted triggers
+#
+# by LordPeter
+###############################
+
+### Lies on any traderoute
+## This MUST be called in a province scope to work properly
+# It checks whether the province lies on any traderoute (otherwise checking for traderange gets weird)
+
+lies_on_any_traderoute_CTD_trigger = {
+	OR = {		# Actually lies on a traderoute - all traderoutes of the mod must be here!
+		trade_route = silk_road
+		trade_route = mediterranean_trade
+		trade_route = amber_road
+		trade_route = balkan_road
+		trade_route = salt_road
+		trade_route = french_trade
+		trade_route = iberian_trade
+		trade_route = atlantic_trade
+		trade_route = british_trade
+		trade_route = baltic_sea
+		trade_route = timbuktu_trade
+		trade_route = grand_trunk_road
+	}
+}
+
+### Lies on same traderoute
+## This MUST be called in a province scope within (!) a province scope to work properly
+# It checks whether the province (THIS) lies on the same traderoute as the other province (PREV) - could also be multiples. Not that useful, because traderoutes run together
+
+share_the_same_traderoute_CTD_trigger = {
+	if = {
+		limit = {
+			PREV = {
+				trade_route = silk_road
+			}
+		}
+		trade_route = silk_road
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = mediterranean_trade
+			}
+		}
+		trade_route = mediterranean_trade
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = amber_road
+			}
+		}
+		trade_route = amber_road
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = balkan_road
+			}
+		}
+		trade_route = balkan_road
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = salt_road
+			}
+		}
+		trade_route = salt_road
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = french_trade
+			}
+		}
+		trade_route = french_trade
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = iberian_trade
+			}
+		}
+		trade_route = iberian_trade
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = atlantic_trade
+			}
+		}
+		trade_route = atlantic_trade
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = british_trade
+			}
+		}
+		trade_route = british_trade
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = baltic_sea
+			}
+		}
+		trade_route = baltic_sea
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = timbuktu_trade
+			}
+		}
+		trade_route = timbuktu_trade
+	}
+	if = {
+		limit = {
+			PREV = {
+				trade_route = grand_trunk_road
+			}
+		}
+		trade_route = grand_trunk_road
+	}
+}
+
+
+### Slave Origin province in range
+## This MUST be called in a province scope within (!) another scope within (!!) a province scope to work properly (so the scope chain is: <province> = { <another_scope> = { <province> = { this_trigger = yes }}})
+# It checks whether a certain province (original province scope) lies close enough to an owned province (current province scope) that was desiganted and could hold the captured slaves
+
+slave_origin_province_is_in_range_CTD_trigger = {
+	AND = {
+		has_province_modifier = potential_slave_origin_province
+		OR = {
+			NOT = {
+				distance = {
+					where = PREVPREV	# This should be the current province
+					value = 125
+				}
+			}
+			# Can also be further away than above distance, if neighboring (vast provinces):
+			any_neighbor_province = {
+				province = PREVPREVPREV	# This should also be the current province
+			}
+			# ... or if only has a single ocean province between them (for e.g. Finland):
+			any_neighbor_province = {
+				AND = {
+					is_land = no
+					any_neighbor_province = {
+						province = PREVPREVPREVPREV	# This should also be the current province (- wow actually maximum amount of PREV stacks!)
+					}
+				}
+			}
+		}
+	}
+}
+
+
+### Tradegood ranges
+## These MUST be called in a province scope within (!) a province scope to work properly
+# They check the distance of any province with the tradegood (THIS) against the province that might have access to it (PREV)
+
+tradegood_minimal_range_CTD_trigger = {	# 50 base +2.5 per tech level (+2.5 if has trade fair modifier) [=72.5 max (rounded up: 73)]
+	OR = {
+		AND = {
+			PREV = {
+				TECH_TRADE_PRACTICES = 0
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 50
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 1
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 0
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 53	# Rounded up
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 2
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 1
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 55
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 3
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 2
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 58	# Rounded up
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 4
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 3
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 60
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 5
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 4
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 63	# Rounded up
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 6
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 5
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 65
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 7
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 6
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 68	# Rounded up
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 8
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 7
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 70
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				AND = {	# Trade fair boosts beyond normal level 8 tech range
+					TECH_TRADE_PRACTICES = 8
+					has_province_modifier = feature_trade_fair
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 73	# Rounded up
+				}
+			}
+		}
+	}
+}
+
+tradegood_short_range_CTD_trigger = {	# 100 base +5 per tech level (+5 if has trade fair modifier) [=145 max]
+	OR = {
+		AND = {
+			PREV = {
+				TECH_TRADE_PRACTICES = 0
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 100
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 1
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 0
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 105
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 2
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 1
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 110
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 3
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 2
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 115
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 4
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 3
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 120
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 5
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 4
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 125
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 6
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 5
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 130
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 7
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 6
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 135
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 8
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 7
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 140
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				AND = {	# Trade fair boosts beyond normal level 8 tech range
+					TECH_TRADE_PRACTICES = 8
+					has_province_modifier = feature_trade_fair
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 145
+				}
+			}
+		}
+	}
+}
+
+tradegood_normal_range_CTD_trigger = {	# 200 base +10 per tech level (+10 if has trade fair modifier) [=290 max]
+	OR = {
+		AND = {
+			PREV = {
+				TECH_TRADE_PRACTICES = 0
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 200
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 1
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 0
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 210
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 2
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 1
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 220
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 3
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 2
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 230
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 4
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 3
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 240
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 5
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 4
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 250
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 6
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 5
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 260
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 7
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 6
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 270
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 8
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 7
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 280
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				AND = {	# Trade fair boosts beyond normal level 8 tech range
+					TECH_TRADE_PRACTICES = 8
+					has_province_modifier = feature_trade_fair
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 290
+				}
+			}
+		}
+	}
+}
+
+tradegood_long_range_CTD_trigger = {	# 400 base +20 per tech level (+20 if has trade fair modifier) [=580 max]
+	OR = {
+		AND = {
+			PREV = {
+				TECH_TRADE_PRACTICES = 0
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 400
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 1
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 0
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 420
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 2
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 1
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 440
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 3
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 2
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 460
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 4
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 3
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 480
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 5
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 4
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 500
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 6
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 5
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 520
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 7
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 6
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 540
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 8
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 7
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 560
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				AND = {	# Trade fair boosts beyond normal level 8 tech range
+					TECH_TRADE_PRACTICES = 8
+					has_province_modifier = feature_trade_fair
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 580
+				}
+			}
+		}
+	}
+}
+
+tradegood_very_long_range_CTD_trigger = {	# 800 base +40 per tech level (+40 if has trade fair modifier) [=1160 max]
+	OR = {
+		AND = {
+			PREV = {
+				TECH_TRADE_PRACTICES = 0
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 800
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 1
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 0
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 840
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 2
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 1
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 880
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 3
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 2
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 920
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 4
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 3
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 960
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 5
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 4
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1000
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 6
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 5
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1040
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 7
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 6
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1080
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 8
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 7
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1120
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				AND = {	# Trade fair boosts beyond normal level 8 tech range
+					TECH_TRADE_PRACTICES = 8
+					has_province_modifier = feature_trade_fair
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1160
+				}
+			}
+		}
+	}
+}
+
+tradegood_extreme_range_CTD_trigger = {	# 1600 base +80 per tech level (+80 if has trade fair modifier) [=2320 max]
+	OR = {
+		AND = {
+			PREV = {
+				TECH_TRADE_PRACTICES = 0
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1600
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 1
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 0
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1680
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 2
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 1
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1760
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 3
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 2
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1840
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 4
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 3
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 1920
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 5
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 4
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 2000
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 6
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 5
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 2080
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 7
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 6
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 2160
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				OR = {
+					TECH_TRADE_PRACTICES = 8
+					AND = {	# Trade fair gives boost like 1 additional level of tech
+						TECH_TRADE_PRACTICES = 7
+						has_province_modifier = feature_trade_fair
+					}
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 2240
+				}
+			}
+		}
+		AND = {
+			PREV = {
+				AND = {	# Trade fair boosts beyond normal level 8 tech range
+					TECH_TRADE_PRACTICES = 8
+					has_province_modifier = feature_trade_fair
+				}
+			}
+			NOT = {
+				distance = {
+					where = PREV	# This should be the current province
+					value = 2320
+				}
+			}
+		}
+	}
+}
+
+
+### Production Holdings
+## These MUST be called in a province scope
+# They check if a province has a holding of a certain kind
+
+has_any_holding_CTD_trigger = {
+	num_of_settlements = 1
+}
+
+has_feudal_holding_CTD_trigger = {
+	any_province_holding = {
+		OR = {
+			holding_type = city
+			holding_type = temple
+			holding_type = castle
+		}
+	}
+}
+
+
+### Can abolish slavery
+## This MUST be called in a character scope to work properly
+# It checks whether the character fulfills the requirements to enable the "No Slavery" law
+
+can_abolish_slavery_CTD_trigger = {
+	always = yes	# NOTE only for testing!
+}
+
+
+### Considered as enslavable religion
+## This MUST be called in a character/province scope within (!) a character/province scope to work properly
+# It checks whether the current character's/province's religion makes the previous character/province consider him/it a potential slave/slavepopulation under the "Heathen Slaves" law
+
+considered_as_enslavable_religion_CTD_trigger = {
+	OR = {
+		# For big groups: All followers of religion group excluded
+		AND = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = zoroastrian_group
+				religion_group = jewish_group
+				religion_group = indian_group
+			}
+			NOT = {
+				religion_group = PREV
+			}
+		}
+		# For Pagans: Only the exact same religion excluded
+		AND = {
+			OR = {
+				religion_group = pagan_group
+				religion_group = mesoamerican_group	# Not sure about Aztecs, but they are pagan enough
+			}
+			NOT = {
+				religion = PREV
+			}
+		}
+		# Heretics are always possible
+		is_heresy_of = PREV
+	}
+}

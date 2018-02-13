@@ -1,0 +1,219 @@
+########################################
+# CTD tradegood access scripted triggers
+#
+# by LordPeter
+########################################
+
+### Has access to tradegood
+## This MUST be called in a province scope to work properly
+# It checks whether the province has - by any allowed means - access to a certain free amount (ranging from 1 to 10) of the tradegood, taking into account its traderange
+
+### Resources
+
+## Minerals
+
+# Gold Ore (minimal)
+gold_ore_amount_1_access_CTD_trigger = {
+	OR = {
+		check_variable = {	# No check for entire realm in minimal range goods, so need to check this extra
+			which = tradegood_minerals_gold_ore_usable
+			value = 1
+		}
+		any_neighbor_province = {	# Nearby
+			check_variable = {
+				which = tradegood_minerals_gold_ore_usable
+				value = 1
+			}
+		}
+		AND = {
+			any_trade_route_province = {	# Within distance in the trade network of the province
+				AND = {
+					tradegood_minimal_range_CTD_trigger = yes
+					check_variable = {
+						which = tradegood_minerals_gold_ore_usable
+						value = 1
+					}
+				}
+			}
+		}
+		owner = {
+			capital_scope = {
+				AND = {	# No check for entire realm in minimal range goods, so need to check this extra
+					PREVPREV = {	# the tradegood province
+						tradegood_minimal_range_CTD_trigger = yes	# capital is in range
+					}
+					check_variable = {
+						which = tradegood_minerals_gold_ore_usable
+						value = 1
+					}
+				}
+			}
+		}
+		owner = {
+			any_trade_post = {	# Available directly at tradepost province, even if not on a traderoute (patrician)
+				AND = {
+					PREVPREV = {	# the tradegood province
+						tradegood_minimal_range_CTD_trigger = yes	# tradepost is in range
+					}
+					check_variable = {
+						which = tradegood_minerals_gold_ore_usable
+						value = 1
+					}
+				}
+			}
+		}
+	}
+}
+
+gold_ore_amount_2_access_CTD_trigger = {
+	OR = {
+		check_variable = {	# No check for entire realm in minimal range goods, so need to check this extra
+			which = tradegood_minerals_gold_ore_usable
+			value = 2
+		}
+		any_neighbor_province = {	# Nearby
+			check_variable = {
+				which = tradegood_minerals_gold_ore_usable
+				value = 2
+			}
+		}
+		AND = {
+			any_trade_route_province = {	# Within distance in the trade network of the province
+				AND = {
+					tradegood_minimal_range_CTD_trigger = yes
+					check_variable = {
+						which = tradegood_minerals_gold_ore_usable
+						value = 2
+					}
+				}
+			}
+		}
+		owner = {
+			capital_scope = {
+				AND = {	# No check for entire realm in minimal range goods, so need to check this extra
+					PREVPREV = {	# the tradegood province
+						tradegood_minimal_range_CTD_trigger = yes	# capital is in range
+					}
+					check_variable = {
+						which = tradegood_minerals_gold_ore_usable
+						value = 2
+					}
+				}
+			}
+		}
+		owner = {
+			any_trade_post = {	# Available directly at tradepost province, even if not on a traderoute (patrician)
+				AND = {
+					PREVPREV = {	# the tradegood province
+						tradegood_minimal_range_CTD_trigger = yes	# tradepost is in range
+					}
+					check_variable = {
+						which = tradegood_minerals_gold_ore_usable
+						value = 2
+					}
+				}
+			}
+		}
+	}
+}
+
+# Gemstones (normal)
+gemstones_amount_1_access_CTD_trigger = {
+	OR = {
+		# Province itself:
+		# (included in top realm)
+		# Neighoring province:
+		any_neighbor_province = {
+			check_variable = {
+				which = tradegood_minerals_gemstones_usable
+				value = 1
+			}
+		}
+		# Top Realm:
+		owner = {	# any_realm_province can't be called from province
+			top_liege = {
+				any_realm_province = {	# the entire realm
+					check_variable = {
+						which = tradegood_minerals_gemstones_usable
+						value = 1
+					}
+				}
+			}
+		}
+		# On Traderoute passing through the province:
+		AND = {
+			lies_on_any_traderoute_CTD_trigger = yes	# Province lies on a traderoute
+			any_trade_route_province = {	# Within distance in the trade network of the province
+				AND = {
+					tradegood_normal_range_CTD_trigger = yes
+					check_variable = {
+						which = tradegood_minerals_gemstones_usable
+						value = 1
+					}
+				}
+			}
+		}
+		# On Traderoute passing through the capital:
+		owner = {
+			capital_scope = {
+				AND = {
+					lies_on_any_traderoute_CTD_trigger = yes	# Province lies on a traderoute
+					any_trade_route_province = {	# Within distance in the trade network of the owner's captial
+						AND = {
+							tradegood_normal_range_CTD_trigger = yes
+							check_variable = {
+								which = tradegood_minerals_gemstones_usable
+								value = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		# On Traderoute passing through any tradepost:
+		owner = {
+			any_trade_post = {
+				AND = {
+					PREVPREV = {	# the tradegood province
+						tradegood_normal_range_CTD_trigger = yes	# tradepost is in range
+					}
+					OR = {
+						check_variable = {	# Available directly at tradepost province, even if not on a traderoute (patrician)
+							which = tradegood_minerals_gemstones_usable
+							value = 1
+						}
+						AND = {
+							lies_on_traderoute_CTD_trigger = yes	# Actually lies on a traderoute
+							any_trade_route_province = {
+								AND = {
+									tradegood_short_range_CTD_trigger = yes	# within one lesser range of the tradepost than the tradegood's range (i.e. short instead of normal etc.)
+									check_variable = {
+										which = tradegood_minerals_gemstones_usable
+										value = 1
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		# In the realm of a tributary, in range:
+		any_independent_ruler = {
+			AND = {
+				pays_tribute_to = ROOT	# Is tributary
+				any_realm_province = {
+					AND = {
+						PREVPREV = {	# the tradegood province
+							tradegood_normal_range_CTD_trigger = yes	# is in range
+						}
+						check_variable = {
+							which = tradegood_minerals_gemstones_usable
+							value = 1
+						}
+					}
+				}
+			}
+		}
+	}
+}

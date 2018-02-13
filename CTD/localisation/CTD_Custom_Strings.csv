@@ -1,0 +1,117 @@
+#### Customizable Localisation Strings
+
+### General Stuff
+
+## Show custom fulfillment conditions
+# Via a coloured asterisk
+Asterisk_Yes;§G*§!;;;;;;;;;;;;;x
+Asterisk_No;§RX§!;;;;;;;;;;;;;x
+
+
+### Modifier Parts
+
+## Province Import Priority
+# Priority
+Import_Priority_10;§G10§!;;;;;;;;;;;;;x
+Import_Priority_9;§Y9§!;;;;;;;;;;;;;x
+Import_Priority_8;§Y8§!;;;;;;;;;;;;;x
+Import_Priority_7;§Y7§!;;;;;;;;;;;;;x
+Import_Priority_6;§Y6§!;;;;;;;;;;;;;x
+Import_Priority_5;§Y5§!;;;;;;;;;;;;;x
+Import_Priority_4;§Y4§!;;;;;;;;;;;;;x
+Import_Priority_3;§Y3§!;;;;;;;;;;;;;x
+Import_Priority_2;§Y2§!;;;;;;;;;;;;;x
+Import_Priority_1;§R1§!;;;;;;;;;;;;;x
+
+## Supply Types Colour Coding
+# Food
+Good_Food;§GFood§!;;;;;;;;;;;;;x
+Mediocre_Food;§YFood§!;;;;;;;;;;;;;x
+Poor_Food;§RFood§!;;;;;;;;;;;;;x
+# Clothing
+Good_Clothing;§GClothing§!;;;;;;;;;;;;;x
+Mediocre_Clothing;§YClothing§!;;;;;;;;;;;;;x
+Poor_Clothing;§RClothing§!;;;;;;;;;;;;;x
+# Materials
+Good_Materials;§GMaterials§!;;;;;;;;;;;;;x
+Mediocre_Materials;§YMaterials§!;;;;;;;;;;;;;x
+Poor_Materials;§RMaterials§!;;;;;;;;;;;;;x
+# Luxuries
+Good_Luxuries;§GLuxuries§!;;;;;;;;;;;;;x
+Mediocre_Luxuries;§YLuxuries§!;;;;;;;;;;;;;x
+Poor_Luxuries;§RLuxuries§!;;;;;;;;;;;;;x
+
+## Special Province Features
+# General
+No_Province_Feature;None;;;;;;;;;;;;;x
+Special_Features_Present;[Special_Province_Features];;;;;;;;;;;;;x
+# Individual Features
+Staple_Right_Feature;§YStaple Right§!\nThe right of Staple allowes local inhabitants to buy any tradegood that is passing through, regardless of its original destination.\nProvinces with this modifier are allowed to import goods before normal provinces.;;;;;;;;;;;;;x
+Trade_Fair_Feature;§YTrade Fair§!\nA Trade Fair is an international event, with merchants from far away visiting and selling their goods.\nProvinces with trade fairs can import tradegoods from further away than normal provinces and enjoy a slight boost to technology spread.;;;;;;;;;;;;;x
+Both_Features;§YStaple Right§!\nThe right of Staple allowes local inhabitants to buy any tradegood that is passing through, regardless of its original destination.\nProvinces with this modifier are allowed to import goods before normal provinces.\n§YTrade Fair§!\nA Trade Fair is an international event, with merchants from far away visiting and selling their goods.\nProvinces with trade fairs can import tradegoods from further away than normal provinces and enjoy a slight boost to technology spread.;;;;;;;;;;;;;x
+
+## Active Province Edict
+# Growth Incentives
+No_Growth_Incentive;None;;;;;;;;;;;;;x
+Growth_Incentive_Peasants;"Land Distributed" (Peasants Growth Incentive);;;;;;;;;;;;;x
+Growth_Incentive_Artisans;"Taxes Reduced" (§R-10% Local Tax Income§!) (Artisans Growth Incentive);;;;;;;;;;;;;x
+Growth_Incentive_Merchants;"Market Rights Granted" (Merchants Growth Incentive);;;;;;;;;;;;;x
+Growth_Incentive_Elite;"Titles Granted" (Elite Growth Incentive);;;;;;;;;;;;;x
+Growth_Incentive_Special;"Diversification Promoted" (Special Growth Incentive);;;;;;;;;;;;;x
+Growth_Incentive_Scum;"Turn A Blind Eye" (Scum Growth Incentive);;;;;;;;;;;;;x
+Law_Enforced_On_Scum;"Law Enforced" (Scum §PRemoval§! Edict);;;;;;;;;;;;;x
+
+## Hide or Show Slavery
+# On Main Modifier(s). Note that "Prev" is needed here for some reason - and it is case sensitive, i.e. "PREV" does not work!
+Major_Modifier_Slavery_Pops_Show; / Slaves: [Prev.province_population_slaves.GetValue];;;;;;;;;;;;;x
+Major_Modifier_Slavery_Pops_Hide;"";;;;;;;;;;;;;x
+
+## Weather
+# Previous Weather - "None" only at gamestart
+Previous_Weather_None;None;;;;;;;;;;;;;x
+Previous_Weather_Mild;§YMild§!;;;;;;;;;;;;;x
+Previous_Weather_Hailstorms;§YHailstorms§!;;;;;;;;;;;;;x
+# Province Seasonal System
+System_4_seasons_Europe_Co;Temperate Seasons (§Y4§! seasons);;;;;;;;;;;;;x
+System_6_seasons_India;Indian Monsoon (§Y6§! seasons);;;;;;;;;;;;;x
+System_1_seasons_Sahara;Sahara Desert (§Y1§! season);;;;;;;;;;;;;x
+System_2_seasons_Africa;African Dry&Wet (§Y2§! seasons);;;;;;;;;;;;;x
+System_4_seasons_Tibet;Tibetean Monsoon (§Y4§! seasons);;;;;;;;;;;;;x
+#Climate_2_seasons_Greenland;Greenlandic Winter&Summer (2 seasons);;;;;;;;;;;;;x	# NOTE: Not active, just for later - maybe...
+# Current Season (& Description!)
+Season_Spring;§GSpring§!\nbla.;;;;;;;;;;;;;x
+Season_Summer;§ZSummer§!\nbla.;;;;;;;;;;;;;x
+Season_Autumn;§YAutumn§!\nbla.;;;;;;;;;;;;;x
+Season_Winter;Winter\nbla.;;;;;;;;;;;;;x
+Season_Monsoon;§BMonsoon§!\nbla.;;;;;;;;;;;;;x
+Season_Pre_Winter;§MPre-Winter§!\nbla.;;;;;;;;;;;;;x
+Season_Dry_Season;§FDry Season§!\nbla.;;;;;;;;;;;;;x
+Season_Wet_Season;§BWet Season§!\nbla.;;;;;;;;;;;;;x
+# Climate Type
+Province_Climate_Koeppen_A_f;Tropical Rainforest (Af);;;;;;;;;;;;;x
+Province_Climate_Koeppen_A_m;Tropical Monsoon (Am);;;;;;;;;;;;;x
+Province_Climate_Koeppen_A_w;Tropical Wet&Dry/Savanna (Aw);;;;;;;;;;;;;x
+Province_Climate_Koeppen_B_W_h;Hot Desert (BWh);;;;;;;;;;;;;x
+Province_Climate_Koeppen_B_W_k;Cold Desert (BWk);;;;;;;;;;;;;x
+Province_Climate_Koeppen_B_S_h;Hot Semi-Arid/Steppe (BSh);;;;;;;;;;;;;x
+Province_Climate_Koeppen_B_S_k;Cold Semi-Arid/Steppe (BSk);;;;;;;;;;;;;x
+Province_Climate_Koeppen_C_s_a;Hot-Summer Mediterranean (Csa);;;;;;;;;;;;;x
+Province_Climate_Koeppen_C_s_b;Warm-Summer Mediterranean (Csb);;;;;;;;;;;;;x
+Province_Climate_Koeppen_C_w_a;Monsoon-Influenced Humid Subtropical (Cwa);;;;;;;;;;;;;x
+Province_Climate_Koeppen_C_w_b;Subtropical Highland (Cwb);;;;;;;;;;;;;x
+Province_Climate_Koeppen_C_f_a;Humid Subtropical (Cfa);;;;;;;;;;;;;x
+Province_Climate_Koeppen_C_f_b;Temperate Oceanic / Uniform-Rainfall Highland (Cfb);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_s_a;Hot, Dry-Summer Continental (Dsa);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_s_b;Warm, Dry-Summer Continental (Dsb);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_s_c;Dry-Summer Subarctic (Dsc);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_w_b;Monsoon-Influenced Warm-Summer Continental (Dwb);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_w_c;Monsoon-Influenced Subarctic (Dwc);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_f_a;Hot-Summer Humid Continental (Dfa);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_f_b;Warm-Summer Humid Continental (Dfb);;;;;;;;;;;;;x
+Province_Climate_Koeppen_D_f_c;Subarctic (Dfc);;;;;;;;;;;;;x
+Province_Climate_Koeppen_E_T;Tundra (ET);;;;;;;;;;;;;x
+# Effect on Agriculture
+Agriculture_Effect_Good;§GGood§!;;;;;;;;;;;;;x
+Agriculture_Effect_Neutral;Neutral;;;;;;;;;;;;;x
+Agriculture_Effect_Bad;§RBad§!;;;;;;;;;;;;;x
+Agriculture_Effect_Catastrophic;§PCatastrophic§!;;;;;;;;;;;;;x

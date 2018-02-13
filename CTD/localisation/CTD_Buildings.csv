@@ -1,0 +1,165 @@
+## Population Buildings
+
+#Peasants:
+ca_population_peasants_1;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ca_population_peasants_2;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ca_population_peasants_3;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ca_population_peasants_4;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ca_population_peasants_5;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ct_population_peasants_1;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ct_population_peasants_2;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ct_population_peasants_3;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ct_population_peasants_4;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+ct_population_peasants_5;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tp_population_peasants_1;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tp_population_peasants_2;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tp_population_peasants_3;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tp_population_peasants_4;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tp_population_peasants_5;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tb_population_peasants_1;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tb_population_peasants_2;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tb_population_peasants_3;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tb_population_peasants_4;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+tb_population_peasants_5;§YPopulation:§! Peasants;;;;;;;;;;;;;x
+population_peasants_desc;The backbone of every medieval society. Hardy, simple folks living a frugal life, working hard to feed the rest of the population.\nGameplay: A higher peasant population allows a province to produce more resources!\nEach pop consumes: §Y1§! Food / §Y0.5§! Clothing / §Y1§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+
+# Artisans:
+ca_population_artisans_1;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+ca_population_artisans_2;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+ca_population_artisans_3;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+ca_population_artisans_4;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+ct_population_artisans_1;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+ct_population_artisans_2;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+ct_population_artisans_3;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+ct_population_artisans_4;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tp_population_artisans_1;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tp_population_artisans_2;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tp_population_artisans_3;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tp_population_artisans_4;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tb_population_artisans_1;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tb_population_artisans_2;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tb_population_artisans_3;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+tb_population_artisans_4;§YPopulation:§! Artisans;;;;;;;;;;;;;x
+population_artisans_desc; . Skilled workers turning raw materials into products, building the .\nGameplay: A higher artisan population allows a province to produce more refined & finalized products!\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y2§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+
+# Merchants:
+ca_population_merchants_1;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+ca_population_merchants_2;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+ca_population_merchants_3;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+ct_population_merchants_1;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+ct_population_merchants_2;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+ct_population_merchants_3;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+tp_population_merchants_1;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+tp_population_merchants_2;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+tp_population_merchants_3;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+tb_population_merchants_1;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+tb_population_merchants_2;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+tb_population_merchants_3;§YPopulation:§! Merchants;;;;;;;;;;;;;x
+population_merchants_desc; showing great buisness acumen.\nGameplay: A higher merchant population allows a province to import from more provinces(/more goods. we'll see NOTE)!\nEach pop consumes: §Y1.5§! Food / §Y1.5§! Clothing / §Y1§! Materials / §Y1§! Luxuries;;;;;;;;;;;;;x
+
+# Elite:
+ca_population_elite_1;§YPopulation:§! Elite;;;;;;;;;;;;;x
+ca_population_elite_2;§YPopulation:§! Elite;;;;;;;;;;;;;x
+ct_population_elite_1;§YPopulation:§! Elite;;;;;;;;;;;;;x
+ct_population_elite_2;§YPopulation:§! Elite;;;;;;;;;;;;;x
+tp_population_elite_1;§YPopulation:§! Elite;;;;;;;;;;;;;x
+tp_population_elite_2;§YPopulation:§! Elite;;;;;;;;;;;;;x
+tb_population_elite_1;§YPopulation:§! Elite;;;;;;;;;;;;;x
+tb_population_elite_2;§YPopulation:§! Elite;;;;;;;;;;;;;x
+population_elite_desc;Minor nobles, bureocrats or other petty . They see to the  of the holding, and ever strive to display their wealth.\nEach pop consumes: §Y1.5§! Food / §Y1.5§! Clothing / §Y1§! Materials / §Y2§! Luxuries;;;;;;;;;;;;;x
+
+#Special:
+ca_population_soldiers_1;§YPopulation:§! Soldiers;;;;;;;;;;;;;x
+ca_population_soldiers_2;§YPopulation:§! Soldiers;;;;;;;;;;;;;x
+ca_population_soldiers_3;§YPopulation:§! Soldiers;;;;;;;;;;;;;x
+ca_population_soldiers_4;§YPopulation:§! Soldiers;;;;;;;;;;;;;x
+ca_population_soldiers_5;§YPopulation:§! Soldiers;;;;;;;;;;;;;x
+population_soldiers_desc;\nEach pop consumes: §Y1.5§! Food / §Y1§! Clothing / §Y1.5§! Materials / §Y0.5§! Luxuries;;;;;;;;;;;;;x
+ct_population_patricians_1;§YPopulation:§! Patricians;;;;;;;;;;;;;x
+ct_population_patricians_2;§YPopulation:§! Patricians;;;;;;;;;;;;;x
+ct_population_patricians_3;§YPopulation:§! Patricians;;;;;;;;;;;;;x
+ct_population_patricians_4;§YPopulation:§! Patricians;;;;;;;;;;;;;x
+ct_population_patricians_5;§YPopulation:§! Patricians;;;;;;;;;;;;;x
+population_patricians_desc;.\nGameplay: Patricians count towards the same thing as merchants.\nEach pop consumes: §Y1.5§! Food / §Y1.5§! Clothing / §Y1§! Materials / §Y1§! Luxuries;;;;;;;;;;;;;x
+tp_population_clerics_1;§YPopulation:§! Clerics;;;;;;;;;;;;;x
+tp_population_clerics_2;§YPopulation:§! Clerics;;;;;;;;;;;;;x
+tp_population_clerics_3;§YPopulation:§! Clerics;;;;;;;;;;;;;x
+tp_population_clerics_4;§YPopulation:§! Clerics;;;;;;;;;;;;;x
+tp_population_clerics_5;§YPopulation:§! Clerics;;;;;;;;;;;;;x
+population_clerics_desc;\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y1§! Materials / §Y1§! Luxuries;;;;;;;;;;;;;x
+
+#Scum:
+ca_population_scum_1;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ca_population_scum_2;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ca_population_scum_3;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ca_population_scum_4;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ca_population_scum_5;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ct_population_scum_1;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ct_population_scum_2;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ct_population_scum_3;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ct_population_scum_4;§YPopulation:§! Scum;;;;;;;;;;;;;x
+ct_population_scum_5;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tp_population_scum_1;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tp_population_scum_2;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tp_population_scum_3;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tp_population_scum_4;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tp_population_scum_5;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tb_population_scum_1;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tb_population_scum_2;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tb_population_scum_3;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tb_population_scum_4;§YPopulation:§! Scum;;;;;;;;;;;;;x
+tb_population_scum_5;§YPopulation:§! Scum;;;;;;;;;;;;;x
+population_scum_desc;\nEach pop consumes: §Y1§! Food / §Y0.5§! Clothing / §Y1§! Materials / §Y0.5§! Luxuries;;;;;;;;;;;;;x
+
+# Tribals:
+tb_population_tribal_foragers_1;§YPopulation (Tribe):§! Foragers;;;;;;;;;;;;;x
+tb_population_tribal_foragers_2;§YPopulation (Tribe):§! Foragers;;;;;;;;;;;;;x
+tb_population_tribal_foragers_3;§YPopulation (Tribe):§! Foragers;;;;;;;;;;;;;x
+tb_population_tribal_foragers_4;§YPopulation (Tribe):§! Foragers;;;;;;;;;;;;;x
+tb_population_tribal_foragers_5;§YPopulation (Tribe):§! Foragers;;;;;;;;;;;;;x
+tb_population_tribal_foragers_6;§YPopulation (Tribe):§! Foragers;;;;;;;;;;;;;x
+population_tribal_foragers_desc;\n(Tribals live in the countryside, and florish depending on the amount of empty holding slots)\nEach pop consumes: §Y0.5§! Food / §Y1§! Clothing / §Y0.5§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+tb_population_tribal_farmers_1;§YPopulation (Tribe):§! Farmers;;;;;;;;;;;;;x
+tb_population_tribal_farmers_2;§YPopulation (Tribe):§! Farmers;;;;;;;;;;;;;x
+tb_population_tribal_farmers_3;§YPopulation (Tribe):§! Farmers;;;;;;;;;;;;;x
+tb_population_tribal_farmers_4;§YPopulation (Tribe):§! Farmers;;;;;;;;;;;;;x
+tb_population_tribal_farmers_5;§YPopulation (Tribe):§! Farmers;;;;;;;;;;;;;x
+tb_population_tribal_farmers_6;§YPopulation (Tribe):§! Farmers;;;;;;;;;;;;;x
+population_tribal_farmers_desc;\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y1§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+tb_population_tribal_herdsmen_1;§YPopulation (Tribe):§! Herdsmen;;;;;;;;;;;;;x
+tb_population_tribal_herdsmen_2;§YPopulation (Tribe):§! Herdsmen;;;;;;;;;;;;;x
+tb_population_tribal_herdsmen_3;§YPopulation (Tribe):§! Herdsmen;;;;;;;;;;;;;x
+tb_population_tribal_herdsmen_4;§YPopulation (Tribe):§! Herdsmen;;;;;;;;;;;;;x
+tb_population_tribal_herdsmen_5;§YPopulation (Tribe):§! Herdsmen;;;;;;;;;;;;;x
+tb_population_tribal_herdsmen_6;§YPopulation (Tribe):§! Herdsmen;;;;;;;;;;;;;x
+population_tribal_herdsmen_desc;\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y1§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+tb_population_tribal_craftsmen_1;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
+tb_population_tribal_craftsmen_2;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
+tb_population_tribal_craftsmen_3;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
+tb_population_tribal_craftsmen_4;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
+tb_population_tribal_craftsmen_5;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
+tb_population_tribal_craftsmen_6;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
+population_tribal_craftsmen_desc;\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y2§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+
+# Indian Bonus: Shudras:
+ca_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+population_shudras_desc;Indian Laborers bla\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y0.5§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
