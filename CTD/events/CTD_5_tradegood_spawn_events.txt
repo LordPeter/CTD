@@ -1,0 +1,675 @@
+####################
+# Player Info events
+# 
+# by LordPeter
+####################
+
+namespace = CTD
+
+######################
+# ranges CTD.0501-0599
+######################
+
+## Initial event to chose spawn type
+
+# Ping from province to owner
+province_event = {	# Province fires invisible event to be in scope, then fires player decision event
+	id = CTD.0501
+	
+	is_triggered_only = yes		# by decision
+	
+	hide_window = yes
+	
+	immediate = {
+		save_event_target_as = target_spawn_province	# save province
+		owner = {
+			character_event = {	# Give owner actual choice now
+				id = CTD.0502
+			}
+		}
+	}
+}
+
+# Let province owner chose spawn type
+character_event = {
+	id = CTD.0502
+	# Different descriptions based on current event "chain" location
+	desc = {
+		trigger = {
+			event_target:target_spawn_province = {
+				has_province_flag = player_decides_on_fundamental_spawn_type
+			}
+		}
+		text = CTDDESC_A_0502
+		picture = "GFX_evt_fishing"
+	}
+	desc = {
+		trigger = {
+			event_target:target_spawn_province = {
+				has_province_flag = player_decides_on_nature_spawn_type
+			}
+		}
+		text = CTDDESC_B_0502
+		picture = "GFX_evt_fishing"
+	}
+	desc = {
+		trigger = {
+			event_target:target_spawn_province = {
+				has_province_flag = player_decides_on_agriculture_spawn_type
+			}
+		}
+		text = CTDDESC_C_0502
+		picture = "GFX_evt_fishing"
+	}
+	desc = {
+		trigger = {
+			event_target:target_spawn_province = {
+				has_province_flag = player_decides_on_livestock_spawn_type
+			}
+		}
+		text = CTDDESC_D_0502
+		picture = "GFX_evt_fishing"
+	}
+	# MORE
+	
+	is_triggered_only = yes		# by event
+	
+	## Player-only options to display a selection of the event and cycle through options. AI sees all at once.
+	# Decide which type to look at - or abort
+	option = {	# Decide fundamental type: Nature
+		name = CTDOPTA_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag was set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_fundamental_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_fundamental_spawn_type
+			set_province_flag = player_decides_on_nature_spawn_type
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide fundamental type: Agriculture
+		name = CTDOPTB_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_fundamental_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_fundamental_spawn_type
+			set_province_flag = player_decides_on_agriculture_spawn_type
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide fundamental type: Livestock
+		name = CTDOPTC_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_fundamental_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_fundamental_spawn_type
+			set_province_flag = player_decides_on_livestock_spawn_type
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide fundamental type: ABORT event instead
+		name = CTDOPT_ABORT_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_fundamental_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Clear ALL flag
+			clr_province_flag = player_decides_on_fundamental_spawn_type
+			clr_province_flag = deciding_on_spawn_type	# Flag from decision
+		}
+		# Nothing else, event ends and decision can be taken again
+	}
+	
+	# Decide which subtype to consider - Nature
+	option = {	# Decide subtype: Unique_1
+		name = CTDOPTD_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_nature_spawn_type
+			set_province_flag = player_decides_on_spawn_unique_1
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Unique_2
+		name = CTDOPTE_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_nature_spawn_type
+			set_province_flag = player_decides_on_spawn_unique_2
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Forests
+		name = CTDOPTF_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_nature_spawn_type
+			set_province_flag = player_decides_on_spawn_forests
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# Switch "page"
+	option = {	# Decide subtype: Second nature "page"
+		name = CTDOPT_SWITCHPAGE_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_nature_spawn_type
+			set_province_flag = player_decides_on_nature_spawn_type_2
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Mining_1
+		name = CTDOPTG_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_nature_spawn_type_2
+			set_province_flag = player_decides_on_spawn_mining_1
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Mining_2
+		name = CTDOPTH_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_nature_spawn_type_2
+			set_province_flag = player_decides_on_spawn_mining_2
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# Switch "page" (back)
+	option = {	# Decide subtype: First nature "page"
+		name = CTDOPT_SWITCHPAGE_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_nature_spawn_type_2
+			set_province_flag = player_decides_on_nature_spawn_type
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# Go back to main decision
+	option = {	# Go back to main decision (duh)
+		name = CTDOPT_GOBACKTOMAIN_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_nature_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Clear ALL flag
+			clr_province_flag = player_decides_on_nature_spawn_type_2
+			set_province_flag = player_decides_on_fundamental_spawn_type
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	
+	# Decide which subtype to consider - Agriculture
+	option = {	# Decide subtype: Fields
+		name = CTDOPTI_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type
+			set_province_flag = player_decides_on_spawn_fields
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_1
+		name = CTDOPTJ_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type
+			set_province_flag = player_decides_on_spawn_orchards_1
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_2
+		name = CTDOPTK_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type
+			set_province_flag = player_decides_on_spawn_orchards_2
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# Switch "page"
+	option = {	# Decide subtype: Second agriculture "page"
+		name = CTDOPT_SWITCHPAGE_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type
+			set_province_flag = player_decides_on_agriculture_spawn_type_2
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_3
+		name = CTDOPTL_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type_2
+			set_province_flag = player_decides_on_spawn_orchards_3
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_4
+		name = CTDOPTM_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type_2
+			set_province_flag = player_decides_on_spawn_orchards_4
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_5
+		name = CTDOPTN_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type_2
+			set_province_flag = player_decides_on_spawn_orchards_5
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# Switch "page"
+	option = {	# Decide subtype: Third agriculture "page"
+		name = CTDOPT_SWITCHPAGE_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type_2
+			set_province_flag = player_decides_on_agriculture_spawn_type_3
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_6
+		name = CTDOPTO_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_3
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type_3
+			set_province_flag = player_decides_on_spawn_orchards_6
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_7
+		name = CTDOPTP_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_3
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type_3
+			set_province_flag = player_decides_on_spawn_orchards_7
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Orchards_8
+		name = CTDOPTQ_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_3
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_agriculture_spawn_type_3
+			set_province_flag = player_decides_on_spawn_orchards_8
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# No "back to first agriculture page" here, sorry, doesn't fit. It's just one click more anyways.
+	# Go back to main decision
+	option = {	# Go back to main decision (duh)
+		name = CTDOPT_GOBACKTOMAIN_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_agriculture_spawn_type_3
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Clear ALL flag
+			clr_province_flag = player_decides_on_agriculture_spawn_type_3
+			set_province_flag = player_decides_on_fundamental_spawn_type
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	
+	# Decide which subtype to consider - Livestock
+	option = {	# Decide subtype: Livestock_1
+		name = CTDOPTR_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_livestock_spawn_type
+			set_province_flag = player_decides_on_spawn_livestock_1
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Livestock_2
+		name = CTDOPTS_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_livestock_spawn_type
+			set_province_flag = player_decides_on_spawn_livestock_2
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Livestock_3
+		name = CTDOPTT_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_livestock_spawn_type
+			set_province_flag = player_decides_on_spawn_livestock_3
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# Switch "page"
+	option = {	# Decide subtype: Second livestock "page"
+		name = CTDOPT_SWITCHPAGE_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_livestock_spawn_type
+			set_province_flag = player_decides_on_livestock_spawn_type_2
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Livestock_4
+		name = CTDOPTU_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_livestock_spawn_type_2
+			set_province_flag = player_decides_on_spawn_livestock_4
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Livestock_5
+		name = CTDOPTV_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_livestock_spawn_type_2
+			set_province_flag = player_decides_on_spawn_livestock_5
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	option = {	# Decide subtype: Livestock_6
+		name = CTDOPTW_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Switch flags
+			clr_province_flag = player_decides_on_livestock_spawn_type_2
+			set_province_flag = player_decides_on_spawn_livestock_6
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	# No "back to first livestock page" here, sorry, doesn't fit. It's just one click more anyways.
+	# Go back to main decision
+	option = {	# Go back to main decision (duh)
+		name = CTDOPT_GOBACKTOMAIN_0502
+		trigger = {	# Only visible if player is in this part of the event "chain"
+			AND = {
+				ai = no
+				event_target:target_spawn_province = {	# flag set on province to avoid confusion for multiple siumltaneously taken decisions
+					has_province_flag = player_decides_on_livestock_spawn_type_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {	# Clear ALL flag
+			clr_province_flag = player_decides_on_livestock_spawn_type_2
+			set_province_flag = player_decides_on_fundamental_spawn_type
+		}
+		repeat_event = {	# Repeat event with different options
+			id = CTD.0502
+		}
+	}
+	
+	
+	## A list of all -actual- spawn options - AI sees them simultaneousely
+	option = {
+		name = CTDOPTA_0301	# Alas
+	}
+}

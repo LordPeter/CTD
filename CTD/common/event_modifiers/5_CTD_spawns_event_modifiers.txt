@@ -1,0 +1,251 @@
+##################################################################################################
+# scriptable and usable for event-system below.
+##################################################################################################
+#
+# ICONS:
+#
+# Good 			<=> 		Bad
+#
+#  1 - Martial 				- 19
+#  2 - Learning 			- 20
+#  3 - Diplomacy 			- 21
+#  4 - Stewardship 			- 22
+#  5 - Intrigue 			- 23
+#  6 - Money 				- 24
+#  7 - Prestige 			- 25
+#  8 - Piety 				- 26
+#  9 - Titles 				- 27
+# 10 - Council 				- 28
+# 11 - Laws 				- 29
+# 12 - Tech 				- 30
+# 13 - Military 			- 31
+# 14 - Plots 				- 32
+# 15 - Messages 			- 33
+# 16 - Diplomatic actions 	- 34
+# 17 - Church 				- 35
+# 18 - Characters 			- 36
+# 37 - Prison 				- 38
+# 39 - Love 				- 40
+# 41 - Death 				- 42
+# 43 - Indian religion 		- 44
+# 71 - Dog					- 91
+# 72 - Cat					- 92
+# 73 - Owl					- 93
+# 74 - Pagan religion       - 75
+# 76 - Staff of Asclepius   - 77
+# 78 - Mystic               - 79
+# 80 - Bonesaw              - 81
+# 82 - Horseshoe            - 83
+# 84 - Parrot				- 94
+# 85 - Ham					- 86
+# 87 - Anchor				- 88
+# 89 - Jewish religion		- 90
+# 95 - Bed					- 96
+# 102 - Wolf				- 103
+# 104 - Raven				- 105
+# 106 - Demon horns			- 107
+# 108 - Trident				- 109
+# 110 - Stars				- 111
+# 112 - Eye					- 113
+# 114 - Test-tubes			- 115
+# 116 - Science flask		- 117
+# 118 - Flower				- 119
+# 120 - Rats		 		- 121
+# 122 - Otter				- 123
+# 124 - Hedgehog			- 125
+# 126 - Taoist				- 127
+# 128 - Paper				- 129
+# 130 - Bamboo Book			- 131
+# 132 - Pagoda				- 133
+# 134 - Firework			- 135
+# 136 - Torch				- 137
+# 138 - Panda				- 139
+# 140 - Dragon				- 141
+# game\gfx\interface\modifier_icons.dds
+# NOTE: Every vanilla modifier with icons between <44 and 70] needs to be updated to Plus strip by adding 26
+# NOTE: Every vanilla modifier with icons after <96 to be updated to Plus strip by adding 31
+#
+#Variables:
+#  is_visible: trigger, root is viewer, from is holder. Decides if the viewer can see this trait on holder, default is yes
+#
+# ---
+# CK2Plus+vanilla until:
+# 141
+
+
+## Nature:
+spawn_nature_unique_hunting = {
+	icon = 124
+}
+spawn_nature_unique_fishing = {
+	icon = 124
+}
+spawn_nature_unique_whaling = {
+	icon = 124
+}
+spawn_nature_unique_diving = {
+	icon = 124
+}
+spawn_nature_unique_gathering = {
+	icon = 124
+}
+spawn_nature_forests_coniferous_forest = {
+	icon = 124
+}
+spawn_nature_forests_broadleave_forest = {
+	icon = 124
+}
+spawn_nature_forests_tropical_rainforest = {
+	icon = 124
+}
+spawn_nature_forests_bamboo_forest = {
+	icon = 124
+}
+spawn_nature_mining_open_pit_mining = {
+	icon = 124
+}
+spawn_nature_mining_underground_mining = {
+	icon = 124
+}
+spawn_nature_mining_placer_mining = {
+	icon = 124
+}
+spawn_nature_mining_digging = {
+	icon = 124
+}
+spawn_nature_mining_quarrying = {
+	icon = 124
+}
+spawn_nature_mining_salt_evaporation = {
+	icon = 124
+}
+spawn_nature_mining_natural_wells = {
+	icon = 124
+}
+
+## Agriculture:
+spawn_agriculture_field_crop_fields = {
+	icon = 118
+}
+spawn_agriculture_field_paddy_fields = {
+	icon = 118
+}
+spawn_agriculture_field_gardening = {
+	icon = 118
+
+spawn_agriculture_orchard_vineyard = {
+	icon = 118
+}
+spawn_agriculture_orchard_copse = {
+	icon = 118
+}
+spawn_agriculture_orchard_cork_oak_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_nut_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_fruit_orchards = {
+	icon = 118
+}
+spawn_agriculture_orchard_citrus_orchards = {
+	icon = 118
+}
+spawn_agriculture_orchard_tamarind_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_almond_orchards = {
+	icon = 118
+}
+spawn_agriculture_orchard_olive_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_palm_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_areca_palm_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_coconut_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_gum_acacia_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_sandarac_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_dragons_blood_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_olibanum_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_myrrh_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_lentisk_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_cinnamon_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_moringa_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_argan_groves = {
+	icon = 118
+}
+spawn_agriculture_orchard_neem_groves = {
+	icon = 118
+}
+
+## Livestock:
+spawn_livestock_cattle = {
+	icon = 82
+}
+spawn_livestock_sheep = {
+	icon = 82
+}
+spawn_livestock_goats = {
+	icon = 82
+}
+spawn_livestock_pigs = {
+	icon = 82
+}
+spawn_livestock_poultry = {
+	icon = 82
+}
+spawn_livestock_camels = {
+	icon = 82
+}
+spawn_livestock_reindeers = {
+	icon = 82
+}
+spawn_livestock_elephants = {
+	icon = 82
+}
+spawn_livestock_horses = {
+	icon = 82
+}
+spawn_livestock_yaks = {
+	icon = 82
+}
+spawn_livestock_sericulture = {
+	icon = 82
+}
+spawn_livestock_apiculture = {
+	icon = 82
+}
+spawn_livestock_kermes_insects = {
+	icon = 82
+}
+spawn_livestock_cochineal_insects = {
+	icon = 82
+}
+spawn_livestock_lac_insects = {
+	icon = 82
+}
+spawn_livestock_fish_farming = {
+	icon = 82
+}

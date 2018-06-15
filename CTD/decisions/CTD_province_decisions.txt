@@ -1,8 +1,52 @@
 title_decisions = {
+	# Decide on Resource Spawn Type
+	enact_incentive_edict = {
+		filter = owned
+		ai_target_filter = owned
+		is_high_prio = yes
+		ai_check_interval = 6
+		
+		potential = {
+			AND = {
+				tier = COUNT	# IMPORTANT: If you want provinces, then always check for county!!!
+				location = {
+					NOR = {
+						has_maximum_tradegood_spawns_CTD_trigger = yes	# Has maximum amount of 3 spawns already
+						has_province_flag = deciding_on_spawn_type
+					}
+				}
+				# Safety check so only works with owner provinces - NOTE: How do I even need this?!
+				owner = {
+					character = FROM
+				}
+			}
+        }
+        allow = {
+			always = yes	# This is a fundamental decision and free
+        }
+        effect = {
+            ROOT = {	# Note: The title - not the province yet!
+				location = {
+					set_province_flag = deciding_on_spawn_type	# Safety check to prevent decision spam
+					province_event = {	# Fire an event for the province so we get it as an event target
+						id = CTD.0501
+					}
+				}
+			}
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 0	# NOTE: For now only testing - Should be: "1" - always.
+        }
+    }
+	
 	# Chose Growth Incentive Edict
 	enact_incentive_edict = {
 		filter = owned
 		ai_target_filter = owned
+		ai_check_interval = 12
 		
 		from_potential = {	# Nomads and Tribals can't enact edicts
 			NOR = {
@@ -58,6 +102,7 @@ title_decisions = {
 	establish_trade_fair = {
 		filter = owned
 		ai_target_filter = owned
+		ai_check_interval = 12
 		
 		from_potential = {	# Nomads and Tribals can't have tradefairs
 			NOR = {
@@ -139,6 +184,7 @@ title_decisions = {
 	grant_staple_right = {
 		filter = owned
 		ai_target_filter = owned
+		ai_check_interval = 12
 		
 		from_potential = {	# Nomads and Tribals can't have staple right
 			NOR = {

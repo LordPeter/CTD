@@ -1223,3 +1223,75 @@ considered_as_enslavable_religion_CTD_trigger = {
 		is_heresy_of = PREV
 	}
 }
+
+
+### Has maximum tradegood spawns
+## This MUST be called in a province scope to work properly
+# It checks whether the province has three resource spawn modifiers of any kind
+
+has_maximum_tradegood_spawns_CTD_trigger = {
+	calc_true_if = {
+		amount = 3	# Three is maximum amount of spawns a province can have
+		has_province_modifier = spawn_nature_unique_hunting
+		has_province_modifier = spawn_nature_unique_fishing
+		has_province_modifier = spawn_nature_unique_whaling
+		has_province_modifier = spawn_nature_unique_diving
+		has_province_modifier = spawn_nature_unique_gathering
+		has_province_modifier = spawn_nature_forests_coniferous_forest
+		has_province_modifier = spawn_nature_forests_broadleave_forest
+		has_province_modifier = spawn_nature_forests_tropical_rainforest
+		has_province_modifier = spawn_nature_forests_bamboo_forest
+		has_province_modifier = spawn_nature_mining_open_pit_mining
+		has_province_modifier = spawn_nature_mining_underground_mining
+		has_province_modifier = spawn_nature_mining_placer_mining
+		has_province_modifier = spawn_nature_mining_digging
+		has_province_modifier = spawn_nature_mining_quarrying
+		has_province_modifier = spawn_nature_mining_salt_evaporation
+		has_province_modifier = spawn_nature_mining_natural_wells
+		has_province_modifier = spawn_agriculture_field_crop_fields
+		has_province_modifier = spawn_agriculture_field_paddy_fields
+		has_province_modifier = spawn_agriculture_field_gardening
+		has_province_modifier = spawn_agriculture_orchard_vineyard
+		has_province_modifier = spawn_agriculture_orchard_copse
+		has_province_modifier = spawn_agriculture_orchard_cork_oak_groves
+		has_province_modifier = spawn_agriculture_orchard_nut_groves
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+		has_province_modifier = 
+	}
+}
