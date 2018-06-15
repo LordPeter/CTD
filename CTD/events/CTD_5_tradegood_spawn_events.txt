@@ -669,7 +669,311 @@ character_event = {
 	
 	
 	## A list of all -actual- spawn options - AI sees them simultaneousely
+	# Hunting
 	option = {
-		name = CTDOPTA_0301	# Alas
+		name = CTDOPTAA_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_unique_1
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_unique_hunting
+				duration = -1
+			}
+		}
+	}
+	# Gathering
+	option = {
+		name = CTDOPTAB_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_unique_1
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_unique_gathering
+				duration = -1
+			}
+		}
+	}
+	# Fishing
+	option = {
+		name = CTDOPTAC_0502
+		trigger = {	# Different visibility now: For the AI by default, restricted only for player
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_unique_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_unique_fishing
+				duration = -1
+			}
+		}
+	}
+	# Whaling
+	option = {
+		name = CTDOPTAD_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_unique_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_unique_whaling
+				duration = -1
+			}
+		}
+	}
+	# Diving
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_unique_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_unique_diving
+				duration = -1
+			}
+		}
+	
+	# Coniferous Forest
+	option = {
+		name = CTDOPTAF_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_forests
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_forests_coniferous_forest
+				duration = -1
+			}
+		}
+	}
+	# Broadleave Forest
+	option = {
+		name = CTDOPTAG_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_forests
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_forests_broadleave_forest
+				duration = -1
+			}
+		}
+	}
+	# Tropical Rainforest
+	option = {
+		name = CTDOPTAH_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_forests
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_forests_tropical_rainforest
+				duration = -1
+			}
+		}
+	}
+	# Bamboo Forest
+	option = {
+		name = CTDOPTAI_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_forests
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_forests_bamboo_forest
+				duration = -1
+			}
+		}
+	}
+	# Open Pit Mining
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_1
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_mining_open_pit_mining
+				duration = -1
+			}
+		}
+	}
+	# Underground Mining
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_1
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_mining_underground_mining
+				duration = -1
+			}
+		}
+	}
+	# Placer Mining
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_1
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_mining_placer_mining
+				duration = -1
+			}
+		}
+	}
+	# Quarrying
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_1
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_mining_quarrying
+				duration = -1
+			}
+		}
+	}
+	# Digging
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_mining_digging
+				duration = -1
+			}
+		}
+	}
+	# Salt Evaporation
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_mining_salt_evaporation
+				duration = -1
+			}
+		}
+	}
+	# Natural Wells
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_2
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_mining_natural_wells
+				duration = -1
+			}
+		}
+	}
+	
+	# 
+	option = {
+		name = CTDOPTAE_0502
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_mining_1
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = spawn_nature_unique_diving
+				duration = -1
+			}
+		}
 	}
 }

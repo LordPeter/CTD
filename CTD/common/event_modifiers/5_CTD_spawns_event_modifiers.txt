@@ -77,6 +77,9 @@
 spawn_nature_unique_hunting = {
 	icon = 124
 }
+spawn_nature_unique_gathering = {
+	icon = 124
+}
 spawn_nature_unique_fishing = {
 	icon = 124
 }
@@ -84,9 +87,6 @@ spawn_nature_unique_whaling = {
 	icon = 124
 }
 spawn_nature_unique_diving = {
-	icon = 124
-}
-spawn_nature_unique_gathering = {
 	icon = 124
 }
 spawn_nature_forests_coniferous_forest = {
