@@ -175,9 +175,6 @@ spawn_agriculture_orchard_gum_acacia_groves = {
 spawn_agriculture_orchard_sandarac_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_dragons_blood_groves = {
-	icon = 118
-}
 spawn_agriculture_orchard_olibanum_groves = {
 	icon = 118
 }
