@@ -576,7 +576,9 @@ character_event = {
 	
 	is_triggered_only = yes		# by event
 	
-	## A list of all -actual- spawn options - AI sees them simultaneousely!
+	### A list of all -actual- spawn options - AI sees them simultaneousely!
+	
+	## Nature:
 	# Hunting
 	option = {
 		name = CTDOPTAA_0503
@@ -681,7 +683,7 @@ character_event = {
 				id = CTD.0504
 			}
 		}
-	
+	}
 	# Coniferous Forest
 	option = {
 		name = CTDOPTAF_0503
@@ -914,6 +916,92 @@ character_event = {
 		}
 	}
 	
+	## Agriculture:
+	# Crop Fields
+	option = {
+		name = CTDOPTAQ_0503
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_fields
+				}
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_fields
+				set_province_flag = chosen_spawn_is_crop_fields
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Paddy Fields
+	option = {
+		name = CTDOPTAR_0503
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_fields
+				}
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_fields
+				set_province_flag = chosen_spawn_is_paddy_fields
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Gardening
+	option = {
+		name = CTDOPTAS_0503
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_fields
+				}
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_fields
+				set_province_flag = chosen_spawn_is_gardening
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Vineyard
+	option = {
+		name = CTDOPTAT_0503
+		trigger = {
+			OR = {
+				ai = yes
+				event_target:target_spawn_province = {
+					has_province_flag = player_decides_on_spawn_orchards_1
+				}
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_1
+				set_province_flag = chosen_spawn_is_
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	
 	# ...
 	# more
 	# ...
@@ -949,15 +1037,20 @@ character_event = {
 						duration = -1
 					}
 					# Delayed event for resource choice:
-					# province_event = {
-						# id = CTD.0505
-						# days = 365	# 1 year
-					# }
+					province_event = {
+						id = CTD.0505
+						# no delay here
+					}
 				}
 				chosen_spawn_is_gathering = {
 					add_province_modifier = {
-						name = spawn_nature_unique_hunting
+						name = spawn_nature_unique_gathering
 						duration = -1
+					}
+					# Delayed event for resource choice:
+					province_event = {
+						id = CTD.0505
+						# no delay here
 					}
 				}
 			}
