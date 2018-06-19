@@ -4,6 +4,460 @@
 # by LordPeter
 ############################################
 
+### Can have spawn
+## These MUST be called in a province scope to work properly
+# They check whether a province qualifies to have a certain resource spawn added
+
+hunting_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_unique_hunting
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+gathering_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_unique_gathering
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+fishing_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_unique_fishing
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+whaling_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_unique_whaling
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+diving_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_unique_diving
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+coniferous_forest_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_forests_coniferous_forest
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+broadleave_forest_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_forests_broadleave_forest
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+tropical_rainforest_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_forests_tropical_rainforest
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+bamboo_forest_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_forests_bamboo_forest
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+open_pit_mining_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_mining_open_pit_mining
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+underground_mining_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_mining_underground_mining
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+placer_mining_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_mining_placer_mining
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+digging_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_mining_digging
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+quarrying_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_mining_quarrying
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+salt_evaporation_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_mining_salt_evaporation
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+natural_wells_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_nature_mining_natural_wells
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+crop_fields_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_field_crop_fields
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+paddy_fields_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_field_paddy_fields
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+gardening_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_field_gardening
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+vineyards_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_vineyards
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+copse_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_copse
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+cork_oak_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_cork_oak_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+nut_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_nut_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+fruit_orchards_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_fruit_orchards
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+citrus_orchards_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_citrus_orchards
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+tamarind_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_tamarind_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+almond_orchards_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_almond_orchards
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+olive_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_olive_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+palm_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_palm_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+areca_palm_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_areca_palm_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+coconut_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_coconut_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+gum_acacia_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_gum_acacia_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+sandarac_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_sandarac_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+olibanum_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_olibanum_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+myrrh_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_myrrh_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+lentisk_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_lentisk_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+cinnamon_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_cinnamon_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+moringa_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_moringa_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+argan_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_argan_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+neem_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_neem_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+cattle_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_cattle
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+sheep_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_sheep
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+goats_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_goats
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+pigs_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_pigs
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+poultry_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_poultry
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+camels_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_camels
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+reindeers_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_reindeers
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+elephants_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_elephants
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+horses_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_horses
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+yaks_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_yaks
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+sericulture_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_sericulture
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+apiculture_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_apiculture
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+kermes_insects_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_kermes_insects
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+cochineal_insects_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_cochineal_insects
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+lac_insects_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_lac_insects
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+fish_farming_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_fish_farming
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+
+
 ### Can produce tradegood
 ## These MUST be called in a province scope to work properly
 # They check if a province can produce a new stack of certain (refined/finalized) tradegood by checking for the amounts of resources needed

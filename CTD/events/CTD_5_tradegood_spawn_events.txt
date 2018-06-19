@@ -582,12 +582,15 @@ character_event = {
 	# Hunting
 	option = {
 		name = CTDOPTAA_0503
-		trigger = {	# Different visibility: For the AI by default, restricted only for player
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_unique_1
+		trigger = {
+			AND = {
+				OR = {	# Different visibility: For the AI by default, restricted only for player
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_unique_1
+					}
 				}
+				hunting_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -604,11 +607,14 @@ character_event = {
 	option = {
 		name = CTDOPTAB_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_unique_1
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_unique_1
+					}
 				}
+				gathering_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -625,11 +631,14 @@ character_event = {
 	option = {
 		name = CTDOPTAC_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_unique_2
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_unique_2
+					}
 				}
+				fishing_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -646,11 +655,14 @@ character_event = {
 	option = {
 		name = CTDOPTAD_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_unique_2
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_unique_2
+					}
 				}
+				whaling_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -667,11 +679,14 @@ character_event = {
 	option = {
 		name = CTDOPTAE_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_unique_2
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_unique_2
+					}
 				}
+				diving_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -688,11 +703,14 @@ character_event = {
 	option = {
 		name = CTDOPTAF_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_forests
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_forests
+					}
 				}
+				coniferous_forest_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -709,11 +727,14 @@ character_event = {
 	option = {
 		name = CTDOPTAG_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_forests
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_forests
+					}
 				}
+				broadleave_forest_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -730,11 +751,14 @@ character_event = {
 	option = {
 		name = CTDOPTAH_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_forests
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_forests
+					}
 				}
+				tropical_rainforest_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -751,11 +775,14 @@ character_event = {
 	option = {
 		name = CTDOPTAI_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_forests
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_forests
+					}
 				}
+				bamboo_forest_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -772,11 +799,14 @@ character_event = {
 	option = {
 		name = CTDOPTAJ_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_mining_1
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_mining_1
+					}
 				}
+				open_pit_mining_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -793,11 +823,14 @@ character_event = {
 	option = {
 		name = CTDOPTAK_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_mining_1
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_mining_1
+					}
 				}
+				underground_mining_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -814,11 +847,14 @@ character_event = {
 	option = {
 		name = CTDOPTAL_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_mining_1
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_mining_1
+					}
 				}
+				placer_mining_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -835,11 +871,14 @@ character_event = {
 	option = {
 		name = CTDOPTAM_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_mining_1
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_mining_1
+					}
 				}
+				digging_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -856,11 +895,14 @@ character_event = {
 	option = {
 		name = CTDOPTAN_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_mining_2
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_mining_2
+					}
 				}
+				quarrying_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -877,11 +919,14 @@ character_event = {
 	option = {
 		name = CTDOPTAO_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_mining_2
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_mining_2
+					}
 				}
+				salt_evaporation_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -898,11 +943,14 @@ character_event = {
 	option = {
 		name = CTDOPTAP_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_mining_2
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_mining_2
+					}
 				}
+				natural_wells_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -921,11 +969,14 @@ character_event = {
 	option = {
 		name = CTDOPTAQ_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_fields
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_fields
+					}
 				}
+				crop_fields_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -942,11 +993,14 @@ character_event = {
 	option = {
 		name = CTDOPTAR_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_fields
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_fields
+					}
 				}
+				paddy_fields_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -963,11 +1017,14 @@ character_event = {
 	option = {
 		name = CTDOPTAS_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_fields
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_fields
+					}
 				}
+				gardening_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
@@ -980,21 +1037,72 @@ character_event = {
 			}
 		}
 	}
-	# Vineyard
+	# Vineyards
 	option = {
 		name = CTDOPTAT_0503
 		trigger = {
-			OR = {
-				ai = yes
-				event_target:target_spawn_province = {
-					has_province_flag = player_decides_on_spawn_orchards_1
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_1
+					}
 				}
+				vineyards_spawn_possible_CTD_trigger = yes
 			}
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
 				clr_province_flag = player_decides_on_spawn_orchards_1
-				set_province_flag = chosen_spawn_is_
+				set_province_flag = chosen_spawn_is_vineyards
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Copse
+	option = {
+		name = CTDOPTAU_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_1
+					}
+				}
+				copse_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_1
+				set_province_flag = chosen_spawn_is_copse
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Cork Oak Groves
+	option = {
+		name = CTDOPTAT_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_1
+					}
+				}
+				cork_oak_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_1
+				set_province_flag = chosen_spawn_is_cork_oak_groves
 			}
 			character_event = {	# Event to confirm
 				id = CTD.0504
@@ -1006,14 +1114,6 @@ character_event = {
 	# more
 	# ...
 	
-	# test
-	option = {
-		name = CTDOPTZZZ_0503
-		trigger = {
-			always = no
-		}
-		prestige = 10
-	}
 }
 
 # Asked to confirm spawn - if yes, assign spawn & fire (delayed) resource choice event
@@ -1049,7 +1149,7 @@ character_event = {
 					}
 					# Delayed event for resource choice:
 					province_event = {
-						id = CTD.0505
+						id = CTD.0506
 						# no delay here
 					}
 				}
