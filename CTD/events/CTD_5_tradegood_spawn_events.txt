@@ -1444,7 +1444,7 @@ character_event = {
 				id = CTD.0504
 			}
 		}
-	
+	}
 	# Lentisk Groves
 	option = {
 		name = CTDOPTBK_0503
