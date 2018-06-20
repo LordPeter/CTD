@@ -2239,7 +2239,7 @@ character_event = {
 						}
 					}
 				}
-				chosen_spawn_is_ = {
+				chosen_spawn_is_crop_fields = {
 					add_province_modifier = {
 						name = spawn_agriculture_field_crop_fields
 						duration = -1
