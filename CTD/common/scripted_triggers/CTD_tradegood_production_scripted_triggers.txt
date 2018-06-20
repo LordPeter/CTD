@@ -240,6 +240,14 @@ palm_groves_spawn_possible_CTD_trigger = {
 		# other conditions e.g. terrain, climate, whatever, according to design
 	}
 }
+date_groves_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_agriculture_orchard_date_groves
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
 areca_palm_groves_spawn_possible_CTD_trigger = {
 	AND = {
 		NOT = {
@@ -368,6 +376,14 @@ poultry_spawn_possible_CTD_trigger = {
 		# other conditions e.g. terrain, climate, whatever, according to design
 	}
 }
+horses_spawn_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = spawn_livestock_horses
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
 camels_spawn_possible_CTD_trigger = {
 	AND = {
 		NOT = {
@@ -388,14 +404,6 @@ elephants_spawn_possible_CTD_trigger = {
 	AND = {
 		NOT = {
 			has_province_modifier = spawn_livestock_elephants
-		}
-		# other conditions e.g. terrain, climate, whatever, according to design
-	}
-}
-horses_spawn_possible_CTD_trigger = {
-	AND = {
-		NOT = {
-			has_province_modifier = spawn_livestock_horses
 		}
 		# other conditions e.g. terrain, climate, whatever, according to design
 	}

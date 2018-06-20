@@ -1087,7 +1087,7 @@ character_event = {
 	}
 	# Cork Oak Groves
 	option = {
-		name = CTDOPTAT_0503
+		name = CTDOPTAV_0503
 		trigger = {
 			AND = {
 				OR = {
@@ -1109,11 +1109,846 @@ character_event = {
 			}
 		}
 	}
+	# Nut Groves
+	option = {
+		name = CTDOPTAW_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_2
+					}
+				}
+				nut_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_2
+				set_province_flag = chosen_spawn_is_nut_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Fruit Orchards
+	option = {
+		name = CTDOPTAX_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_2
+					}
+				}
+				fruit_orchards_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_2
+				set_province_flag = chosen_spawn_is_fruit_orchards
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Citrus Orchards
+	option = {
+		name = CTDOPTAY_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_2
+					}
+				}
+				citrus_orchards_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_2
+				set_province_flag = chosen_spawn_is_citrus_orchards
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Tamarind Groves
+	option = {
+		name = CTDOPTAZ_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_3
+					}
+				}
+				tamarind_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_3
+				set_province_flag = chosen_spawn_is_tamarind_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Almond Orchards
+	option = {
+		name = CTDOPTBA_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_3
+					}
+				}
+				almond_orchards_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_3
+				set_province_flag = chosen_spawn_is_almond_orchards
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Olive Groves
+	option = {
+		name = CTDOPTBB_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_3
+					}
+				}
+				olive_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_3
+				set_province_flag = chosen_spawn_is_olive_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Palm Groves
+	option = {
+		name = CTDOPTBC_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_4
+					}
+				}
+				palm_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_4
+				set_province_flag = chosen_spawn_is_palm_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Date Groves
+	option = {
+		name = CTDOPTBD_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_4
+					}
+				}
+				date_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_4
+				set_province_flag = chosen_spawn_is_date_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Areca Palm Groves
+	option = {
+		name = CTDOPTBE_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_4
+					}
+				}
+				areca_palm_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_4
+				set_province_flag = chosen_spawn_is_areca_palm_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Coconut Groves
+	option = {
+		name = CTDOPTBF_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_5
+					}
+				}
+				coconut_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_5
+				set_province_flag = chosen_spawn_is_coconut_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Gum Acacia Groves
+	option = {
+		name = CTDOPTBG_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_5
+					}
+				}
+				gum_acacia_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_5
+				set_province_flag = chosen_spawn_is_gum_acacia_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Sandarac Groves
+	option = {
+		name = CTDOPTBH_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_5
+					}
+				}
+				sandarac_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_5
+				set_province_flag = chosen_spawn_is_sandarac_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Olibanum Groves
+	option = {
+		name = CTDOPTBI_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_6
+					}
+				}
+				olibanum_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_6
+				set_province_flag = chosen_spawn_is_olibanum_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Myrrh Groves
+	option = {
+		name = CTDOPTBJ_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_6
+					}
+				}
+				myrrh_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_6
+				set_province_flag = chosen_spawn_is_myrrh_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
 	
-	# ...
-	# more
-	# ...
-	
+	# Lentisk Groves
+	option = {
+		name = CTDOPTBK_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_6
+					}
+				}
+				lentisk_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_6
+				set_province_flag = chosen_spawn_is_lentisk_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Cinnamon Groves
+	option = {
+		name = CTDOPTBL_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_7
+					}
+				}
+				cinnamon_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_7
+				set_province_flag = chosen_spawn_is_cinnamon_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Moringa Groves
+	option = {
+		name = CTDOPTBL_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_7
+					}
+				}
+				moringa_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_7
+				set_province_flag = chosen_spawn_is_moringa_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Argan Groves
+	option = {
+		name = CTDOPTBM_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_7
+					}
+				}
+				argan_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_7
+				set_province_flag = chosen_spawn_is_argan_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Neem Groves
+	option = {
+		name = CTDOPTBN_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_orchards_8
+					}
+				}
+				neem_groves_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_orchards_8
+				set_province_flag = chosen_spawn_is_neem_groves
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Cattle
+	option = {
+		name = CTDOPTBO_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_1
+					}
+				}
+				cattle_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_1
+				set_province_flag = chosen_spawn_is_cattle
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Sheep
+	option = {
+		name = CTDOPTBP_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_1
+					}
+				}
+				sheep_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_1
+				set_province_flag = chosen_spawn_is_sheep
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Goats
+	option = {
+		name = CTDOPTBQ_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_1
+					}
+				}
+				goats_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_1
+				set_province_flag = chosen_spawn_is_goats
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Pigs
+	option = {
+		name = CTDOPTBR_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_2
+					}
+				}
+				pigs_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_2
+				set_province_flag = chosen_spawn_is_pigs
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Poultry
+	option = {
+		name = CTDOPTBS_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_2
+					}
+				}
+				poultry_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_2
+				set_province_flag = chosen_spawn_is_poultry
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Horses
+	option = {
+		name = CTDOPTBT_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_2
+					}
+				}
+				horses_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_2
+				set_province_flag = chosen_spawn_is_horses
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Camels
+	option = {
+		name = CTDOPTBU_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_3
+					}
+				}
+				camels_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_3
+				set_province_flag = chosen_spawn_is_camels
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Reindeers
+	option = {
+		name = CTDOPTBV_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_3
+					}
+				}
+				reindeers_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_3
+				set_province_flag = chosen_spawn_is_reindeers
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Elephants
+	option = {
+		name = CTDOPTBW_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_3
+					}
+				}
+				elephants_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_3
+				set_province_flag = chosen_spawn_is_elephants
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Yaks
+	option = {
+		name = CTDOPTBX_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_4
+					}
+				}
+				yaks_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_4
+				set_province_flag = chosen_spawn_is_yaks
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Sericulture
+	option = {
+		name = CTDOPTBY_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_4
+					}
+				}
+				sericulture_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_4
+				set_province_flag = chosen_spawn_is_sericulture
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Apiculture
+	option = {
+		name = CTDOPTBZ_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_4
+					}
+				}
+				apiculture_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_4
+				set_province_flag = chosen_spawn_is_apiculture
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Kermes Insects
+	option = {
+		name = CTDOPTCA_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_5
+					}
+				}
+				kermes_insects_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_5
+				set_province_flag = chosen_spawn_is_kermes_insects
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Cochineal Insects
+	option = {
+		name = CTDOPTCB_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_5
+					}
+				}
+				cochineal_insects_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_5
+				set_province_flag = chosen_spawn_is_cochineal_insects
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Lac Insects
+	option = {
+		name = CTDOPTCC_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_5
+					}
+				}
+				lac_insects_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_5
+				set_province_flag = chosen_spawn_is_lac_insects
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
+	# Fish Farming
+	option = {
+		name = CTDOPTCD_0503
+		trigger = {
+			AND = {
+				OR = {
+					ai = yes
+					event_target:target_spawn_province = {
+						has_province_flag = player_decides_on_spawn_livestock_6
+					}
+				}
+				fish_farming_spawn_possible_CTD_trigger = yes
+			}
+		}
+		hidden_tooltip = {
+			event_target:target_spawn_province = {
+				clr_province_flag = player_decides_on_spawn_livestock_6
+				set_province_flag = chosen_spawn_is_fish_farming
+			}
+			character_event = {	# Event to confirm
+				id = CTD.0504
+			}
+		}
+	}
 }
 
 # Asked to confirm spawn - if yes, assign spawn & fire (delayed) resource choice event
@@ -1137,9 +1972,11 @@ character_event = {
 						duration = -1
 					}
 					# Delayed event for resource choice:
-					province_event = {
-						id = CTD.0505
-						# no delay here
+					owner = {
+						character_event = {
+							id = CTD.0505	# Individual events for every spawn - no other way to do this sadly...
+							# no delay here
+						}
 					}
 				}
 				chosen_spawn_is_gathering = {
@@ -1148,19 +1985,803 @@ character_event = {
 						duration = -1
 					}
 					# Delayed event for resource choice:
-					province_event = {
-						id = CTD.0506
-						# no delay here
+					owner = {
+						character_event = {
+							id = CTD.0506
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_fishing = {
+					add_province_modifier = {
+						name = spawn_nature_unique_fishing
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0507
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_whaling = {
+					add_province_modifier = {
+						name = spawn_nature_unique_whaling
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0508
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_diving = {
+					add_province_modifier = {
+						name = spawn_nature_unique_diving
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0509
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_coniferous_forest = {
+					add_province_modifier = {
+						name = spawn_nature_forests_coniferous_forest
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0510
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_broadleave_forest = {
+					add_province_modifier = {
+						name = spawn_nature_forests_broadleave_forest
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0511
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_tropical_rainforest = {
+					add_province_modifier = {
+						name = spawn_nature_forests_tropical_rainforest
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0512
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_bamboo_forest = {
+					add_province_modifier = {
+						name = spawn_nature_forests_bamboo_forest
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0513
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_open_pit_mining = {
+					add_province_modifier = {
+						name = spawn_nature_mining_open_pit_mining
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0514
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_underground_mining = {
+					add_province_modifier = {
+						name = spawn_nature_mining_underground_mining
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0515
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_placer_mining = {
+					add_province_modifier = {
+						name = spawn_nature_mining_placer_mining
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0516
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_digging = {
+					add_province_modifier = {
+						name = spawn_nature_mining_digging
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0517
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_quarrying = {
+					add_province_modifier = {
+						name = spawn_nature_mining_quarrying
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0518
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_salt_evaporation = {
+					add_province_modifier = {
+						name = spawn_nature_mining_salt_evaporation
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0519
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_natural_wells = {
+					add_province_modifier = {
+						name = spawn_nature_mining_natural_wells
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0520
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_crop_fields = {
+					add_province_modifier = {
+						name = spawn_agriculture_field_crop_fields
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0521
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_paddy_fields = {
+					add_province_modifier = {
+						name = spawn_agriculture_field_paddy_fields
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0522
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_gardening = {
+					add_province_modifier = {
+						name = spawn_agriculture_field_gardening
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0523
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_vineyards = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_vineyards
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0524
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_copse = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_copse
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0525
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_ = {
+					add_province_modifier = {
+						name = spawn_agriculture_field_crop_fields
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0526
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_cork_oak_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_cork_oak_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0527
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_nut_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_nut_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0528
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_fruit_orchards = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_fruit_orchards
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0529
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_citrus_orchards = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_citrus_orchards
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0530
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_tamarind_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_tamarind_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0531
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_almond_orchards = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_almond_orchards
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0532
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_olive_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_olive_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0533
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_palm_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_palm_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0534
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_date_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_date_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0535
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_areca_palm_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_areca_palm_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0536
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_coconut_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_coconut_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0537
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_gum_acacia_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_gum_acacia_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0538
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_sandarac_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_sandarac_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0539
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_olibanum_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_olibanum_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0540
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_myrrh_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_myrrh_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0541
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_lentisk_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_lentisk_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0542
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_cinnamon_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_cinnamon_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0543
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_moringa_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_moringa_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0544
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_argan_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_argan_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0545
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_neem_groves = {
+					add_province_modifier = {
+						name = spawn_agriculture_orchard_neem_groves
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0546
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_cattle = {
+					add_province_modifier = {
+						name = spawn_livestock_cattle
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0547
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_sheep = {
+					add_province_modifier = {
+						name = spawn_livestock_sheep
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0548
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_goats = {
+					add_province_modifier = {
+						name = spawn_livestock_goats
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0549
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_pigs = {
+					add_province_modifier = {
+						name = spawn_livestock_pigs
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0550
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_poultry = {
+					add_province_modifier = {
+						name = spawn_livestock_poultry
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0551
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_horses = {
+					add_province_modifier = {
+						name = spawn_livestock_horses
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0552
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_camels = {
+					add_province_modifier = {
+						name = spawn_livestock_camels
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0553
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_reindeers = {
+					add_province_modifier = {
+						name = spawn_livestock_reindeers
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0554
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_elephants = {
+					add_province_modifier = {
+						name = spawn_livestock_elephants
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0555
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_yaks = {
+					add_province_modifier = {
+						name = spawn_livestock_yaks
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0556
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_sericulture = {
+					add_province_modifier = {
+						name = spawn_livestock_sericulture
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0557
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_apiculture = {
+					add_province_modifier = {
+						name = spawn_livestock_apiculture
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0558
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_kermes_insects = {
+					add_province_modifier = {
+						name = spawn_livestock_kermes_insects
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0559
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_cochineal_insects = {
+					add_province_modifier = {
+						name = spawn_livestock_cochineal_insects
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0560
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_lac_insects = {
+					add_province_modifier = {
+						name = spawn_livestock_lac_insects
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0561
+							# no delay here
+						}
+					}
+				}
+				chosen_spawn_is_fish_farming = {
+					add_province_modifier = {
+						name = spawn_livestock_fish_farming
+						duration = -1
+					}
+					# Delayed event for resource choice:
+					owner = {
+						character_event = {
+							id = CTD.0562
+							# no delay here
+						}
 					}
 				}
 			}
 			# Clear all province flags:
-			clr_province_flag = deciding_on_spawn_type
+			clr_province_flag = deciding_on_spawn_type	# this one is from decision
 			clr_province_flag = chosen_spawn_is_hunting
 			clr_province_flag = chosen_spawn_is_gathering
-			# AND SO FORTH
-			# ...
+			clr_province_flag = chosen_spawn_is_fishing
+			clr_province_flag = chosen_spawn_is_whaling
+			clr_province_flag = chosen_spawn_is_diving
+			clr_province_flag = chosen_spawn_is_coniferous_forest
+			clr_province_flag = chosen_spawn_is_broadleave_forest
+			clr_province_flag = chosen_spawn_is_tropical_rainforest
+			clr_province_flag = chosen_spawn_is_bamboo_forest
+			clr_province_flag = chosen_spawn_is_open_pit_mining
+			clr_province_flag = chosen_spawn_is_underground_mining
+			clr_province_flag = chosen_spawn_is_placer_mining
+			clr_province_flag = chosen_spawn_is_quarrying
+			clr_province_flag = chosen_spawn_is_digging
+			clr_province_flag = chosen_spawn_is_salt_evaporation
+			clr_province_flag = chosen_spawn_is_natural_wells
+			clr_province_flag = chosen_spawn_is_crop_fields
+			clr_province_flag = chosen_spawn_is_paddy_fields
+			clr_province_flag = chosen_spawn_is_gardening
+			clr_province_flag = chosen_spawn_is_vineyards
+			clr_province_flag = chosen_spawn_is_copse
+			clr_province_flag = chosen_spawn_is_cork_oak_groves
+			clr_province_flag = chosen_spawn_is_nut_groves
+			clr_province_flag = chosen_spawn_is_fruit_orchards
+			clr_province_flag = chosen_spawn_is_citrus_orchards
+			clr_province_flag = chosen_spawn_is_tamarind_groves
+			clr_province_flag = chosen_spawn_is_almond_orchards
+			clr_province_flag = chosen_spawn_is_olive_groves
+			clr_province_flag = chosen_spawn_is_palm_groves
+			clr_province_flag = chosen_spawn_is_date_groves
+			clr_province_flag = chosen_spawn_is_areca_palm_groves
+			clr_province_flag = chosen_spawn_is_coconut_groves
+			clr_province_flag = chosen_spawn_is_gum_acacia_groves
+			clr_province_flag = chosen_spawn_is_sandarac_groves
+			clr_province_flag = chosen_spawn_is_olibanum_groves
+			clr_province_flag = chosen_spawn_is_myrrh_groves
+			clr_province_flag = chosen_spawn_is_lentisk_groves
+			clr_province_flag = chosen_spawn_is_cinnamon_groves
+			clr_province_flag = chosen_spawn_is_moringa_groves
+			clr_province_flag = chosen_spawn_is_argan_groves
+			clr_province_flag = chosen_spawn_is_neem_groves
+			clr_province_flag = chosen_spawn_is_cattle
+			clr_province_flag = chosen_spawn_is_sheep
+			clr_province_flag = chosen_spawn_is_goats
+			clr_province_flag = chosen_spawn_is_pigs
+			clr_province_flag = chosen_spawn_is_poultry
+			clr_province_flag = chosen_spawn_is_horses
+			clr_province_flag = chosen_spawn_is_camels
+			clr_province_flag = chosen_spawn_is_reindeers
+			clr_province_flag = chosen_spawn_is_elephants
+			clr_province_flag = chosen_spawn_is_yaks
+			clr_province_flag = chosen_spawn_is_sericulture
+			clr_province_flag = chosen_spawn_is_apiculture
+			clr_province_flag = chosen_spawn_is_kermes_insects
+			clr_province_flag = chosen_spawn_is_cochineal_insects
+			clr_province_flag = chosen_spawn_is_lac_insects
+			clr_province_flag = chosen_spawn_is_fish_farming
 		}
+		# just for info, here is the /end of province scope
 	}
 	# Abort event, reset decision
 	option = {
@@ -1170,11 +2791,64 @@ character_event = {
 		}
 		event_target:target_spawn_province = {
 			# Clear all province flags:
-			clr_province_flag = deciding_on_spawn_type
+			clr_province_flag = deciding_on_spawn_type	# this one is from decision
 			clr_province_flag = chosen_spawn_is_hunting
 			clr_province_flag = chosen_spawn_is_gathering
-			# AND SO FORTH
-			# ...
+			clr_province_flag = chosen_spawn_is_fishing
+			clr_province_flag = chosen_spawn_is_whaling
+			clr_province_flag = chosen_spawn_is_diving
+			clr_province_flag = chosen_spawn_is_coniferous_forest
+			clr_province_flag = chosen_spawn_is_broadleave_forest
+			clr_province_flag = chosen_spawn_is_tropical_rainforest
+			clr_province_flag = chosen_spawn_is_bamboo_forest
+			clr_province_flag = chosen_spawn_is_open_pit_mining
+			clr_province_flag = chosen_spawn_is_underground_mining
+			clr_province_flag = chosen_spawn_is_placer_mining
+			clr_province_flag = chosen_spawn_is_quarrying
+			clr_province_flag = chosen_spawn_is_digging
+			clr_province_flag = chosen_spawn_is_salt_evaporation
+			clr_province_flag = chosen_spawn_is_natural_wells
+			clr_province_flag = chosen_spawn_is_crop_fields
+			clr_province_flag = chosen_spawn_is_paddy_fields
+			clr_province_flag = chosen_spawn_is_gardening
+			clr_province_flag = chosen_spawn_is_vineyards
+			clr_province_flag = chosen_spawn_is_copse
+			clr_province_flag = chosen_spawn_is_cork_oak_groves
+			clr_province_flag = chosen_spawn_is_nut_groves
+			clr_province_flag = chosen_spawn_is_fruit_orchards
+			clr_province_flag = chosen_spawn_is_citrus_orchards
+			clr_province_flag = chosen_spawn_is_tamarind_groves
+			clr_province_flag = chosen_spawn_is_almond_orchards
+			clr_province_flag = chosen_spawn_is_olive_groves
+			clr_province_flag = chosen_spawn_is_palm_groves
+			clr_province_flag = chosen_spawn_is_date_groves
+			clr_province_flag = chosen_spawn_is_areca_palm_groves
+			clr_province_flag = chosen_spawn_is_coconut_groves
+			clr_province_flag = chosen_spawn_is_gum_acacia_groves
+			clr_province_flag = chosen_spawn_is_sandarac_groves
+			clr_province_flag = chosen_spawn_is_olibanum_groves
+			clr_province_flag = chosen_spawn_is_myrrh_groves
+			clr_province_flag = chosen_spawn_is_lentisk_groves
+			clr_province_flag = chosen_spawn_is_cinnamon_groves
+			clr_province_flag = chosen_spawn_is_moringa_groves
+			clr_province_flag = chosen_spawn_is_argan_groves
+			clr_province_flag = chosen_spawn_is_neem_groves
+			clr_province_flag = chosen_spawn_is_cattle
+			clr_province_flag = chosen_spawn_is_sheep
+			clr_province_flag = chosen_spawn_is_goats
+			clr_province_flag = chosen_spawn_is_pigs
+			clr_province_flag = chosen_spawn_is_poultry
+			clr_province_flag = chosen_spawn_is_horses
+			clr_province_flag = chosen_spawn_is_camels
+			clr_province_flag = chosen_spawn_is_reindeers
+			clr_province_flag = chosen_spawn_is_elephants
+			clr_province_flag = chosen_spawn_is_yaks
+			clr_province_flag = chosen_spawn_is_sericulture
+			clr_province_flag = chosen_spawn_is_apiculture
+			clr_province_flag = chosen_spawn_is_kermes_insects
+			clr_province_flag = chosen_spawn_is_cochineal_insects
+			clr_province_flag = chosen_spawn_is_lac_insects
+			clr_province_flag = chosen_spawn_is_fish_farming
 		}
 	}
 }

@@ -163,6 +163,9 @@ spawn_agriculture_orchard_olive_groves = {
 spawn_agriculture_orchard_palm_groves = {
 	icon = 118
 }
+spawn_agriculture_orchard_date_groves = {
+	icon = 118
+}
 spawn_agriculture_orchard_areca_palm_groves = {
 	icon = 118
 }
@@ -213,6 +216,9 @@ spawn_livestock_pigs = {
 spawn_livestock_poultry = {
 	icon = 82
 }
+spawn_livestock_horses = {
+	icon = 82
+}
 spawn_livestock_camels = {
 	icon = 82
 }
@@ -220,9 +226,6 @@ spawn_livestock_reindeers = {
 	icon = 82
 }
 spawn_livestock_elephants = {
-	icon = 82
-}
-spawn_livestock_horses = {
 	icon = 82
 }
 spawn_livestock_yaks = {
