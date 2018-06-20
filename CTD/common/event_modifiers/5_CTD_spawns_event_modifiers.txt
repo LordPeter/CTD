@@ -132,7 +132,7 @@ spawn_agriculture_field_paddy_fields = {
 }
 spawn_agriculture_field_gardening = {
 	icon = 118
-
+}
 spawn_agriculture_orchard_vineyards = {
 	icon = 118
 }
