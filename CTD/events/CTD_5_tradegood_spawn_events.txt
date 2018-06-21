@@ -2856,14 +2856,14 @@ character_event = {
 
 ## Events for individual resource choice for each spawn
 
-# Asked to confirm spawn - if yes, assign spawn & fire (delayed) resource choice event
+# Hunting
 character_event = {
 	id = CTD.0505
 	desc = CTDDESC_0505
 	
 	is_triggered_only = yes		# by event
 	
-	# Accept choice & apply, reset decision
+	# 
 	option = {
 		name = CTDOPTA_0505
 	}
