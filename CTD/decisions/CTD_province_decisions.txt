@@ -44,6 +44,57 @@ title_decisions = {
         }
     }
 	
+	# Send Prospectors
+	send_prospectors = {
+		filter = owned
+		ai_target_filter = owned
+		ai_check_interval = 12
+		
+		potential = {
+			AND = {
+				tier = COUNT	# IMPORTANT: If you want provinces, then always check for county!!!
+				location = {
+					NOR = {
+						has_max_prospected_minerals_CTD_trigger = yes	# Has maximum amount of 3 prospected minerals already
+						has_province_flag = prospectors_sent
+						has_province_modifier = unwanted_prospecting_results
+						owner = {
+							has_character_modifier = scared_off_prospectors
+						}
+					}
+				}
+				# Safety check so only works with owner provinces - NOTE: How do I even need this?!
+				owner = {
+					character = FROM
+				}
+			}
+        }
+        allow = {
+			FROM = {	# only if owner can pay
+				wealth = 50
+			}
+        }
+        effect = {
+			FROM = {	# Owner pays cash upfront
+				wealth = -50
+			}
+            ROOT = {	# Note: The title - not the province yet!
+				location = {
+					set_province_flag = prospectors_sent	# Safety check to prevent decision spam
+					province_event = {	# Fire an event for the province so we get it as an event target
+						id = CTD.0420
+					}
+				}
+			}
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 0	# NOTE: For now only testing.
+        }
+    }
+	
 	# Chose Growth Incentive Edict
 	enact_incentive_edict = {
 		filter = owned

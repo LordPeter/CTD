@@ -1,0 +1,164 @@
+##################
+# Decisions events
+# 
+# by LordPeter
+##################
+
+namespace = CTD
+
+######################
+# ranges CTD.0601-0699
+######################
+
+### Fake mapmodes
+
+## Allow player to chose fake mapmode via decision on self
+
+character_event = {	# Primary event to decide which type of mapmode to consider
+	id = CTD.0620
+	desc =  CTDDESC_0420
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Nature
+		name = CTDOPTA_0420
+		character_event = {
+			id = CTD.0621
+		}
+	}
+	
+	option = {	# Population
+		name = CTDOPTB_0420
+		character_event = {
+			id = CTD.0622
+		}
+	}
+	
+	option = {	# Trade
+		name = CTDOPTC_0420
+		character_event = {
+			id = CTD.0623
+		}
+	}
+}
+
+character_event = {	# Now decide which Subcategory (Nature)
+	id = CTD.0621
+	desc =  CTDDESC_0421
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Terrain
+		name = CTDOPTA_0421
+		character_event = {
+			id = CTD.0624
+		}
+	}
+	
+	option = {	# Climate
+		name = CTDOPTB_0421
+		character_event = {
+			id = CTD.0625
+		}
+	}
+}
+
+character_event = {	# Now decide which Subcategory (Population)
+	id = CTD.0622
+	desc =  CTDDESC_0422
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# 
+		name = CTDOPTA_0422
+		character_event = {
+			id = CTD.0626
+		}
+	}
+	
+	option = {	# 
+		name = CTDOPTB_0422
+		character_event = {
+			id = CTD.0627
+		}
+	}
+	
+	option = {	# 
+		name = CTDOPTC_0422
+		character_event = {
+			id = CTD.0628
+		}
+	}
+	
+	option = {	# 
+		name = CTDOPTD_0422
+		character_event = {
+			id = CTD.0629
+		}
+	}
+}
+
+# ... usw... finish design first!
+
+character_event = {	# Now decide which Type (Climate)
+	id = CTD.0625
+	desc =  CTDDESC_0425
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# General
+		name = CTDOPTA_0425
+		character_event = {
+			id = CTD.0640
+		}
+	}
+	
+	option = {	# Current
+		name = CTDOPTB_0425
+		character_event = {
+			id = CTD.0641
+		}
+	}
+}
+
+character_event = {	# Finally, decide on a mapmode (General)
+	id = CTD.0640
+	desc =  CTDDESC_0440
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Climate Type
+		name = CTDOPTA_0440
+		clear_all_mapmode_flags_CTD_effect = yes	# remove any previous flag
+		set_character_flag = fake_mapmode_nature_climate_general_climatetype
+	}
+	
+	option = {	# Seasonal System
+		name = CTDOPTB_0440
+		
+	}
+}
+
+character_event = {	# Finally, decide on a mapmode (Current)
+	id = CTD.0641
+	desc =  CTDDESC_0441
+	picture = "GFX_evt_medieval_map"
+	
+	is_triggered_only = yes		# by decision
+	
+	option = {	# Season
+		name = CTDOPTA_0441
+		clear_all_mapmode_flags_CTD_effect = yes	# remove any previous flag
+		set_character_flag = fake_mapmode_nature_climate_current_season
+	}
+	
+	option = {	# Weather
+		name = CTDOPTB_0441
+		
+	}
+}

@@ -1291,3 +1291,53 @@ has_maximum_tradegood_spawns_CTD_trigger = {
 		has_province_modifier = spawn_livestock_fish_farming
 	}
 }
+
+
+### Has maximum prospected minerals
+## This MUST be called in a province scope to work properly
+# It checks whether the province already has three prospected minerals
+
+has_max_prospected_minerals_CTD_trigger = {
+	calc_true_if = {
+		amount = 3	# Three is maximum amount of prospected minerals a province can have
+		has_province_modifier = prospected_mineral_gold_ore
+		has_province_modifier = prospected_mineral_placer_gold
+		has_province_modifier = prospected_mineral_electrum
+		has_province_modifier = prospected_mineral_chlorargyrite
+		has_province_modifier = prospected_mineral_ruby_silver
+		has_province_modifier = prospected_mineral_chalcopyrite
+		has_province_modifier = prospected_mineral_chalcolite
+		has_province_modifier = prospected_mineral_haematite
+		has_province_modifier = prospected_mineral_magnetite
+		has_province_modifier = prospected_mineral_pyrite
+		has_province_modifier = prospected_mineral_casserite
+		has_province_modifier = prospected_mineral_lead_glance
+		has_province_modifier = prospected_mineral_gemstones
+		has_province_modifier = prospected_mineral_lapis_lazuli
+		has_province_modifier = prospected_mineral_malachite
+		has_province_modifier = prospected_mineral_orpiment_realgar
+		has_province_modifier = prospected_mineral_jade
+		has_province_modifier = prospected_mineral_alum
+		has_province_modifier = prospected_mineral_cinnabar
+		has_province_modifier = prospected_mineral_sulfur_ore
+		has_province_modifier = prospected_mineral_naphtha
+		has_province_modifier = prospected_mineral_coal
+		has_province_modifier = prospected_mineral_calamine
+		has_province_modifier = prospected_mineral_smaltite
+		has_province_modifier = prospected_mineral_antimonit
+		has_province_modifier = prospected_mineral_pyrolusit
+		has_province_modifier = prospected_mineral_sal_ammoniac
+		has_province_modifier = prospected_mineral_marble
+		has_province_modifier = prospected_mineral_stone
+		has_province_modifier = prospected_mineral_limestone
+		has_province_modifier = prospected_mineral_alabaster
+		has_province_modifier = prospected_mineral_gypsum
+		has_province_modifier = prospected_mineral_amber
+		has_province_modifier = prospected_mineral_salt
+		has_province_modifier = prospected_mineral_natural_brine
+		has_province_modifier = prospected_mineral_soda
+		has_province_modifier = prospected_mineral_sand
+		has_province_modifier = prospected_mineral_clay
+		has_province_modifier = prospected_mineral_borax
+	}
+}

@@ -77,32 +77,25 @@
 peasants_growth_incentive = {
 	icon = 125
 }
-
 artisans_growth_incentive = {
 	icon = 125
 	local_tax_modifier = -0.10
 }
-
 merchants_growth_incentive = {
 	icon = 125
 }
-
 elite_growth_incentive = {
 	icon = 125
 }
-
 special_growth_incentive = {
 	icon = 125
 }
-
 scum_growth_incentive = {
 	icon = 125
 }
-
 enforced_law_on_scum = {
 	icon = 125
 }
-
 
 ## Features:
 feature_trade_fair = {
@@ -111,9 +104,134 @@ feature_trade_fair = {
 	trade_route_value = 1	# Affects your cut of the trade route income
 	local_tax_modifier = 0.02
 }
-
 feature_staple_right = {
 	icon = 125
 	trade_route_value = 1	# Affects your cut of the trade route income
 	local_tax_modifier = 0.01
+}
+
+## Prospected Minerals:
+prospected_mineral_gold_ore = {
+	icon = 83
+}
+prospected_mineral_placer_gold = {
+	icon = 83
+}
+prospected_mineral_electrum = {
+	icon = 83
+}
+prospected_mineral_chlorargyrite = {
+	icon = 83
+}
+prospected_mineral_ruby_silver = {
+	icon = 83
+}
+prospected_mineral_chalcopyrite = {
+	icon = 83
+}
+prospected_mineral_chalcolite = {
+	icon = 83
+}
+prospected_mineral_haematite = {
+	icon = 83
+}
+prospected_mineral_magnetite = {
+	icon = 83
+}
+prospected_mineral_pyrite = {
+	icon = 83
+}
+prospected_mineral_casserite = {
+	icon = 83
+}
+prospected_mineral_lead_glance = {
+	icon = 83
+}
+prospected_mineral_gemstones = {
+	icon = 83
+}
+prospected_mineral_lapis_lazuli = {
+	icon = 83
+}
+prospected_mineral_malachite = {
+	icon = 83
+}
+prospected_mineral_orpiment_realgar = {
+	icon = 83
+}
+prospected_mineral_jade = {
+	icon = 83
+}
+prospected_mineral_alum = {
+	icon = 83
+}
+prospected_mineral_cinnabar = {
+	icon = 83
+}
+prospected_mineral_sulfur_ore = {
+	icon = 83
+}
+prospected_mineral_naphtha = {
+	icon = 83
+}
+prospected_mineral_coal = {
+	icon = 83
+}
+prospected_mineral_calamine = {
+	icon = 83
+}
+prospected_mineral_smaltite = {
+	icon = 83
+}
+prospected_mineral_antimonit = {
+	icon = 83
+}
+prospected_mineral_pyrolusit = {
+	icon = 83
+}
+prospected_mineral_sal_ammoniac = {
+	icon = 83
+}
+prospected_mineral_marble = {
+	icon = 83
+}
+prospected_mineral_stone = {
+	icon = 83
+}
+prospected_mineral_limestone = {
+	icon = 83
+}
+prospected_mineral_alabaster = {
+	icon = 83
+}
+prospected_mineral_gypsum = {
+	icon = 83
+}
+prospected_mineral_amber = {
+	icon = 83
+}
+prospected_mineral_salt = {
+	icon = 83
+}
+prospected_mineral_natural_brine = {
+	icon = 83
+}
+prospected_mineral_soda = {
+	icon = 83
+}
+prospected_mineral_sand = {
+	icon = 83
+}
+prospected_mineral_clay = {
+	icon = 83
+}
+prospected_mineral_borax = {
+	icon = 83
+}
+## Prospectors:
+scared_off_prospectors = {
+	icon = 84
+}
+unwanted_prospecting_results = {
+	icon = 84
 }

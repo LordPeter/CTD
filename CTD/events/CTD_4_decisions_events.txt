@@ -584,57 +584,384 @@ character_event = {	# Owner is asked to confirm
 }
 
 
-### Fake mapmodes
+### Send Prospectors
 
-## Allow player to chose fake mapmode via decision on self
+## Province decision fires event
 
-character_event = {	# Primary event to decide which type of mapmode to consider
+province_event = {	# Ping from province, save target
 	id = CTD.0420
-	desc =  CTDDESC_0420
-	picture = "GFX_evt_medieval_map"
 	
 	is_triggered_only = yes		# by decision
 	
-	option = {	# Nature
-		name = CTDOPTA_0420
-		character_event = {
-			id = CTD.0421
-		}
-	}
+	hide_window = yes
 	
-	option = {	# Population
-		name = CTDOPTB_0420
-		character_event = {
-			id = CTD.0422
+	immediate = {
+		# Save event target:
+		save_event_target_as = target_prospected_province	# save province
+		# Calculate prospection outcome (for now just hidden):
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 0
+					has_province_modifier = prospected_mineral_gold_ore
+				}
+				set_province_flag = just_found_gold_ore	# set hidden flag
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					has_province_modifier = prospected_mineral_placer_gold
+				}
+				add_province_modifier = {
+					name = prospected_mineral_placer_gold
+					duration = 1825
+				}
+				set_province_flag = just_found_placer_gold
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					has_province_modifier = prospected_mineral_placer_gold
+				}
+				add_province_modifier = {
+					name = prospected_mineral_placer_gold
+					duration = 1825
+				}
+				set_province_flag = just_found_
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					has_province_modifier = prospected_mineral_placer_gold
+				}
+				add_province_modifier = {
+					name = prospected_mineral_placer_gold
+					duration = 1825
+				}
+				set_province_flag = just_found_
+			}
 		}
-	}
-	
-	option = {	# Trade
-		name = CTDOPTC_0420
-		character_event = {
-			id = CTD.0423
+		# Only if still not at maximum, 2nd chance
+		if = {
+			limit = {
+				NOT = {
+					has_max_prospected_minerals_CTD_trigger = yes
+				}
+			}
+			
+		}
+		# Only if still not at maximum, 3rd chance
+		if = {
+			limit = {
+				NOT = {
+					has_max_prospected_minerals_CTD_trigger = yes
+				}
+			}
+			
+		}
+		# Ping to owner:
+		character_event = {	# Owner presented with results
+			id = CTD.0502
+			days = 14	# takes at least a fortnight
+			random = 14
 		}
 	}
 }
 
-character_event = {	# Now decide which Subcategory (Nature)
+character_event = {	# Owner gets shown results (after they are calculated)
 	id = CTD.0421
 	desc =  CTDDESC_0421
 	picture = "GFX_evt_medieval_map"
 	
 	is_triggered_only = yes		# by decision
 	
-	option = {	# Terrain
+	# Onwer accepts results
+	option = {
 		name = CTDOPTA_0421
-		character_event = {
-			id = CTD.0424
+		event_target:target_spawn_province = {
+			trigger_switch = {	# Decides which modifier to apply based on flag set before
+				on_trigger = has_province_flag
+				just_found_gold_ore = {
+					add_province_modifier = {
+						name = prospected_mineral_gold_ore
+						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+					}
+				}
+			}
 		}
 	}
 	
-	option = {	# Climate
+	# Angry responses: give back a bit of gold or prestige, removes prospected results but also disables decision on any province for a while
+	# Wroth, scare away
+	option = {
 		name = CTDOPTB_0421
-		character_event = {
-			id = CTD.0425
+		trigger = {
+			AND = {
+				trait = wroth
+				NOT = {
+					# Never possible with content trait
+					trait = content
+				}
+			}
+		}
+		tooltip_info = wroth
+		# Gives back half of gold & a bit prestige
+		wealth = 25
+		prestige = 10
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+		}
+		add_character_modifier = {
+			name = scared_off_prospectors
+			duration = 730	# decision disabled for 2 years, anywhere in demesne
+		}
+	}
+	# Stubborn, ignore unwanted results
+	option = {
+		name = CTDOPTC_0421
+		trigger = {
+			AND = {
+				NOR = {
+					trait = wroth
+					# Never possible with content trait
+					trait = content
+				}
+				trait = stubborn
+			}
+		}
+		tooltip_info = stubborn
+		# Gives back a bit of gold
+		wealth = 10
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+		}
+		add_character_modifier = {
+			name = scared_off_prospectors
+			duration = 365	# decision disabled for 1 year, anywhere in demesne
+		}
+	}
+	# Greedy, wanted gold or other precious things
+	option = {
+		name = CTDOPTD_0421
+		trigger = {
+			AND = {
+				NOR = {
+					trait = wroth
+					trait = stubborn
+					# Never possible with content trait
+					trait = content
+				}
+				trait = greedy
+				event_target:target_spawn_province = {	# province must not have any preciosu things prospected
+					NOR = {
+						has_province_flag = just_found_gold_ore
+						has_province_flag = just_found_placer_gold
+						has_province_flag = just_found_electrum
+						has_province_flag = just_found_chlorargyrite
+						has_province_flag = just_found_ruby_silver
+						has_province_flag = just_found_lead_glance
+						has_province_flag = just_found_gemstones
+						has_province_flag = just_found_lapis_lazuli
+						has_province_flag = just_found_malachite
+						has_province_flag = just_found_orpiment_realgar
+						has_province_flag = just_found_jade
+						has_province_flag = just_found_marble
+						has_province_flag = just_found_alabaster
+						has_province_flag = just_found_amber
+					}
+				}
+			}
+		}
+		tooltip_info = greedy
+		# Gives back half of gold
+		wealth = 25
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+		}
+		add_character_modifier = {
+			name = scared_off_prospectors
+			duration = 365	# decision disabled for 1 year, anywhere in demesne
+		}
+	}
+	# Arbitrary, simply wanted different results & seizes back money
+	option = {
+		name = CTDOPTE_0421
+		trigger = {
+			AND = {
+				NOR = {
+					trait = wroth
+					trait = stubborn
+					trait = greedy
+					# Never possible with content trait
+					trait = content
+				}
+				trait = arbitrary
+			}
+		}
+		tooltip_info = arbitrary
+		# Gives back most of gold at prestige hit
+		wealth = 40
+		scaled_prestige = {	# 5% of annual prestige gain
+			value = -0.05
+			min = -100	# NOTE: Am I guessing correctly that the logic is inverted for prestige removal?
+			max = -10
+		}
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+		}
+		add_character_modifier = {
+			name = scared_off_prospectors
+			duration = 365	# decision disabled for 2 years, anywhere in demesne
+		}
+	}
+	# Slightly better variants: politely tell the prospectors the results are bad
+	# Midas Touched, can actually convince the prospectors they preformed poorly and it was their fault
+	option = {
+		name = CTDOPTF_0421
+		trigger = {
+			AND = {
+				NOT = {
+					# Never possible with content trait
+					trait = content
+				}
+				trait = midas_touched
+			}
+		}
+		tooltip_info = midas_touched
+		# Gives back most of gold and also some prestige
+		wealth = 40
+		prestige = 20
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+		}
+		# This option is the only one that does not disable new prospection!!
+	}
+	# Fortune Builder, convinces the prospectors they preformed poorly and they don't get angry
+	option = {
+		name = CTDOPTG_0421
+		trigger = {
+			AND = {
+				NOR = {
+					trait = midas_touched
+					# Never possible with content trait
+					trait = content
+				}
+				trait = fortune_builder
+			}
+		}
+		tooltip_info = fortune_builder
+		# Gives back half of gold & a bit prestige
+		wealth = 25
+		prestige = 10
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+			# Also block new prospections, but only for this province:
+			add_province_modifier = {
+				name = unwanted_prospecting_results
+				duration = 365	# 1 year
+			}
+		}
+	}
+	# Grey Eminence, convinces the prospectors they preformed poorly and they don't get angry
+	option = {
+		name = CTDOPTH_0421
+		trigger = {
+			AND = {
+				NOR = {
+					trait = midas_touched
+					trait = fortune_builder
+					# Never possible with content trait
+					trait = content
+				}
+				trait = grey_eminence
+			}
+		}
+		tooltip_info = grey_eminence
+		# Gives back half of gold & a bit prestige
+		wealth = 25
+		prestige = 10
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+			# Also block new prospections, but only for this province:
+			add_province_modifier = {
+				name = unwanted_prospecting_results
+				duration = 365	# 1 year
+			}
+		}
+	}
+	# Administrator, explains that results do not fit his plans but prospectors care little
+	option = {
+		name = CTDOPTI_0421
+		trigger = {
+			AND = {
+				NOR = {
+					trait = midas_touched
+					trait = fortune_builder
+					trait = grey_eminence
+					# Never possible with content trait
+					trait = content
+				}
+				trait = administrator
+			}
+		}
+		tooltip_info = administrator
+		# Gives back a bit of gold
+		wealth = 10
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+			# Also block new prospections, but only for this province:
+			add_province_modifier = {
+				name = unwanted_prospecting_results
+				duration = 365	# 1 year
+			}
+		}
+	}
+	
+	# Crazy option, because lunatics don't care if anything they do makes any sense
+	option = {
+		name = CTDOPTJ_0421
+		trigger = {
+			trait = lunatic
+		}
+		tooltip_info = lunatic
+		# Gives back all the gold at big prestige hit
+		wealth = 50
+		scaled_prestige = {	# 20% of annual prestige gain
+			value = -0.20
+			min = -500	# NOTE: Am I guessing correctly that the logic is inverted for prestige removal?
+			max = -50
+		}
+		event_target:target_spawn_province = {
+			# clear any newly prospected flags
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = 
+		}
+		add_character_modifier = {
+			name = scared_off_prospectors
+			duration = 1825	# decision disabled for 5 years, anywhere in demesne
+		}
+	}
+	
+	# Afterwards (any option chosen): Clean up the standard decision blocking flag
+	after = {
+		event_target:target_spawn_province = {
+			clr_province_flag = prospectors_sent
 		}
 	}
 }
@@ -674,71 +1001,6 @@ character_event = {	# Now decide which Subcategory (Population)
 		}
 	}
 }
-
-# ... usw... finish design first!
-
-character_event = {	# Now decide which Type (Climate)
-	id = CTD.0425
-	desc =  CTDDESC_0425
-	picture = "GFX_evt_medieval_map"
-	
-	is_triggered_only = yes		# by decision
-	
-	option = {	# General
-		name = CTDOPTA_0425
-		character_event = {
-			id = CTD.0440
-		}
-	}
-	
-	option = {	# Current
-		name = CTDOPTB_0425
-		character_event = {
-			id = CTD.0441
-		}
-	}
-}
-
-character_event = {	# Finally, decide on a mapmode (General)
-	id = CTD.0440
-	desc =  CTDDESC_0440
-	picture = "GFX_evt_medieval_map"
-	
-	is_triggered_only = yes		# by decision
-	
-	option = {	# Climate Type
-		name = CTDOPTA_0440
-		clear_all_mapmode_flags_CTD_effect = yes	# remove any previous flag
-		set_character_flag = fake_mapmode_nature_climate_general_climatetype
-	}
-	
-	option = {	# Seasonal System
-		name = CTDOPTB_0440
-		
-	}
-}
-
-character_event = {	# Finally, decide on a mapmode (Current)
-	id = CTD.0441
-	desc =  CTDDESC_0441
-	picture = "GFX_evt_medieval_map"
-	
-	is_triggered_only = yes		# by decision
-	
-	option = {	# Season
-		name = CTDOPTA_0441
-		clear_all_mapmode_flags_CTD_effect = yes	# remove any previous flag
-		set_character_flag = fake_mapmode_nature_climate_current_season
-	}
-	
-	option = {	# Weather
-		name = CTDOPTB_0441
-		
-	}
-}
-
-
-
 
 
 # ### Start slave trade

@@ -1,8 +1,8 @@
-####################
-# Player Info events
+########################
+# Tradegood Spawn events
 # 
 # by LordPeter
-####################
+########################
 
 namespace = CTD
 
