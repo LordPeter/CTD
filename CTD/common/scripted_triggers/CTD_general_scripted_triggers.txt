@@ -1295,11 +1295,12 @@ has_maximum_tradegood_spawns_CTD_trigger = {
 
 ### Has maximum prospected minerals
 ## This MUST be called in a province scope to work properly
-# It checks whether the province already has three prospected minerals
+# It checks whether the province already has three prospected minerals, either just found (invisible flag) or already prospected (modifier)
 
 has_max_prospected_minerals_CTD_trigger = {
 	calc_true_if = {
 		amount = 3	# Three is maximum amount of prospected minerals a province can have
+		# Modifiers visible in province:
 		has_province_modifier = prospected_mineral_gold_ore
 		has_province_modifier = prospected_mineral_placer_gold
 		has_province_modifier = prospected_mineral_electrum
@@ -1339,5 +1340,46 @@ has_max_prospected_minerals_CTD_trigger = {
 		has_province_modifier = prospected_mineral_sand
 		has_province_modifier = prospected_mineral_clay
 		has_province_modifier = prospected_mineral_borax
+		# Flags not visible but immediately processed by event
+		# (just an info they can't be double, e.g. gold_ore both as flag and modifier, events are safeguarded against that)
+		has_province_flag = just_found_gold_ore
+		has_province_flag = just_found_placer_gold
+		has_province_flag = just_found_electrum
+		has_province_flag = just_found_chlorargyrite
+		has_province_flag = just_found_ruby_silver
+		has_province_flag = just_found_chalcopyrite
+		has_province_flag = just_found_chalcolite
+		has_province_flag = just_found_haematite
+		has_province_flag = just_found_magnetite
+		has_province_flag = just_found_pyrite
+		has_province_flag = just_found_casserite
+		has_province_flag = just_found_lead_glance
+		has_province_flag = just_found_gemstones
+		has_province_flag = just_found_lapis_lazuli
+		has_province_flag = just_found_malachite
+		has_province_flag = just_found_orpiment_realgar
+		has_province_flag = just_found_jade
+		has_province_flag = just_found_alum
+		has_province_flag = just_found_cinnabar
+		has_province_flag = just_found_sulfur_ore
+		has_province_flag = just_found_naphtha
+		has_province_flag = just_found_coal
+		has_province_flag = just_found_calamine
+		has_province_flag = just_found_smaltite
+		has_province_flag = just_found_antimonit
+		has_province_flag = just_found_pyrolusit
+		has_province_flag = just_found_sal_ammoniac
+		has_province_flag = just_found_marble
+		has_province_flag = just_found_stone
+		has_province_flag = just_found_limestone
+		has_province_flag = just_found_alabaster
+		has_province_flag = just_found_gypsum
+		has_province_flag = just_found_amber
+		has_province_flag = just_found_salt
+		has_province_flag = just_found_natural_brine
+		has_province_flag = just_found_soda
+		has_province_flag = just_found_sand
+		has_province_flag = just_found_clay
+		has_province_flag = just_found_borax
 	}
 }

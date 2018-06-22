@@ -603,42 +603,509 @@ province_event = {	# Ping from province, save target
 			10 = {
 				modifier = {
 					factor = 0
-					has_province_modifier = prospected_mineral_gold_ore
+					OR = {
+						has_province_modifier = prospected_mineral_gold_ore
+						has_province_flag = just_found_gold_ore
+						NOT = {
+							gold_ore_resource_possible_CTD_trigger = yes
+						}
+					}
 				}
-				set_province_flag = just_found_gold_ore	# set hidden flag
+				set_province_flag = just_found_gold_ore
 			}
 			10 = {
 				modifier = {
 					factor = 0
-					has_province_modifier = prospected_mineral_placer_gold
-				}
-				add_province_modifier = {
-					name = prospected_mineral_placer_gold
-					duration = 1825
+					OR = {
+						has_province_modifier = prospected_mineral_placer_gold
+						has_province_flag = just_found_placer_gold
+						NOT = {
+							placer_gold_resource_possible_CTD_trigger = yes
+						}
+					}
 				}
 				set_province_flag = just_found_placer_gold
 			}
 			10 = {
 				modifier = {
 					factor = 0
-					has_province_modifier = prospected_mineral_placer_gold
+					OR = {
+						has_province_modifier = prospected_mineral_electrum
+						has_province_flag = just_found_electrum
+						NOT = {
+							electrum_resource_possible_CTD_trigger = yes
+						}
+					}
 				}
-				add_province_modifier = {
-					name = prospected_mineral_placer_gold
-					duration = 1825
-				}
-				set_province_flag = just_found_
+				set_province_flag = just_found_electrum
 			}
 			10 = {
 				modifier = {
 					factor = 0
-					has_province_modifier = prospected_mineral_placer_gold
+					OR = {
+						has_province_modifier = prospected_mineral_chlorargyrite
+						has_province_flag = just_found_chlorargyrite
+						NOT = {
+							chlorargyrite_resource_possible_CTD_trigger = yes
+						}
+					}
 				}
-				add_province_modifier = {
-					name = prospected_mineral_placer_gold
-					duration = 1825
+				set_province_flag = just_found_chlorargyrite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_ruby_silver
+						has_province_flag = just_found_ruby_silver
+						NOT = {
+							ruby_silver_resource_possible_CTD_trigger = yes
+						}
+					}
 				}
-				set_province_flag = just_found_
+				set_province_flag = just_found_ruby_silver
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_chalcopyrite
+						has_province_flag = just_found_chalcopyrite
+						NOT = {
+							chalcopyrite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_chalcopyrite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_chalcolite
+						has_province_flag = just_found_chalcolite
+						NOT = {
+							chalcolite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_chalcolite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_haematite
+						has_province_flag = just_found_haematite
+						NOT = {
+							haematite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_haematite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_magnetite
+						has_province_flag = just_found_magnetite
+						NOT = {
+							magnetite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_magnetite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_pyrite
+						has_province_flag = just_found_pyrite
+						NOT = {
+							pyrite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_pyrite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_casserite
+						has_province_flag = just_found_casserite
+						NOT = {
+							casserite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_casserite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_lead_glance
+						has_province_flag = just_found_lead_glance
+						NOT = {
+							lead_glance_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_lead_glance
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_gemstones
+						has_province_flag = just_found_gemstones
+						NOT = {
+							gemstones_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_gemstones
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_lapis_lazuli
+						has_province_flag = just_found_lapis_lazuli
+						NOT = {
+							lapis_lazuli_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_lapis_lazuli
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_malachite
+						has_province_flag = just_found_malachite
+						NOT = {
+							malachite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_malachite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_orpiment_realgar
+						has_province_flag = just_found_orpiment_realgar
+						NOT = {
+							orpiment_realgar_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_orpiment_realgar
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_jade
+						has_province_flag = just_found_jade
+						NOT = {
+							jade_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_jade
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_alum
+						has_province_flag = just_found_alum
+						NOT = {
+							alum_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_alum
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_cinnabar
+						has_province_flag = just_found_cinnabar
+						NOT = {
+							cinnabar_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_cinnabar
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_sulfur_ore
+						has_province_flag = just_found_sulfur_ore
+						NOT = {
+							sulfur_ore_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_sulfur_ore
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_naphtha
+						has_province_flag = just_found_naphtha
+						NOT = {
+							naphtha_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_naphtha
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_coal
+						has_province_flag = just_found_coal
+						NOT = {
+							coal_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_coal
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_calamine
+						has_province_flag = just_found_calamine
+						NOT = {
+							calamine_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_calamine
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_smaltite
+						has_province_flag = just_found_smaltite
+						NOT = {
+							smaltite_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_smaltite
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_antimonit
+						has_province_flag = just_found_antimonit
+						NOT = {
+							antimonit_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_antimonit
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_pyrolusit
+						has_province_flag = just_found_pyrolusit
+						NOT = {
+							pyrolusit_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_pyrolusit
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_sal_ammoniac
+						has_province_flag = just_found_sal_ammoniac
+						NOT = {
+							ammoniac_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_sal_ammoniac
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_marble
+						has_province_flag = just_found_marble
+						NOT = {
+							marble_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_marble
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_stone
+						has_province_flag = just_found_stone
+						NOT = {
+							stone_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_stone
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_limestone
+						has_province_flag = just_found_limestone
+						NOT = {
+							limestone_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_limestone
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_alabaster
+						has_province_flag = just_found_alabaster
+						NOT = {
+							alabaster_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_alabaster
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_gypsum
+						has_province_flag = just_found_gypsum
+						NOT = {
+							gypsum_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_gypsum
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_amber
+						has_province_flag = just_found_amber
+						NOT = {
+							amber_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_amber
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_salt
+						has_province_flag = just_found_salt
+						NOT = {
+							salt_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_salt
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_natural_brine
+						has_province_flag = just_found_natural_brine
+						NOT = {
+							brine_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_natural_brine
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_soda
+						has_province_flag = just_found_soda
+						NOT = {
+							soda_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_soda
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_sand
+						has_province_flag = just_found_sand
+						NOT = {
+							sand_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_sand
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_clay
+						has_province_flag = just_found_clay
+						NOT = {
+							clay_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_clay
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_province_modifier = prospected_mineral_borax
+						has_province_flag = just_found_borax
+						NOT = {
+							borax_resource_possible_CTD_trigger = yes
+						}
+					}
+				}
+				set_province_flag = just_found_borax
 			}
 		}
 		# Only if still not at maximum, 2nd chance
@@ -648,7 +1115,515 @@ province_event = {	# Ping from province, save target
 					has_max_prospected_minerals_CTD_trigger = yes
 				}
 			}
-			
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_gold_ore
+							has_province_flag = just_found_gold_ore
+							NOT = {
+								gold_ore_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_gold_ore
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_placer_gold
+							has_province_flag = just_found_placer_gold
+							NOT = {
+								placer_gold_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_placer_gold
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_electrum
+							has_province_flag = just_found_electrum
+							NOT = {
+								electrum_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_electrum
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_chlorargyrite
+							has_province_flag = just_found_chlorargyrite
+							NOT = {
+								chlorargyrite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_chlorargyrite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_ruby_silver
+							has_province_flag = just_found_ruby_silver
+							NOT = {
+								ruby_silver_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_ruby_silver
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_chalcopyrite
+							has_province_flag = just_found_chalcopyrite
+							NOT = {
+								chalcopyrite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_chalcopyrite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_chalcolite
+							has_province_flag = just_found_chalcolite
+							NOT = {
+								chalcolite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_chalcolite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_haematite
+							has_province_flag = just_found_haematite
+							NOT = {
+								haematite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_haematite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_magnetite
+							has_province_flag = just_found_magnetite
+							NOT = {
+								magnetite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_magnetite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_pyrite
+							has_province_flag = just_found_pyrite
+							NOT = {
+								pyrite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_pyrite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_casserite
+							has_province_flag = just_found_casserite
+							NOT = {
+								casserite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_casserite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_lead_glance
+							has_province_flag = just_found_lead_glance
+							NOT = {
+								lead_glance_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_lead_glance
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_gemstones
+							has_province_flag = just_found_gemstones
+							NOT = {
+								gemstones_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_gemstones
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_lapis_lazuli
+							has_province_flag = just_found_lapis_lazuli
+							NOT = {
+								lapis_lazuli_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_lapis_lazuli
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_malachite
+							has_province_flag = just_found_malachite
+							NOT = {
+								malachite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_malachite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_orpiment_realgar
+							has_province_flag = just_found_orpiment_realgar
+							NOT = {
+								orpiment_realgar_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_orpiment_realgar
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_jade
+							has_province_flag = just_found_jade
+							NOT = {
+								jade_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_jade
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_alum
+							has_province_flag = just_found_alum
+							NOT = {
+								alum_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_alum
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_cinnabar
+							has_province_flag = just_found_cinnabar
+							NOT = {
+								cinnabar_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_cinnabar
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_sulfur_ore
+							has_province_flag = just_found_sulfur_ore
+							NOT = {
+								sulfur_ore_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_sulfur_ore
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_naphtha
+							has_province_flag = just_found_naphtha
+							NOT = {
+								naphtha_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_naphtha
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_coal
+							has_province_flag = just_found_coal
+							NOT = {
+								coal_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_coal
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_calamine
+							has_province_flag = just_found_calamine
+							NOT = {
+								calamine_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_calamine
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_smaltite
+							has_province_flag = just_found_smaltite
+							NOT = {
+								smaltite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_smaltite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_antimonit
+							has_province_flag = just_found_antimonit
+							NOT = {
+								antimonit_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_antimonit
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_pyrolusit
+							has_province_flag = just_found_pyrolusit
+							NOT = {
+								pyrolusit_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_pyrolusit
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_sal_ammoniac
+							has_province_flag = just_found_sal_ammoniac
+							NOT = {
+								ammoniac_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_sal_ammoniac
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_marble
+							has_province_flag = just_found_marble
+							NOT = {
+								marble_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_marble
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_stone
+							has_province_flag = just_found_stone
+							NOT = {
+								stone_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_stone
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_limestone
+							has_province_flag = just_found_limestone
+							NOT = {
+								limestone_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_limestone
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_alabaster
+							has_province_flag = just_found_alabaster
+							NOT = {
+								alabaster_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_alabaster
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_gypsum
+							has_province_flag = just_found_gypsum
+							NOT = {
+								gypsum_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_gypsum
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_amber
+							has_province_flag = just_found_amber
+							NOT = {
+								amber_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_amber
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_salt
+							has_province_flag = just_found_salt
+							NOT = {
+								salt_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_salt
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_natural_brine
+							has_province_flag = just_found_natural_brine
+							NOT = {
+								brine_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_natural_brine
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_soda
+							has_province_flag = just_found_soda
+							NOT = {
+								soda_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_soda
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_sand
+							has_province_flag = just_found_sand
+							NOT = {
+								sand_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_sand
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_clay
+							has_province_flag = just_found_clay
+							NOT = {
+								clay_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_clay
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_borax
+							has_province_flag = just_found_borax
+							NOT = {
+								borax_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_borax
+				}
+			}
 		}
 		# Only if still not at maximum, 3rd chance
 		if = {
@@ -657,13 +1632,523 @@ province_event = {	# Ping from province, save target
 					has_max_prospected_minerals_CTD_trigger = yes
 				}
 			}
-			
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_gold_ore
+							has_province_flag = just_found_gold_ore
+							NOT = {
+								gold_ore_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_gold_ore
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_placer_gold
+							has_province_flag = just_found_placer_gold
+							NOT = {
+								placer_gold_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_placer_gold
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_electrum
+							has_province_flag = just_found_electrum
+							NOT = {
+								electrum_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_electrum
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_chlorargyrite
+							has_province_flag = just_found_chlorargyrite
+							NOT = {
+								chlorargyrite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_chlorargyrite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_ruby_silver
+							has_province_flag = just_found_ruby_silver
+							NOT = {
+								ruby_silver_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_ruby_silver
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_chalcopyrite
+							has_province_flag = just_found_chalcopyrite
+							NOT = {
+								chalcopyrite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_chalcopyrite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_chalcolite
+							has_province_flag = just_found_chalcolite
+							NOT = {
+								chalcolite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_chalcolite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_haematite
+							has_province_flag = just_found_haematite
+							NOT = {
+								haematite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_haematite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_magnetite
+							has_province_flag = just_found_magnetite
+							NOT = {
+								magnetite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_magnetite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_pyrite
+							has_province_flag = just_found_pyrite
+							NOT = {
+								pyrite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_pyrite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_casserite
+							has_province_flag = just_found_casserite
+							NOT = {
+								casserite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_casserite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_lead_glance
+							has_province_flag = just_found_lead_glance
+							NOT = {
+								lead_glance_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_lead_glance
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_gemstones
+							has_province_flag = just_found_gemstones
+							NOT = {
+								gemstones_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_gemstones
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_lapis_lazuli
+							has_province_flag = just_found_lapis_lazuli
+							NOT = {
+								lapis_lazuli_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_lapis_lazuli
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_malachite
+							has_province_flag = just_found_malachite
+							NOT = {
+								malachite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_malachite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_orpiment_realgar
+							has_province_flag = just_found_orpiment_realgar
+							NOT = {
+								orpiment_realgar_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_orpiment_realgar
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_jade
+							has_province_flag = just_found_jade
+							NOT = {
+								jade_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_jade
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_alum
+							has_province_flag = just_found_alum
+							NOT = {
+								alum_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_alum
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_cinnabar
+							has_province_flag = just_found_cinnabar
+							NOT = {
+								cinnabar_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_cinnabar
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_sulfur_ore
+							has_province_flag = just_found_sulfur_ore
+							NOT = {
+								sulfur_ore_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_sulfur_ore
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_naphtha
+							has_province_flag = just_found_naphtha
+							NOT = {
+								naphtha_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_naphtha
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_coal
+							has_province_flag = just_found_coal
+							NOT = {
+								coal_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_coal
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_calamine
+							has_province_flag = just_found_calamine
+							NOT = {
+								calamine_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_calamine
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_smaltite
+							has_province_flag = just_found_smaltite
+							NOT = {
+								smaltite_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_smaltite
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_antimonit
+							has_province_flag = just_found_antimonit
+							NOT = {
+								antimonit_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_antimonit
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_pyrolusit
+							has_province_flag = just_found_pyrolusit
+							NOT = {
+								pyrolusit_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_pyrolusit
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_sal_ammoniac
+							has_province_flag = just_found_sal_ammoniac
+							NOT = {
+								ammoniac_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_sal_ammoniac
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_marble
+							has_province_flag = just_found_marble
+							NOT = {
+								marble_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_marble
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_stone
+							has_province_flag = just_found_stone
+							NOT = {
+								stone_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_stone
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_limestone
+							has_province_flag = just_found_limestone
+							NOT = {
+								limestone_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_limestone
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_alabaster
+							has_province_flag = just_found_alabaster
+							NOT = {
+								alabaster_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_alabaster
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_gypsum
+							has_province_flag = just_found_gypsum
+							NOT = {
+								gypsum_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_gypsum
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_amber
+							has_province_flag = just_found_amber
+							NOT = {
+								amber_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_amber
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_salt
+							has_province_flag = just_found_salt
+							NOT = {
+								salt_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_salt
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_natural_brine
+							has_province_flag = just_found_natural_brine
+							NOT = {
+								brine_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_natural_brine
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_soda
+							has_province_flag = just_found_soda
+							NOT = {
+								soda_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_soda
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_sand
+							has_province_flag = just_found_sand
+							NOT = {
+								sand_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_sand
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_clay
+							has_province_flag = just_found_clay
+							NOT = {
+								clay_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_clay
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_province_modifier = prospected_mineral_borax
+							has_province_flag = just_found_borax
+							NOT = {
+								borax_resource_possible_CTD_trigger = yes
+							}
+						}
+					}
+					set_province_flag = just_found_borax
+				}
+			}
 		}
 		# Ping to owner:
-		character_event = {	# Owner presented with results
-			id = CTD.0502
-			days = 14	# takes at least a fortnight
-			random = 14
+		owner = {
+			character_event = {	# Owner presented with results
+				id = CTD.0502
+				days = 14	# prospecting takes at least a fortnight
+				random = 14	# may or may not take longer
+			}
 		}
 	}
 }
@@ -684,6 +2169,12 @@ character_event = {	# Owner gets shown results (after they are calculated)
 				just_found_gold_ore = {
 					add_province_modifier = {
 						name = prospected_mineral_gold_ore
+						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+					}
+				}
+				just_found_ = {
+					add_province_modifier = {
+						name = prospected_mineral_
 						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
 					}
 				}
@@ -708,11 +2199,6 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		# Gives back half of gold & a bit prestige
 		wealth = 25
 		prestige = 10
-		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-		}
 		add_character_modifier = {
 			name = scared_off_prospectors
 			duration = 730	# decision disabled for 2 years, anywhere in demesne
@@ -734,11 +2220,6 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		tooltip_info = stubborn
 		# Gives back a bit of gold
 		wealth = 10
-		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-		}
 		add_character_modifier = {
 			name = scared_off_prospectors
 			duration = 365	# decision disabled for 1 year, anywhere in demesne
@@ -779,11 +2260,6 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		tooltip_info = greedy
 		# Gives back half of gold
 		wealth = 25
-		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-		}
 		add_character_modifier = {
 			name = scared_off_prospectors
 			duration = 365	# decision disabled for 1 year, anywhere in demesne
@@ -812,11 +2288,6 @@ character_event = {	# Owner gets shown results (after they are calculated)
 			min = -100	# NOTE: Am I guessing correctly that the logic is inverted for prestige removal?
 			max = -10
 		}
-		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-		}
 		add_character_modifier = {
 			name = scared_off_prospectors
 			duration = 365	# decision disabled for 2 years, anywhere in demesne
@@ -839,11 +2310,6 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		# Gives back most of gold and also some prestige
 		wealth = 40
 		prestige = 20
-		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-		}
 		# This option is the only one that does not disable new prospection!!
 	}
 	# Fortune Builder, convinces the prospectors they preformed poorly and they don't get angry
@@ -864,10 +2330,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		wealth = 25
 		prestige = 10
 		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-			# Also block new prospections, but only for this province:
+			# Block new prospections, but only for this province:
 			add_province_modifier = {
 				name = unwanted_prospecting_results
 				duration = 365	# 1 year
@@ -893,10 +2356,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		wealth = 25
 		prestige = 10
 		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-			# Also block new prospections, but only for this province:
+			# Block new prospections, but only for this province:
 			add_province_modifier = {
 				name = unwanted_prospecting_results
 				duration = 365	# 1 year
@@ -922,10 +2382,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		# Gives back a bit of gold
 		wealth = 10
 		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-			# Also block new prospections, but only for this province:
+			# Block new prospections, but only for this province:
 			add_province_modifier = {
 				name = unwanted_prospecting_results
 				duration = 365	# 1 year
@@ -947,57 +2404,58 @@ character_event = {	# Owner gets shown results (after they are calculated)
 			min = -500	# NOTE: Am I guessing correctly that the logic is inverted for prestige removal?
 			max = -50
 		}
-		event_target:target_spawn_province = {
-			# clear any newly prospected flags
-			clr_province_flag = just_found_gold_ore
-			clr_province_flag = 
-		}
 		add_character_modifier = {
 			name = scared_off_prospectors
 			duration = 1825	# decision disabled for 5 years, anywhere in demesne
 		}
 	}
 	
-	# Afterwards (any option chosen): Clean up the standard decision blocking flag
+	# Afterwards (any option chosen): Clean up all the flags
 	after = {
 		event_target:target_spawn_province = {
+			# this one is from the decision (spam-prevention):
 			clr_province_flag = prospectors_sent
-		}
-	}
-}
-
-character_event = {	# Now decide which Subcategory (Population)
-	id = CTD.0422
-	desc =  CTDDESC_0422
-	picture = "GFX_evt_medieval_map"
-	
-	is_triggered_only = yes		# by decision
-	
-	option = {	# 
-		name = CTDOPTA_0422
-		character_event = {
-			id = CTD.0426
-		}
-	}
-	
-	option = {	# 
-		name = CTDOPTB_0422
-		character_event = {
-			id = CTD.0427
-		}
-	}
-	
-	option = {	# 
-		name = CTDOPTC_0422
-		character_event = {
-			id = CTD.0428
-		}
-	}
-	
-	option = {	# 
-		name = CTDOPTD_0422
-		character_event = {
-			id = CTD.0429
+			# clear any newly prospected flags:
+			# (don't worry, if prospecting was accepted there is now a modifier anyway)
+			clr_province_flag = just_found_gold_ore
+			clr_province_flag = just_found_placer_gold
+			clr_province_flag = just_found_electrum
+			clr_province_flag = just_found_chlorargyrite
+			clr_province_flag = just_found_ruby_silver
+			clr_province_flag = just_found_chalcopyrite
+			clr_province_flag = just_found_chalcolite
+			clr_province_flag = just_found_haematite
+			clr_province_flag = just_found_magnetite
+			clr_province_flag = just_found_pyrite
+			clr_province_flag = just_found_casserite
+			clr_province_flag = just_found_lead_glance
+			clr_province_flag = just_found_gemstones
+			clr_province_flag = just_found_lapis_lazuli
+			clr_province_flag = just_found_malachite
+			clr_province_flag = just_found_orpiment_realgar
+			clr_province_flag = just_found_jade
+			clr_province_flag = just_found_alum
+			clr_province_flag = just_found_cinnabar
+			clr_province_flag = just_found_sulfur_ore
+			clr_province_flag = just_found_naphtha
+			clr_province_flag = just_found_coal
+			clr_province_flag = just_found_calamine
+			clr_province_flag = just_found_smaltite
+			clr_province_flag = just_found_antimonit
+			clr_province_flag = just_found_pyrolusit
+			clr_province_flag = just_found_sal_ammoniac
+			clr_province_flag = just_found_marble
+			clr_province_flag = just_found_stone
+			clr_province_flag = just_found_limestone
+			clr_province_flag = just_found_alabaster
+			clr_province_flag = just_found_gypsum
+			clr_province_flag = just_found_amber
+			clr_province_flag = just_found_salt
+			clr_province_flag = just_found_natural_brine
+			clr_province_flag = just_found_soda
+			clr_province_flag = just_found_sand
+			clr_province_flag = just_found_clay
+			clr_province_flag = just_found_borax
 		}
 	}
 }
