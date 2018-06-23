@@ -600,6 +600,9 @@ province_event = {	# Ping from province, save target
 		save_event_target_as = target_prospected_province	# save province
 		# Calculate prospection outcome (for now just hidden):
 		random_list = {
+			100 = {
+				# nothing found
+			}
 			10 = {
 				modifier = {
 					factor = 0
@@ -1116,6 +1119,9 @@ province_event = {	# Ping from province, save target
 				}
 			}
 			random_list = {
+				100 = {
+					# nothing found
+				}
 				10 = {
 					modifier = {
 						factor = 0
@@ -1633,6 +1639,9 @@ province_event = {	# Ping from province, save target
 				}
 			}
 			random_list = {
+				100 = {
+					# nothing found
+				}
 				10 = {
 					modifier = {
 						factor = 0

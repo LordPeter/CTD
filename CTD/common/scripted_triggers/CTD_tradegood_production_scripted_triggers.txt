@@ -466,6 +466,326 @@ fish_farming_spawn_possible_CTD_trigger = {
 }
 
 
+### Resource possible
+## These MUST be called in a province scope to work properly
+# They check whether a province could see a certain resource being spawned
+
+# Minerals:
+
+gold_ore_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_gold_ore
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+placer_gold_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_placer_gold
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+electrum_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_electrum
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+chlorargyrite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_chlorargyrite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+ruby_silver_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_ruby_silver
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+chalcopyrite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_chalcopyrite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+chalcolite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_chalcolite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+haematite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_haematite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+magnetite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_magnetite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+pyrite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_pyrite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+casserite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_casserite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+lead_glance_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_lead_glance
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+gemstones_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_gemstones
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+lapis_lazuli_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_lapis_lazuli
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+malachite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_malachite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+orpiment_realgar_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_orpiment_realgar
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+jade_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_jade
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+alum_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_alum
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+cinnabar_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_cinnabar
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+sulfur_ore_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_sulfur_ore
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+naphtha_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_naphtha
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+coal_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_coal
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+calamine_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_calamine
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+smaltite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_smaltite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+antimonite_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_antimonite
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+pyrolysit_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_pyrolysit
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+sal_ammoniac_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_sal_ammoniac
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+marble_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_marble
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+stone_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_stone
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+limestone_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_limestone
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+alabaster_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_alabaster
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+gypsum_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_gypsum
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+amber_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_amber
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+salt_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_salt
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+natural_brine_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_natural_brine
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+soda_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_soda
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+sand_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_sand
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+clay_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_clay
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+borax_resource_possible_CTD_trigger = {
+	AND = {
+		NOT = {
+			has_province_modifier = resource_minerals_borax
+		}
+		# other conditions e.g. terrain, climate, whatever, according to design
+	}
+}
+
+
 ### Can produce tradegood
 ## These MUST be called in a province scope to work properly
 # They check if a province can produce a new stack of certain (refined/finalized) tradegood by checking for the amounts of resources needed
