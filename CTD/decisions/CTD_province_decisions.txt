@@ -71,12 +71,24 @@ title_decisions = {
         }
         allow = {
 			FROM = {	# only if owner can pay
-				wealth = 50
+				AND = {
+					wealth = 50
+					scaled_wealth = {	# This "fee" is never refunded, even if a special event option is chosen
+						value = 0.1
+						max = 50
+					}
+				}
 			}
         }
         effect = {
 			FROM = {	# Owner pays cash upfront
-				wealth = -50
+				AND = {
+					wealth = -50
+					scaled_wealth = {	# This "fee" is never refunded, even if a special event option is chosen
+						value = -0.1
+						max = -50		# NOTE: Check if logic is working as expected here, and not assuming -50 is smaller than e.g. -100
+					}
+				}
 			}
             ROOT = {	# Note: The title - not the province yet!
 				location = {
