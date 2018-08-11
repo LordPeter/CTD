@@ -588,7 +588,7 @@ character_event = {	# Owner is asked to confirm
 
 ## Province decision fires event
 
-province_event = {	# Ping from province, save target
+province_event = {	# Ping from province, save target, set flag
 	id = CTD.0420
 	
 	is_triggered_only = yes		# by decision
@@ -2167,246 +2167,246 @@ character_event = {	# Owner gets shown results (after they are calculated)
 	desc =  CTDDESC_0421
 	picture = "GFX_evt_medieval_map"
 	
-	is_triggered_only = yes		# by decision
+	is_triggered_only = yes		# by event
 	
 	# Onwer accepts results
 	option = {
 		name = CTDOPTA_0421
-		event_target:target_spawn_province = {
+		event_target:target_prospected_province = {
 			trigger_switch = {	# Decides which modifier to apply based on flag set before
 				on_trigger = has_province_flag
 				just_found_gold_ore = {
 					add_province_modifier = {
 						name = prospected_mineral_gold_ore
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_placer_gold = {
 					add_province_modifier = {
 						name = prospected_mineral_placer_gold
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_electrum = {
 					add_province_modifier = {
 						name = prospected_mineral_electrum
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_chlorargyrite = {
 					add_province_modifier = {
 						name = prospected_mineral_chlorargyrite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_ruby_silver = {
 					add_province_modifier = {
 						name = prospected_mineral_ruby_silver
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_chalcopyrite = {
 					add_province_modifier = {
 						name = prospected_mineral_chalcopyrite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_chalcolite = {
 					add_province_modifier = {
 						name = prospected_mineral_chalcolite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_haematite = {
 					add_province_modifier = {
 						name = prospected_mineral_haematite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_magnetite = {
 					add_province_modifier = {
 						name = prospected_mineral_magnetite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_pyrite = {
 					add_province_modifier = {
 						name = prospected_mineral_pyrite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_casserite = {
 					add_province_modifier = {
 						name = prospected_mineral_casserite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_lead_glance = {
 					add_province_modifier = {
 						name = prospected_mineral_lead_glance
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_gemstones = {
 					add_province_modifier = {
 						name = prospected_mineral_gemstones
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_lapis_lazuli = {
 					add_province_modifier = {
 						name = prospected_mineral_lapis_lazuli
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_malachite = {
 					add_province_modifier = {
 						name = prospected_mineral_malachite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_orpiment_realgar = {
 					add_province_modifier = {
 						name = prospected_mineral_orpiment_realgar
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_jade = {
 					add_province_modifier = {
 						name = prospected_mineral_jade
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_alum = {
 					add_province_modifier = {
 						name = prospected_mineral_alum
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_cinnabar = {
 					add_province_modifier = {
 						name = prospected_mineral_cinnabar
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_sulfur_ore = {
 					add_province_modifier = {
 						name = prospected_mineral_sulfur_ore
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_naphtha = {
 					add_province_modifier = {
 						name = prospected_mineral_naphtha
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_coal = {
 					add_province_modifier = {
 						name = prospected_mineral_coal
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_calamine = {
 					add_province_modifier = {
 						name = prospected_mineral_calamine
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_smaltite = {
 					add_province_modifier = {
 						name = prospected_mineral_smaltite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_antimonite = {
 					add_province_modifier = {
 						name = prospected_mineral_antimonite
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_pyrolysit = {
 					add_province_modifier = {
 						name = prospected_mineral_pyrolysit
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_sal_ammoniac = {
 					add_province_modifier = {
 						name = prospected_mineral_sal_ammoniac
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_marble = {
 					add_province_modifier = {
 						name = prospected_mineral_marble
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_stone = {
 					add_province_modifier = {
 						name = prospected_mineral_stone
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_limestone = {
 					add_province_modifier = {
 						name = prospected_mineral_limestone
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_alabaster = {
 					add_province_modifier = {
 						name = prospected_mineral_alabaster
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_gypsum = {
 					add_province_modifier = {
 						name = prospected_mineral_gypsum
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_amber = {
 					add_province_modifier = {
 						name = prospected_mineral_amber
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_salt = {
 					add_province_modifier = {
 						name = prospected_mineral_salt
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_natural_brine = {
 					add_province_modifier = {
 						name = prospected_mineral_natural_brine
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_soda = {
 					add_province_modifier = {
 						name = prospected_mineral_soda
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_sand = {
 					add_province_modifier = {
 						name = prospected_mineral_sand
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_clay = {
 					add_province_modifier = {
 						name = prospected_mineral_clay
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 				just_found_borax = {
 					add_province_modifier = {
 						name = prospected_mineral_borax
-						duration = 1825	# stays for 5 years (afterwards location is assumed forgotten)
+						duration = 3650	# stays for 10 years (afterwards location is assumed forgotten)
 					}
 				}
 			}
@@ -2468,7 +2468,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 					trait = content
 				}
 				trait = greedy
-				event_target:target_spawn_province = {	# province must not have any preciosu things prospected
+				event_target:target_prospected_province = {	# province must not have any preciosu things prospected
 					NOR = {
 						has_province_flag = just_found_gold_ore
 						has_province_flag = just_found_placer_gold
@@ -2560,7 +2560,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		# Gives back half of gold & a bit prestige
 		wealth = 25
 		prestige = 10
-		event_target:target_spawn_province = {
+		event_target:target_prospected_province = {
 			# Block new prospections, but only for this province:
 			add_province_modifier = {
 				name = unwanted_prospecting_results
@@ -2586,7 +2586,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		# Gives back half of gold & a bit prestige
 		wealth = 25
 		prestige = 10
-		event_target:target_spawn_province = {
+		event_target:target_prospected_province = {
 			# Block new prospections, but only for this province:
 			add_province_modifier = {
 				name = unwanted_prospecting_results
@@ -2612,7 +2612,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 		tooltip_info = administrator
 		# Gives back a bit of gold
 		wealth = 10
-		event_target:target_spawn_province = {
+		event_target:target_prospected_province = {
 			# Block new prospections, but only for this province:
 			add_province_modifier = {
 				name = unwanted_prospecting_results
@@ -2643,7 +2643,7 @@ character_event = {	# Owner gets shown results (after they are calculated)
 	
 	# Afterwards (any option chosen): Clean up all the flags
 	after = {
-		event_target:target_spawn_province = {
+		event_target:target_prospected_province = {
 			# this one is from the decision (spam-prevention):
 			clr_province_flag = prospectors_sent
 			# clear any newly prospected flags:
