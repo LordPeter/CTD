@@ -5,7 +5,7 @@
 #################################
 
 
-### Set/remove special population demand
+### Set/remove special population demand - and NEW, also workforce (name remains unchanged for compatibility)
 ## These MUST be called in a province scope to work properly
 # They add/subtract the demand of one pop of a certain population (for multiple pops, has to be repeated). Originally because certain pops are indistinguishable on province scope.
 
@@ -24,6 +24,8 @@ add_one_peasants_demand = {
 		value = 1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_one_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_peasants_demand = {
 	change_variable = {
@@ -39,6 +41,8 @@ remove_one_peasants_demand = {
 		value = -1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_one_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Artisans: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -56,6 +60,8 @@ add_one_artisans_demand = {
 		value = 2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_one_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_artisans_demand = {
 	change_variable = {
@@ -71,6 +77,8 @@ remove_one_artisans_demand = {
 		value = -2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_one_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Merchants: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -91,6 +99,8 @@ add_one_merchants_demand = {
 		which = province_demand_luxuries
 		value = 1
 	}
+	# WORKFORCE:
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_merchants_demand = {
 	change_variable = {
@@ -109,6 +119,8 @@ remove_one_merchants_demand = {
 		which = province_demand_luxuries
 		value = -1
 	}
+	# WORKFORCE:
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Elite: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -129,6 +141,7 @@ add_one_elite_demand = {
 		which = province_demand_luxuries
 		value = 2
 	}
+	# Elites do not contribute to workforce at all
 }
 remove_one_elite_demand = {
 	change_variable = {
@@ -147,6 +160,7 @@ remove_one_elite_demand = {
 		which = province_demand_luxuries
 		value = -2
 	}
+	# Elites do not contribute to workforce at all
 }
 
 # Soldiers:
@@ -167,6 +181,7 @@ add_one_soldiers_demand = {
 		which = province_demand_luxuries
 		value = 0.5
 	}
+	# Soldiers do not contribute to workforce at all
 }
 remove_one_soldiers_demand = {
 	change_variable = {
@@ -185,6 +200,7 @@ remove_one_soldiers_demand = {
 		which = province_demand_luxuries
 		value = -0.5
 	}
+	# Soldiers do not contribute to workforce at all
 }
 
 # Patricians:
@@ -205,6 +221,8 @@ add_one_patricians_demand = {
 		which = province_demand_luxuries
 		value = 1
 	}
+	# WORKFORCE:
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_patricians_demand = {
 	change_variable = {
@@ -223,6 +241,8 @@ remove_one_patricians_demand = {
 		which = province_demand_luxuries
 		value = -1
 	}
+	# WORKFORCE:
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Clercis:
@@ -243,6 +263,9 @@ add_one_clerics_demand = {
 		which = province_demand_luxuries
 		value = 1
 	}
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_clerics_demand = {
 	change_variable = {
@@ -261,6 +284,9 @@ remove_one_clerics_demand = {
 		which = province_demand_luxuries
 		value = -1
 	}
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Scum: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -281,6 +307,7 @@ add_one_scum_demand = {
 		which = province_demand_luxuries
 		value = 0.5
 	}
+	# Scum does not contribute to workforce at all
 }
 remove_one_scum_demand = {
 	change_variable = {
@@ -299,6 +326,7 @@ remove_one_scum_demand = {
 		which = province_demand_luxuries
 		value = -0.5
 	}
+	# Scum does not contribute to workforce at all
 }
 
 # Tribal Foragers:
@@ -316,6 +344,8 @@ add_one_tribal_foragers_demand = {
 		value = 0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_tribal_foragers_demand = {
 	change_variable = {
@@ -331,6 +361,8 @@ remove_one_tribal_foragers_demand = {
 		value = -0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Tribal Farmers:
@@ -348,6 +380,8 @@ add_one_tribal_farmers_demand = {
 		value = 1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_tribal_farmers_demand = {
 	change_variable = {
@@ -363,6 +397,8 @@ remove_one_tribal_farmers_demand = {
 		value = -1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Tribal Herdsmen:
@@ -380,6 +416,8 @@ add_one_tribal_herdsmen_demand = {
 		value = 1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_tribal_herdsmen_demand = {
 	change_variable = {
@@ -395,6 +433,8 @@ remove_one_tribal_herdsmen_demand = {
 		value = -1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Tribal Craftsmen:
@@ -412,6 +452,8 @@ add_one_tribal_craftsmen_demand = {
 		value = 2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_tribal_craftsmen_demand = {
 	change_variable = {
@@ -427,6 +469,8 @@ remove_one_tribal_craftsmen_demand = {
 		value = -2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Shudras:
@@ -444,6 +488,8 @@ add_one_shudras_demand = {	# Shudras counted as "special" on province level, so 
 		value = 0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_shudras_demand = {	# Shudras counted as "special" on province level, so they also need individual demand setting
 	change_variable = {
@@ -459,6 +505,8 @@ remove_one_shudras_demand = {	# Shudras counted as "special" on province level, 
 		value = -0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Slaves are *only* done in "recalc_province_pop_CTD_effect" - here just for reference:
@@ -466,6 +514,7 @@ remove_one_shudras_demand = {	# Shudras counted as "special" on province level, 
 # 0.5 Clothing
 # 0.5 Materials
 # 0 Luxuries
+# one amount of simple labour
 
 
 ### Recalculate Province Population

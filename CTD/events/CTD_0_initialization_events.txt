@@ -1825,6 +1825,15 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 				which = province_demand_luxuries
 				value = 0
 			}
+			# Initialize Workforce Variables
+			set_variable = {
+				which = province_workforce_simple_labour
+				value = 0
+			}
+			set_variable = {
+				which = province_workforce_craftsmanship
+				value = 0
+			}
 			# Recalculate Province Population (in case holding has pops already)
 			recalc_province_pop_CTD_effect = yes
 			
