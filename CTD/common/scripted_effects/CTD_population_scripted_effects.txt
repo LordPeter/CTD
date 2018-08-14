@@ -573,6 +573,14 @@ recalc_province_pop_CTD_effect = {
 		which = province_demand_luxuries
 		value = 0
 	}
+	set_variable = {
+		which = province_workforce_simple_labour
+		value = 0
+	}
+	set_variable = {
+		which = province_workforce_craftsmanship
+		value = 0
+	}
 	# Now increase the individual types to their correct amount
 	any_province_holding = {
 		# Peasants
@@ -1863,6 +1871,24 @@ recalc_province_pop_CTD_effect = {
 		which = province_demand_clothing
 		which = helper_variable_population_demand
 	}
+	# Peasant Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_peasants
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_simple_labour_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
+	}
 	# Artisans:
 	set_variable = {
 		which = helper_variable_population_demand
@@ -1883,6 +1909,24 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {	# 2 Materials
 		which = province_demand_materials
 		which = helper_variable_population_demand
+	}
+	# Artisans Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_artisans
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_craftsmanship_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
 	}
 	# Merchants:
 	set_variable = {
@@ -1908,6 +1952,24 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {	# 1.5 Clothing
 		which = province_demand_clothing
 		which = helper_variable_population_demand
+	}
+	# Merchants Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_merchants
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_half_amount_of_craftsmanship_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
 	}
 	# Elite:
 	set_variable = {
@@ -1942,6 +2004,7 @@ recalc_province_pop_CTD_effect = {
 		which = province_demand_clothing
 		which = helper_variable_population_demand
 	}
+	# Elite contributes no workforce
 	# Scum:
 	set_variable = {
 		which = helper_variable_population_demand
@@ -1967,6 +2030,7 @@ recalc_province_pop_CTD_effect = {
 		which = province_demand_luxuries
 		which = helper_variable_population_demand
 	}
+	# Scum contributes no workforce
 	# Slaves:
 	set_variable = {
 		which = helper_variable_population_demand
@@ -1987,6 +2051,24 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {	# 0.5 Materials
 		which = province_demand_materials
 		which = helper_variable_population_demand
+	}
+	# Slaves Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_slaves
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_simple_labour_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
 	}
 	# Reset helper variable so it can be cleared from savegame
 	set_variable = {

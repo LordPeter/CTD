@@ -7,7 +7,7 @@
 
 ### Change workforce amount
 ## This MUST be called in an province scope to work properly
-# Increases or decreases the province's workforce type value based on several factors	# NOTE: TECH_TRADE_PRACTICES is just a placeholder for future, changed techs
+# Increases or decreases the province's workforce type value based on several factors	# NOTE: always = no # TESTING	#TECH_TRADE_PRACTICES is just a placeholder for future, changed techs
 
 # Simple Labour
 add_half_amount_of_simple_labour_CTD_effect = {
@@ -63,7 +63,7 @@ add_half_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -75,7 +75,7 @@ add_half_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -87,7 +87,7 @@ add_half_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -149,7 +149,7 @@ remove_half_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -161,7 +161,7 @@ remove_half_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -173,7 +173,7 @@ remove_half_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -235,7 +235,7 @@ add_one_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -247,7 +247,7 @@ add_one_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -259,7 +259,7 @@ add_one_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -321,7 +321,7 @@ remove_one_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -333,7 +333,7 @@ remove_one_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -345,7 +345,7 @@ remove_one_amount_of_simple_labour_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -409,7 +409,7 @@ add_half_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -421,7 +421,7 @@ add_half_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -433,7 +433,7 @@ add_half_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -495,7 +495,7 @@ remove_half_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -507,7 +507,7 @@ remove_half_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -519,7 +519,7 @@ remove_half_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -581,7 +581,7 @@ add_one_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -593,7 +593,7 @@ add_one_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -605,7 +605,7 @@ add_one_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -667,7 +667,7 @@ remove_one_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 2
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 			}
 		}
 		change_variable = {
@@ -679,7 +679,7 @@ remove_one_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 4
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 			}
 		}
 		change_variable = {
@@ -691,7 +691,7 @@ remove_one_amount_of_craftsmanship_CTD_effect = {
 	if = {
 		limit = {
 			OR = {
-				TECH_TRADE_PRACTICES = 6
+				always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 			}
 		}
 		change_variable = {
@@ -851,7 +851,7 @@ update_province_import_priority_CTD_effect = {
 	# again, cumultative
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 1
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 1
 		}
 		change_variable = {
 			which = province_import_priority
@@ -860,7 +860,7 @@ update_province_import_priority_CTD_effect = {
 	}
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 2
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 2
 		}
 		change_variable = {
 			which = province_import_priority
@@ -869,7 +869,7 @@ update_province_import_priority_CTD_effect = {
 	}
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 3
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 3
 		}
 		change_variable = {
 			which = province_import_priority
@@ -878,7 +878,7 @@ update_province_import_priority_CTD_effect = {
 	}
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 4
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 4
 		}
 		change_variable = {
 			which = province_import_priority
@@ -887,7 +887,7 @@ update_province_import_priority_CTD_effect = {
 	}
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 5
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 5
 		}
 		change_variable = {
 			which = province_import_priority
@@ -896,7 +896,7 @@ update_province_import_priority_CTD_effect = {
 	}
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 6
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 6
 		}
 		change_variable = {
 			which = province_import_priority
@@ -905,7 +905,7 @@ update_province_import_priority_CTD_effect = {
 	}
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 7
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 7
 		}
 		change_variable = {
 			which = province_import_priority
@@ -914,7 +914,7 @@ update_province_import_priority_CTD_effect = {
 	}
 	if = {
 		limit = {
-			TECH_TRADE_PRACTICES = 8
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 8
 		}
 		change_variable = {
 			which = province_import_priority
@@ -1050,7 +1050,7 @@ update_global_import_priority_levels_CTD_effect = {
 		limit = {
 			check_variable = {	# simple counting
 				which = global_priority_counting_helper_variable
-				value = 0
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
 			}
 		}
 		random_province = {	# Scope to a random of the remaining provinces
