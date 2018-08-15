@@ -2879,13 +2879,6 @@ character_event = {	# Short event to update supply bonus from holdings & (if can
 					can_grow_peasants_CTD_trigger = yes
 				}
 				incr_peasants_holding_pop_CTD_effect = yes
-				location = {#TESTING: Is this the cause of ghost pops at gamestart (CK2+/HIP mechanic "leave a tribe behind")?
-					add_province_modifier = {	# TESTING
-						name = currency_paper_money
-						duration = -1
-						stacking = yes
-					}
-				}
 			}
 		}
 	}

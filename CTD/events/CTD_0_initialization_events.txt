@@ -1698,42 +1698,42 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 				duration = -1
 			}
 			# Dummy Tradegood modifiers:
-			add_province_modifier = {
-				name = tradegood_slot_dummy_resource_1
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_resource_2
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_resource_3
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_refined_1
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_refined_2
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_refined_3
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_finalized_1
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_finalized_2
-				duration = -1
-			}
-			add_province_modifier = {
-				name = tradegood_slot_dummy_finalized_3
-				duration = -1
-			}
+			# add_province_modifier = {	# NOTE TESTING commented these out for now
+				# name = tradegood_slot_dummy_resource_1
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_resource_2
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_resource_3
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_refined_1
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_refined_2
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_refined_3
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_finalized_1
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_finalized_2
+				# duration = -1
+			# }
+			# add_province_modifier = {
+				# name = tradegood_slot_dummy_finalized_3
+				# duration = -1
+			# }
 			# Initialize Trade Variables
 			set_variable = {
 				which = province_import_priority
@@ -1834,8 +1834,6 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 				which = province_workforce_craftsmanship
 				value = 0
 			}
-			# Recalculate Province Population (in case holding has pops already)
-			recalc_province_pop_CTD_effect = yes
 			
 			# Set "baseline" resource caps
 			change_variable = {
@@ -1863,7 +1861,7 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 				value = 5
 			}
 			# India gets a flat bonus to agriculture caps to simulate the increased fertility from the monsoon, and thus allow it to sustain its historically larger population:
-			if = {
+			if = {	# NOTE: Replace that with a better version depending on monsoon climate, as that's the reason (and not all parts of India are super-fertile)
 				limit = {
 					region = world_india
 				}
@@ -2148,6 +2146,8 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 				}
 			}
 			# enough for now. The first peasant pop is nigh guaranteed to spawn, the others might not in harsh climate etc. But the world will get a starting population
+			# Recalculate Province Population (holdings probably have pops now)
+			recalc_province_pop_CTD_effect = yes
 			
 			# Initialize modifier localisation (henceforth done by automation)
 			# Weather
