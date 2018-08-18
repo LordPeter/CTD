@@ -5,6 +5,77 @@
 ##############################
 
 
+### Match tradegoods to cap, workforce and disaster
+## This MUST be called in an province scope to work properly
+# Matches the tradegood variable to province cap, workforce cap and disaster cap - also split if spawn spawns 2 resources
+
+match_gold_ore_variable_to_caps_CTD_effect = {
+	while = {
+		limit = {
+			NOR = {
+				check_variable = {
+					which = produced_gold_ore
+					which = province_cap_mining
+				}
+				check_variable = {
+					which = province_employed_simple_labour
+					which = province_workforce_simple_labour
+				}
+				check_variable = {
+					which = province_employed_simple_labour
+					which = province_workforce_simple_labour
+				}
+			}
+		}
+	}
+}
+
+	# For reference: the disaster modification variables
+	# set_variable = {
+		# which = province_temporary_effect_on_agriculture
+		# value = 0
+	# }
+	# set_variable = {
+		# which = province_temporary_effect_on_livestock
+		# value = 0
+	# }
+	# and the workforce variables:
+	# set_variable = {
+		# which = province_workforce_simple_labour
+		# value = 0
+	# }
+	# set_variable = {
+		# which = province_workforce_craftsmanship
+		# value = 0
+	# }
+	 # and the cap variables:
+	# change_variable = {
+		# which = province_cap_mining
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_agriculture
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_forests
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_livestock
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_refined
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_finalized
+		# value = 5
+	# }
+
+
+
 ### Change workforce amount
 ## This MUST be called in an province scope to work properly
 # Increases or decreases the province's workforce type value based on several factors	# NOTE: always = no # TESTING	#TECH_TRADE_PRACTICES is just a placeholder for future, changed techs
@@ -701,654 +772,6 @@ remove_one_amount_of_craftsmanship_CTD_effect = {
 	}
 }
 
-
-### Update Import Priority
-## This MUST be called in an province scope to work properly
-# Updates the province's import priority value based on several factors
-
-# Update Import Priority
-update_province_import_priority_CTD_effect = {
-	# Reset first
-	set_variable = {
-		which = province_import_priority
-		value = 0
-	}
-	# Trade Features
-	if = {
-		limit = {
-			has_province_modifier = feature_staple_right
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 10
-		}
-	}
-	if = {
-		limit = {
-			has_province_modifier = feature_trade_fair
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 3
-		}
-	}
-	# Natural Features
-	if = {
-		limit = {
-			has_province_modifier = natural_feature_estuary
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 2
-		}
-	}
-	if = {
-		limit = {
-			has_province_modifier = natural_feature_natural_harbour
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 2
-		}
-	}
-	# Infrastructure
-	# Road: Cumultative, so only adds one amount per check!	# NOTE check if it is indeed cumultativ, this checking method
-	if = {
-		limit = {
-			has_instances_of_province_modifier = {
-				modifier = infrastructure_road_network
-				amount = 1
-			}
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 4
-		}
-	}
-	if = {
-		limit = {
-			has_instances_of_province_modifier = {
-				modifier = infrastructure_road_network
-				amount = 2
-			}
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 4
-		}
-	}
-	if = {
-		limit = {
-			has_instances_of_province_modifier = {
-				modifier = infrastructure_road_network
-				amount = 3
-			}
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 4
-		}
-	}
-	if = {
-		limit = {
-			has_instances_of_province_modifier = {
-				modifier = infrastructure_road_network
-				amount = 4
-			}
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 4
-		}
-	}
-	# Bridge: Same as roads
-	if = {
-		limit = {
-			has_instances_of_province_modifier = {
-				modifier = infrastructure_major_bridge
-				amount = 1
-			}
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 3
-		}
-	}
-	if = {
-		limit = {
-			has_instances_of_province_modifier = {
-				modifier = infrastructure_major_bridge
-				amount = 2
-			}
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 3
-		}
-	}
-	if = {
-		limit = {
-			has_instances_of_province_modifier = {
-				modifier = infrastructure_major_bridge
-				amount = 3
-			}
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 3
-		}
-	}
-	# Holdings
-	any_province_holding = {	# Scope to any holding so it gets done exactly <number_of_holdings> times. Easier than conditions here imo
-		PREV = {	# The province
-			change_variable = {
-				which = province_import_priority
-				value = 1
-			}
-		}
-	}
-	# Technology
-	# again, cumultative
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 1
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 2
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 3
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 4
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 5
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 6
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 7
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	if = {
-		limit = {
-			always = no # TESTING	#TECH_TRADE_PRACTICES = 8
-		}
-		change_variable = {
-			which = province_import_priority
-			value = 0.5
-		}
-	}
-	# Population
-	# done via helper variable
-	# First: Merchants (+1 per 3)
-	set_variable = {
-		which = import_priority_helper
-		which = province_population_merchants
-	}
-	divide_variable = {
-		which = import_priority_helper
-		value = 3
-	}
-	change_variable = {
-		which = province_import_priority
-		which = import_priority_helper
-	}
-	# Second: Patricians (+1 per 5)
-	set_variable = {	# need to reset here first
-		which = import_priority_helper
-		value = 0
-	}
-	any_province_holding = {	# I'm again following the "cumultative approach" here - only inverted here ofc
-		limit = {
-			holding_type = city
-		}
-		if = {
-			limit = {
-				has_building = ct_population_patricians_5
-			}
-			change_variable = {
-				which = import_priority_helper
-				value = 0.2
-			}
-		}
-		if = {
-			limit = {
-				has_building = ct_population_patricians_4
-			}
-			change_variable = {
-				which = import_priority_helper
-				value = 0.2
-			}
-		}
-		if = {
-			limit = {
-				has_building = ct_population_patricians_3
-			}
-			change_variable = {
-				which = import_priority_helper
-				value = 0.2
-			}
-		}
-		if = {
-			limit = {
-				has_building = ct_population_patricians_2
-			}
-			change_variable = {
-				which = import_priority_helper
-				value = 0.2
-			}
-		}
-		if = {
-			limit = {
-				has_building = ct_population_patricians_1
-			}
-			change_variable = {
-				which = import_priority_helper
-				value = 0.2
-			}
-		}
-	}
-	change_variable = {
-		which = province_import_priority
-		which = import_priority_helper
-	}
-	# Third: Total Pops (+1 per 20)
-	set_variable = {
-		which = import_priority_helper
-		which = province_population_total
-	}
-	divide_variable = {
-		which = import_priority_helper
-		value = 20
-	}
-	change_variable = {
-		which = province_import_priority
-		which = import_priority_helper
-	}
-	# Fourth: Reset Helper so it can be cleared from savegame
-	set_variable = {
-		which = import_priority_helper
-		value = 0
-	}
-}
-
-
-### Update Global Import Priority Levels
-## This CAN be called in any scope to work properly, because it scopes to all provinces immediately anyway
-# Rearranges the global import priority levels - expensive, so use sparingly
-
-# Update Import Priority
-update_global_import_priority_levels_CTD_effect = {
-	# First reset global variables:
-	set_variable = {
-		which = global_import_priority_comparison_variable
-		value = 0
-	}
-	set_variable = {
-		which = global_priority_counting_helper_variable
-		which = global_reference_number_of_provinces_variable	# Exact number of provinces in the game in this session!
-	}
-	# Second remove old flags:
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		clr_province_flag = import_priority_10
-		clr_province_flag = import_priority_9
-		clr_province_flag = import_priority_8
-		clr_province_flag = import_priority_7
-		clr_province_flag = import_priority_6
-		clr_province_flag = import_priority_5
-		clr_province_flag = import_priority_4
-		clr_province_flag = import_priority_3
-		clr_province_flag = import_priority_2
-		clr_province_flag = import_priority_1
-		clr_province_flag = had_import_priority_tested
-	}
-	# Third check which province has the highest value:
-	while = {
-		limit = {
-			check_variable = {	# simple counting
-				which = global_priority_counting_helper_variable
-				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
-			}
-		}
-		random_province = {	# Scope to a random of the remaining provinces
-			limit = {
-				NOT = {
-					has_province_flag = had_import_priority_tested
-				}
-			}
-			if = {
-				limit = {
-					check_variable = {	# Check if local variable is bigger (or equal) than golbal one
-						which = province_import_priority
-						which = global_import_priority_comparison_variable
-					}
-				}
-				set_variable = {	# Copy local province value to global comparison variable
-					which = global_import_priority_comparison_variable
-					which = province_import_priority
-				}
-			}
-			set_province_flag = had_import_priority_tested
-			add_province_modifier = {	# TESTING
-				name = testy_the_test_modifier
-				duration = -1
-				stacking = yes
-			}
-		}
-		change_variable = {	# Counting
-			which = global_priority_counting_helper_variable
-			value = -1
-		}
-	}
-	# Fourth (re-)initialize a global helper variable:
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 10% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.1
-	}
-	# Fifth sort the provinces according to the new ranking:
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					# province level flags are not yet relevant since none have been applied hitherto
-				}
-			}
-			set_province_flag = import_priority_1
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 20% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.2
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-				}
-			}
-			set_province_flag = import_priority_2
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 30% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.3
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-				}
-			}
-			set_province_flag = import_priority_3
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 40% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.4
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-					has_province_flag = import_priority_3
-				}
-			}
-			set_province_flag = import_priority_4
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 50% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.5
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-					has_province_flag = import_priority_3
-					has_province_flag = import_priority_4
-				}
-			}
-			set_province_flag = import_priority_5
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 60% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.6
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-					has_province_flag = import_priority_3
-					has_province_flag = import_priority_4
-					has_province_flag = import_priority_5
-				}
-			}
-			set_province_flag = import_priority_6
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 70% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.7
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-					has_province_flag = import_priority_3
-					has_province_flag = import_priority_4
-					has_province_flag = import_priority_5
-					has_province_flag = import_priority_6
-				}
-			}
-			set_province_flag = import_priority_7
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 80% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.8
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-					has_province_flag = import_priority_3
-					has_province_flag = import_priority_4
-					has_province_flag = import_priority_5
-					has_province_flag = import_priority_6
-					has_province_flag = import_priority_7
-				}
-			}
-			set_province_flag = import_priority_8
-		}
-	}
-	# Go to next priority level
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		which = global_import_priority_comparison_variable
-	}
-	multiply_variable = {	# set to 90% of value
-		which = global_priority_sorting_helper_variable
-		value = 0.9
-	}
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
-					check_variable = {
-						which = province_import_priority
-						which = global_priority_sorting_helper_variable
-					}
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-					has_province_flag = import_priority_3
-					has_province_flag = import_priority_4
-					has_province_flag = import_priority_5
-					has_province_flag = import_priority_6
-					has_province_flag = import_priority_7
-					has_province_flag = import_priority_8
-				}
-			}
-			set_province_flag = import_priority_9
-		}
-	}
-	# Going to the next priority level is now irrelebant, as only one level remains
-	any_province = {	# NOTE: WARNING EXPENSIVE !
-		if = {
-			limit = {
-				NOR = {
-					# Test for not-assigned province suffices
-					has_province_flag = import_priority_1
-					has_province_flag = import_priority_2
-					has_province_flag = import_priority_3
-					has_province_flag = import_priority_4
-					has_province_flag = import_priority_5
-					has_province_flag = import_priority_6
-					has_province_flag = import_priority_7
-					has_province_flag = import_priority_8
-					has_province_flag = import_priority_9
-				}
-			}
-			set_province_flag = import_priority_10
-		}
-	}
-	# Sixth reset the helper variable:
-	set_variable = {
-		which = global_priority_sorting_helper_variable
-		value = 0
-	}
-	set_variable = {
-		which = global_priority_counting_helper_variable
-		value = 0
-	}
-}
 
 ### Famine Tracking
 ## This MUST be called in an province scope to work properly
@@ -2648,5 +2071,654 @@ remove_glaciers_CTD_effect = {
 	change_variable = {
 		which = province_cap_livestock
 		value = 1
+	}
+}
+
+
+### Update Import Priority
+## This MUST be called in an province scope to work properly
+# Updates the province's import priority value based on several factors
+
+# Update Import Priority
+update_province_import_priority_CTD_effect = {
+	# Reset first
+	set_variable = {
+		which = province_import_priority
+		value = 0
+	}
+	# Trade Features
+	if = {
+		limit = {
+			has_province_modifier = feature_staple_right
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 10
+		}
+	}
+	if = {
+		limit = {
+			has_province_modifier = feature_trade_fair
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	# Natural Features
+	if = {
+		limit = {
+			has_province_modifier = natural_feature_estuary
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			has_province_modifier = natural_feature_natural_harbour
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 2
+		}
+	}
+	# Infrastructure
+	# Road: Cumultative, so only adds one amount per check!	# NOTE check if it is indeed cumultativ, this checking method
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 1
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 2
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 3
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_road_network
+				amount = 4
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 4
+		}
+	}
+	# Bridge: Same as roads
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_major_bridge
+				amount = 1
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_major_bridge
+				amount = 2
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	if = {
+		limit = {
+			has_instances_of_province_modifier = {
+				modifier = infrastructure_major_bridge
+				amount = 3
+			}
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 3
+		}
+	}
+	# Holdings
+	any_province_holding = {	# Scope to any holding so it gets done exactly <number_of_holdings> times. Easier than conditions here imo
+		PREV = {	# The province
+			change_variable = {
+				which = province_import_priority
+				value = 1
+			}
+		}
+	}
+	# Technology
+	# again, cumultative
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 1
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 2
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 3
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 4
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 5
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 6
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 7
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	if = {
+		limit = {
+			always = no # TESTING	#TECH_TRADE_PRACTICES = 8
+		}
+		change_variable = {
+			which = province_import_priority
+			value = 0.5
+		}
+	}
+	# Population
+	# done via helper variable
+	# First: Merchants (+1 per 3)
+	set_variable = {
+		which = import_priority_helper
+		which = province_population_merchants
+	}
+	divide_variable = {
+		which = import_priority_helper
+		value = 3
+	}
+	change_variable = {
+		which = province_import_priority
+		which = import_priority_helper
+	}
+	# Second: Patricians (+1 per 5)
+	set_variable = {	# need to reset here first
+		which = import_priority_helper
+		value = 0
+	}
+	any_province_holding = {	# I'm again following the "cumultative approach" here - only inverted here ofc
+		limit = {
+			holding_type = city
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_5
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_4
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_3
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_2
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+		if = {
+			limit = {
+				has_building = ct_population_patricians_1
+			}
+			change_variable = {
+				which = import_priority_helper
+				value = 0.2
+			}
+		}
+	}
+	change_variable = {
+		which = province_import_priority
+		which = import_priority_helper
+	}
+	# Third: Total Pops (+1 per 20)
+	set_variable = {
+		which = import_priority_helper
+		which = province_population_total
+	}
+	divide_variable = {
+		which = import_priority_helper
+		value = 20
+	}
+	change_variable = {
+		which = province_import_priority
+		which = import_priority_helper
+	}
+	# Fourth: Reset Helper so it can be cleared from savegame
+	set_variable = {
+		which = import_priority_helper
+		value = 0
+	}
+}
+
+
+### Update Global Import Priority Levels
+## This CAN be called in any scope to work properly, because it scopes to all provinces immediately anyway
+# Rearranges the global import priority levels - expensive, so use sparingly
+
+# Update Import Priority
+update_global_import_priority_levels_CTD_effect = {
+	# First reset global variables:
+	set_variable = {
+		which = global_import_priority_comparison_variable
+		value = 0
+	}
+	set_variable = {
+		which = global_priority_counting_helper_variable
+		which = global_reference_number_of_provinces_variable	# Exact number of provinces in the game in this session!
+	}
+	# Second remove old flags:
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		clr_province_flag = import_priority_10
+		clr_province_flag = import_priority_9
+		clr_province_flag = import_priority_8
+		clr_province_flag = import_priority_7
+		clr_province_flag = import_priority_6
+		clr_province_flag = import_priority_5
+		clr_province_flag = import_priority_4
+		clr_province_flag = import_priority_3
+		clr_province_flag = import_priority_2
+		clr_province_flag = import_priority_1
+		clr_province_flag = had_import_priority_tested
+	}
+	# Third check which province has the highest value:
+	while = {
+		limit = {
+			check_variable = {	# simple counting
+				which = global_priority_counting_helper_variable
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		random_province = {	# Scope to a random of the remaining provinces
+			limit = {
+				NOT = {
+					has_province_flag = had_import_priority_tested
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {	# Check if local variable is bigger (or equal) than golbal one
+						which = province_import_priority
+						which = global_import_priority_comparison_variable
+					}
+				}
+				set_variable = {	# Copy local province value to global comparison variable
+					which = global_import_priority_comparison_variable
+					which = province_import_priority
+				}
+			}
+			set_province_flag = had_import_priority_tested
+			add_province_modifier = {	# TESTING
+				name = testy_the_test_modifier
+				duration = -1
+				stacking = yes
+			}
+		}
+		change_variable = {	# Counting
+			which = global_priority_counting_helper_variable
+			value = -1
+		}
+	}
+	# Fourth (re-)initialize a global helper variable:
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 10% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.1
+	}
+	# Fifth sort the provinces according to the new ranking:
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					# province level flags are not yet relevant since none have been applied hitherto
+				}
+			}
+			set_province_flag = import_priority_1
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 20% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.2
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+				}
+			}
+			set_province_flag = import_priority_2
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 30% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.3
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+				}
+			}
+			set_province_flag = import_priority_3
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 40% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.4
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+				}
+			}
+			set_province_flag = import_priority_4
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 50% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.5
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+				}
+			}
+			set_province_flag = import_priority_5
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 60% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.6
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+				}
+			}
+			set_province_flag = import_priority_6
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 70% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.7
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+				}
+			}
+			set_province_flag = import_priority_7
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 80% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.8
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+					has_province_flag = import_priority_7
+				}
+			}
+			set_province_flag = import_priority_8
+		}
+	}
+	# Go to next priority level
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		which = global_import_priority_comparison_variable
+	}
+	multiply_variable = {	# set to 90% of value
+		which = global_priority_sorting_helper_variable
+		value = 0.9
+	}
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {	# Check if local variable is smaller than the helper one (and thus lower than the current X%)
+					check_variable = {
+						which = province_import_priority
+						which = global_priority_sorting_helper_variable
+					}
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+					has_province_flag = import_priority_7
+					has_province_flag = import_priority_8
+				}
+			}
+			set_province_flag = import_priority_9
+		}
+	}
+	# Going to the next priority level is now irrelebant, as only one level remains
+	any_province = {	# NOTE: WARNING EXPENSIVE !
+		if = {
+			limit = {
+				NOR = {
+					# Test for not-assigned province suffices
+					has_province_flag = import_priority_1
+					has_province_flag = import_priority_2
+					has_province_flag = import_priority_3
+					has_province_flag = import_priority_4
+					has_province_flag = import_priority_5
+					has_province_flag = import_priority_6
+					has_province_flag = import_priority_7
+					has_province_flag = import_priority_8
+					has_province_flag = import_priority_9
+				}
+			}
+			set_province_flag = import_priority_10
+		}
+	}
+	# Sixth reset the helper variable:
+	set_variable = {
+		which = global_priority_sorting_helper_variable
+		value = 0
+	}
+	set_variable = {
+		which = global_priority_counting_helper_variable
+		value = 0
 	}
 }

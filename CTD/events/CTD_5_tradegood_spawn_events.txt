@@ -2857,12 +2857,14 @@ character_event = {
 
 ## Events to decide on 1 or 2 spawned products & apply variables depending on both province cap and workforce
 
-# First product to spawn
+# First/Second product to spawn (can be re-called once)
 character_event = {
 	id = CTD.0505
 	desc = CTDDESC_0505
 	
 	is_triggered_only = yes		# by event
+	
+	## Options for all the products
 	
 	# gold_ore:
 	option = {
@@ -2887,20 +2889,68 @@ character_event = {
 			set_province_flag = newly_spawned_gold_ore
 		}
 	}
+	### add the rest NOTE
 	
 	after = {
-		# Ask if want a 2nd product to spawn, if spawn can spawn a 2nd product and hasn't already spawned 2nd. Otherwise, go to applying products.
+		# Ask if want a 2nd product to spawn, if spawn can spawn a 2nd product and hasn't already spawned 2nd.
 		if = {
 			limit = {
 				AND = {
-					has_chosen_1_product = yes	# NOTE code this!
-					has_chosen_2_products = no	# NOTE code this!
-					chosen_spawn_allows_for_2nd_product = yes	# NOTE code this!
+					has_chosen_2_products_CTD_trigger = no	# NOTE code this!
+					chosen_spawn_allows_for_2nd_product_CTD_trigger = yes	# NOTE code this!
 				}
 			}
 			character_event = {
 				id = CTD.0506
 			}
 		}
+		# Otherwise wrap things up by firing the event that applies variables & stuff and matches to cap/workforce:
+		else = {
+			hidden_tooltip = {
+				character_event = {
+					id = CTD.0507
+				}
+			}
+		}
+	}
+}
+
+# Prompt whether to split spawn between two products
+character_event = {
+	id = CTD.0506
+	desc = CTDDESC_0506
+	
+	is_triggered_only = yes		# by event
+	
+	# Yes, split between two
+	option = {
+		name = CTDOPTA_0506
+		character_event = {	# Call product choice event a 2nd time
+			id = CTD.0505
+		}
+	}
+	
+	# No, only one
+	option = {
+		name = CTDOPTB_0506
+		hidden_tooltip = {
+			character_event = {
+				id = CTD.0507
+			}
+		}
+	}
+}
+
+# Now match variables to cap and workforce (also taking into account weather/disaster modifiers!)
+character_event = {
+	id = CTD.0507
+	desc = CTDDESC_0507
+	
+	is_triggered_only = yes		# by event
+	
+	hide_window = yes
+	
+	immediate = {
+		
 	}
 }
