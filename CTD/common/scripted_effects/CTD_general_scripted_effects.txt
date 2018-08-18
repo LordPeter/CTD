@@ -5,10 +5,11 @@
 ##############################
 
 
-### Match tradegoods to cap, workforce and disaster
+### Match tradegoods to cap and workforce
 ## This MUST be called in an province scope to work properly
-# Matches the tradegood variable to province cap, workforce cap and disaster cap - also split if spawn spawns 2 resources
+# Matches the tradegood variable to province cap, workforce cap - also split if spawn spawns 2 resources
 
+# Minerals:
 match_gold_ore_variable_to_caps_CTD_effect = {
 	while = {
 		limit = {
@@ -21,14 +22,77 @@ match_gold_ore_variable_to_caps_CTD_effect = {
 					which = province_employed_simple_labour
 					which = province_workforce_simple_labour
 				}
+			}
+		}
+		# Increase tradegood
+		change_variable = {
+			which = produced_gold_ore
+			value = 0.1
+		}
+		# Increase employed workforce
+		change_variable = {
+			which = province_employed_simple_labour
+			value = 0.1
+		}
+	}
+}
+## Add more NOTE
+# Plantproducts:
+match_grapes_variable_to_caps_CTD_effect = {
+	while = {
+		limit = {
+			NOR = {
+				check_variable = {
+					which = produced_grapes
+					which = province_cap_agriculture_dynamic
+				}
 				check_variable = {
 					which = province_employed_simple_labour
 					which = province_workforce_simple_labour
 				}
 			}
 		}
+		# Increase tradegood
+		change_variable = {
+			which = produced_grapes
+			value = 0.1
+		}
+		# Increase employed workforce
+		change_variable = {
+			which = province_employed_simple_labour
+			value = 0.1
+		}
 	}
 }
+## Add more NOTE
+# Animalproducts:
+match_milk_variable_to_caps_CTD_effect = {
+	while = {
+		limit = {
+			NOR = {
+				check_variable = {
+					which = produced_milk
+					which = province_cap_livestock_dynamic
+				}
+				check_variable = {
+					which = province_employed_simple_labour
+					which = province_workforce_simple_labour
+				}
+			}
+		}
+		# Increase tradegood
+		change_variable = {
+			which = produced_milk
+			value = 0.1
+		}
+		# Increase employed workforce
+		change_variable = {
+			which = province_employed_simple_labour
+			value = 0.1
+		}
+	}
+}
+## Add more NOTE
 
 	# For reference: the disaster modification variables
 	# set_variable = {

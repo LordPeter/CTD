@@ -165,13 +165,13 @@ defined_text = {
 ## Dynamic Info about Weather/Disaster Cap reduction
 # Agriculture
 defined_text = {
-	name = Weather_Disaster_Cap_Reduction_Livestock
+	name = Weather_Disaster_Cap_Reduction_Agriculture
 	
 	text = {
 		trigger = {
-			has_province_flag = temp_cap_reduction_agriculture
+			has_province_flag = temp_cap_reduction_agriculture	# NOTE IMPORTANT: This (and below) flag need to be set IMMEDIATELY when variable is increased/decreased
 		}
-		localisation_key = Good_Luxuries
+		localisation_key = Temp_Cap_Red_Agriculture
 	}
 	text = {
 		trigger = {
@@ -188,14 +188,14 @@ defined_text = {
 	
 	text = {
 		trigger = {
-			has_province_flag = temp_cap_reduction_agriculture
+			has_province_flag = temp_cap_reduction_livestock
 		}
-		localisation_key = Good_Luxuries
+		localisation_key = Temp_Cap_Red_Livestock
 	}
 	text = {
 		trigger = {
 			NOT = {
-				has_province_flag = temp_cap_reduction_agriculture
+				has_province_flag = temp_cap_reduction_livestock
 			}
 		}
 		localisation_key = ""
