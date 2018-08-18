@@ -28,16 +28,27 @@ title_decisions = {
             ROOT = {	# Note: The title - not the province yet!
 				location = {
 					set_province_flag = deciding_on_spawn_type	# Safety check to prevent decision spam
-					# IMPORTANT: Set starting flag on province so player can actually use the event:
-					set_province_flag = player_decides_on_fundamental_spawn_type
-					province_event = {	# Fire an event for the province so we get it as an event target
-						id = CTD.0501
+					save_event_target_as = target_spawn_province	# save province
+					owner = {
+						if = {	# ai has direct choice event because it can see all options at once
+							limit = {
+								ai = yes
+							}
+							character_event = {	# AI can see everything
+								id = CTD.0501
+							}
+						}
+						if = {	# player gets cycleable options first
+							limit = {
+								ai = no
+							}
+							character_event = {	# Give owner cycleable choice
+								id = CTD.0502
+							}
+						}
 					}
 				}
 			}
-        }
-        revoke_allowed = {
-            always = no
         }
         ai_will_do = {
             factor = 0	# NOTE: For now only testing - Should be: "1" - always.
@@ -99,9 +110,6 @@ title_decisions = {
 				}
 			}
         }
-        revoke_allowed = {
-            always = no
-        }
         ai_will_do = {
             factor = 0	# NOTE: For now only testing.
         }
@@ -154,9 +162,6 @@ title_decisions = {
 					}
 				}
 			}
-        }
-        revoke_allowed = {
-            always = no
         }
         ai_will_do = {
             factor = 0	# NOTE: For now only testing
@@ -237,9 +242,6 @@ title_decisions = {
 				}
 			}
         }
-        revoke_allowed = {
-            always = no
-        }
         ai_will_do = {
             factor = 0	# NOTE: For now only testing
         }
@@ -318,9 +320,6 @@ title_decisions = {
 					}
 				}
 			}
-        }
-        revoke_allowed = {
-            always = no
         }
         ai_will_do = {
             factor = 0	# NOTE: For now only testing

@@ -12,33 +12,34 @@ namespace = CTD
 
 ## Initial event to chose spawn type
 
-# Ping from province to owner
-province_event = {	# Province fires invisible event to be in scope, then fires player decision event
+# AI gets all the options at once
+character_event = {
 	id = CTD.0501
 	
 	is_triggered_only = yes		# by decision
 	
-	hide_window = yes
+	hide_window = yes	# no need to show for ai
 	
 	immediate = {
-		save_event_target_as = target_spawn_province	# save province
-		owner = {
-			if = {	# player gets cycleable options first
-				limit = {
-					ai = no
+		random_list = {
+			# hunting:
+			10 = {
+				modifier = {
+					factor = 0
+					hunting_spawn_possible_CTD_trigger = no
 				}
-				character_event = {	# Give owner cycleable choice
-					id = CTD.0502
-				}
-			}
-			if = {	# ai goes directly to choice event because it can see all options at once
-				limit = {
-					ai = yes
-				}
-				character_event = {	# Give owner actual choice now
-					id = CTD.0503
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_hunting
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_hunting
 				}
 			}
+		}
+		character_event = {	# Event to apply variables & decide on 1 or 2 products
+			id = CTD.0505
 		}
 	}
 }
@@ -50,7 +51,7 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:target_spawn_province = {
-				has_province_flag = player_decides_on_fundamental_spawn_type
+				has_province_flag = player_decides_on_fundamental_spawn_type	# remove this, it's gone NOTE
 			}
 		}
 		text = CTDDESC_A_0502
@@ -2854,17 +2855,52 @@ character_event = {
 }
 
 
-## Events for individual resource choice for each spawn
+## Events to decide on 1 or 2 spawned products & apply variables depending on both province cap and workforce
 
-# Hunting
+# First product to spawn
 character_event = {
 	id = CTD.0505
 	desc = CTDDESC_0505
 	
 	is_triggered_only = yes		# by event
 	
-	# 
+	# gold_ore:
 	option = {
 		name = CTDOPTA_0505
+		trigger = {
+			event_target:target_spawn_province = {
+				AND = {
+					NOT = {	# Not if just spawned the same product (for 2 product choice)
+						has_province_flag = newly_spawned_gold_ore
+					}
+					OR = {	# list of spawns that can spawn this product
+						has_province_flag = chosen_spawn_is_open_pit_mining
+						has_province_flag = chosen_spawn_is_underground_mining
+						has_province_flag = chosen_spawn_is_placer_mining
+					}
+					# for minerals: province has unused but known deposit:
+					has_province_modifier = prospected_mineral_gold_ore
+				}
+			}
+		}
+		event_target:target_spawn_province = {
+			set_province_flag = newly_spawned_gold_ore
+		}
+	}
+	
+	after = {
+		# Ask if want a 2nd product to spawn, if spawn can spawn a 2nd product and hasn't already spawned 2nd. Otherwise, go to applying products.
+		if = {
+			limit = {
+				AND = {
+					has_chosen_1_product = yes	# NOTE code this!
+					has_chosen_2_products = no	# NOTE code this!
+					chosen_spawn_allows_for_2nd_product = yes	# NOTE code this!
+				}
+			}
+			character_event = {
+				id = CTD.0506
+			}
+		}
 	}
 }
