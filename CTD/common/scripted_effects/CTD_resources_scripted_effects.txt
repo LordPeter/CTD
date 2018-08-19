@@ -1,0 +1,55 @@
+################################
+# CTD resources scripted effects
+#
+# by LordPeter
+################################
+
+### Match resource variables to spawn
+## This MUST be called in an province scope to work properly
+# Matches the tradegood variable to spawn cap, and also split if spawn spawns 2 resources
+
+# Minerals:
+match_gold_ore_variable_to_spawn_CTD_effect = {
+	# Initialize Helper variable with spawn - list all possible spawns for product here
+	trigger_switch = {
+		on_trigger = has_province_flag
+		chosen_spawn_is_open_pit_mining = {
+			set_variable = {
+				which = product_helper_variable
+				which = var_spawn_open_pit_mining
+			}
+		}
+		chosen_spawn_is_underground_mining = {
+			set_variable = {
+				which = product_helper_variable
+				which = var_spawn_underground_mining
+			}
+		}
+		chosen_spawn_is_placer_mining = {
+			set_variable = {
+				which = product_helper_variable
+				which = var_spawn_placer_mining
+			}
+		}
+	}
+	# Match resource to helper variable (or half, if split)
+	if = {
+		limit = {
+			has_province_flag = split_products_in_half
+		}
+		multiply_variable = {
+			which = product_helper_variable
+			value = 0.5
+		}
+		change_variable = {
+			which = produced_gold_ore
+			which = product_helper_variable
+		}
+	}
+	else = {
+		change_variable = {
+			which = produced_gold_ore
+			which = product_helper_variable
+		}
+	}
+}

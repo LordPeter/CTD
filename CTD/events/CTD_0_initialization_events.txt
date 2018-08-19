@@ -2114,6 +2114,15 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 					}
 				}
 			}
+			# Initialize dynamic agriculture/livestock caps with static caps
+			set_variable = {
+				which = province_cap_livestock_dynamic
+				which = province_cap_livestock
+			}
+			set_variable = {
+				which = province_cap_agriculture_dynamic
+				which = province_cap_agriculture
+			}
 			# Initialize "generic" supply from current holdings (henceforth done by automation)
 			update_province_holding_supply_CTD_effect = yes
 			

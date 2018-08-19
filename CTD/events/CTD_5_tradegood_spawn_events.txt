@@ -455,7 +455,7 @@ character_event = {
 		}
 		event_target:target_spawn_province = {	# Switch flags
 			clr_province_flag = player_decides_on_livestock_spawn_type
-			set_province_flag = player_decides_on_spawn_livestock_1
+			set_province_flag = player_decides_on_spawn_1
 		}
 		character_event = {	# Go to actual spawn choice now
 			id = CTD.0503
@@ -470,7 +470,7 @@ character_event = {
 		}
 		event_target:target_spawn_province = {	# Switch flags
 			clr_province_flag = player_decides_on_livestock_spawn_type
-			set_province_flag = player_decides_on_spawn_livestock_2
+			set_province_flag = player_decides_on_spawn_2
 		}
 		character_event = {	# Go to actual spawn choice now
 			id = CTD.0503
@@ -485,7 +485,7 @@ character_event = {
 		}
 		event_target:target_spawn_province = {	# Switch flags
 			clr_province_flag = player_decides_on_livestock_spawn_type
-			set_province_flag = player_decides_on_spawn_livestock_3
+			set_province_flag = player_decides_on_spawn_3
 		}
 		character_event = {	# Go to actual spawn choice now
 			id = CTD.0503
@@ -516,7 +516,7 @@ character_event = {
 		}
 		event_target:target_spawn_province = {	# Switch flags
 			clr_province_flag = player_decides_on_livestock_spawn_type_2
-			set_province_flag = player_decides_on_spawn_livestock_4
+			set_province_flag = player_decides_on_spawn_4
 		}
 		character_event = {	# Go to actual spawn choice now
 			id = CTD.0503
@@ -531,7 +531,7 @@ character_event = {
 		}
 		event_target:target_spawn_province = {	# Switch flags
 			clr_province_flag = player_decides_on_livestock_spawn_type_2
-			set_province_flag = player_decides_on_spawn_livestock_5
+			set_province_flag = player_decides_on_spawn_5
 		}
 		character_event = {	# Go to actual spawn choice now
 			id = CTD.0503
@@ -546,7 +546,7 @@ character_event = {
 		}
 		event_target:target_spawn_province = {	# Switch flags
 			clr_province_flag = player_decides_on_livestock_spawn_type_2
-			set_province_flag = player_decides_on_spawn_livestock_6
+			set_province_flag = player_decides_on_spawn_6
 		}
 		character_event = {	# Go to actual spawn choice now
 			id = CTD.0503
@@ -1574,7 +1574,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_1
+						has_province_flag = player_decides_on_spawn_1
 					}
 				}
 				cattle_spawn_possible_CTD_trigger = yes
@@ -1582,7 +1582,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_1
+				clr_province_flag = player_decides_on_spawn_1
 				set_province_flag = chosen_spawn_is_cattle
 			}
 			character_event = {	# Event to confirm
@@ -1598,7 +1598,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_1
+						has_province_flag = player_decides_on_spawn_1
 					}
 				}
 				sheep_spawn_possible_CTD_trigger = yes
@@ -1606,7 +1606,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_1
+				clr_province_flag = player_decides_on_spawn_1
 				set_province_flag = chosen_spawn_is_sheep
 			}
 			character_event = {	# Event to confirm
@@ -1622,7 +1622,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_1
+						has_province_flag = player_decides_on_spawn_1
 					}
 				}
 				goats_spawn_possible_CTD_trigger = yes
@@ -1630,7 +1630,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_1
+				clr_province_flag = player_decides_on_spawn_1
 				set_province_flag = chosen_spawn_is_goats
 			}
 			character_event = {	# Event to confirm
@@ -1646,7 +1646,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_2
+						has_province_flag = player_decides_on_spawn_2
 					}
 				}
 				pigs_spawn_possible_CTD_trigger = yes
@@ -1654,7 +1654,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_2
+				clr_province_flag = player_decides_on_spawn_2
 				set_province_flag = chosen_spawn_is_pigs
 			}
 			character_event = {	# Event to confirm
@@ -1670,7 +1670,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_2
+						has_province_flag = player_decides_on_spawn_2
 					}
 				}
 				poultry_spawn_possible_CTD_trigger = yes
@@ -1678,7 +1678,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_2
+				clr_province_flag = player_decides_on_spawn_2
 				set_province_flag = chosen_spawn_is_poultry
 			}
 			character_event = {	# Event to confirm
@@ -1694,7 +1694,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_2
+						has_province_flag = player_decides_on_spawn_2
 					}
 				}
 				horses_spawn_possible_CTD_trigger = yes
@@ -1702,7 +1702,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_2
+				clr_province_flag = player_decides_on_spawn_2
 				set_province_flag = chosen_spawn_is_horses
 			}
 			character_event = {	# Event to confirm
@@ -1718,7 +1718,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_3
+						has_province_flag = player_decides_on_spawn_3
 					}
 				}
 				camels_spawn_possible_CTD_trigger = yes
@@ -1726,7 +1726,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_3
+				clr_province_flag = player_decides_on_spawn_3
 				set_province_flag = chosen_spawn_is_camels
 			}
 			character_event = {	# Event to confirm
@@ -1742,7 +1742,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_3
+						has_province_flag = player_decides_on_spawn_3
 					}
 				}
 				reindeers_spawn_possible_CTD_trigger = yes
@@ -1750,7 +1750,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_3
+				clr_province_flag = player_decides_on_spawn_3
 				set_province_flag = chosen_spawn_is_reindeers
 			}
 			character_event = {	# Event to confirm
@@ -1766,7 +1766,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_3
+						has_province_flag = player_decides_on_spawn_3
 					}
 				}
 				elephants_spawn_possible_CTD_trigger = yes
@@ -1774,7 +1774,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_3
+				clr_province_flag = player_decides_on_spawn_3
 				set_province_flag = chosen_spawn_is_elephants
 			}
 			character_event = {	# Event to confirm
@@ -1790,7 +1790,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_4
+						has_province_flag = player_decides_on_spawn_4
 					}
 				}
 				yaks_spawn_possible_CTD_trigger = yes
@@ -1798,7 +1798,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_4
+				clr_province_flag = player_decides_on_spawn_4
 				set_province_flag = chosen_spawn_is_yaks
 			}
 			character_event = {	# Event to confirm
@@ -1814,7 +1814,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_4
+						has_province_flag = player_decides_on_spawn_4
 					}
 				}
 				sericulture_spawn_possible_CTD_trigger = yes
@@ -1822,7 +1822,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_4
+				clr_province_flag = player_decides_on_spawn_4
 				set_province_flag = chosen_spawn_is_sericulture
 			}
 			character_event = {	# Event to confirm
@@ -1838,7 +1838,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_4
+						has_province_flag = player_decides_on_spawn_4
 					}
 				}
 				apiculture_spawn_possible_CTD_trigger = yes
@@ -1846,7 +1846,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_4
+				clr_province_flag = player_decides_on_spawn_4
 				set_province_flag = chosen_spawn_is_apiculture
 			}
 			character_event = {	# Event to confirm
@@ -1862,7 +1862,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_5
+						has_province_flag = player_decides_on_spawn_5
 					}
 				}
 				kermes_insects_spawn_possible_CTD_trigger = yes
@@ -1870,7 +1870,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_5
+				clr_province_flag = player_decides_on_spawn_5
 				set_province_flag = chosen_spawn_is_kermes_insects
 			}
 			character_event = {	# Event to confirm
@@ -1886,7 +1886,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_5
+						has_province_flag = player_decides_on_spawn_5
 					}
 				}
 				cochineal_insects_spawn_possible_CTD_trigger = yes
@@ -1894,7 +1894,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_5
+				clr_province_flag = player_decides_on_spawn_5
 				set_province_flag = chosen_spawn_is_cochineal_insects
 			}
 			character_event = {	# Event to confirm
@@ -1910,7 +1910,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_5
+						has_province_flag = player_decides_on_spawn_5
 					}
 				}
 				lac_insects_spawn_possible_CTD_trigger = yes
@@ -1918,7 +1918,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_5
+				clr_province_flag = player_decides_on_spawn_5
 				set_province_flag = chosen_spawn_is_lac_insects
 			}
 			character_event = {	# Event to confirm
@@ -1934,7 +1934,7 @@ character_event = {
 				OR = {
 					ai = yes
 					event_target:target_spawn_province = {
-						has_province_flag = player_decides_on_spawn_livestock_6
+						has_province_flag = player_decides_on_spawn_6
 					}
 				}
 				fish_farming_spawn_possible_CTD_trigger = yes
@@ -1942,7 +1942,7 @@ character_event = {
 		}
 		hidden_tooltip = {
 			event_target:target_spawn_province = {
-				clr_province_flag = player_decides_on_spawn_livestock_6
+				clr_province_flag = player_decides_on_spawn_6
 				set_province_flag = chosen_spawn_is_fish_farming
 			}
 			character_event = {	# Event to confirm
@@ -1969,20 +1969,22 @@ character_event = {
 				on_trigger = has_province_flag
 				chosen_spawn_is_hunting = {
 					add_province_modifier = {
-						name = spawn_nature_unique_hunting
+						name = spawn_hunting
 						duration = -1
 					}
+					# Add province variable depending on spawn type cap (if influenced by weather/diaster, use _dynamic) and workforce:
+					match_spawn_hunting_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0505	# Individual events for every spawn - no other way to do this sadly...
+							id = CTD.0505
 							# no delay here
 						}
 					}
 				}
 				chosen_spawn_is_gathering = {
 					add_province_modifier = {
-						name = spawn_nature_unique_gathering
+						name = spawn_gathering
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -1995,7 +1997,7 @@ character_event = {
 				}
 				chosen_spawn_is_fishing = {
 					add_province_modifier = {
-						name = spawn_nature_unique_fishing
+						name = spawn_fishing
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2008,7 +2010,7 @@ character_event = {
 				}
 				chosen_spawn_is_whaling = {
 					add_province_modifier = {
-						name = spawn_nature_unique_whaling
+						name = spawn_whaling
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2021,7 +2023,7 @@ character_event = {
 				}
 				chosen_spawn_is_diving = {
 					add_province_modifier = {
-						name = spawn_nature_unique_diving
+						name = spawn_diving
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2034,7 +2036,7 @@ character_event = {
 				}
 				chosen_spawn_is_coniferous_forest = {
 					add_province_modifier = {
-						name = spawn_nature_forests_coniferous_forest
+						name = spawn_coniferous_forest
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2047,7 +2049,7 @@ character_event = {
 				}
 				chosen_spawn_is_broadleave_forest = {
 					add_province_modifier = {
-						name = spawn_nature_forests_broadleave_forest
+						name = spawn_broadleave_forest
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2060,7 +2062,7 @@ character_event = {
 				}
 				chosen_spawn_is_tropical_rainforest = {
 					add_province_modifier = {
-						name = spawn_nature_forests_tropical_rainforest
+						name = spawn_tropical_rainforest
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2073,7 +2075,7 @@ character_event = {
 				}
 				chosen_spawn_is_bamboo_forest = {
 					add_province_modifier = {
-						name = spawn_nature_forests_bamboo_forest
+						name = spawn_bamboo_forest
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2086,7 +2088,7 @@ character_event = {
 				}
 				chosen_spawn_is_open_pit_mining = {
 					add_province_modifier = {
-						name = spawn_nature_mining_open_pit_mining
+						name = spawn_open_pit_mining
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2099,7 +2101,7 @@ character_event = {
 				}
 				chosen_spawn_is_underground_mining = {
 					add_province_modifier = {
-						name = spawn_nature_mining_underground_mining
+						name = spawn_underground_mining
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2112,7 +2114,7 @@ character_event = {
 				}
 				chosen_spawn_is_placer_mining = {
 					add_province_modifier = {
-						name = spawn_nature_mining_placer_mining
+						name = spawn_placer_mining
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2125,7 +2127,7 @@ character_event = {
 				}
 				chosen_spawn_is_digging = {
 					add_province_modifier = {
-						name = spawn_nature_mining_digging
+						name = spawn_digging
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2138,7 +2140,7 @@ character_event = {
 				}
 				chosen_spawn_is_quarrying = {
 					add_province_modifier = {
-						name = spawn_nature_mining_quarrying
+						name = spawn_quarrying
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2151,7 +2153,7 @@ character_event = {
 				}
 				chosen_spawn_is_salt_evaporation = {
 					add_province_modifier = {
-						name = spawn_nature_mining_salt_evaporation
+						name = spawn_salt_evaporation
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2164,7 +2166,7 @@ character_event = {
 				}
 				chosen_spawn_is_natural_wells = {
 					add_province_modifier = {
-						name = spawn_nature_mining_natural_wells
+						name = spawn_natural_wells
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2177,7 +2179,7 @@ character_event = {
 				}
 				chosen_spawn_is_crop_fields = {
 					add_province_modifier = {
-						name = spawn_agriculture_field_crop_fields
+						name = spawn_crop_fields
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2190,7 +2192,7 @@ character_event = {
 				}
 				chosen_spawn_is_paddy_fields = {
 					add_province_modifier = {
-						name = spawn_agriculture_field_paddy_fields
+						name = spawn_paddy_fields
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2203,7 +2205,7 @@ character_event = {
 				}
 				chosen_spawn_is_gardening = {
 					add_province_modifier = {
-						name = spawn_agriculture_field_gardening
+						name = spawn_gardening
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2216,7 +2218,7 @@ character_event = {
 				}
 				chosen_spawn_is_vineyards = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_vineyards
+						name = spawn_vineyards
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2229,7 +2231,7 @@ character_event = {
 				}
 				chosen_spawn_is_copse = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_copse
+						name = spawn_copse
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2242,7 +2244,7 @@ character_event = {
 				}
 				chosen_spawn_is_crop_fields = {
 					add_province_modifier = {
-						name = spawn_agriculture_field_crop_fields
+						name = spawn_crop_fields
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2255,7 +2257,7 @@ character_event = {
 				}
 				chosen_spawn_is_cork_oak_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_cork_oak_groves
+						name = spawn_cork_oak_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2268,7 +2270,7 @@ character_event = {
 				}
 				chosen_spawn_is_nut_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_nut_groves
+						name = spawn_nut_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2281,7 +2283,7 @@ character_event = {
 				}
 				chosen_spawn_is_fruit_orchards = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_fruit_orchards
+						name = spawn_fruit_orchards
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2294,7 +2296,7 @@ character_event = {
 				}
 				chosen_spawn_is_citrus_orchards = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_citrus_orchards
+						name = spawn_citrus_orchards
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2307,7 +2309,7 @@ character_event = {
 				}
 				chosen_spawn_is_tamarind_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_tamarind_groves
+						name = spawn_tamarind_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2320,7 +2322,7 @@ character_event = {
 				}
 				chosen_spawn_is_almond_orchards = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_almond_orchards
+						name = spawn_almond_orchards
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2333,7 +2335,7 @@ character_event = {
 				}
 				chosen_spawn_is_olive_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_olive_groves
+						name = spawn_olive_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2346,7 +2348,7 @@ character_event = {
 				}
 				chosen_spawn_is_palm_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_palm_groves
+						name = spawn_palm_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2359,7 +2361,7 @@ character_event = {
 				}
 				chosen_spawn_is_date_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_date_groves
+						name = spawn_date_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2372,7 +2374,7 @@ character_event = {
 				}
 				chosen_spawn_is_areca_palm_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_areca_palm_groves
+						name = spawn_areca_palm_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2385,7 +2387,7 @@ character_event = {
 				}
 				chosen_spawn_is_coconut_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_coconut_groves
+						name = spawn_coconut_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2398,7 +2400,7 @@ character_event = {
 				}
 				chosen_spawn_is_gum_acacia_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_gum_acacia_groves
+						name = spawn_gum_acacia_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2411,7 +2413,7 @@ character_event = {
 				}
 				chosen_spawn_is_sandarac_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_sandarac_groves
+						name = spawn_sandarac_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2424,7 +2426,7 @@ character_event = {
 				}
 				chosen_spawn_is_olibanum_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_olibanum_groves
+						name = spawn_olibanum_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2437,7 +2439,7 @@ character_event = {
 				}
 				chosen_spawn_is_myrrh_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_myrrh_groves
+						name = spawn_myrrh_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2450,7 +2452,7 @@ character_event = {
 				}
 				chosen_spawn_is_lentisk_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_lentisk_groves
+						name = spawn_lentisk_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2463,7 +2465,7 @@ character_event = {
 				}
 				chosen_spawn_is_cinnamon_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_cinnamon_groves
+						name = spawn_cinnamon_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2476,7 +2478,7 @@ character_event = {
 				}
 				chosen_spawn_is_moringa_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_moringa_groves
+						name = spawn_moringa_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2489,7 +2491,7 @@ character_event = {
 				}
 				chosen_spawn_is_argan_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_argan_groves
+						name = spawn_argan_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2502,7 +2504,7 @@ character_event = {
 				}
 				chosen_spawn_is_neem_groves = {
 					add_province_modifier = {
-						name = spawn_agriculture_orchard_neem_groves
+						name = spawn_neem_groves
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2515,7 +2517,7 @@ character_event = {
 				}
 				chosen_spawn_is_cattle = {
 					add_province_modifier = {
-						name = spawn_livestock_cattle
+						name = spawn_cattle
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2528,7 +2530,7 @@ character_event = {
 				}
 				chosen_spawn_is_sheep = {
 					add_province_modifier = {
-						name = spawn_livestock_sheep
+						name = spawn_sheep
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2541,7 +2543,7 @@ character_event = {
 				}
 				chosen_spawn_is_goats = {
 					add_province_modifier = {
-						name = spawn_livestock_goats
+						name = spawn_goats
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2554,7 +2556,7 @@ character_event = {
 				}
 				chosen_spawn_is_pigs = {
 					add_province_modifier = {
-						name = spawn_livestock_pigs
+						name = spawn_pigs
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2567,7 +2569,7 @@ character_event = {
 				}
 				chosen_spawn_is_poultry = {
 					add_province_modifier = {
-						name = spawn_livestock_poultry
+						name = spawn_poultry
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2580,7 +2582,7 @@ character_event = {
 				}
 				chosen_spawn_is_horses = {
 					add_province_modifier = {
-						name = spawn_livestock_horses
+						name = spawn_horses
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2593,7 +2595,7 @@ character_event = {
 				}
 				chosen_spawn_is_camels = {
 					add_province_modifier = {
-						name = spawn_livestock_camels
+						name = spawn_camels
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2606,7 +2608,7 @@ character_event = {
 				}
 				chosen_spawn_is_reindeers = {
 					add_province_modifier = {
-						name = spawn_livestock_reindeers
+						name = spawn_reindeers
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2619,7 +2621,7 @@ character_event = {
 				}
 				chosen_spawn_is_elephants = {
 					add_province_modifier = {
-						name = spawn_livestock_elephants
+						name = spawn_elephants
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2632,7 +2634,7 @@ character_event = {
 				}
 				chosen_spawn_is_yaks = {
 					add_province_modifier = {
-						name = spawn_livestock_yaks
+						name = spawn_yaks
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2645,7 +2647,7 @@ character_event = {
 				}
 				chosen_spawn_is_sericulture = {
 					add_province_modifier = {
-						name = spawn_livestock_sericulture
+						name = spawn_sericulture
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2658,7 +2660,7 @@ character_event = {
 				}
 				chosen_spawn_is_apiculture = {
 					add_province_modifier = {
-						name = spawn_livestock_apiculture
+						name = spawn_apiculture
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2671,7 +2673,7 @@ character_event = {
 				}
 				chosen_spawn_is_kermes_insects = {
 					add_province_modifier = {
-						name = spawn_livestock_kermes_insects
+						name = spawn_kermes_insects
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2684,7 +2686,7 @@ character_event = {
 				}
 				chosen_spawn_is_cochineal_insects = {
 					add_province_modifier = {
-						name = spawn_livestock_cochineal_insects
+						name = spawn_cochineal_insects
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2697,7 +2699,7 @@ character_event = {
 				}
 				chosen_spawn_is_lac_insects = {
 					add_province_modifier = {
-						name = spawn_livestock_lac_insects
+						name = spawn_lac_insects
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2710,7 +2712,7 @@ character_event = {
 				}
 				chosen_spawn_is_fish_farming = {
 					add_province_modifier = {
-						name = spawn_livestock_fish_farming
+						name = spawn_fish_farming
 						duration = -1
 					}
 					# Delayed event for resource choice:
@@ -2722,65 +2724,7 @@ character_event = {
 					}
 				}
 			}
-			# Clear all province flags:
-			clr_province_flag = deciding_on_spawn_type	# this one is from decision
-			clr_province_flag = chosen_spawn_is_hunting
-			clr_province_flag = chosen_spawn_is_gathering
-			clr_province_flag = chosen_spawn_is_fishing
-			clr_province_flag = chosen_spawn_is_whaling
-			clr_province_flag = chosen_spawn_is_diving
-			clr_province_flag = chosen_spawn_is_coniferous_forest
-			clr_province_flag = chosen_spawn_is_broadleave_forest
-			clr_province_flag = chosen_spawn_is_tropical_rainforest
-			clr_province_flag = chosen_spawn_is_bamboo_forest
-			clr_province_flag = chosen_spawn_is_open_pit_mining
-			clr_province_flag = chosen_spawn_is_underground_mining
-			clr_province_flag = chosen_spawn_is_placer_mining
-			clr_province_flag = chosen_spawn_is_quarrying
-			clr_province_flag = chosen_spawn_is_digging
-			clr_province_flag = chosen_spawn_is_salt_evaporation
-			clr_province_flag = chosen_spawn_is_natural_wells
-			clr_province_flag = chosen_spawn_is_crop_fields
-			clr_province_flag = chosen_spawn_is_paddy_fields
-			clr_province_flag = chosen_spawn_is_gardening
-			clr_province_flag = chosen_spawn_is_vineyards
-			clr_province_flag = chosen_spawn_is_copse
-			clr_province_flag = chosen_spawn_is_cork_oak_groves
-			clr_province_flag = chosen_spawn_is_nut_groves
-			clr_province_flag = chosen_spawn_is_fruit_orchards
-			clr_province_flag = chosen_spawn_is_citrus_orchards
-			clr_province_flag = chosen_spawn_is_tamarind_groves
-			clr_province_flag = chosen_spawn_is_almond_orchards
-			clr_province_flag = chosen_spawn_is_olive_groves
-			clr_province_flag = chosen_spawn_is_palm_groves
-			clr_province_flag = chosen_spawn_is_date_groves
-			clr_province_flag = chosen_spawn_is_areca_palm_groves
-			clr_province_flag = chosen_spawn_is_coconut_groves
-			clr_province_flag = chosen_spawn_is_gum_acacia_groves
-			clr_province_flag = chosen_spawn_is_sandarac_groves
-			clr_province_flag = chosen_spawn_is_olibanum_groves
-			clr_province_flag = chosen_spawn_is_myrrh_groves
-			clr_province_flag = chosen_spawn_is_lentisk_groves
-			clr_province_flag = chosen_spawn_is_cinnamon_groves
-			clr_province_flag = chosen_spawn_is_moringa_groves
-			clr_province_flag = chosen_spawn_is_argan_groves
-			clr_province_flag = chosen_spawn_is_neem_groves
-			clr_province_flag = chosen_spawn_is_cattle
-			clr_province_flag = chosen_spawn_is_sheep
-			clr_province_flag = chosen_spawn_is_goats
-			clr_province_flag = chosen_spawn_is_pigs
-			clr_province_flag = chosen_spawn_is_poultry
-			clr_province_flag = chosen_spawn_is_horses
-			clr_province_flag = chosen_spawn_is_camels
-			clr_province_flag = chosen_spawn_is_reindeers
-			clr_province_flag = chosen_spawn_is_elephants
-			clr_province_flag = chosen_spawn_is_yaks
-			clr_province_flag = chosen_spawn_is_sericulture
-			clr_province_flag = chosen_spawn_is_apiculture
-			clr_province_flag = chosen_spawn_is_kermes_insects
-			clr_province_flag = chosen_spawn_is_cochineal_insects
-			clr_province_flag = chosen_spawn_is_lac_insects
-			clr_province_flag = chosen_spawn_is_fish_farming
+			# INFO: Do NOT delete the spawn flags yet, they are needed when applying the resources!
 		}
 		# just for info, here is the /end of province scope
 	}
@@ -2925,6 +2869,9 @@ character_event = {
 	# Yes, split between two
 	option = {
 		name = CTDOPTA_0506
+		event_target:target_spawn_province = {
+			set_province_flag = split_products_in_half
+		}
 		character_event = {	# Call product choice event a 2nd time
 			id = CTD.0505
 		}
@@ -2941,7 +2888,7 @@ character_event = {
 	}
 }
 
-# Now match variables to cap and workforce (also taking into account weather/disaster modifiers!)
+# Now match resource variables to spawn variable
 character_event = {
 	id = CTD.0507
 	desc = CTDDESC_0507
@@ -2952,5 +2899,67 @@ character_event = {
 	
 	immediate = {
 		
+		event_target:target_spawn_province = {
+			
+			# And last, clear all province spawn flags:
+			clr_province_flag = deciding_on_spawn_type	# this one is from decision
+			clr_province_flag = chosen_spawn_is_hunting
+			clr_province_flag = chosen_spawn_is_gathering
+			clr_province_flag = chosen_spawn_is_fishing
+			clr_province_flag = chosen_spawn_is_whaling
+			clr_province_flag = chosen_spawn_is_diving
+			clr_province_flag = chosen_spawn_is_coniferous_forest
+			clr_province_flag = chosen_spawn_is_broadleave_forest
+			clr_province_flag = chosen_spawn_is_tropical_rainforest
+			clr_province_flag = chosen_spawn_is_bamboo_forest
+			clr_province_flag = chosen_spawn_is_open_pit_mining
+			clr_province_flag = chosen_spawn_is_underground_mining
+			clr_province_flag = chosen_spawn_is_placer_mining
+			clr_province_flag = chosen_spawn_is_quarrying
+			clr_province_flag = chosen_spawn_is_digging
+			clr_province_flag = chosen_spawn_is_salt_evaporation
+			clr_province_flag = chosen_spawn_is_natural_wells
+			clr_province_flag = chosen_spawn_is_crop_fields
+			clr_province_flag = chosen_spawn_is_paddy_fields
+			clr_province_flag = chosen_spawn_is_gardening
+			clr_province_flag = chosen_spawn_is_vineyards
+			clr_province_flag = chosen_spawn_is_copse
+			clr_province_flag = chosen_spawn_is_cork_oak_groves
+			clr_province_flag = chosen_spawn_is_nut_groves
+			clr_province_flag = chosen_spawn_is_fruit_orchards
+			clr_province_flag = chosen_spawn_is_citrus_orchards
+			clr_province_flag = chosen_spawn_is_tamarind_groves
+			clr_province_flag = chosen_spawn_is_almond_orchards
+			clr_province_flag = chosen_spawn_is_olive_groves
+			clr_province_flag = chosen_spawn_is_palm_groves
+			clr_province_flag = chosen_spawn_is_date_groves
+			clr_province_flag = chosen_spawn_is_areca_palm_groves
+			clr_province_flag = chosen_spawn_is_coconut_groves
+			clr_province_flag = chosen_spawn_is_gum_acacia_groves
+			clr_province_flag = chosen_spawn_is_sandarac_groves
+			clr_province_flag = chosen_spawn_is_olibanum_groves
+			clr_province_flag = chosen_spawn_is_myrrh_groves
+			clr_province_flag = chosen_spawn_is_lentisk_groves
+			clr_province_flag = chosen_spawn_is_cinnamon_groves
+			clr_province_flag = chosen_spawn_is_moringa_groves
+			clr_province_flag = chosen_spawn_is_argan_groves
+			clr_province_flag = chosen_spawn_is_neem_groves
+			clr_province_flag = chosen_spawn_is_cattle
+			clr_province_flag = chosen_spawn_is_sheep
+			clr_province_flag = chosen_spawn_is_goats
+			clr_province_flag = chosen_spawn_is_pigs
+			clr_province_flag = chosen_spawn_is_poultry
+			clr_province_flag = chosen_spawn_is_horses
+			clr_province_flag = chosen_spawn_is_camels
+			clr_province_flag = chosen_spawn_is_reindeers
+			clr_province_flag = chosen_spawn_is_elephants
+			clr_province_flag = chosen_spawn_is_yaks
+			clr_province_flag = chosen_spawn_is_sericulture
+			clr_province_flag = chosen_spawn_is_apiculture
+			clr_province_flag = chosen_spawn_is_kermes_insects
+			clr_province_flag = chosen_spawn_is_cochineal_insects
+			clr_province_flag = chosen_spawn_is_lac_insects
+			clr_province_flag = chosen_spawn_is_fish_farming
+		}
 	}
 }

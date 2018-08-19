@@ -4,142 +4,6 @@
 # by LordPeter
 ##############################
 
-
-### Match tradegoods to cap and workforce
-## This MUST be called in an province scope to work properly
-# Matches the tradegood variable to province cap, workforce cap - also split if spawn spawns 2 resources
-
-# Minerals:
-match_gold_ore_variable_to_caps_CTD_effect = {
-	while = {
-		limit = {
-			NOR = {
-				check_variable = {
-					which = produced_gold_ore
-					which = province_cap_mining
-				}
-				check_variable = {
-					which = province_employed_simple_labour
-					which = province_workforce_simple_labour
-				}
-			}
-		}
-		# Increase tradegood
-		change_variable = {
-			which = produced_gold_ore
-			value = 0.1
-		}
-		# Increase employed workforce
-		change_variable = {
-			which = province_employed_simple_labour
-			value = 0.1
-		}
-	}
-}
-## Add more NOTE
-# Plantproducts:
-match_grapes_variable_to_caps_CTD_effect = {
-	while = {
-		limit = {
-			NOR = {
-				check_variable = {
-					which = produced_grapes
-					which = province_cap_agriculture_dynamic
-				}
-				check_variable = {
-					which = province_employed_simple_labour
-					which = province_workforce_simple_labour
-				}
-			}
-		}
-		# Increase tradegood
-		change_variable = {
-			which = produced_grapes
-			value = 0.1
-		}
-		# Increase employed workforce
-		change_variable = {
-			which = province_employed_simple_labour
-			value = 0.1
-		}
-	}
-}
-## Add more NOTE
-# Animalproducts:
-match_milk_variable_to_caps_CTD_effect = {
-	while = {
-		limit = {
-			NOR = {
-				check_variable = {
-					which = produced_milk
-					which = province_cap_livestock_dynamic
-				}
-				check_variable = {
-					which = province_employed_simple_labour
-					which = province_workforce_simple_labour
-				}
-			}
-		}
-		# Increase tradegood
-		change_variable = {
-			which = produced_milk
-			value = 0.1
-		}
-		# Increase employed workforce
-		change_variable = {
-			which = province_employed_simple_labour
-			value = 0.1
-		}
-	}
-}
-## Add more NOTE
-
-	# For reference: the disaster modification variables
-	# set_variable = {
-		# which = province_temporary_effect_on_agriculture
-		# value = 0
-	# }
-	# set_variable = {
-		# which = province_temporary_effect_on_livestock
-		# value = 0
-	# }
-	# and the workforce variables:
-	# set_variable = {
-		# which = province_workforce_simple_labour
-		# value = 0
-	# }
-	# set_variable = {
-		# which = province_workforce_craftsmanship
-		# value = 0
-	# }
-	 # and the cap variables:
-	# change_variable = {
-		# which = province_cap_mining
-		# value = 5
-	# }
-	# change_variable = {
-		# which = province_cap_agriculture
-		# value = 5
-	# }
-	# change_variable = {
-		# which = province_cap_forests
-		# value = 5
-	# }
-	# change_variable = {
-		# which = province_cap_livestock
-		# value = 5
-	# }
-	# change_variable = {
-		# which = province_cap_refined
-		# value = 5
-	# }
-	# change_variable = {
-		# which = province_cap_finalized
-		# value = 5
-	# }
-
-
-
 ### Change workforce amount
 ## This MUST be called in an province scope to work properly
 # Increases or decreases the province's workforce type value based on several factors	# NOTE: always = no # TESTING	#TECH_TRADE_PRACTICES is just a placeholder for future, changed techs
@@ -1525,6 +1389,18 @@ gain_deep_woods_CTD_effect = {
 		which = province_cap_livestock
 		value = -1
 	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
 }
 remove_deep_woods_CTD_effect = {
 	# Modifier:
@@ -1555,6 +1431,18 @@ remove_deep_woods_CTD_effect = {
 		which = province_cap_livestock
 		value = 1
 	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
 }
 
 # Swamps
@@ -1584,6 +1472,18 @@ gain_swamps_CTD_effect = {
 		which = province_cap_livestock
 		value = -1
 	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
 }
 remove_swamps_CTD_effect = {
 	# Modifier:
@@ -1607,6 +1507,18 @@ remove_swamps_CTD_effect = {
 	change_variable = {
 		which = province_cap_livestock
 		value = 1
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 }
 
@@ -1643,6 +1555,18 @@ gain_mangroves_CTD_effect = {
 		which = province_cap_livestock
 		value = -1
 	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
 }
 remove_mangroves_CTD_effect = {
 	# Modifier:
@@ -1673,6 +1597,18 @@ remove_mangroves_CTD_effect = {
 		which = province_cap_livestock
 		value = 1
 	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
 }
 
 # Heath
@@ -1699,6 +1635,12 @@ gain_heath_CTD_effect = {
 		value = -1
 	}
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 remove_heath_CTD_effect = {
 	# Modifier:
@@ -1720,6 +1662,12 @@ remove_heath_CTD_effect = {
 		value = 1
 	}
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 
 # Volcano
@@ -1746,6 +1694,12 @@ gain_volcano_CTD_effect = {
 		value = 1
 	}
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 remove_volcano_CTD_effect = {
 	# Modifier:
@@ -1767,6 +1721,12 @@ remove_volcano_CTD_effect = {
 		value = -1
 	}
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 
 # Mountain Pass
@@ -1816,6 +1776,12 @@ gain_hot_springs_CTD_effect = {
 	}
 	# Forests: No change
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 remove_hot_springs_CTD_effect = {
 	# Modifier:
@@ -1831,6 +1797,12 @@ remove_hot_springs_CTD_effect = {
 	}
 	# Forests: No change
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 
 # Estuary
@@ -1854,6 +1826,12 @@ gain_estuary_CTD_effect = {
 	}
 	# Forests: No change
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 remove_estuary_CTD_effect = {
 	# Modifier:
@@ -1872,6 +1850,12 @@ remove_estuary_CTD_effect = {
 	}
 	# Forests: No change
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 
 # Natural Harbour
@@ -1962,6 +1946,12 @@ gain_flood_plains_CTD_effect = {
 		value = -1
 	}
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 remove_flood_plains_CTD_effect = {
 	# Modifier:
@@ -1983,6 +1973,12 @@ remove_flood_plains_CTD_effect = {
 		value = 1
 	}
 	# Livestock: No change
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
 }
 
 # Salt Pans
@@ -2015,6 +2011,18 @@ gain_salt_pans_CTD_effect = {
 		which = province_cap_livestock
 		value = -1
 	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
 }
 remove_salt_pans_CTD_effect = {
 	# Modifier:
@@ -2041,6 +2049,18 @@ remove_salt_pans_CTD_effect = {
 	change_variable = {
 		which = province_cap_livestock
 		value = 1
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 }
 
@@ -2112,6 +2132,18 @@ gain_glaciers_CTD_effect = {
 		which = province_cap_livestock
 		value = -1
 	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
 }
 remove_glaciers_CTD_effect = {
 	# Modifier:
@@ -2135,6 +2167,67 @@ remove_glaciers_CTD_effect = {
 	change_variable = {
 		which = province_cap_livestock
 		value = 1
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_agriculture
+		}
+		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
+	}
+	if = {
+		limit = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
+}
+
+
+### Match dynamic caps static caps
+## This MUST be called in an province scope to work properly
+# Matches the dynamic caps for agriculture and livestock to changed static caps, taking into account disaster/weather
+
+# Agriculture
+match_dynamic_agriculture_cap_to_static_CTD_effect = {
+	# Initialize
+	set_variable = {
+		which = province_cap_agriculture_dynamic
+		which = province_cap_agriculture
+	}
+	set_variable = {
+		which = dynamic_cap_helper_variable
+		which = province_temporary_effect_on_agriculture
+	}
+	# "Divide" through 100 so can be used for caluclations (e.g. 50 "percent" -> 0.5)
+	multiply_variable = {
+		which = dynamic_cap_helper_variable
+		value = 0.01
+	}
+	multiply_variable = {
+		which = province_cap_agriculture_dynamic
+		which = dynamic_cap_helper_variable
+	}
+}
+
+# Livestock
+match_dynamic_livestock_cap_to_static_CTD_effect = {
+	# Initialize
+	set_variable = {
+		which = province_cap_livestock_dynamic
+		which = province_cap_livestock
+	}
+	set_variable = {
+		which = dynamic_cap_helper_variable
+		which = province_temporary_effect_on_livestock
+	}
+	# "Divide" through 100 so can be used for caluclations (e.g. 50 "percent" -> 0.5)
+	multiply_variable = {
+		which = dynamic_cap_helper_variable
+		value = 0.01
+	}
+	multiply_variable = {
+		which = province_cap_livestock_dynamic
+		which = dynamic_cap_helper_variable
 	}
 }
 

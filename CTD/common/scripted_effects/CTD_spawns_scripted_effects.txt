@@ -1,0 +1,83 @@
+#############################
+# CTD spawns scripted effects
+#
+# by LordPeter
+#############################
+
+### Match spawn to cap
+## This MUST be called in an province scope to work properly
+# Matches the spawn variable to (in some cases: dynamic or unique) spawn type cap and also workforce
+
+# Unique:
+match_spawn_hunting_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_hunting	# Unique, hidden cap type
+			}
+		}
+		set_variable = {
+			which = var_spawn_hunting
+			which = province_cap_hunting
+		}
+	}
+	else = {	# Workforce is limiting
+		limit = {
+			check_variable = {
+				which = province_cap_hunting	# Unique, hidden cap type
+				which = province_workforce_simple_labour
+			}
+		}
+		set_variable = {
+			which = var_spawn_hunting
+			which = province_workforce_simple_labour
+		}
+	}
+}
+
+	# For reference: the disaster modification variables
+	# set_variable = {
+		# which = province_temporary_effect_on_agriculture
+		# value = 0
+	# }
+	# set_variable = {
+		# which = province_temporary_effect_on_livestock
+		# value = 0
+	# }
+	# and the workforce variables:
+	# set_variable = {
+		# which = province_workforce_simple_labour
+		# value = 0
+	# }
+	# set_variable = {
+		# which = province_workforce_craftsmanship
+		# value = 0
+	# }
+	 # and the cap variables:
+	# change_variable = {
+		# which = province_cap_mining
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_agriculture
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_forests
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_livestock
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_refined
+		# value = 5
+	# }
+	# change_variable = {
+		# which = province_cap_finalized
+		# value = 5
+	# }
+
