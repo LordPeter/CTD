@@ -4,6 +4,30 @@
 # by LordPeter
 #############################
 
+### Has chosen 2 products
+## This MUST be called in an province scope to work properly
+# Checks whether province owner has already chosen 2 resources to spawn and thus isn't eligible for another one
+
+# Has chosen 2 products
+has_chosen_2_products_CTD_trigger = {
+	count = 2
+	# list of all the resource flags - NOTE check if count works with that with a testy event first!
+}
+
+
+### Spawn allows for 2nd product
+## This MUST be called in an province scope to work properly
+# Checks whether spawn output can even be split up, because some spawns only allow for a single product (e.g. silk)
+
+# Spawn allows 2nd product
+chosen_spawn_allows_for_2nd_product_CTD_trigger = {
+	# simply checks the opposite, i.e. if spawn can NOT output more than one resource
+	NOR = {
+		has_province_flag = 
+	}
+}
+
+
 ### Match spawn to cap
 ## This MUST be called in an province scope to work properly
 # Matches the spawn variable to (in some cases: dynamic or unique) spawn type cap and also workforce

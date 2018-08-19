@@ -25,12 +25,6 @@ match_gold_ore_variable_to_spawn_CTD_effect = {
 				which = var_spawn_underground_mining
 			}
 		}
-		chosen_spawn_is_placer_mining = {
-			set_variable = {
-				which = product_helper_variable
-				which = var_spawn_placer_mining
-			}
-		}
 	}
 	# Match resource to helper variable (or half, if split)
 	if = {

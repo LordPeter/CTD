@@ -2888,7 +2888,7 @@ character_event = {
 	}
 }
 
-# Now match resource variables to spawn variable
+# Set modifier and match resource variables to spawn variable
 character_event = {
 	id = CTD.0507
 	desc = CTDDESC_0507
@@ -2900,9 +2900,22 @@ character_event = {
 	immediate = {
 		
 		event_target:target_spawn_province = {
-			
+			trigger_switch = {	# Decides which modifier to apply based on flag set before
+				on_trigger = has_province_flag
+				newly_spawned_gold_ore = {
+					add_province_modifier = {
+						name = resource_gold_ore
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_gold_ore_variable_to_spawn_CTD_effect = yes
+				}
+				# MORE here ADD them
+			}
 			# And last, clear all province spawn flags:
 			clr_province_flag = deciding_on_spawn_type	# this one is from decision
+			clr_province_flag = split_products_in_half	# that one is from split choice event
+			# and the rest are all the chosen_spawn flags:
 			clr_province_flag = chosen_spawn_is_hunting
 			clr_province_flag = chosen_spawn_is_gathering
 			clr_province_flag = chosen_spawn_is_fishing
