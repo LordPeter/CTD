@@ -104,7 +104,8 @@ title_decisions = {
             ROOT = {	# Note: The title - not the province yet!
 				location = {
 					set_province_flag = prospectors_sent	# Safety check to prevent decision spam
-					province_event = {	# Fire an event for the province so we get it as an event target
+					save_event_target_as = target_prospected_province	# save province
+					province_event = {	# NOTE: Yes, here it actually is a province event because we need to calculate some stuff
 						id = CTD.0420
 					}
 				}
@@ -156,9 +157,25 @@ title_decisions = {
         }
         effect = {
             ROOT = {	# Note: The title - not the province yet!
-				location = {	# Fire an event for the province so we get it as an event target
-					province_event = {
-						id = CTD.0401
+				location = {
+					save_event_target_as = target_edict_province	# save province
+					owner = {
+						if = {	# ai has direct event because it can see all options at once
+							limit = {
+								ai = yes
+							}
+							character_event = {	# AI can see everything
+								id = CTD.0401
+							}
+						}
+						if = {	# player gets cycleable options
+							limit = {
+								ai = no
+							}
+							character_event = {	# Give owner cycleable choice
+								id = CTD.0402
+							}
+						}
 					}
 				}
 			}
@@ -235,9 +252,11 @@ title_decisions = {
 				location = {
 					# Set flag so decision can not be clicked again:
 					set_province_flag = trade_fair_decision_taken
-					# Fire an event for the province so we get it as an event target:
-					province_event = {
-						id = CTD.0410
+					save_event_target_as = target_trade_fair_province	# save province
+					owner = {
+						character_event = {
+							id = CTD.0410
+						}
 					}
 				}
 			}
@@ -314,9 +333,11 @@ title_decisions = {
 				location = {
 					# Set flag so decision can not be clicked again:
 					set_province_flag = staple_right_decision_taken
-					# Fire an event for the province so we get it as an event target:
-					province_event = {
-						id = CTD.0412
+					save_event_target_as = target_staple_right_province	# save province
+					owner = {
+						character_event = {
+							id = CTD.0411
+						}
 					}
 				}
 			}

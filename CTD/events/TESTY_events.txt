@@ -225,6 +225,25 @@ character_event = {
 	}
 }
 
+# Test some stuff (frequently changing)
+
+character_event = {
+	id = TST.6
+	desc = CTDDESC_0001		# Generic "invisible" localisation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CTDDESC_0702
+		event_target:target_spawn_province = {
+			add_province_modifier = {
+				name = currency_cowrie_shells
+				duration = -1
+			}
+		}
+	}
+}
+
 ### Change values of variables
 
 character_event = {
