@@ -3752,7 +3752,1294 @@ character_event = {
 					# Now match variable of resource to spawn
 					match_gold_ore_variable_to_spawn_CTD_effect = yes
 				}
-				# MORE here ADD them
+				newly_spawned_placer_gold = {
+					add_province_modifier = {
+						name = resource_placer_gold
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_placer_gold_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_electrum = {
+					add_province_modifier = {
+						name = resource_electrum
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_electrum_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_chlorargyrite = {
+					add_province_modifier = {
+						name = resource_chlorargyrite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_chlorargyrite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_ruby_silver = {
+					add_province_modifier = {
+						name = resource_ruby_silver
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_ruby_silver_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_chalcopyrite = {
+					add_province_modifier = {
+						name = resource_chalcopyrite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_chalcopyrite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_chalcocite = {
+					add_province_modifier = {
+						name = resource_chalcocite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_chalcocite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_haematite = {
+					add_province_modifier = {
+						name = resource_haematite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_haematite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_magnetite = {
+					add_province_modifier = {
+						name = resource_magnetite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_magnetite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_pyrite = {
+					add_province_modifier = {
+						name = resource_pyrite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_pyrite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cassiterite = {
+					add_province_modifier = {
+						name = resource_cassiterite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cassiterite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_lead_glance = {
+					add_province_modifier = {
+						name = resource_lead_glance
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_lead_glance_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_gemstones = {
+					add_province_modifier = {
+						name = resource_gemstones
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_gemstones_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_lapis_lazuli = {
+					add_province_modifier = {
+						name = resource_lapis_lazuli
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_lapis_lazuli_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_malachite = {
+					add_province_modifier = {
+						name = resource_malachite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_malachite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_orpiment_realgar = {
+					add_province_modifier = {
+						name = resource_orpiment_realgar
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_orpiment_realgar_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_jade = {
+					add_province_modifier = {
+						name = resource_jade
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_jade_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_alum = {
+					add_province_modifier = {
+						name = resource_alum
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_alum_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cinnabar = {
+					add_province_modifier = {
+						name = resource_cinnabar
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cinnabar_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sulfur_ore = {
+					add_province_modifier = {
+						name = resource_sulfur_ore
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sulfur_ore_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_naphtha = {
+					add_province_modifier = {
+						name = resource_naphtha
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_naphtha_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_coal = {
+					add_province_modifier = {
+						name = resource_coal
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_coal_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_calamine = {
+					add_province_modifier = {
+						name = resource_calamine
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_calamine_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_smaltite = {
+					add_province_modifier = {
+						name = resource_smaltite
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_smaltite_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_antimonit = {
+					add_province_modifier = {
+						name = resource_antimonit
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_antimonit_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_pyrolusit = {
+					add_province_modifier = {
+						name = resource_pyrolusit
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_pyrolusit_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sal_ammoniac = {
+					add_province_modifier = {
+						name = resource_sal_ammoniac
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sal_ammoniac_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_marble = {
+					add_province_modifier = {
+						name = resource_marble
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_marble_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_stone = {
+					add_province_modifier = {
+						name = resource_stone
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_stone_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_limestone = {
+					add_province_modifier = {
+						name = resource_limestone
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_limestone_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_alabaster = {
+					add_province_modifier = {
+						name = resource_alabaster
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_alabaster_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_gypsum = {
+					add_province_modifier = {
+						name = resource_gypsum
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_gypsum_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_amber = {
+					add_province_modifier = {
+						name = resource_amber
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_amber_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_salt = {
+					add_province_modifier = {
+						name = resource_salt
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_salt_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_natural_brine = {
+					add_province_modifier = {
+						name = resource_natural_brine
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_natural_brine_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_soda = {
+					add_province_modifier = {
+						name = resource_soda
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_soda_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sand = {
+					add_province_modifier = {
+						name = resource_sand
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sand_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_clay = {
+					add_province_modifier = {
+						name = resource_clay
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_clay_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_borax = {
+					add_province_modifier = {
+						name = resource_borax
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_borax_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_grapes = {
+					add_province_modifier = {
+						name = resource_grapes
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_grapes_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_exotic_fruit = {
+					add_province_modifier = {
+						name = resource_exotic_fruit
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_exotic_fruit_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cotton = {
+					add_province_modifier = {
+						name = resource_cotton
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cotton_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_flax = {
+					add_province_modifier = {
+						name = resource_flax
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_flax_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_hemp = {
+					add_province_modifier = {
+						name = resource_hemp
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_hemp_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_ramie = {
+					add_province_modifier = {
+						name = resource_ramie
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_ramie_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_kenaf = {
+					add_province_modifier = {
+						name = resource_kenaf
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_kenaf_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_jute = {
+					add_province_modifier = {
+						name = resource_jute
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_jute_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_roselle = {
+					add_province_modifier = {
+						name = resource_roselle
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_roselle_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sugar_cane = {
+					add_province_modifier = {
+						name = resource_sugar_cane
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sugar_cane_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_black_pepper = {
+					add_province_modifier = {
+						name = resource_black_pepper
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_black_pepper_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_ginger = {
+					add_province_modifier = {
+						name = resource_ginger
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_ginger_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_saffron = {
+					add_province_modifier = {
+						name = resource_saffron
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_saffron_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_anise = {
+					add_province_modifier = {
+						name = resource_anise
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_anise_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cumin = {
+					add_province_modifier = {
+						name = resource_cumin
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cumin_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_mustard_seeds = {
+					add_province_modifier = {
+						name = resource_mustard_seeds
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_mustard_seeds_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_tanners_sumac = {
+					add_province_modifier = {
+						name = resource_tanners_sumac
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_tanners_sumac_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_tea = {
+					add_province_modifier = {
+						name = resource_tea
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_tea_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_dyers_woad = {
+					add_province_modifier = {
+						name = resource_dyers_woad
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_dyers_woad_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_indigo = {
+					add_province_modifier = {
+						name = resource_indigo
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_indigo_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_henna = {
+					add_province_modifier = {
+						name = resource_henna
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_henna_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_madder = {
+					add_province_modifier = {
+						name = resource_madder
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_madder_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_weld = {
+					add_province_modifier = {
+						name = resource_weld
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_weld_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_safflower = {
+					add_province_modifier = {
+						name = resource_safflower
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_safflower_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_turnsole = {
+					add_province_modifier = {
+						name = resource_turnsole
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_turnsole_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_spikenard = {
+					add_province_modifier = {
+						name = resource_spikenard
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_spikenard_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_poppy = {
+					add_province_modifier = {
+						name = resource_poppy
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_poppy_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sesame = {
+					add_province_modifier = {
+						name = resource_sesame
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sesame_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_hops = {
+					add_province_modifier = {
+						name = resource_hops
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_hops_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_saltwort = {
+					add_province_modifier = {
+						name = resource_saltwort
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_saltwort_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_straw = {
+					add_province_modifier = {
+						name = resource_straw
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_straw_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_wheat = {
+					add_province_modifier = {
+						name = resource_wheat
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_wheat_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_barley = {
+					add_province_modifier = {
+						name = resource_barley
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_barley_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_spelt = {
+					add_province_modifier = {
+						name = resource_spelt
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_spelt_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_rye = {
+					add_province_modifier = {
+						name = resource_rye
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_rye_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_oat = {
+					add_province_modifier = {
+						name = resource_oat
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_oat_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_millet = {
+					add_province_modifier = {
+						name = resource_millet
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_millet_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_buckwheat = {
+					add_province_modifier = {
+						name = resource_buckwheat
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_buckwheat_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_rice = {
+					add_province_modifier = {
+						name = resource_rice
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_rice_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_timber = {
+					add_province_modifier = {
+						name = resource_timber
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_timber_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_firewood = {
+					add_province_modifier = {
+						name = resource_firewood
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_firewood_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_flexible_twigs = {
+					add_province_modifier = {
+						name = resource_flexible_twigs
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_flexible_twigs_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sandalwood = {
+					add_province_modifier = {
+						name = resource_sandalwood
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sandalwood_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_ebony = {
+					add_province_modifier = {
+						name = resource_ebony
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_ebony_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_agarwood = {
+					add_province_modifier = {
+						name = resource_agarwood
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_agarwood_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sappanwood = {
+					add_province_modifier = {
+						name = resource_sappanwood
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sappanwood_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cedarwood = {
+					add_province_modifier = {
+						name = resource_cedarwood
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cedarwood_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_teak = {
+					add_province_modifier = {
+						name = resource_teak
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_teak_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_tanbark = {
+					add_province_modifier = {
+						name = resource_tanbark
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_tanbark_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cork = {
+					add_province_modifier = {
+						name = resource_cork
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cork_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_birch_bark = {
+					add_province_modifier = {
+						name = resource_birch_bark
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_birch_bark_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_palm_leaves = {
+					add_province_modifier = {
+						name = resource_palm_leaves
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_palm_leaves_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cinnamon = {
+					add_province_modifier = {
+						name = resource_cinnamon
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cinnamon_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_oak_galls = {
+					add_province_modifier = {
+						name = resource_oak_galls
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_oak_galls_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_tamarind = {
+					add_province_modifier = {
+						name = resource_tamarind
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_tamarind_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_almonds = {
+					add_province_modifier = {
+						name = resource_almonds
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_almonds_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_nuts = {
+					add_province_modifier = {
+						name = resource_nuts
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_nuts_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_tree_fruit = {
+					add_province_modifier = {
+						name = resource_tree_fruit
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_tree_fruit_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_dates = {
+					add_province_modifier = {
+						name = resource_dates
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_dates_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_citrus_fruit = {
+					add_province_modifier = {
+						name = resource_citrus_fruit
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_citrus_fruit_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_olives = {
+					add_province_modifier = {
+						name = resource_olives
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_olives_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_juniper_berries = {
+					add_province_modifier = {
+						name = resource_juniper_berries
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_juniper_berries_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_resin = {
+					add_province_modifier = {
+						name = resource_resin
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_resin_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_frankincense = {
+					add_province_modifier = {
+						name = resource_frankincense
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_frankincense_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_myrrh = {
+					add_province_modifier = {
+						name = resource_myrrh
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_myrrh_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_mastic = {
+					add_province_modifier = {
+						name = resource_mastic
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_mastic_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_dragons_blood = {
+					add_province_modifier = {
+						name = resource_dragons_blood
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_dragons_blood_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_natural_gum = {
+					add_province_modifier = {
+						name = resource_natural_gum
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_natural_gum_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_birch_sap = {
+					add_province_modifier = {
+						name = resource_birch_sap
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_birch_sap_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_mushrooms = {
+					add_province_modifier = {
+						name = resource_mushrooms
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_mushrooms_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_peat = {
+					add_province_modifier = {
+						name = resource_peat
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_peat_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_seaweed = {
+					add_province_modifier = {
+						name = resource_seaweed
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_seaweed_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_reed = {
+					add_province_modifier = {
+						name = resource_reed
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_reed_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_bracken_fern = {
+					add_province_modifier = {
+						name = resource_bracken_fern
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_bracken_fern_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_herbs = {
+					add_province_modifier = {
+						name = resource_herbs
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_herbs_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_berries = {
+					add_province_modifier = {
+						name = resource_berries
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_berries_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_vegetables = {
+					add_province_modifier = {
+						name = resource_vegetables
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_vegetables_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_nettles = {
+					add_province_modifier = {
+						name = resource_nettles
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_nettles_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_flowers = {
+					add_province_modifier = {
+						name = resource_flowers
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_flowers_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_papyrus_sedge = {
+					add_province_modifier = {
+						name = resource_papyrus_sedge
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_papyrus_sedge_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_khat = {
+					add_province_modifier = {
+						name = resource_khat
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_khat_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_betel_leaves = {
+					add_province_modifier = {
+						name = resource_betel_leaves
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_betel_leaves_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_areca_nuts = {
+					add_province_modifier = {
+						name = resource_areca_nuts
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_areca_nuts_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_argan_seeds = {
+					add_province_modifier = {
+						name = resource_argan_seeds
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_argan_seeds_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_palm_pulp = {
+					add_province_modifier = {
+						name = resource_palm_pulp
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_palm_pulp_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_moringa_kernels = {
+					add_province_modifier = {
+						name = resource_moringa_kernels
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_moringa_kernels_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_coffee_beans = {
+					add_province_modifier = {
+						name = resource_coffee_beans
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_coffee_beans_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_milk = {
+					add_province_modifier = {
+						name = resource_milk
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_milk_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_caviar = {
+					add_province_modifier = {
+						name = resource_caviar
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_caviar_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_raw_fish = {
+					add_province_modifier = {
+						name = resource_raw_fish
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_raw_fish_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_raw_meat = {
+					add_province_modifier = {
+						name = resource_raw_meat
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_raw_meat_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_animal_fat = {
+					add_province_modifier = {
+						name = resource_animal_fat
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_animal_fat_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_eggs = {
+					add_province_modifier = {
+						name = resource_eggs
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_eggs_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_bones = {
+					add_province_modifier = {
+						name = resource_bones
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_bones_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_horns = {
+					add_province_modifier = {
+						name = resource_horns
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_horns_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_feathers = {
+					add_province_modifier = {
+						name = resource_feathers
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_feathers_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_hide = {
+					add_province_modifier = {
+						name = resource_hide
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_hide_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_silkthread = {
+					add_province_modifier = {
+						name = resource_silkthread
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_silkthread_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_wool = {
+					add_province_modifier = {
+						name = resource_wool
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_wool_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_camel_hair = {
+					add_province_modifier = {
+						name = resource_camel_hair
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_camel_hair_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_animal_hair = {
+					add_province_modifier = {
+						name = resource_animal_hair
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_animal_hair_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_pelts = {
+					add_province_modifier = {
+						name = resource_pelts
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_pelts_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_musk = {
+					add_province_modifier = {
+						name = resource_musk
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_musk_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_ivory = {
+					add_province_modifier = {
+						name = resource_ivory
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_ivory_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_corals = {
+					add_province_modifier = {
+						name = resource_corals
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_corals_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_murex_snails = {
+					add_province_modifier = {
+						name = resource_murex_snails
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_murex_snails_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_pearls = {
+					add_province_modifier = {
+						name = resource_pearls
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_pearls_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cowry_shells = {
+					add_province_modifier = {
+						name = resource_cowry_shells
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cowry_shells_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_ambergris = {
+					add_province_modifier = {
+						name = resource_ambergris
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_ambergris_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_sepia = {
+					add_province_modifier = {
+						name = resource_sepia
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_sepia_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_honey = {
+					add_province_modifier = {
+						name = resource_honey
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_honey_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_beeswax = {
+					add_province_modifier = {
+						name = resource_beeswax
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_beeswax_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_shellac = {
+					add_province_modifier = {
+						name = resource_shellac
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_shellac_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_kermes = {
+					add_province_modifier = {
+						name = resource_kermes
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_kermes_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_carmine = {
+					add_province_modifier = {
+						name = resource_carmine
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_carmine_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_captured_wild_animals = {
+					add_province_modifier = {
+						name = resource_captured_wild_animals
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_captured_wild_animals_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_tortoise_shells = {
+					add_province_modifier = {
+						name = resource_tortoise_shells
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_tortoise_shells_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_byssus = {
+					add_province_modifier = {
+						name = resource_byssus
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_byssus_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_cashmere = {
+					add_province_modifier = {
+						name = resource_cashmere
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_cashmere_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_yak_wool = {
+					add_province_modifier = {
+						name = resource_yak_wool
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_yak_wool_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_dromedaries = {
+					add_province_modifier = {
+						name = resource_dromedaries
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_dromedaries_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_elephant_mounts = {
+					add_province_modifier = {
+						name = resource_elephant_mounts
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_elephant_mounts_variable_to_spawn_CTD_effect = yes
+				}
+				newly_spawned_steeds = {
+					add_province_modifier = {
+						name = resource_steeds
+						duration = -1
+					}
+					# Now match variable of resource to spawn
+					match_steeds_variable_to_spawn_CTD_effect = yes
+				}
 			}
 			# And last, clear all province spawn flags:
 			clr_province_flag = deciding_on_spawn_type	# this one is from decision
