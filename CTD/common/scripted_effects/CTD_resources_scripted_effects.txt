@@ -46,4 +46,6 @@ match_gold_ore_variable_to_spawn_CTD_effect = {
 			which = product_helper_variable
 		}
 	}
+	# And last but not least, clear the flag:
+	clr_province_flag = newly_spawned_gold_ore
 }
