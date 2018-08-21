@@ -2885,6 +2885,14 @@ gain_deep_woods_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	change_variable = {
+		which = province_cap_hunting
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_gathering
+		value = 1
+	}
 }
 remove_deep_woods_CTD_effect = {
 	# Modifier:
@@ -2927,6 +2935,14 @@ remove_deep_woods_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	change_variable = {
+		which = province_cap_hunting
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_gathering
+		value = -1
+	}
 }
 
 # Swamps
@@ -2968,6 +2984,26 @@ gain_swamps_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	change_variable = {
+		which = province_cap_hunting
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_gathering
+		value = 1
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = -1
+		}
+	}
 }
 remove_swamps_CTD_effect = {
 	# Modifier:
@@ -3003,6 +3039,26 @@ remove_swamps_CTD_effect = {
 			has_province_flag = temp_cap_reduction_livestock
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
+	}
+	change_variable = {
+		which = province_cap_hunting
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_gathering
+		value = -1
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = 1
+		}
 	}
 }
 
@@ -3051,6 +3107,25 @@ gain_mangroves_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	change_variable = {
+		which = province_cap_gathering
+		value = 1
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = 1
+		}
+	}
+	# Diving: No change
 }
 remove_mangroves_CTD_effect = {
 	# Modifier:
@@ -3093,6 +3168,25 @@ remove_mangroves_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	change_variable = {
+		which = province_cap_gathering
+		value = -1
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = -1
+		}
+	}
+	# Diving: No change
 }
 
 # Heath
@@ -3125,6 +3219,10 @@ gain_heath_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 remove_heath_CTD_effect = {
 	# Modifier:
@@ -3152,6 +3250,10 @@ remove_heath_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 
 # Volcano
@@ -3184,6 +3286,10 @@ gain_volcano_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 remove_volcano_CTD_effect = {
 	# Modifier:
@@ -3211,6 +3317,10 @@ remove_volcano_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 
 # Mountain Pass
@@ -3228,6 +3338,10 @@ gain_mountain_pass_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 remove_mountain_pass_CTD_effect = {
 	# Modifier:
@@ -3240,6 +3354,10 @@ remove_mountain_pass_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 
 # Hot Springs
@@ -3266,6 +3384,10 @@ gain_hot_springs_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 remove_hot_springs_CTD_effect = {
 	# Modifier:
@@ -3287,6 +3409,10 @@ remove_hot_springs_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 
 # Estuary
@@ -3316,6 +3442,33 @@ gain_estuary_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = 1
+		}
+	}
 }
 remove_estuary_CTD_effect = {
 	# Modifier:
@@ -3340,6 +3493,33 @@ remove_estuary_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = -1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = -1
+		}
+	}
 }
 
 # Natural Harbour
@@ -3357,6 +3537,33 @@ gain_natural_harbour_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	# Hunting: No change
+	# Gathering: No change
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = 1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = 1
+		}
+	}
 }
 remove_natural_harbour_CTD_effect = {
 	# Modifier:
@@ -3369,6 +3576,33 @@ remove_natural_harbour_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	# Hunting: No change
+	# Gathering: No change
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = -1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = -1
+		}
+	}
 }
 
 # Coral Reefs
@@ -3389,6 +3623,33 @@ gain_coral_reefs_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	# Hunting: No change
+	# Gathering: No change
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = 3
+		}
+	}
 }
 remove_coral_reefs_CTD_effect = {
 	# Modifier:
@@ -3404,6 +3665,33 @@ remove_coral_reefs_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	# Hunting: No change
+	# Gathering: No change
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_major_river = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_fishing
+			value = -2
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				port = yes
+				borders_lake = yes
+			}
+		}
+		change_variable = {
+			which = province_cap_diving
+			value = -3
+		}
+	}
 }
 
 # Flood Plains
@@ -3436,6 +3724,16 @@ gain_flood_plains_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	change_variable = {
+		which = province_cap_hunting
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_gathering
+		value = 1
+	}
+	# Fishing: No change
+	# Diving: No change
 }
 remove_flood_plains_CTD_effect = {
 	# Modifier:
@@ -3463,6 +3761,18 @@ remove_flood_plains_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	change_variable = {
+		which = province_cap_hunting
+		value = -1
+	}
+	# Gathering: No change
+	change_variable = {
+		which = province_cap_gathering
+		value = -1
+	}
+	# Fishing: No change
+	# Diving: No change
 }
 
 # Salt Pans
@@ -3507,6 +3817,16 @@ gain_salt_pans_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	change_variable = {
+		which = province_cap_hunting
+		value = -1
+	}
+	change_variable = {
+		which = province_cap_gathering
+		value = -1
+	}
+	# Fishing: No change
+	# Diving: No change
 }
 remove_salt_pans_CTD_effect = {
 	# Modifier:
@@ -3546,6 +3866,16 @@ remove_salt_pans_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	change_variable = {
+		which = province_cap_hunting
+		value = 1
+	}
+	change_variable = {
+		which = province_cap_gathering
+		value = 1
+	}
+	# Fishing: No change
+	# Diving: No change
 }
 
 # Caves
@@ -3569,6 +3899,13 @@ gain_caves_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	change_variable = {
+		which = province_cap_hunting
+		value = 1
+	}
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 remove_caves_CTD_effect = {
 	# Modifier:
@@ -3587,6 +3924,13 @@ remove_caves_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
+	change_variable = {
+		which = province_cap_hunting
+		value = -1
+	}
+	# Gathering: No change
+	# Fishing: No change
+	# Diving: No change
 }
 
 # Glaciers
@@ -3628,6 +3972,14 @@ gain_glaciers_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	# Gathering: No change
+	change_variable = {
+		which = province_cap_gathering
+		value = -2
+	}
+	# Fishing: No change
+	# Diving: No change
 }
 remove_glaciers_CTD_effect = {
 	# Modifier:
@@ -3664,12 +4016,19 @@ remove_glaciers_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
+	# Hunting: No change
+	change_variable = {
+		which = province_cap_gathering
+		value = 2
+	}
+	# Fishing: No change
+	# Diving: No change
 }
 
 
 ### Match dynamic caps static caps
 ## This MUST be called in an province scope to work properly
-# Matches the dynamic caps for agriculture, livestock, hunting and gathering to changed static caps, taking into account disaster/weather
+# Matches the dynamic caps for agriculture and livestock to changed static caps, taking into account disaster/weather
 
 # Agriculture
 match_dynamic_agriculture_cap_to_static_CTD_effect = {
@@ -3711,50 +4070,6 @@ match_dynamic_livestock_cap_to_static_CTD_effect = {
 	}
 	multiply_variable = {
 		which = province_cap_livestock_dynamic
-		which = dynamic_cap_helper_variable
-	}
-}
-
-# Hunting
-match_dynamic_hunting_cap_to_static_CTD_effect = {
-	# Initialize
-	set_variable = {
-		which = province_cap_hunting_dynamic
-		which = province_cap_hunting
-	}
-	set_variable = {
-		which = dynamic_cap_helper_variable
-		which = province_temporary_effect_on_hunting
-	}
-	# "Divide" through 100 so can be used for caluclations (e.g. 50 "percent" -> 0.5)
-	multiply_variable = {
-		which = dynamic_cap_helper_variable
-		value = 0.01
-	}
-	multiply_variable = {
-		which = province_cap_hunting_dynamic
-		which = dynamic_cap_helper_variable
-	}
-}
-
-# Gathering
-match_dynamic_gathering_cap_to_static_CTD_effect = {
-	# Initialize
-	set_variable = {
-		which = province_cap_gathering_dynamic
-		which = province_cap_gathering
-	}
-	set_variable = {
-		which = dynamic_cap_helper_variable
-		which = province_temporary_effect_on_gathering
-	}
-	# "Divide" through 100 so can be used for caluclations (e.g. 50 "percent" -> 0.5)
-	multiply_variable = {
-		which = dynamic_cap_helper_variable
-		value = 0.01
-	}
-	multiply_variable = {
-		which = province_cap_gathering_dynamic
 		which = dynamic_cap_helper_variable
 	}
 }

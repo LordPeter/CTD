@@ -37,6 +37,846 @@ character_event = {
 					set_province_flag = chosen_spawn_is_hunting
 				}
 			}
+			# gathering:
+			10 = {
+				modifier = {
+					factor = 0
+					gathering_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_gathering
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_gathering
+				}
+			}
+			# fishing:
+			10 = {
+				modifier = {
+					factor = 0
+					fishing_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_fishing
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_fishing
+				}
+			}
+			# whaling:
+			10 = {
+				modifier = {
+					factor = 0
+					whaling_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_whaling
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_whaling
+				}
+			}
+			# diving:
+			10 = {
+				modifier = {
+					factor = 0
+					diving_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_diving
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_diving
+				}
+			}
+			# coniferous_forest:
+			10 = {
+				modifier = {
+					factor = 0
+					coniferous_forest_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_coniferous_forest
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_coniferous_forest
+				}
+			}
+			# broadleave_forest:
+			10 = {
+				modifier = {
+					factor = 0
+					broadleave_forest_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_broadleave_forest
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_broadleave_forest
+				}
+			}
+			# tropical_rainforest:
+			10 = {
+				modifier = {
+					factor = 0
+					tropical_rainforest_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_tropical_rainforest
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_tropical_rainforest
+				}
+			}
+			# bamboo_forest:
+			10 = {
+				modifier = {
+					factor = 0
+					bamboo_forest_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_bamboo_forest
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_bamboo_forest
+				}
+			}
+			# open_pit_mining:
+			10 = {
+				modifier = {
+					factor = 0
+					open_pit_mining_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_open_pit_mining
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_open_pit_mining
+				}
+			}
+			# underground_mining:
+			10 = {
+				modifier = {
+					factor = 0
+					underground_mining_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_underground_mining
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_underground_mining
+				}
+			}
+			# placer_mining:
+			10 = {
+				modifier = {
+					factor = 0
+					placer_mining_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_placer_mining
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_placer_mining
+				}
+			}
+			# digging:
+			10 = {
+				modifier = {
+					factor = 0
+					digging_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_digging
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_digging
+				}
+			}
+			# quarrying:
+			10 = {
+				modifier = {
+					factor = 0
+					quarrying_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_quarrying
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_quarrying
+				}
+			}
+			# salt_evaporation:
+			10 = {
+				modifier = {
+					factor = 0
+					salt_evaporation_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_salt_evaporation
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_salt_evaporation
+				}
+			}
+			# natural_wells:
+			10 = {
+				modifier = {
+					factor = 0
+					natural_wells_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_natural_wells
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_natural_wells
+				}
+			}
+			# crop_fields:
+			10 = {
+				modifier = {
+					factor = 0
+					crop_fields_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_crop_fields
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_crop_fields
+				}
+			}
+			# paddy_fields:
+			10 = {
+				modifier = {
+					factor = 0
+					paddy_fields_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_paddy_fields
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_paddy_fields
+				}
+			}
+			# gardening:
+			10 = {
+				modifier = {
+					factor = 0
+					gardening_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_gardening
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_gardening
+				}
+			}
+			# vineyards:
+			10 = {
+				modifier = {
+					factor = 0
+					vineyards_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_vineyards
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_vineyards
+				}
+			}
+			# copse:
+			10 = {
+				modifier = {
+					factor = 0
+					copse_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_copse
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_copse
+				}
+			}
+			# cork_oak_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					cork_oak_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_cork_oak_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_cork_oak_groves
+				}
+			}
+			# nut_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					nut_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_nut_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_nut_groves
+				}
+			}
+			# fruit_orchards:
+			10 = {
+				modifier = {
+					factor = 0
+					fruit_orchards_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_fruit_orchards
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_fruit_orchards
+				}
+			}
+			# citrus_orchards:
+			10 = {
+				modifier = {
+					factor = 0
+					citrus_orchards_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_citrus_orchards
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_citrus_orchards
+				}
+			}
+			# tamarind_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					tamarind_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_tamarind_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_tamarind_groves
+				}
+			}
+			# almond_orchards:
+			10 = {
+				modifier = {
+					factor = 0
+					almond_orchards_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_almond_orchards
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_almond_orchards
+				}
+			}
+			# olive_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					olive_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_olive_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_olive_groves
+				}
+			}
+			# palm_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					palm_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_palm_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_palm_groves
+				}
+			}
+			# date_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					date_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_date_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_date_groves
+				}
+			}
+			# areca_palm_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					areca_palm_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_areca_palm_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_areca_palm_groves
+				}
+			}
+			# coconut_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					coconut_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_coconut_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_coconut_groves
+				}
+			}
+			# gum_acacia_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					gum_acacia_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_gum_acacia_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_gum_acacia_groves
+				}
+			}
+			# sandarac_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					sandarac_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_sandarac_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_sandarac_groves
+				}
+			}
+			# olibanum_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					olibanum_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_olibanum_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_olibanum_groves
+				}
+			}
+			# myrrh_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					myrrh_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_myrrh_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_myrrh_groves
+				}
+			}
+			# lentisk_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					lentisk_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_lentisk_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_lentisk_groves
+				}
+			}
+			# cinnamon_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					cinnamon_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_cinnamon_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_cinnamon_groves
+				}
+			}
+			# moringa_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					moringa_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_moringa_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_moringa_groves
+				}
+			}
+			# argan_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					argan_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_argan_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_argan_groves
+				}
+			}
+			# neem_groves:
+			10 = {
+				modifier = {
+					factor = 0
+					neem_groves_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_neem_groves
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_neem_groves
+				}
+			}
+			# cattle:
+			10 = {
+				modifier = {
+					factor = 0
+					cattle_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_cattle
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_cattle
+				}
+			}
+			# sheep:
+			10 = {
+				modifier = {
+					factor = 0
+					sheep_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_sheep
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_sheep
+				}
+			}
+			# goats:
+			10 = {
+				modifier = {
+					factor = 0
+					goats_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_goats
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_goats
+				}
+			}
+			# pigs:
+			10 = {
+				modifier = {
+					factor = 0
+					pigs_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_pigs
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_pigs
+				}
+			}
+			# poultry:
+			10 = {
+				modifier = {
+					factor = 0
+					poultry_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_poultry
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_poultry
+				}
+			}
+			# horses:
+			10 = {
+				modifier = {
+					factor = 0
+					horses_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_horses
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_horses
+				}
+			}
+			# camels:
+			10 = {
+				modifier = {
+					factor = 0
+					camels_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_camels
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_camels
+				}
+			}
+			# reindeers:
+			10 = {
+				modifier = {
+					factor = 0
+					reindeers_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_reindeers
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_reindeers
+				}
+			}
+			# elephants:
+			10 = {
+				modifier = {
+					factor = 0
+					elephants_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_elephants
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_elephants
+				}
+			}
+			# yaks:
+			10 = {
+				modifier = {
+					factor = 0
+					yaks_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_yaks
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_yaks
+				}
+			}
+			# sericulture:
+			10 = {
+				modifier = {
+					factor = 0
+					sericulture_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_sericulture
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_sericulture
+				}
+			}
+			# apiculture:
+			10 = {
+				modifier = {
+					factor = 0
+					apiculture_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_apiculture
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_apiculture
+				}
+			}
+			# kermes_insects:
+			10 = {
+				modifier = {
+					factor = 0
+					kermes_insects_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_kermes_insects
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_kermes_insects
+				}
+			}
+			# cochineal_insects:
+			10 = {
+				modifier = {
+					factor = 0
+					cochineal_insects_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_cochineal_insects
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_cochineal_insects
+				}
+			}
+			# lac_insects:
+			10 = {
+				modifier = {
+					factor = 0
+					lac_insects_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_lac_insects
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_lac_insects
+				}
+			}
+			# fish_farming:
+			10 = {
+				modifier = {
+					factor = 0
+					fish_farming_spawn_possible_CTD_trigger = no
+				}
+				event_target:target_spawn_province = {
+					add_province_modifier = {
+						name = spawn_fish_farming
+						duration = -1
+					}
+					# This is so the follow-up event knows which of the spawns is "new":
+					set_province_flag = chosen_spawn_is_fish_farming
+				}
+			}
 		}
 		character_event = {	# Event to apply variables & decide on 1 or 2 products
 			id = CTD.0505
