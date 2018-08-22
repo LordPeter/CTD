@@ -5329,6 +5329,9 @@ character_event = {
 	# Accept choice & apply, reset decision
 	option = {
 		name = CTDOPTA_0504
+		custom_tooltip = {	# Inform player that some spawns take time to "grow", so product choice event might not pop up immediately
+			text = CTDTOOLTIP_0504
+		}
 		event_target:target_spawn_province = {
 			trigger_switch = {	# Decides which modifier to apply based on flag set before
 				on_trigger = has_province_flag
@@ -5918,121 +5921,353 @@ character_event = {
 		event_target:target_spawn_province = {
 			# Clear all province flags:
 			clr_province_flag = deciding_on_spawn_type	# this one is from decision
-			clr_province_flag = chosen_spawn_is_hunting
-			clr_province_flag = chosen_spawn_is_gathering
-			clr_province_flag = chosen_spawn_is_fishing
-			clr_province_flag = chosen_spawn_is_whaling
-			clr_province_flag = chosen_spawn_is_diving
-			clr_province_flag = chosen_spawn_is_coniferous_forest
-			clr_province_flag = chosen_spawn_is_broadleave_forest
-			clr_province_flag = chosen_spawn_is_tropical_rainforest
-			clr_province_flag = chosen_spawn_is_bamboo_forest
-			clr_province_flag = chosen_spawn_is_open_pit_mining
-			clr_province_flag = chosen_spawn_is_underground_mining
-			clr_province_flag = chosen_spawn_is_placer_mining
-			clr_province_flag = chosen_spawn_is_quarrying
-			clr_province_flag = chosen_spawn_is_digging
-			clr_province_flag = chosen_spawn_is_salt_evaporation
-			clr_province_flag = chosen_spawn_is_natural_wells
-			clr_province_flag = chosen_spawn_is_crop_fields
-			clr_province_flag = chosen_spawn_is_paddy_fields
-			clr_province_flag = chosen_spawn_is_gardening
-			clr_province_flag = chosen_spawn_is_vineyards
-			clr_province_flag = chosen_spawn_is_copse
-			clr_province_flag = chosen_spawn_is_cork_oak_groves
-			clr_province_flag = chosen_spawn_is_nut_groves
-			clr_province_flag = chosen_spawn_is_fruit_orchards
-			clr_province_flag = chosen_spawn_is_citrus_orchards
-			clr_province_flag = chosen_spawn_is_tamarind_groves
-			clr_province_flag = chosen_spawn_is_almond_orchards
-			clr_province_flag = chosen_spawn_is_olive_groves
-			clr_province_flag = chosen_spawn_is_palm_groves
-			clr_province_flag = chosen_spawn_is_date_groves
-			clr_province_flag = chosen_spawn_is_areca_palm_groves
-			clr_province_flag = chosen_spawn_is_coconut_groves
-			clr_province_flag = chosen_spawn_is_gum_acacia_groves
-			clr_province_flag = chosen_spawn_is_sandarac_groves
-			clr_province_flag = chosen_spawn_is_olibanum_groves
-			clr_province_flag = chosen_spawn_is_myrrh_groves
-			clr_province_flag = chosen_spawn_is_lentisk_groves
-			clr_province_flag = chosen_spawn_is_cinnamon_groves
-			clr_province_flag = chosen_spawn_is_moringa_groves
-			clr_province_flag = chosen_spawn_is_argan_groves
-			clr_province_flag = chosen_spawn_is_neem_groves
-			clr_province_flag = chosen_spawn_is_cattle
-			clr_province_flag = chosen_spawn_is_sheep
-			clr_province_flag = chosen_spawn_is_goats
-			clr_province_flag = chosen_spawn_is_pigs
-			clr_province_flag = chosen_spawn_is_poultry
-			clr_province_flag = chosen_spawn_is_horses
-			clr_province_flag = chosen_spawn_is_camels
-			clr_province_flag = chosen_spawn_is_reindeers
-			clr_province_flag = chosen_spawn_is_elephants
-			clr_province_flag = chosen_spawn_is_yaks
-			clr_province_flag = chosen_spawn_is_sericulture
-			clr_province_flag = chosen_spawn_is_apiculture
-			clr_province_flag = chosen_spawn_is_kermes_insects
-			clr_province_flag = chosen_spawn_is_cochineal_insects
-			clr_province_flag = chosen_spawn_is_lac_insects
-			clr_province_flag = chosen_spawn_is_fish_farming
-			# Also remove the modifiers, since they have been already set:
-			remove_province_modifier = spawn_hunting
-			remove_province_modifier = spawn_gathering
-			remove_province_modifier = spawn_fishing
-			remove_province_modifier = spawn_whaling
-			remove_province_modifier = spawn_diving
-			remove_province_modifier = spawn_coniferous_forest
-			remove_province_modifier = spawn_broadleave_forest
-			remove_province_modifier = spawn_tropical_rainforest
-			remove_province_modifier = spawn_bamboo_forest
-			remove_province_modifier = spawn_open_pit_mining
-			remove_province_modifier = spawn_underground_mining
-			remove_province_modifier = spawn_placer_mining
-			remove_province_modifier = spawn_digging
-			remove_province_modifier = spawn_quarrying
-			remove_province_modifier = spawn_salt_evaporation
-			remove_province_modifier = spawn_natural_wells
-			remove_province_modifier = spawn_crop_fields
-			remove_province_modifier = spawn_paddy_fields
-			remove_province_modifier = spawn_gardening
-			remove_province_modifier = spawn_vineyards
-			remove_province_modifier = spawn_copse
-			remove_province_modifier = spawn_cork_oak_groves
-			remove_province_modifier = spawn_nut_groves
-			remove_province_modifier = spawn_fruit_orchards
-			remove_province_modifier = spawn_citrus_orchards
-			remove_province_modifier = spawn_tamarind_groves
-			remove_province_modifier = spawn_almond_orchards
-			remove_province_modifier = spawn_olive_groves
-			remove_province_modifier = spawn_palm_groves
-			remove_province_modifier = spawn_date_groves
-			remove_province_modifier = spawn_areca_palm_groves
-			remove_province_modifier = spawn_coconut_groves
-			remove_province_modifier = spawn_gum_acacia_groves
-			remove_province_modifier = spawn_sandarac_groves
-			remove_province_modifier = spawn_olibanum_groves
-			remove_province_modifier = spawn_myrrh_groves
-			remove_province_modifier = spawn_lentisk_groves
-			remove_province_modifier = spawn_cinnamon_groves
-			remove_province_modifier = spawn_moringa_groves
-			remove_province_modifier = spawn_argan_groves
-			remove_province_modifier = spawn_neem_groves
-			remove_province_modifier = spawn_cattle
-			remove_province_modifier = spawn_sheep
-			remove_province_modifier = spawn_goats
-			remove_province_modifier = spawn_pigs
-			remove_province_modifier = spawn_poultry
-			remove_province_modifier = spawn_horses
-			remove_province_modifier = spawn_camels
-			remove_province_modifier = spawn_reindeers
-			remove_province_modifier = spawn_elephants
-			remove_province_modifier = spawn_yaks
-			remove_province_modifier = spawn_sericulture
-			remove_province_modifier = spawn_apiculture
-			remove_province_modifier = spawn_kermes_insects
-			remove_province_modifier = spawn_cochineal_insects
-			remove_province_modifier = spawn_lac_insects
-			remove_province_modifier = spawn_fish_farming
+			# NOTE: Next is seemingly needlessly complicated, but province_modifiers were already set and tbh I'm too lazy to fix above now.
+			# This here is thus not really good coding, but solves it anyway.
+			trigger_switch = {
+				on_trigger = has_province_flag
+				chosen_spawn_is_hunting = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_hunting
+					# Remove modifier:
+					remove_province_modifier = spawn_hunting
+				}
+				chosen_spawn_is_gathering = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_gathering
+					# Remove modifier:
+					remove_province_modifier = spawn_gathering
+				}
+				chosen_spawn_is_fishing = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_fishing
+					# Remove modifier:
+					remove_province_modifier = spawn_fishing
+				}
+				chosen_spawn_is_whaling = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_whaling
+					# Remove modifier:
+					remove_province_modifier = spawn_whaling
+				}
+				chosen_spawn_is_diving = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_diving
+					# Remove modifier:
+					remove_province_modifier = spawn_diving
+				}
+				chosen_spawn_is_coniferous_forest = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_coniferous_forest
+					# Remove modifier:
+					remove_province_modifier = spawn_coniferous_forest
+				}
+				chosen_spawn_is_broadleave_forest = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_broadleave_forest
+					# Remove modifier:
+					remove_province_modifier = spawn_broadleave_forest
+				}
+				chosen_spawn_is_tropical_rainforest = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_tropical_rainforest
+					# Remove modifier:
+					remove_province_modifier = spawn_tropical_rainforest
+				}
+				chosen_spawn_is_bamboo_forest = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_bamboo_forest
+					# Remove modifier:
+					remove_province_modifier = spawn_bamboo_forest
+				}
+				chosen_spawn_is_open_pit_mining = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_open_pit_mining
+					# Remove modifier:
+					remove_province_modifier = spawn_open_pit_mining
+				}
+				chosen_spawn_is_underground_mining = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_underground_mining
+					# Remove modifier:
+					remove_province_modifier = spawn_underground_mining
+				}
+				chosen_spawn_is_placer_mining = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_placer_mining
+					# Remove modifier:
+					remove_province_modifier = spawn_placer_mining
+				}
+				chosen_spawn_is_digging = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_digging
+					# Remove modifier:
+					remove_province_modifier = spawn_digging
+				}
+				chosen_spawn_is_quarrying = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_quarrying
+					# Remove modifier:
+					remove_province_modifier = spawn_quarrying
+				}
+				chosen_spawn_is_salt_evaporation = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_salt_evaporation
+					# Remove modifier:
+					remove_province_modifier = spawn_salt_evaporation
+				}
+				chosen_spawn_is_natural_wells = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_natural_wells
+					# Remove modifier:
+					remove_province_modifier = spawn_natural_wells
+				}
+				chosen_spawn_is_crop_fields = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_crop_fields
+					# Remove modifier:
+					remove_province_modifier = spawn_crop_fields
+				}
+				chosen_spawn_is_paddy_fields = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_paddy_fields
+					# Remove modifier:
+					remove_province_modifier = spawn_paddy_fields
+				}
+				chosen_spawn_is_gardening = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_gardening
+					# Remove modifier:
+					remove_province_modifier = spawn_gardening
+				}
+				chosen_spawn_is_vineyards = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_vineyards
+					# Remove modifier:
+					remove_province_modifier = spawn_vineyards
+				}
+				chosen_spawn_is_copse = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_copse
+					# Remove modifier:
+					remove_province_modifier = spawn_copse
+				}
+				chosen_spawn_is_cork_oak_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_cork_oak_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_cork_oak_groves
+				}
+				chosen_spawn_is_nut_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_nut_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_nut_groves
+				}
+				chosen_spawn_is_fruit_orchards = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_fruit_orchards
+					# Remove modifier:
+					remove_province_modifier = spawn_fruit_orchards
+				}
+				chosen_spawn_is_citrus_orchards = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_citrus_orchards
+					# Remove modifier:
+					remove_province_modifier = spawn_citrus_orchards
+				}
+				chosen_spawn_is_tamarind_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_tamarind_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_tamarind_groves
+				}
+				chosen_spawn_is_almond_orchards = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_almond_orchards
+					# Remove modifier:
+					remove_province_modifier = spawn_almond_orchards
+				}
+				chosen_spawn_is_olive_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_olive_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_olive_groves
+				}
+				chosen_spawn_is_palm_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_palm_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_palm_groves
+				}
+				chosen_spawn_is_date_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_date_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_date_groves
+				}
+				chosen_spawn_is_areca_palm_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_areca_palm_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_areca_palm_groves
+				}
+				chosen_spawn_is_coconut_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_coconut_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_coconut_groves
+				}
+				chosen_spawn_is_gum_acacia_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_gum_acacia_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_gum_acacia_groves
+				}
+				chosen_spawn_is_sandarac_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_sandarac_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_sandarac_groves
+				}
+				chosen_spawn_is_olibanum_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_olibanum_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_olibanum_groves
+				}
+				chosen_spawn_is_myrrh_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_myrrh_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_myrrh_groves
+				}
+				chosen_spawn_is_lentisk_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_lentisk_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_lentisk_groves
+				}
+				chosen_spawn_is_cinnamon_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_cinnamon_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_cinnamon_groves
+				}
+				chosen_spawn_is_moringa_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_moringa_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_moringa_groves
+				}
+				chosen_spawn_is_argan_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_argan_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_argan_groves
+				}
+				chosen_spawn_is_neem_groves = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_neem_groves
+					# Remove modifier:
+					remove_province_modifier = spawn_neem_groves
+				}
+				chosen_spawn_is_cattle = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_cattle
+					# Remove modifier:
+					remove_province_modifier = spawn_cattle
+				}
+				chosen_spawn_is_sheep = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_sheep
+					# Remove modifier:
+					remove_province_modifier = spawn_sheep
+				}
+				chosen_spawn_is_goats = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_goats
+					# Remove modifier:
+					remove_province_modifier = spawn_goats
+				}
+				chosen_spawn_is_pigs = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_pigs
+					# Remove modifier:
+					remove_province_modifier = spawn_pigs
+				}
+				chosen_spawn_is_poultry = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_poultry
+					# Remove modifier:
+					remove_province_modifier = spawn_poultry
+				}
+				chosen_spawn_is_horses = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_horses
+					# Remove modifier:
+					remove_province_modifier = spawn_horses
+				}
+				chosen_spawn_is_camels = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_camels
+					# Remove modifier:
+					remove_province_modifier = spawn_camels
+				}
+				chosen_spawn_is_reindeers = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_reindeers
+					# Remove modifier:
+					remove_province_modifier = spawn_reindeers
+				}
+				chosen_spawn_is_elephants = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_elephants
+					# Remove modifier:
+					remove_province_modifier = spawn_elephants
+				}
+				chosen_spawn_is_yaks = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_yaks
+					# Remove modifier:
+					remove_province_modifier = spawn_yaks
+				}
+				chosen_spawn_is_sericulture = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_sericulture
+					# Remove modifier:
+					remove_province_modifier = spawn_sericulture
+				}
+				chosen_spawn_is_apiculture = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_apiculture
+					# Remove modifier:
+					remove_province_modifier = spawn_apiculture
+				}
+				chosen_spawn_is_kermes_insects = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_kermes_insects
+					# Remove modifier:
+					remove_province_modifier = spawn_kermes_insects
+				}
+				chosen_spawn_is_cochineal_insects = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_cochineal_insects
+					# Remove modifier:
+					remove_province_modifier = spawn_cochineal_insects
+				}
+				chosen_spawn_is_lac_insects = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_lac_insects
+					# Remove modifier:
+					remove_province_modifier = spawn_lac_insects
+				}
+				chosen_spawn_is_fish_farming = {
+					# Clear flag:
+					clr_province_flag = chosen_spawn_is_fish_farming
+					# Remove modifier:
+					remove_province_modifier = spawn_fish_farming
+				}
+			}
 		}
 	}
 }
