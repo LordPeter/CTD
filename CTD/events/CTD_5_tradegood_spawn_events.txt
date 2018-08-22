@@ -3651,8 +3651,8 @@ character_event = {
 				}
 			}
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -3825,7 +3825,7 @@ character_event = {
 	option = {
 		name = CTDOPTA_0515
 		character_event = {
-			id = CTD.0528
+			id = CTD.0535	# NOTE: Jump in number here, because Orchards are extensive...
 		}
 	}
 	
@@ -3833,7 +3833,7 @@ character_event = {
 	option = {
 		name = CTDOPTB_0515
 		character_event = {
-			id = CTD.0529
+			id = CTD.0538
 		}
 	}
 	
@@ -3841,7 +3841,7 @@ character_event = {
 	option = {
 		name = CTDOPTC_0515
 		character_event = {
-			id = CTD.0530
+			id = CTD.0539
 		}
 	}
 	
@@ -3899,8 +3899,8 @@ character_event = {
 	}
 	
 	after = {
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -3968,8 +3968,8 @@ character_event = {
 	}
 	
 	after = {
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -4055,8 +4055,8 @@ character_event = {
 	}
 	
 	after = {
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -4124,8 +4124,8 @@ character_event = {
 	}
 	
 	after = {
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -4175,8 +4175,8 @@ character_event = {
 	}
 	
 	after = {
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -4226,8 +4226,8 @@ character_event = {
 	}
 	
 	after = {
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -4295,8 +4295,8 @@ character_event = {
 	}
 	
 	after = {
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
@@ -4326,8 +4326,8 @@ character_event = {
 			# This is so the follow-up event knows which of the spawns is "new":
 			set_province_flag = chosen_spawn_is_vineyards
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
@@ -4347,8 +4347,8 @@ character_event = {
 			# This is so the follow-up event knows which of the spawns is "new":
 			set_province_flag = chosen_spawn_is_copse
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
@@ -4368,8 +4368,8 @@ character_event = {
 			# This is so the follow-up event knows which of the spawns is "new":
 			set_province_flag = chosen_spawn_is_cork_oak_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
@@ -4383,1346 +4383,941 @@ character_event = {
 
 # Orchards Options II
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0528
+	desc = CTDDESC_0528
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Nut Groves
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0528
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				nut_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_nut_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_nut_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Fruit Orchards
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0528
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				fruit_orchards_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_fruit_orchards
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_fruit_orchards
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Citrus Orchards
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0528
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				citrus_orchards_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_citrus_orchards
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_citrus_orchards
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0529
 		}
 	}
 }
 
-# Orchards Options II
+# Orchards Options III
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0529
+	desc = CTDDESC_0529
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Tamarind Groves
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0529
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				tamarind_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_tamarind_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_tamarind_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Almond Orchards
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0529
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				almond_orchards_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_almond_orchards
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_almond_orchards
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Olive Groves
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0529
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				olive_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_olive_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_olive_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0530
 		}
 	}
 }
 
-# Orchards Options II
+# Orchards Options IV
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0530
+	desc = CTDDESC_0530
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Palm Groves
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0530
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				palm_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_palm_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_palm_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Date Groves
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0530
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				date_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_date_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_date_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Areca Palm Groves
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0530
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				areca_palm_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_areca_palm_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_areca_palm_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0531
 		}
 	}
 }
 
-# Orchards Options II
+# Orchards Options V
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0531
+	desc = CTDDESC_0531
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Coconut Groves
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0531
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				coconut_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_coconut_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_coconut_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Gum Acacia Groves
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0531
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				gum_acacia_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_gum_acacia_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_gum_acacia_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Sandarac Groves
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0531
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				sandarac_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_sandarac_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_sandarac_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0532
 		}
 	}
 }
 
-# Orchards Options II
+# Orchards Options VI
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0532
+	desc = CTDDESC_0532
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Olibanum Groves
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0532
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				olibanum_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_olibanum_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_olibanum_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Myrrh Groves
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0532
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				myrrh_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_myrrh_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_myrrh_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Lentisk Groves
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0532
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				lentisk_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_lentisk_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_lentisk_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0533
 		}
 	}
 }
 
-# Orchards Options II
+# Orchards Options VII
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0533
+	desc = CTDDESC_0533
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Cinnamon Groves
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0533
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				cinnamon_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_cinnamon_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_cinnamon_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Moringa Groves
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0533
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				moringa_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_moringa_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_moringa_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Argan Groves
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0533
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				argan_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_argan_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_argan_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0534
 		}
 	}
 }
 
-# Orchards Options II
+# Orchards Options VIII
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0534
+	desc = CTDDESC_0534
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Neem Groves
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0534
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				neem_groves_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_neem_groves
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_neem_groves
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTB_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
-		name = CTDshowmoreoptions	# Show next options
+		name = CTDshowFIRSToptions	# Show first options again
 		character_event = {
-			id = CTD.0528
+			id = CTD.0527
 		}
 	}
 }
 
-# Orchards Options II
+# Mammals Options I
+# NOTE: Mammals events are structured a bit differently, cause the "after" clause can not be used here
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0535
+	desc = CTDDESC_0535
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Cattle
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0535
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				cattle_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_cattle
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_cattle
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Sheep
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0535
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				sheep_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_sheep
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_sheep
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Goats
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0535
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				goats_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_goats
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_goats
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0536
 		}
 	}
 }
 
-# Orchards Options II
+# Mammals Options II
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0536
+	desc = CTDDESC_0536
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Pigs
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0536
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				pigs_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_pigs
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_pigs
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Horses
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0536
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				horses_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_horses
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_horses
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Camels
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0536
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				camels_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_camels
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_camels
 		}
-		character_event = {	# Event to apply variables & decide on 1 or 2 products
-			id = CTD.0501
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0537
 		}
 	}
 }
 
-# Sea Options
+# Mammals Options III
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0537
+	desc = CTDDESC_0537
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Reindeers
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0537
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				reindeers_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_reindeers
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_reindeers
+		}
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Elephants
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0537
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				elephants_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_elephants
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_elephants
+		}
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Yaks
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0537
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				yaks_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_yaks
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_yaks
+		}
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
-		name = CTDshowmoreoptions	# Show next options
+		name = CTDshowFIRSToptions	# Show first options again
 		character_event = {
-			id = CTD.0528
+			id = CTD.0535
 		}
 	}
 }
 
-# Sea Options
+# Other Animals Options
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0538
+	desc = CTDDESC_0538
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Poultry
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0538
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				poultry_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_poultry
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_poultry
 		}
 	}
 	
-	# gathering
+	# Fish Farming
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0538
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				fish_farming_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_fish_farming
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_fish_farming
 		}
 	}
 	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	option = {
-		name = CTDshowmoreoptions	# Show next options
-		character_event = {
-			id = CTD.0528
+	after = {
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 }
 
-# Sea Options
+# Insect Farming Options I
+# NOTE: Insect Farming events are structured a bit differently, cause the "after" clause can not be used here
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0539
+	desc = CTDDESC_0539
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Sericulture
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0539
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				sericulture_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_sericulture
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_sericulture
+		}
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Apiculture
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0539
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				apiculture_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_apiculture
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_apiculture
+		}
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Kermes Insects
 	option = {
-		name = CTDOPTC_0521
+		name = CTDOPTC_0539
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				kermes_insects_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_kermes_insects
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_kermes_insects
+		}
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
 		name = CTDshowmoreoptions	# Show next options
 		character_event = {
-			id = CTD.0528
+			id = CTD.0540
 		}
 	}
 }
 
-# Sea Options
+# Insect Farming Options II
 character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
+	id = CTD.0540
+	desc = CTDDESC_0540
 	picture = "GFX_evt_fishing"
 	
 	is_triggered_only = yes		# by event
 	
-	# gathering
+	# Cochineal Insects
 	option = {
-		name = CTDOPTA_0521
+		name = CTDOPTA_0540
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				cochineal_insects_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_cochineal_insects
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_cochineal_insects
+		}
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
-	# gathering
+	# Lac Insects
 	option = {
-		name = CTDOPTB_0521
+		name = CTDOPTB_0540
 		trigger = {
 			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
+				lac_insects_spawn_possible_CTD_trigger = yes
 			}
 		}
 		event_target:target_spawn_province = {
 			add_province_modifier = {
-				name = spawn_gathering
+				name = spawn_lac_insects
 				duration = -1
 			}
 			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+			set_province_flag = chosen_spawn_is_lac_insects
 		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
+		character_event = {	# Event to apply spawn variables & then move on to decide on products
+			id = CTD.0504
 		}
 	}
 	
 	option = {
-		name = CTDshowmoreoptions	# Show next options
+		name = CTDshowFIRSToptions	# Show first options again
 		character_event = {
-			id = CTD.0528
+			id = CTD.0539
 		}
 	}
 }
-
-# Sea Options
-character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
-	picture = "GFX_evt_fishing"
-	
-	is_triggered_only = yes		# by event
-	
-	# gathering
-	option = {
-		name = CTDOPTA_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTB_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	option = {
-		name = CTDshowmoreoptions	# Show next options
-		character_event = {
-			id = CTD.0528
-		}
-	}
-}
-
-# Sea Options
-character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
-	picture = "GFX_evt_fishing"
-	
-	is_triggered_only = yes		# by event
-	
-	# gathering
-	option = {
-		name = CTDOPTA_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTB_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	option = {
-		name = CTDshowmoreoptions	# Show next options
-		character_event = {
-			id = CTD.0528
-		}
-	}
-}
-
-# Sea Options
-character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
-	picture = "GFX_evt_fishing"
-	
-	is_triggered_only = yes		# by event
-	
-	# gathering
-	option = {
-		name = CTDOPTA_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTB_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	option = {
-		name = CTDshowmoreoptions	# Show next options
-		character_event = {
-			id = CTD.0528
-		}
-	}
-}
-
-# Sea Options
-character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
-	picture = "GFX_evt_fishing"
-	
-	is_triggered_only = yes		# by event
-	
-	# gathering
-	option = {
-		name = CTDOPTA_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTB_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	option = {
-		name = CTDshowmoreoptions	# Show next options
-		character_event = {
-			id = CTD.0528
-		}
-	}
-}
-
-# Sea Options
-character_event = {
-	id = CTD.0521
-	desc = CTDDESC_0521
-	picture = "GFX_evt_fishing"
-	
-	is_triggered_only = yes		# by event
-	
-	# gathering
-	option = {
-		name = CTDOPTA_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTB_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	# gathering
-	option = {
-		name = CTDOPTC_0521
-		trigger = {
-			event_target:target_spawn_province = {
-				gathering_spawn_possible_CTD_trigger = yes
-			}
-		}
-		event_target:target_spawn_province = {
-			add_province_modifier = {
-				name = spawn_gathering
-				duration = -1
-			}
-			# This is so the follow-up event knows which of the spawns is "new":
-			set_province_flag = chosen_spawn_is_gathering
-		}
-	}
-	
-	option = {
-		name = CTDshowmoreoptions	# Show next options
-		character_event = {
-			id = CTD.0528
-		}
-	}
-}
-
-
 
 # Asked to confirm spawn - if yes, assign spawn & fire (delayed) resource choice event
 character_event = {
@@ -5734,764 +5329,578 @@ character_event = {
 	# Accept choice & apply, reset decision
 	option = {
 		name = CTDOPTA_0504
-		
-		piety = 100 # test
 		event_target:target_spawn_province = {
 			trigger_switch = {	# Decides which modifier to apply based on flag set before
 				on_trigger = has_province_flag
+				# NOTE: Need to add the Delays for the events to simulate "growth time" - TODO
 				chosen_spawn_is_hunting = {
-					add_province_modifier = {
-						name = spawn_hunting
-						duration = -1
-					}
-					# Add province variable depending on spawn type cap (if influenced by weather/diaster, use _dynamic) and workforce:
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
 					match_spawn_hunting_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0505
+							id = CTD.0501
 							# no delay here
 						}
 					}
 				}
 				chosen_spawn_is_gathering = {
-					add_province_modifier = {
-						name = spawn_gathering
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_gathering_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0506
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_fishing = {
-					add_province_modifier = {
-						name = spawn_fishing
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_fishing_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0507
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_whaling = {
-					add_province_modifier = {
-						name = spawn_whaling
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_whaling_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0508
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_diving = {
-					add_province_modifier = {
-						name = spawn_diving
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_diving_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0509
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_coniferous_forest = {
-					add_province_modifier = {
-						name = spawn_coniferous_forest
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_coniferous_forest_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0510
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_broadleave_forest = {
-					add_province_modifier = {
-						name = spawn_broadleave_forest
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_broadleave_forest_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0511
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_tropical_rainforest = {
-					add_province_modifier = {
-						name = spawn_tropical_rainforest
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_tropical_rainforest_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0512
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_bamboo_forest = {
-					add_province_modifier = {
-						name = spawn_bamboo_forest
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_bamboo_forest_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0513
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_open_pit_mining = {
-					add_province_modifier = {
-						name = spawn_open_pit_mining
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_open_pit_mining_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0514
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_underground_mining = {
-					add_province_modifier = {
-						name = spawn_underground_mining
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_underground_mining_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0515
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_placer_mining = {
-					add_province_modifier = {
-						name = spawn_placer_mining
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_placer_mining_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0516
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_digging = {
-					add_province_modifier = {
-						name = spawn_digging
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_digging_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0517
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_quarrying = {
-					add_province_modifier = {
-						name = spawn_quarrying
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_quarrying_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0518
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_salt_evaporation = {
-					add_province_modifier = {
-						name = spawn_salt_evaporation
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_salt_evaporation_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0519
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_natural_wells = {
-					add_province_modifier = {
-						name = spawn_natural_wells
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_natural_wells_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0520
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_crop_fields = {
-					add_province_modifier = {
-						name = spawn_crop_fields
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_crop_fields_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0521
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_paddy_fields = {
-					add_province_modifier = {
-						name = spawn_paddy_fields
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_paddy_fields_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0522
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_gardening = {
-					add_province_modifier = {
-						name = spawn_gardening
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_gardening_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0523
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_vineyards = {
-					add_province_modifier = {
-						name = spawn_vineyards
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_vineyards_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0524
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_copse = {
-					add_province_modifier = {
-						name = spawn_copse
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_copse_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0525
-							# no delay here
-						}
-					}
-				}
-				chosen_spawn_is_crop_fields = {
-					add_province_modifier = {
-						name = spawn_crop_fields
-						duration = -1
-					}
-					# Delayed event for resource choice:
-					owner = {
-						character_event = {
-							id = CTD.0526
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_cork_oak_groves = {
-					add_province_modifier = {
-						name = spawn_cork_oak_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_cork_oak_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0527
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_nut_groves = {
-					add_province_modifier = {
-						name = spawn_nut_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_nut_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0528
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_fruit_orchards = {
-					add_province_modifier = {
-						name = spawn_fruit_orchards
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_fruit_orchards_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0529
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_citrus_orchards = {
-					add_province_modifier = {
-						name = spawn_citrus_orchards
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_citrus_orchards_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0530
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_tamarind_groves = {
-					add_province_modifier = {
-						name = spawn_tamarind_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_tamarind_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0531
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_almond_orchards = {
-					add_province_modifier = {
-						name = spawn_almond_orchards
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_almond_orchards_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0532
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_olive_groves = {
-					add_province_modifier = {
-						name = spawn_olive_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_olive_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0533
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_palm_groves = {
-					add_province_modifier = {
-						name = spawn_palm_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_palm_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0534
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_date_groves = {
-					add_province_modifier = {
-						name = spawn_date_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_date_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0535
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_areca_palm_groves = {
-					add_province_modifier = {
-						name = spawn_areca_palm_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_areca_palm_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0536
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_coconut_groves = {
-					add_province_modifier = {
-						name = spawn_coconut_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_coconut_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0537
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_gum_acacia_groves = {
-					add_province_modifier = {
-						name = spawn_gum_acacia_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_gum_acacia_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0538
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_sandarac_groves = {
-					add_province_modifier = {
-						name = spawn_sandarac_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_sandarac_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0539
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_olibanum_groves = {
-					add_province_modifier = {
-						name = spawn_olibanum_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_olibanum_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0540
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_myrrh_groves = {
-					add_province_modifier = {
-						name = spawn_myrrh_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_myrrh_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0541
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_lentisk_groves = {
-					add_province_modifier = {
-						name = spawn_lentisk_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_lentisk_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0542
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_cinnamon_groves = {
-					add_province_modifier = {
-						name = spawn_cinnamon_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_cinnamon_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0543
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_moringa_groves = {
-					add_province_modifier = {
-						name = spawn_moringa_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_moringa_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0544
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_argan_groves = {
-					add_province_modifier = {
-						name = spawn_argan_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_argan_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0545
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_neem_groves = {
-					add_province_modifier = {
-						name = spawn_neem_groves
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_neem_groves_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0546
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_cattle = {
-					add_province_modifier = {
-						name = spawn_cattle
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_cattle_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0547
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_sheep = {
-					add_province_modifier = {
-						name = spawn_sheep
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_sheep_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0548
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_goats = {
-					add_province_modifier = {
-						name = spawn_goats
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_goats_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0549
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_pigs = {
-					add_province_modifier = {
-						name = spawn_pigs
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_pigs_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0550
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_poultry = {
-					add_province_modifier = {
-						name = spawn_poultry
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_poultry_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0551
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_horses = {
-					add_province_modifier = {
-						name = spawn_horses
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_horses_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0552
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_camels = {
-					add_province_modifier = {
-						name = spawn_camels
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_camels_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0553
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_reindeers = {
-					add_province_modifier = {
-						name = spawn_reindeers
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_reindeers_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0554
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_elephants = {
-					add_province_modifier = {
-						name = spawn_elephants
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_elephants_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0555
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_yaks = {
-					add_province_modifier = {
-						name = spawn_yaks
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_yaks_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0556
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_sericulture = {
-					add_province_modifier = {
-						name = spawn_sericulture
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_sericulture_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0557
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_apiculture = {
-					add_province_modifier = {
-						name = spawn_apiculture
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_apiculture_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0558
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_kermes_insects = {
-					add_province_modifier = {
-						name = spawn_kermes_insects
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_kermes_insects_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0559
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_cochineal_insects = {
-					add_province_modifier = {
-						name = spawn_cochineal_insects
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_cochineal_insects_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0560
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_lac_insects = {
-					add_province_modifier = {
-						name = spawn_lac_insects
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_lac_insects_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0561
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
 				chosen_spawn_is_fish_farming = {
-					add_province_modifier = {
-						name = spawn_fish_farming
-						duration = -1
-					}
+					# Add province variable depending on spawn type cap (if influenced by weather/disaster, use _dynamic) and workforce:
+					match_spawn_fish_farming_to_caps_CTD_effect = yes
 					# Delayed event for resource choice:
 					owner = {
 						character_event = {
-							id = CTD.0562
-							# no delay here
+							id = CTD.0501
 						}
 					}
 				}
@@ -6504,7 +5913,7 @@ character_event = {
 	option = {
 		name = CTDOPTB_0504
 		trigger = {
-			ai = no	# AI has no second thoughts
+			ai = no	# AI has no second thoughts. Never. Ever.
 		}
 		event_target:target_spawn_province = {
 			# Clear all province flags:
@@ -6566,6 +5975,64 @@ character_event = {
 			clr_province_flag = chosen_spawn_is_cochineal_insects
 			clr_province_flag = chosen_spawn_is_lac_insects
 			clr_province_flag = chosen_spawn_is_fish_farming
+			# Also remove the modifiers, since they have been already set:
+			remove_province_modifier = spawn_hunting
+			remove_province_modifier = spawn_gathering
+			remove_province_modifier = spawn_fishing
+			remove_province_modifier = spawn_whaling
+			remove_province_modifier = spawn_diving
+			remove_province_modifier = spawn_coniferous_forest
+			remove_province_modifier = spawn_broadleave_forest
+			remove_province_modifier = spawn_tropical_rainforest
+			remove_province_modifier = spawn_bamboo_forest
+			remove_province_modifier = spawn_open_pit_mining
+			remove_province_modifier = spawn_underground_mining
+			remove_province_modifier = spawn_placer_mining
+			remove_province_modifier = spawn_digging
+			remove_province_modifier = spawn_quarrying
+			remove_province_modifier = spawn_salt_evaporation
+			remove_province_modifier = spawn_natural_wells
+			remove_province_modifier = spawn_crop_fields
+			remove_province_modifier = spawn_paddy_fields
+			remove_province_modifier = spawn_gardening
+			remove_province_modifier = spawn_vineyards
+			remove_province_modifier = spawn_copse
+			remove_province_modifier = spawn_cork_oak_groves
+			remove_province_modifier = spawn_nut_groves
+			remove_province_modifier = spawn_fruit_orchards
+			remove_province_modifier = spawn_citrus_orchards
+			remove_province_modifier = spawn_tamarind_groves
+			remove_province_modifier = spawn_almond_orchards
+			remove_province_modifier = spawn_olive_groves
+			remove_province_modifier = spawn_palm_groves
+			remove_province_modifier = spawn_date_groves
+			remove_province_modifier = spawn_areca_palm_groves
+			remove_province_modifier = spawn_coconut_groves
+			remove_province_modifier = spawn_gum_acacia_groves
+			remove_province_modifier = spawn_sandarac_groves
+			remove_province_modifier = spawn_olibanum_groves
+			remove_province_modifier = spawn_myrrh_groves
+			remove_province_modifier = spawn_lentisk_groves
+			remove_province_modifier = spawn_cinnamon_groves
+			remove_province_modifier = spawn_moringa_groves
+			remove_province_modifier = spawn_argan_groves
+			remove_province_modifier = spawn_neem_groves
+			remove_province_modifier = spawn_cattle
+			remove_province_modifier = spawn_sheep
+			remove_province_modifier = spawn_goats
+			remove_province_modifier = spawn_pigs
+			remove_province_modifier = spawn_poultry
+			remove_province_modifier = spawn_horses
+			remove_province_modifier = spawn_camels
+			remove_province_modifier = spawn_reindeers
+			remove_province_modifier = spawn_elephants
+			remove_province_modifier = spawn_yaks
+			remove_province_modifier = spawn_sericulture
+			remove_province_modifier = spawn_apiculture
+			remove_province_modifier = spawn_kermes_insects
+			remove_province_modifier = spawn_cochineal_insects
+			remove_province_modifier = spawn_lac_insects
+			remove_province_modifier = spawn_fish_farming
 		}
 	}
 }
