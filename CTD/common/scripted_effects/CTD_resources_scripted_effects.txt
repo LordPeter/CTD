@@ -4,48 +4,92 @@
 # by LordPeter
 ################################
 
-### Match resource variables to spawn
+### Match resource variables to spawns
 ## This MUST be called in an province scope to work properly
-# Matches the tradegood variable to spawn cap, and also split if spawn spawns 2 resources
+# Matches the tradegood variable to spawn caps (also halved for spawns that spawn 2 resources)
 
 # Minerals:
-match_gold_ore_variable_to_spawn_CTD_effect = {
-	# Initialize Helper variable with spawn - list all possible spawns for product here
+match_gold_ore_variable_to_spawns_CTD_effect = {
+	# Reset result helper variable:
+	set_variable = {
+		which = product_helper_variable_result
+		value = 0
+	}
+	# NOTE IMPORTANT: product_helper_variable_intermediate has to be reset each time, otherwise it adds stuff twice!!!
+	# (thus not even reset here, but in each trigger_switch possibility)
+	# Match helper variable to sum of spawns (halfed if split) - list all possible spawns for product here
 	trigger_switch = {
 		on_trigger = has_province_flag
-		chosen_spawn_is_open_pit_mining = {
-			set_variable = {
-				which = product_helper_variable
-				which = var_spawn_open_pit_mining
+		open_pit_mining_spawned_gold_ore = {
+			set_variable = {	# NOTE IMPORTANT: Intermediate variable has to be reset each time, otherwise it adds stuff twice!!!
+				which = product_helper_variable_intermediate
+				value = 0
+			}
+			if = {
+				limit = {
+					has_province_flag = open_pit_mining_spawn_products_split
+				}
+				# Set full spawn value to intermediate:
+				change_variable = {
+					which = product_helper_variable_intermediate
+					which = var_spawn_open_pit_mining
+				}
+				# Half that amount:
+				multiply_variable = {
+					which = product_helper_variable_intermediate
+					value = 0.5
+				}
+				# Add the halved amount to result:
+				change_variable = {
+					which = product_helper_variable_result
+					which = product_helper_variable_intermediate
+				}
+			}
+			else = {
+				# Add full spawn value to result:
+				change_variable = {
+					which = product_helper_variable_result
+					which = var_spawn_open_pit_mining
+				}
 			}
 		}
-		chosen_spawn_is_underground_mining = {
-			set_variable = {
-				which = product_helper_variable
-				which = var_spawn_underground_mining
+		underground_mining_spawned_gold_ore = {
+			set_variable = {	# NOTE IMPORTANT: Intermediate variable has to be reset each time, otherwise it adds stuff twice!!!
+				which = product_helper_variable_intermediate
+				value = 0
+			}
+			if = {
+				limit = {
+					has_province_flag = underground_mining_spawn_products_split
+				}
+				# Set full spawn value to intermediate:
+				change_variable = {
+					which = product_helper_variable_intermediate
+					which = var_spawn_underground_mining
+				}
+				# Half that amount:
+				multiply_variable = {
+					which = product_helper_variable_intermediate
+					value = 0.5
+				}
+				# Add the halved amount to result:
+				change_variable = {
+					which = product_helper_variable_result
+					which = product_helper_variable_intermediate
+				}
+			}
+			else = {
+				# Add full spawn value to result:
+				change_variable = {
+					which = product_helper_variable_result
+					which = var_spawn_underground_mining
+				}
 			}
 		}
 	}
-	# Match resource to helper variable (or half, if split)
-	if = {
-		limit = {
-			has_province_flag = split_products_in_half
-		}
-		multiply_variable = {
-			which = product_helper_variable
-			value = 0.5
-		}
-		change_variable = {
-			which = produced_gold_ore
-			which = product_helper_variable
-		}
+	# Match (reset) produced resource to result helper variable:
+	set_variable = {
+		which = produced_gold_ore
+		which = product_helper_variable_result
 	}
-	else = {
-		change_variable = {
-			which = produced_gold_ore
-			which = product_helper_variable
-		}
-	}
-	# And last but not least, clear the flag:
-	clr_province_flag = newly_spawned_gold_ore
 }
