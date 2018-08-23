@@ -220,12 +220,6 @@ match_spawn_hunting_to_caps_CTD_effect = {
 		}
 	}
 	else = {	# Workforce is limiting
-		limit = {
-			check_variable = {
-				which = province_cap_hunting	# Unique, hidden cap type
-				which = province_workforce_simple_labour
-			}
-		}
 		set_variable = {
 			which = var_spawn_hunting
 			which = province_workforce_simple_labour
@@ -247,12 +241,6 @@ match_spawn_gathering_to_caps_CTD_effect = {
 		}
 	}
 	else = {	# Workforce is limiting
-		limit = {
-			check_variable = {
-				which = province_cap_gathering	# Unique, hidden cap type
-				which = province_workforce_simple_labour
-			}
-		}
 		set_variable = {
 			which = var_spawn_gathering
 			which = province_workforce_simple_labour
@@ -274,12 +262,6 @@ match_spawn_fishing_to_caps_CTD_effect = {
 		}
 	}
 	else = {	# Workforce is limiting
-		limit = {
-			check_variable = {
-				which = province_cap_fishing	# Unique, hidden cap type
-				which = province_workforce_simple_labour
-			}
-		}
 		set_variable = {
 			which = var_spawn_fishing
 			which = province_workforce_simple_labour
@@ -301,12 +283,6 @@ match_spawn_whaling_to_caps_CTD_effect = {
 		}
 	}
 	else = {	# Workforce is limiting
-		limit = {
-			check_variable = {
-				which = province_cap_whaling	# Unique, hidden cap type
-				which = province_workforce_simple_labour
-			}
-		}
 		set_variable = {
 			which = var_spawn_whaling
 			which = province_workforce_simple_labour
@@ -328,35 +304,8 @@ match_spawn_diving_to_caps_CTD_effect = {
 		}
 	}
 	else = {	# Workforce is limiting
-		limit = {
-			check_variable = {
-				which = province_cap_diving	# Unique, hidden cap type
-				which = province_workforce_simple_labour
-			}
-		}
 		set_variable = {
 			which = var_spawn_diving
-			which = province_workforce_simple_labour
-		}
-	}
-}
-match_spawn_hunting_to_caps_CTD_effect = {
-	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
-	if = {	# Spawn type cap is limiting
-		limit = {
-			check_variable = {
-				which = province_workforce_simple_labour
-				which = province_cap_hunting	# Unique, hidden cap type
-			}
-		}
-		set_variable = {
-			which = var_spawn_hunting
-			which = province_cap_hunting
-		}
-	}
-	else = {	# Workforce is limiting
-		set_variable = {
-			which = var_spawn_hunting
 			which = province_workforce_simple_labour
 		}
 	}
