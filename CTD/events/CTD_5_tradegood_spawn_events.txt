@@ -14,14 +14,112 @@ namespace = CTD
 
 ## Events to decide on 1 or 2 spawned products & apply variables depending on both province cap and workforce
 
+# NOTE TODO This event is atm just for AI, need to do a (f*cking HUGE) event chain for player later
 # First/Second product to spawn (can be re-called once)
 character_event = {
 	id = CTD.0501
-	desc = CTDDESC_0501
-	picture = "GFX_evt_fishing"
 	
-	is_triggered_only = yes		# by event
+	is_triggered_only = yes		# by decision
 	
+	hide_window = yes	# no need to show for ai
+	
+	immediate = {
+		# IDEA TODO NOTE: Let AI decide first whether to split products, then just fire random_list twice
+		event_target:target_spawn_province = {
+			# NOTE: The inverted logic with "NAND" works, don't worry.
+			random_list = {
+				# gold_ore:
+				10 = {
+					modifier = {
+						factor = 0
+						NAND = {
+							NOT = {	# Not if just spawned the same product (for 2 product choice)
+								has_province_flag = newly_spawned_gold_ore
+							}
+							OR = {	# list of spawns that can spawn this product
+								has_province_flag = chosen_spawn_is_open_pit_mining
+								has_province_flag = chosen_spawn_is_underground_mining
+							}
+							# ONLY for minerals: province has unused but known deposit:
+							has_province_modifier = prospected_mineral_gold_ore
+						}
+					}
+					set_province_flag = newly_spawned_gold_ore
+					# Set flag so we know which spawn spawned which product - necessary because two spawns could spawn the same product
+					trigger_switch = {
+						on_trigger = has_province_flag
+						chosen_spawn_is_open_pit_mining = {
+							set_province_flag = open_pit_mining_spawned_gold_ore
+						}
+						chosen_spawn_is_underground_mining = {
+							set_province_flag = underground_mining_spawned_gold_ore
+						}
+					}
+					# For Minerals, also remove the "prospected" modifer:
+					remove_province_modifier = prospected_mineral_gold_ore
+				}
+				# placer_gold:
+				10 = {
+					modifier = {
+						factor = 0
+						NAND = {
+							NOT = {	# Not if just spawned the same product (for 2 product choice)
+								has_province_flag = newly_spawned_placer_gold
+							}
+							OR = {	# list of spawns that can spawn this product
+								has_province_flag = chosen_spawn_is_placer_mining
+							}
+							# ONLY for minerals: province has unused but known deposit:
+							has_province_modifier = prospected_mineral_placer_gold
+						}
+					}
+					set_province_flag = newly_spawned_placer_gold
+					# Set flag so we know which spawn spawned which product - necessary because two spawns could spawn the same product
+					trigger_switch = {
+						on_trigger = has_province_flag
+						chosen_spawn_is_placer_mining = {
+							set_province_flag = open_pit_mining_spawned_placer_gold
+						}
+					}
+					# For Minerals, also remove the "prospected" modifer:
+					remove_province_modifier = prospected_mineral_placer_gold
+				}
+				# electrum:
+				10 = {
+					modifier = {
+						factor = 0
+						NAND = {
+							NOT = {	# Not if just spawned the same product (for 2 product choice)
+								has_province_flag = newly_spawned_electrum
+							}
+							OR = {	# list of spawns that can spawn this product
+								has_province_flag = chosen_spawn_is_open_pit_mining
+								has_province_flag = chosen_spawn_is_underground_mining
+							}
+							# ONLY for minerals: province has unused but known deposit:
+							has_province_modifier = prospected_mineral_electrum
+						}
+					}
+					set_province_flag = newly_spawned_electrum
+					# Set flag so we know which spawn spawned which product - necessary because two spawns could spawn the same product
+					trigger_switch = {
+						on_trigger = has_province_flag
+						chosen_spawn_is_open_pit_mining = {
+							set_province_flag = open_pit_mining_spawned_electrum
+						}
+						chosen_spawn_is_underground_mining = {
+							set_province_flag = underground_mining_spawned_electrum
+						}
+					}
+					# For Minerals, also remove the "prospected" modifer:
+					remove_province_modifier = prospected_mineral_electrum
+				}
+			}
+		}
+	}
+	
+	
+	##### BELOW is how an option would look in the player event
 	## Options for all the products
 	
 	# gold_ore:
@@ -54,12 +152,13 @@ character_event = {
 					set_province_flag = underground_mining_spawned_gold_ore
 				}
 			}
+			# For Minerals, also remove the "prospected" modifer:
+			remove_province_modifier = prospected_mineral_gold_ore
 		}
-		# For Minerals, also remove the "prospected" modifer:
-		remove_province_modifier = prospected_mineral_gold_ore
 	}
 	### add the rest NOTE
 	
+	# NOTE TODO below needs to be adapted for AI
 	after = {
 		# Ask if want a 2nd product to spawn, if spawn can spawn a 2nd product and hasn't already spawned 2nd.
 		if = {
