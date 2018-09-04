@@ -229,16 +229,78 @@ character_event = {
 
 character_event = {
 	id = TST.6
-	desc = CTDDESC_0001		# Generic "invisible" localisation
+	window = EventWindowVertical
+	picture = GFX_evt_standing_king_viewing_VERTICAL
+	desc = CTDDESC_0002		# Generic "invisible" localisation LONG version
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	immediate = {
+		spouse = {
+			character_event = {
+				id = TST.7
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.7
+	window = EventWindowVertical
+	picture = GFX_evt_standing_king_viewing_VERTICAL
+	desc = CTDDESC_0002		# Generic "invisible" localisation LONG version
+	
+	is_triggered_only = yes
+	
+	hide_window = yes
+	
+	immediate = {
+		spouse = {
+			character_event = {
+				id = TST.8
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.8
+	window = EventWindowVertical
+	picture = GFX_evt_standing_king_viewing_VERTICAL
+	desc = CTDDESC_0002		# Generic "invisible" localisation LONG version
 	
 	is_triggered_only = yes
 	
 	option = {
 		name = CTDDESC_0702
-		event_target:target_spawn_province = {
+		location = {
 			add_province_modifier = {
-				name = currency_cowrie_shells
+				name = province_economy_major_modifier_famine
 				duration = -1
+			}
+			random_province = {
+				limit = {
+					province_id = 960	# Sea around Faröer
+				}
+				add_province_modifier = {
+					name = testy_movement_blocked
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = CTDDESC_lower
+		location = {
+			remove_province_modifier = province_economy_major_modifier_famine
+			random_province = {
+				limit = {
+					province_id = 960	# Sea around Faröer
+				}
+				remove_province_modifier = testy_movement_blocked
 			}
 		}
 	}
