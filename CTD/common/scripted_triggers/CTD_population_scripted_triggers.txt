@@ -528,7 +528,7 @@ can_grow_tribal_foragers_CTD_trigger = {
 					which = province_demand_clothing
 				}
 				# Tribals need enough empty holding slots to grow "in"
-				has_surplus_empty_holdings_for_tribals = yes
+				has_surplus_empty_holdings_for_tribals_or_nomads = yes
 			}
 		}
 		# Tribal Foragers can grow regardless of other population
@@ -556,7 +556,7 @@ can_grow_tribal_farmers_CTD_trigger = {
 					which = province_demand_materials
 				}
 				# Tribals need empty holding slots to grow "in"
-				has_surplus_empty_holdings_for_tribals = yes
+				has_surplus_empty_holdings_for_tribals_or_nomads = yes
 			}
 		}
 		# Tribal Farmers can grow regardless of other population
@@ -584,7 +584,7 @@ can_grow_tribal_herdsmen_CTD_trigger = {
 					which = province_demand_materials
 				}
 				# Tribals need empty holding slots to grow "in"
-				has_surplus_empty_holdings_for_tribals = yes
+				has_surplus_empty_holdings_for_tribals_or_nomads = yes
 			}
 		}
 		# Tribal Herdsmen can grow regardless of other population
@@ -612,7 +612,7 @@ can_grow_tribal_craftsmen_CTD_trigger = {
 					which = province_demand_materials
 				}
 				# Tribals need empty holding slots to grow "in"
-				has_surplus_empty_holdings_for_tribals = yes
+				has_surplus_empty_holdings_for_tribals_or_nomads = yes
 			}
 		}
 		# Craftsmen can only grow if there are at least as many peasant-type tribals in the holding
@@ -724,6 +724,29 @@ can_grow_shudras_CTD_trigger = {
 				holding_has_10_rich_pops_CTD_trigger = yes
 			}
 		}
+	}
+}
+
+# NOTE: Nomads are checked directly in province scope!!!
+can_grow_nomads_CTD_trigger = {
+	AND = {
+		NOT = {	# Has no epidemic disease
+			has_epidemic = yes
+		}
+		# Nomads will grow if they have Food, Clothing and Materials
+		check_variable = {
+			which = province_supply_food
+			which = province_demand_food
+		}
+		check_variable = {
+			which = province_supply_clothing
+			which = province_demand_clothing
+		}
+		check_variable = {
+			which = province_supply_materials
+			which = province_demand_materials
+		}
+		# Nomads can grow regardless of other population
 	}
 }
 
@@ -1268,7 +1291,7 @@ will_shrink_tribal_foragers_CTD_trigger = {
 				}
 				# Tribals shrink if there are not enough empty holding slots!
 				NOT = {
-					has_enough_empty_holdings_for_tribals = yes
+					has_enough_empty_holdings_for_tribals_or_nomads = yes
 				}
 			}
 		}
@@ -1302,7 +1325,7 @@ will_shrink_tribal_farmers_CTD_trigger = {
 				}
 				# Tribals shrink if there are not enough empty holding slots!
 				NOT = {
-					has_enough_empty_holdings_for_tribals = yes
+					has_enough_empty_holdings_for_tribals_or_nomads = yes
 				}
 			}
 		}
@@ -1336,7 +1359,7 @@ will_shrink_tribal_herdsmen_CTD_trigger = {
 				}
 				# Tribals shrink if there are not enough empty holding slots!
 				NOT = {
-					has_enough_empty_holdings_for_tribals = yes
+					has_enough_empty_holdings_for_tribals_or_nomads = yes
 				}
 			}
 		}
@@ -1370,7 +1393,7 @@ will_shrink_tribal_craftsmen_CTD_trigger = {
 				}
 				# Tribals shrink if there are not enough empty holding slots!
 				NOT = {
-					has_enough_empty_holdings_for_tribals = yes
+					has_enough_empty_holdings_for_tribals_or_nomads = yes
 				}
 			}
 		}
@@ -1494,6 +1517,27 @@ will_shrink_shudras_CTD_trigger = {
 				}
 			}
 		}
+	}
+}
+
+# NOTE: Nomads are checked directly in province scope!!!
+will_shrink_nomads_CTD_trigger = {
+	OR = {
+		# INFO: Disease shrinking is handled directly from disease file, not here!
+		# Nomads will shrink if they lack Food or Clothing
+		NOT = {
+			check_variable = {
+				which = province_supply_food
+				which = province_demand_food
+			}
+		}
+		NOT = {
+			check_variable = {
+				which = province_supply_clothing
+				which = province_demand_clothing
+			}
+		}
+		# Nomads will shrink regardless of other population
 	}
 }
 
@@ -1840,9 +1884,9 @@ holding_has_10_rich_pops_CTD_trigger = {	# Has 10 pops of above artisans type
 
 ### Enough empty holding slots
 ## These MUST be called in a province scope to work properly
-# Checks whether the province has just enough empty holding slots to accomodate a certain amount of tribals (max is 4 pops/empty holding), or place for more pops
+# Checks whether the province has just enough empty holding slots to accomodate a certain amount of tribals and nomads (max is 4 pops/empty holding), or place for more pops
 
-has_surplus_empty_holdings_for_tribals = {
+has_surplus_empty_holdings_for_tribals_or_nomads = {
 	OR = {
 		AND = {
 			# Excactly 1 empty holding
@@ -1850,10 +1894,10 @@ has_surplus_empty_holdings_for_tribals = {
 			NOT = {
 				num_of_empty_holdings = 2
 			}
-			# Has less than 4 tribals currently
+			# Has less than 4 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 4
 				}
 			}
@@ -1864,10 +1908,10 @@ has_surplus_empty_holdings_for_tribals = {
 			NOT = {
 				num_of_empty_holdings = 3
 			}
-			# Has less than 8 tribals currently
+			# Has less than 8 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 8
 				}
 			}
@@ -1878,10 +1922,10 @@ has_surplus_empty_holdings_for_tribals = {
 			NOT = {
 				num_of_empty_holdings = 4
 			}
-			# Has less than 12 tribals currently
+			# Has less than 12 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 12
 				}
 			}
@@ -1892,10 +1936,10 @@ has_surplus_empty_holdings_for_tribals = {
 			NOT = {
 				num_of_empty_holdings = 5
 			}
-			# Has less than 16 tribals currently
+			# Has less than 16 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 16
 				}
 			}
@@ -1906,29 +1950,43 @@ has_surplus_empty_holdings_for_tribals = {
 			NOT = {
 				num_of_empty_holdings = 6
 			}
-			# Has less than 20 tribals currently
+			# Has less than 20 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 20
 				}
 			}
 		}
 		AND = {
-			# Excactly 6 empty holdings (6 empty holding is the max)
+			# Excactly 6 empty holdings (6 empty holding is the max for tribals - not for nomads!)
 			num_of_empty_holdings = 6
-			# Has less than 24 tribals currently
+			NOT = 
+				num_of_empty_holdings = 7
+			}
+			# Has less than 24 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 24
+				}
+			}
+		}
+		AND = {
+			# Excactly 7 empty holdings, the absolute max - NOTE: An entirely empty province can not contain tribals! But the code need not be changed
+			num_of_empty_holdings = 7
+			# Has less than 28 tribals/nomads currently
+			NOT = {
+				check_variable = {
+					which = province_population_helper_nomads_and_tribals
+					value = 28
 				}
 			}
 		}
 	}
 }
 
-has_major_surplus_empty_holdings_for_tribals = {	# Same as above, but has 2 more empty spaces
+has_major_surplus_empty_holdings_for_tribals_or_nomads = {	# Same as above, but has 2 more empty spaces
 	OR = {
 		AND = {
 			# Excactly 1 empty holding
@@ -1936,10 +1994,10 @@ has_major_surplus_empty_holdings_for_tribals = {	# Same as above, but has 2 more
 			NOT = {
 				num_of_empty_holdings = 2
 			}
-			# Has less than 2 tribals currently
+			# Has less than 2 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 2
 				}
 			}
@@ -1950,10 +2008,10 @@ has_major_surplus_empty_holdings_for_tribals = {	# Same as above, but has 2 more
 			NOT = {
 				num_of_empty_holdings = 3
 			}
-			# Has less than 6 tribals currently
+			# Has less than 6 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 6
 				}
 			}
@@ -1964,10 +2022,10 @@ has_major_surplus_empty_holdings_for_tribals = {	# Same as above, but has 2 more
 			NOT = {
 				num_of_empty_holdings = 4
 			}
-			# Has less than 10 tribals currently
+			# Has less than 10 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 10
 				}
 			}
@@ -1978,10 +2036,10 @@ has_major_surplus_empty_holdings_for_tribals = {	# Same as above, but has 2 more
 			NOT = {
 				num_of_empty_holdings = 5
 			}
-			# Has less than 14 tribals currently
+			# Has less than 14 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 14
 				}
 			}
@@ -1992,29 +2050,43 @@ has_major_surplus_empty_holdings_for_tribals = {	# Same as above, but has 2 more
 			NOT = {
 				num_of_empty_holdings = 6
 			}
-			# Has less than 18 tribals currently
+			# Has less than 18 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 18
 				}
 			}
 		}
 		AND = {
-			# Excactly 6 empty holdings (6 empty holding is the max)
+			# Excactly 6 empty holdings (6 empty holding is the max for tribals - not for nomads!)
 			num_of_empty_holdings = 6
-			# Has less than 22 tribals currently
+			NOT = {
+				num_of_empty_holdings = 7
+			}
+			# Has less than 22 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 22
+				}
+			}
+		}
+		AND = {
+			# Excactly 7 empty holdings, the absolute max - NOTE: An entirely empty province can not contain tribals! But the code need not be changed
+			num_of_empty_holdings = 7
+			# Has less than 26 tribals/nomads currently
+			NOT = {
+				check_variable = {
+					which = province_population_helper_nomads_and_tribals
+					value = 26
 				}
 			}
 		}
 	}
 }
 
-has_enough_empty_holdings_for_tribals = {	# Also evaluates true if there is spare room - just to check if overcrowded
+has_enough_empty_holdings_for_tribals_or_nomads = {	# Also evaluates true if there is no more spare room - just to check if overcrowded
 	OR = {
 		AND = {
 			# Excactly 1 empty holding
@@ -2022,10 +2094,10 @@ has_enough_empty_holdings_for_tribals = {	# Also evaluates true if there is spar
 			NOT = {
 				num_of_empty_holdings = 2
 			}
-			# Has less than 5 tribals currently
+			# Has less than 5 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 5
 				}
 			}
@@ -2036,10 +2108,10 @@ has_enough_empty_holdings_for_tribals = {	# Also evaluates true if there is spar
 			NOT = {
 				num_of_empty_holdings = 3
 			}
-			# Has less than 9 tribals currently
+			# Has less than 9 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 9
 				}
 			}
@@ -2050,10 +2122,10 @@ has_enough_empty_holdings_for_tribals = {	# Also evaluates true if there is spar
 			NOT = {
 				num_of_empty_holdings = 4
 			}
-			# Has less than 13 tribals currently
+			# Has less than 13 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 13
 				}
 			}
@@ -2064,10 +2136,10 @@ has_enough_empty_holdings_for_tribals = {	# Also evaluates true if there is spar
 			NOT = {
 				num_of_empty_holdings = 5
 			}
-			# Has less than 17 tribals currently
+			# Has less than 17 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 17
 				}
 			}
@@ -2078,20 +2150,34 @@ has_enough_empty_holdings_for_tribals = {	# Also evaluates true if there is spar
 			NOT = {
 				num_of_empty_holdings = 6
 			}
-			# Has less than 21 tribals currently
+			# Has less than 21 tribals/nomads currently
 			NOT = {
 				check_variable = {
-					which = province_population_tribals
+					which = province_population_helper_nomads_and_tribals
 					value = 21
 				}
 			}
 		}
-		# If province has 6 empty holdings, tribals will always fit:
-		num_of_empty_holdings = 6	# Thus irrelevant to do further checks in this case
+		AND = {
+			# Excactly 6 empty holdings
+			num_of_empty_holdings = 6
+			NOT = {
+				num_of_empty_holdings = 7
+			}
+			# Has less than 25 tribals/nomads currently
+			NOT = {
+				check_variable = {
+					which = province_population_helper_nomads_and_tribals
+					value = 25
+				}
+			}
+		}
+		# If province has 7 empty holdings, tribals/nomads will always fit:
+		num_of_empty_holdings = 7	# Thus irrelevant to do further checks in this case
 	}
 }
 
-has_far_too_less_empty_holdings_for_tribals = {	# Checks if province has at least 3 more tribals than possible
+has_far_too_less_empty_holdings_for_tribals_or_nomads = {	# Checks if province has at least 3 more tribals/nomads than possible
 	OR = {
 		AND = {
 			# Excactly 1 empty holding
@@ -2099,9 +2185,9 @@ has_far_too_less_empty_holdings_for_tribals = {	# Checks if province has at leas
 			NOT = {
 				num_of_empty_holdings = 2
 			}
-			# Has more than 7 tribals currently - 4 would be possible at most
+			# Has more than 7 tribals/nomads currently - 4 would be possible at most
 			check_variable = {
-				which = province_population_tribals
+				which = province_population_helper_nomads_and_tribals
 				value = 7
 			}
 		}
@@ -2111,9 +2197,9 @@ has_far_too_less_empty_holdings_for_tribals = {	# Checks if province has at leas
 			NOT = {
 				num_of_empty_holdings = 3
 			}
-			# Has more than 11 tribals currently
+			# Has more than 11 tribals/nomads currently
 			check_variable = {
-				which = province_population_tribals
+				which = province_population_helper_nomads_and_tribals
 				value = 11
 			}
 		}
@@ -2123,9 +2209,9 @@ has_far_too_less_empty_holdings_for_tribals = {	# Checks if province has at leas
 			NOT = {
 				num_of_empty_holdings = 4
 			}
-			# Has more than 15 tribals currently
+			# Has more than 15 tribals/nomads currently
 			check_variable = {
-				which = province_population_tribals
+				which = province_population_helper_nomads_and_tribals
 				value = 15
 			}
 		}
@@ -2135,9 +2221,9 @@ has_far_too_less_empty_holdings_for_tribals = {	# Checks if province has at leas
 			NOT = {
 				num_of_empty_holdings = 5
 			}
-			# Has more than 19 tribals currently
+			# Has more than 19 tribals/nomads currently
 			check_variable = {
-				which = province_population_tribals
+				which = province_population_helper_nomads_and_tribals
 				value = 19
 			}
 		}
@@ -2147,13 +2233,27 @@ has_far_too_less_empty_holdings_for_tribals = {	# Checks if province has at leas
 			NOT = {
 				num_of_empty_holdings = 6
 			}
-			# Has more than 11 tribals currently
+			# Has more than 23 tribals/nomads currently
 			check_variable = {
-				which = province_population_tribals
+				which = province_population_helper_nomads_and_tribals
 				value = 23
 			}
 		}
-		# If province has 6 empty holdings, tribals will always fit - thus irrelevant to check
+		AND = {
+			# Excactly 6 empty holdings
+			num_of_empty_holdings = 6
+			NOT = {
+				num_of_empty_holdings = 7
+			}
+			# Has more than 27 tribals/nomads currently
+			NOT = {
+				check_variable = {
+					which = province_population_helper_nomads_and_tribals
+					value = 27
+				}
+			}
+		}
+		# If province has 7 empty holdings, tribals will always fit - thus irrelevant to check
 	}
 }
 

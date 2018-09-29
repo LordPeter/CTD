@@ -516,6 +516,13 @@ remove_one_shudras_demand = {	# Shudras counted as "special" on province level, 
 # 0 Luxuries
 # one amount of simple labour
 
+# Nomads are *only* done in "recalc_province_pop_CTD_effect" - here just for reference:
+# 1 Food
+# 0.5 Clothing
+# 0.5 Materials
+# 0 Luxuries
+# one amount of simple labour
+
 
 ### Recalculate Province Population
 ## This MUST be called in a province scope to work properly
@@ -555,8 +562,13 @@ recalc_province_pop_CTD_effect = {
 		which = province_population_tribals
 		value = 0
 	}
-	# IMPORTANT: NOT slaves! They are set per province and thus already right; if they'd be reset they would be lost!!!
-	# Also reset demand
+	# IMPORTANT: NOT Slaves! They are set per province and thus already right; if they'd be reset they would be lost!!!
+	# IMPORTANT: NOT Nomads! They are set per province and thus already right; if they'd be reset they would be lost!!!
+	set_variable = { # this helper needs to be reset as well
+		which = province_population_helper_nomads_and_tribals
+		value = 0
+	}
+	# Also reset demand & workforce
 	set_variable = {
 		which = province_demand_food
 		value = 0
@@ -2070,6 +2082,45 @@ recalc_province_pop_CTD_effect = {
 			value = -1
 		}
 	}
+	# Nomads:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_nomads
+	}
+	change_variable = {	# 1 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Rather multiply in case it is zero, and with divide stuff would get bad for some reason...
+		which = helper_variable_population_demand
+		value = 0.5
+	}
+	change_variable = {	# 0.5 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 0.5 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	# Nomads Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_nomads
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_simple_labour_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
+	}
 	# Reset helper variable so it can be cleared from savegame
 	set_variable = {
 		which = helper_variable_population_demand
@@ -2108,6 +2159,19 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {
 		which = province_population_total
 		which = province_population_slaves
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_nomads
+	}
+	# Also set helper variable nomads+tribals, to be able to check for these pops vs empty space:
+	change_variable = {
+		which = province_population_helper_nomads_and_tribals
+		which = province_population_nomads
+	}
+	change_variable = {
+		which = province_population_helper_nomads_and_tribals
+		which = province_population_tribals
 	}
 }
 
@@ -4827,5 +4891,23 @@ decr_shudras_holding_pop_CTD_effect = {
 			which = province_population_total
 			value = -1
 		}
+	}
+}
+
+### Change PROVINCE Population
+## These MUST be called in a province scope to work properly
+# They increase or decrease a certain population one pop at a time. They also automatically call an event to adjust province population
+
+incr_nomads_province_pop_CTD_effect = {
+	change_variable = {
+		which = province_population_nomads
+		value = 1
+	}
+}
+
+decr_nomads_province_pop_CTD_effect = {
+	change_variable = {
+		which = province_population_nomads
+		value = -1
 	}
 }
