@@ -2343,3 +2343,86 @@ tribal = {
 		extra_tech_building_start = 10.0
 	}
 }
+
+nomad = {
+	# Nomad Lords
+	no_population_nomad_lords_1 = {
+		desc = population_nomad_lords_desc
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		Actual Boni:
+		max_population = 250
+		garrison_size = 0.01 # Nomad Lords Pop gives only a %-increase in garrison size
+		
+		extra_tech_building_start = 10.0	# Can never be build automatically at gamestart - only done via event
+	}
+	no_population_nomad_lords_2 = {
+		desc = population_nomad_lords_desc
+		upgrades_from = no_population_nomad_lords_1
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		max_population = 250
+		garrison_size = 0.01 # Nomad Lords Pop gives only a %-increase in garrison size
+		
+		extra_tech_building_start = 10.0
+	}
+	no_population_nomad_lords_3 = {
+		desc = population_nomad_lords_desc
+		upgrades_from = no_population_nomad_lords_2
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		max_population = 250
+		garrison_size = 0.01 # Nomad Lords Pop gives only a %-increase in garrison size
+		
+		extra_tech_building_start = 10.0
+	}
+	no_population_nomad_lords_4 = {
+		desc = population_nomad_lords_desc
+		upgrades_from = no_population_nomad_lords_3
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		max_population = 250
+		garrison_size = 0.01 # Nomad Lords Pop gives only a %-increase in garrison size
+		
+		extra_tech_building_start = 10.0
+	}
+	no_population_nomad_lords_5 = {
+		desc = population_nomad_lords_desc
+		upgrades_from = no_population_nomad_lords_4
+		trigger = {
+			always = no
+		}
+		gold_cost = 0
+		build_time = 0
+		ai_creation_factor = 1
+		
+		# Actual Boni:
+		max_population = 250
+		garrison_size = 0.01 # Nomad Lords Pop gives only a %-increase in garrison size
+		
+		extra_tech_building_start = 10.0
+	}
+}

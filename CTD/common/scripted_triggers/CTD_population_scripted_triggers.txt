@@ -657,6 +657,36 @@ can_grow_tribal_craftsmen_CTD_trigger = {
 	}
 }
 
+can_grow_nomad_lords_CTD_trigger = {	# Note: There are also "regular" nomads, which are grown in province scope; see below!
+	AND = {
+		location = {	# The province
+			AND = {
+				NOT = {	# Has no epidemic disease
+					has_epidemic = yes
+				}
+				# Nomad Lords will grow if they have Food, Clothing, Materials and Luxuries
+				check_variable = {
+					which = province_supply_food
+					which = province_demand_food
+				}
+				check_variable = {
+					which = province_supply_clothing
+					which = province_demand_clothing
+				}
+				check_variable = {
+					which = province_supply_materials
+					which = province_demand_materials
+				}
+				check_variable = {
+					which = province_supply_luxuries
+					which = province_demand_luxuries
+				}
+			}
+		}
+		# Nomad Lords can grow regardless of other population
+	}
+}
+
 can_grow_shudras_CTD_trigger = {
 	AND = {
 		location = {	# The province
@@ -1442,6 +1472,36 @@ will_shrink_tribal_craftsmen_CTD_trigger = {
 				}
 			}
 		}
+	}
+}
+
+will_shrink_nomad_lords_CTD_trigger = {	# Note: There are also "regular" nomads, which are grown in province scope; see below!
+	OR = {
+		location = {	# The province
+			OR = {
+				# INFO: Disease shrinking is handled directly from disease file, not here!
+				# Nomad Lords will shrink if they lack Food, Clothing or Materials
+				NOT = {
+					check_variable = {
+						which = province_supply_food
+						which = province_demand_food
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_clothing
+						which = province_demand_clothing
+					}
+				}
+				NOT = {
+					check_variable = {
+						which = province_supply_materials
+						which = province_demand_materials
+					}
+				}
+			}
+		}
+		# Nomad Lords will shrink regardless of other population
 	}
 }
 

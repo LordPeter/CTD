@@ -778,6 +778,22 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 				}
 			}
 			# enough for now. The first peasant pop is nigh guaranteed to spawn, the others might not in harsh climate etc. But the world will get a starting population
+			# Some love for Nomads which don't get regular pops (all things happen directly in province):
+			# (regular) Nomads #1
+			if = {
+				limit = {
+					can_grow_nomads_CTD_trigger = yes
+				}
+				incr_nomads_province_pop_CTD_effect = yes
+			}
+			# (regular) Nomads #2
+			if = {
+				limit = {
+					can_grow_nomads_CTD_trigger = yes
+				}
+				incr_nomads_province_pop_CTD_effect = yes
+			}
+			# This should get Nomads some starting position that is not totall weak.
 			# Recalculate Province Population (holdings probably have pops now)
 			recalc_province_pop_CTD_effect = yes
 			

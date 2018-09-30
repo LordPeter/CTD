@@ -2335,8 +2335,170 @@ province_event = {	# Calculate population growth - yearly, but does not repeat o
 					}
 				}
 			}
+			# Nomad Lords - need not check this in other holdings
+			if = {
+				limit = {
+					holding_type = nomad
+				}
+				# Nomad Lords
+				if = {
+					limit = {
+						can_grow_nomad_lords_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# Nomad Lords are located in the capital already, since nomads can just have one nomad holding
+							modifier = {	# Good Food supply (>100%) increases chances slightly
+								factor = 1.1
+								location = {	# The province
+									has_province_flag = food_supply_good
+								}
+							}
+							# Nomad Lords are not influenced by growth incentives
+							# Nomad Lords like certain terrains more, or less - note this is not the generic terrain influence below!
+							modifier = {	# Steppe is their homeland
+								factor = 1.2
+								OR = {
+									location = {
+										terrain = steppe
+									}
+								}
+							}
+							modifier = {	# Other open terrains are nice as well
+								factor = 1.1
+								OR = {
+									location = {
+										terrain = savanna
+										terrain = plains
+									}
+								}
+							}
+							modifier = {	# Rugged terrain is not so nice
+								factor = 0.9
+								OR = {
+									location = {
+										terrain = forest
+										terrain = jungle
+										terrain = hills
+										terrain = mountain
+									}
+								}
+							}
+							modifier = {	# Nomads are impressed by prestige, flock to prestigeous rulers' lands
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 500
+									}
+								}
+							}
+							modifier = {	# Nomads are impressed by prestige, flock to prestigeous rulers' lands (stacks with above)
+								factor = 1.1
+								location = {	# The province
+									owner = {	# The -province- owner
+										prestige = 1000
+									}
+								}
+							}
+							modifier = {	# Also goes the other way round of course - negative prestige makes them shy away
+								factor = 0.75
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							# Terrain preference - this is independent from "terrain type influence" below!
+							modifier = {	# Foragers prefer forests, jungles and mountains
+								factor = 1.1
+								location = {	# The province
+									OR = {
+										terrain = forest
+										terrain = jungle
+										terrain = mountain
+									}
+								}
+							}
+							# TERRAIN type influence (generic, shared between all pops):
+							modifier = {	# Farmlands: x1.0
+								factor = 1.1
+								location = {	# The province
+									terrain = farmlands
+								}
+							}
+							# Plains & Steppe grows pops at default speed (x1.0), no modifier needed for these!
+							modifier = {	# Savanna, Forest & Hills: x0.9
+								factor = 0.9
+								location = {	# The province
+									OR = {
+										terrain = savanna
+										terrain = forest
+										terrain = hills
+									}
+								}
+							}
+							modifier = {	# Jungle, Mountains & Desert: x0.8
+								factor = 0.8
+								location = {	# The province
+									OR = {
+										terrain = jungle
+										terrain = mountain
+										terrain = desert
+									}
+								}
+							}
+							modifier = {	# Arctic: x0.7
+								factor = 0.7
+								location = {	# The province
+									terrain = arctic
+								}
+							}
+							# End of terrain type influence.
+							# Do pop increase:
+							incr_nomad_lords_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no growth this cycle
+						}
+					}
+				}
+				if = {
+					limit = {
+						will_shrink_nomad_lords_CTD_trigger = yes
+					}
+					random_list = {
+						25 = {
+							# NOTE: Just a reminder, disease effects are handeled seperately - directly in the diseases file!
+							modifier = {	# Poor Food supply (<100%) increases chances slightly
+								factor = 1.1
+								location = {	# The province
+									has_province_flag = food_supply_poor
+								}
+							}
+							# Nomad Lords are not influenced by growth incentives
+							modifier = {	# Negative prestige makes Nomad Lords move away
+								factor = 1.25
+								location = {	# The province
+									owner = {	# The -province- owner
+										NOT = {	# Has negative prestige
+											prestige = 0
+										}
+									}
+								}
+							}
+							# Do pop decrease:
+							decr_nomad_lords_holding_pop_CTD_effect = yes
+						}
+						75 = {
+							# no shrinking this cycle
+						}
+					}
+				}
+			}
 		} # /end of holding scope
-		# Calculate nomads in province scope, not in holdings!
+		# Calculate regular Nomads in province scope, not in holdings!
 		# Nomads
 		if = {
 			limit = {
