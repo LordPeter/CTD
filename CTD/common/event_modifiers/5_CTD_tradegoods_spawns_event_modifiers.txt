@@ -74,178 +74,178 @@
 
 
 ## Nature:
-spawn_nature_unique_hunting = {
+spawn_hunting = {
 	icon = 124
 }
-spawn_nature_unique_gathering = {
+spawn_gathering = {
 	icon = 124
 }
-spawn_nature_unique_fishing = {
+spawn_fishing = {
 	icon = 124
 }
-spawn_nature_unique_whaling = {
+spawn_whaling = {
 	icon = 124
 }
-spawn_nature_unique_diving = {
+spawn_diving = {
 	icon = 124
 }
-spawn_nature_forests_coniferous_forest = {
+spawn_coniferous_forest = {
 	icon = 124
 }
-spawn_nature_forests_broadleave_forest = {
+spawn_broadleave_forest = {
 	icon = 124
 }
-spawn_nature_forests_tropical_rainforest = {
+spawn_tropical_rainforest = {
 	icon = 124
 }
-spawn_nature_forests_bamboo_forest = {
+spawn_bamboo_forest = {
 	icon = 124
 }
-spawn_nature_mining_open_pit_mining = {
+spawn_open_pit_mining = {
 	icon = 124
 }
-spawn_nature_mining_underground_mining = {
+spawn_underground_mining = {
 	icon = 124
 }
-spawn_nature_mining_placer_mining = {
+spawn_placer_mining = {
 	icon = 124
 }
-spawn_nature_mining_digging = {
+spawn_digging = {
 	icon = 124
 }
-spawn_nature_mining_quarrying = {
+spawn_quarrying = {
 	icon = 124
 }
-spawn_nature_mining_salt_evaporation = {
+spawn_salt_evaporation = {
 	icon = 124
 }
-spawn_nature_mining_natural_wells = {
+spawn_natural_wells = {
 	icon = 124
 }
 
 ## Agriculture:
-spawn_agriculture_field_crop_fields = {
+spawn_crop_fields = {
 	icon = 118
 }
-spawn_agriculture_field_paddy_fields = {
+spawn_paddy_fields = {
 	icon = 118
 }
-spawn_agriculture_field_gardening = {
+spawn_gardening = {
 	icon = 118
 }
-spawn_agriculture_orchard_vineyards = {
+spawn_vineyards = {
 	icon = 118
 }
-spawn_agriculture_orchard_copse = {
+spawn_copse = {
 	icon = 118
 }
-spawn_agriculture_orchard_cork_oak_groves = {
+spawn_cork_oak_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_nut_groves = {
+spawn_nut_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_fruit_orchards = {
+spawn_fruit_orchards = {
 	icon = 118
 }
-spawn_agriculture_orchard_citrus_orchards = {
+spawn_citrus_orchards = {
 	icon = 118
 }
-spawn_agriculture_orchard_tamarind_groves = {
+spawn_tamarind_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_almond_orchards = {
+spawn_almond_orchards = {
 	icon = 118
 }
-spawn_agriculture_orchard_olive_groves = {
+spawn_olive_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_palm_groves = {
+spawn_palm_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_date_groves = {
+spawn_date_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_areca_palm_groves = {
+spawn_areca_palm_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_coconut_groves = {
+spawn_coconut_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_gum_acacia_groves = {
+spawn_gum_acacia_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_sandarac_groves = {
+spawn_sandarac_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_olibanum_groves = {
+spawn_olibanum_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_myrrh_groves = {
+spawn_myrrh_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_lentisk_groves = {
+spawn_lentisk_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_cinnamon_groves = {
+spawn_cinnamon_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_moringa_groves = {
+spawn_moringa_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_argan_groves = {
+spawn_argan_groves = {
 	icon = 118
 }
-spawn_agriculture_orchard_neem_groves = {
+spawn_neem_groves = {
 	icon = 118
 }
 
 ## Livestock:
-spawn_livestock_cattle = {
+spawn_cattle = {
 	icon = 82
 }
-spawn_livestock_sheep = {
+spawn_sheep = {
 	icon = 82
 }
-spawn_livestock_goats = {
+spawn_goats = {
 	icon = 82
 }
-spawn_livestock_pigs = {
+spawn_pigs = {
 	icon = 82
 }
-spawn_livestock_poultry = {
+spawn_poultry = {
 	icon = 82
 }
-spawn_livestock_horses = {
+spawn_horses = {
 	icon = 82
 }
-spawn_livestock_camels = {
+spawn_camels = {
 	icon = 82
 }
-spawn_livestock_reindeers = {
+spawn_reindeers = {
 	icon = 82
 }
-spawn_livestock_elephants = {
+spawn_elephants = {
 	icon = 82
 }
-spawn_livestock_yaks = {
+spawn_yaks = {
 	icon = 82
 }
-spawn_livestock_sericulture = {
+spawn_sericulture = {
 	icon = 82
 }
-spawn_livestock_apiculture = {
+spawn_apiculture = {
 	icon = 82
 }
-spawn_livestock_kermes_insects = {
+spawn_kermes_insects = {
 	icon = 82
 }
-spawn_livestock_cochineal_insects = {
+spawn_cochineal_insects = {
 	icon = 82
 }
-spawn_livestock_lac_insects = {
+spawn_lac_insects = {
 	icon = 82
 }
-spawn_livestock_fish_farming = {
+spawn_fish_farming = {
 	icon = 82
 }

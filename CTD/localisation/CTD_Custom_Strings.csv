@@ -41,6 +41,12 @@ Good_Luxuries;§GLuxuries§!;;;;;;;;;;;;;x
 Mediocre_Luxuries;§YLuxuries§!;;;;;;;;;;;;;x
 Poor_Luxuries;§RLuxuries§!;;;;;;;;;;;;;x
 
+## Weather/Disaster Cap reduction
+# Agriculture
+Temp_Cap_Red_Agriculture;/§C[province_cap_agriculture.GetValue]§! (§R-[province_temporary_effect_on_agriculture.GetValue]%§!);;;;;;;;;;;;;x
+# Livestock
+Temp_Cap_Red_Livestock;/§C[province_cap_livestock.GetValue]§! (§R-[province_temporary_effect_on_livestock.GetValue]%§!);;;;;;;;;;;;;x
+
 ## Special Province Features
 # General
 No_Province_Feature;None;;;;;;;;;;;;;x

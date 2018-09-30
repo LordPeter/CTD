@@ -1,0 +1,1408 @@
+#############################
+# CTD spawns scripted effects
+#
+# by LordPeter
+#############################
+
+### Has chosen 2 products
+## This MUST be called in an province scope to work properly
+# Checks whether province owner has already chosen 2 resources to spawn and thus isn't eligible for another one
+
+# Has chosen 2 products
+has_chosen_2_products_CTD_trigger = {
+	calc_true_if = {
+		amount = 2
+		# list of all the resource flags:
+		has_province_flag = newly_spawned_gold_ore
+		has_province_flag = newly_spawned_placer_gold
+		has_province_flag = newly_spawned_electrum
+		has_province_flag = newly_spawned_chlorargyrite
+		has_province_flag = newly_spawned_ruby_silver
+		has_province_flag = newly_spawned_chalcopyrite
+		has_province_flag = newly_spawned_chalcocite
+		has_province_flag = newly_spawned_haematite
+		has_province_flag = newly_spawned_magnetite
+		has_province_flag = newly_spawned_pyrite
+		has_province_flag = newly_spawned_cassiterite
+		has_province_flag = newly_spawned_lead_glance
+		has_province_flag = newly_spawned_gemstones
+		has_province_flag = newly_spawned_lapis_lazuli
+		has_province_flag = newly_spawned_malachite
+		has_province_flag = newly_spawned_orpiment_realgar
+		has_province_flag = newly_spawned_jade
+		has_province_flag = newly_spawned_alum
+		has_province_flag = newly_spawned_cinnabar
+		has_province_flag = newly_spawned_sulfur_ore
+		has_province_flag = newly_spawned_naphtha
+		has_province_flag = newly_spawned_coal
+		has_province_flag = newly_spawned_calamine
+		has_province_flag = newly_spawned_smaltite
+		has_province_flag = newly_spawned_antimonit
+		has_province_flag = newly_spawned_pyrolusit
+		has_province_flag = newly_spawned_sal_ammoniac
+		has_province_flag = newly_spawned_marble
+		has_province_flag = newly_spawned_stone
+		has_province_flag = newly_spawned_limestone
+		has_province_flag = newly_spawned_alabaster
+		has_province_flag = newly_spawned_gypsum
+		has_province_flag = newly_spawned_amber
+		has_province_flag = newly_spawned_salt
+		has_province_flag = newly_spawned_natural_brine
+		has_province_flag = newly_spawned_soda
+		has_province_flag = newly_spawned_sand
+		has_province_flag = newly_spawned_clay
+		has_province_flag = newly_spawned_borax
+		has_province_flag = newly_spawned_grapes
+		has_province_flag = newly_spawned_exotic_fruit
+		has_province_flag = newly_spawned_cotton
+		has_province_flag = newly_spawned_flax
+		has_province_flag = newly_spawned_hemp
+		has_province_flag = newly_spawned_ramie
+		has_province_flag = newly_spawned_kenaf
+		has_province_flag = newly_spawned_jute
+		has_province_flag = newly_spawned_roselle
+		has_province_flag = newly_spawned_sugar_cane
+		has_province_flag = newly_spawned_black_pepper
+		has_province_flag = newly_spawned_ginger
+		has_province_flag = newly_spawned_saffron
+		has_province_flag = newly_spawned_anise
+		has_province_flag = newly_spawned_cumin
+		has_province_flag = newly_spawned_mustard_seeds
+		has_province_flag = newly_spawned_tanners_sumac
+		has_province_flag = newly_spawned_tea
+		has_province_flag = newly_spawned_dyers_woad
+		has_province_flag = newly_spawned_indigo
+		has_province_flag = newly_spawned_henna
+		has_province_flag = newly_spawned_madder
+		has_province_flag = newly_spawned_weld
+		has_province_flag = newly_spawned_safflower
+		has_province_flag = newly_spawned_turnsole
+		has_province_flag = newly_spawned_spikenard
+		has_province_flag = newly_spawned_poppy
+		has_province_flag = newly_spawned_sesame
+		has_province_flag = newly_spawned_hops
+		has_province_flag = newly_spawned_saltwort
+		has_province_flag = newly_spawned_straw
+		has_province_flag = newly_spawned_wheat
+		has_province_flag = newly_spawned_barley
+		has_province_flag = newly_spawned_spelt
+		has_province_flag = newly_spawned_rye
+		has_province_flag = newly_spawned_oat
+		has_province_flag = newly_spawned_millet
+		has_province_flag = newly_spawned_buckwheat
+		has_province_flag = newly_spawned_rice
+		has_province_flag = newly_spawned_timber
+		has_province_flag = newly_spawned_firewood
+		has_province_flag = newly_spawned_flexible_twigs
+		has_province_flag = newly_spawned_sandalwood
+		has_province_flag = newly_spawned_ebony
+		has_province_flag = newly_spawned_agarwood
+		has_province_flag = newly_spawned_sappanwood
+		has_province_flag = newly_spawned_cedarwood
+		has_province_flag = newly_spawned_teak
+		has_province_flag = newly_spawned_tanbark
+		has_province_flag = newly_spawned_cork
+		has_province_flag = newly_spawned_birch_bark
+		has_province_flag = newly_spawned_palm_leaves
+		has_province_flag = newly_spawned_cinnamon
+		has_province_flag = newly_spawned_oak_galls
+		has_province_flag = newly_spawned_tamarind
+		has_province_flag = newly_spawned_almonds
+		has_province_flag = newly_spawned_nuts
+		has_province_flag = newly_spawned_tree_fruit
+		has_province_flag = newly_spawned_dates
+		has_province_flag = newly_spawned_citrus_fruit
+		has_province_flag = newly_spawned_olives
+		has_province_flag = newly_spawned_juniper_berries
+		has_province_flag = newly_spawned_resin
+		has_province_flag = newly_spawned_frankincense
+		has_province_flag = newly_spawned_myrrh
+		has_province_flag = newly_spawned_mastic
+		has_province_flag = newly_spawned_dragons_blood
+		has_province_flag = newly_spawned_natural_gum
+		has_province_flag = newly_spawned_birch_sap
+		has_province_flag = newly_spawned_mushrooms
+		has_province_flag = newly_spawned_peat
+		has_province_flag = newly_spawned_seaweed
+		has_province_flag = newly_spawned_reed
+		has_province_flag = newly_spawned_bracken_fern
+		has_province_flag = newly_spawned_herbs
+		has_province_flag = newly_spawned_berries
+		has_province_flag = newly_spawned_vegetables
+		has_province_flag = newly_spawned_nettles
+		has_province_flag = newly_spawned_flowers
+		has_province_flag = newly_spawned_papyrus_sedge
+		has_province_flag = newly_spawned_khat
+		has_province_flag = newly_spawned_betel_leaves
+		has_province_flag = newly_spawned_areca_nuts
+		has_province_flag = newly_spawned_argan_seeds
+		has_province_flag = newly_spawned_palm_pulp
+		has_province_flag = newly_spawned_moringa_kernels
+		has_province_flag = newly_spawned_coffee_beans
+		has_province_flag = newly_spawned_milk
+		has_province_flag = newly_spawned_caviar
+		has_province_flag = newly_spawned_raw_fish
+		has_province_flag = newly_spawned_raw_meat
+		has_province_flag = newly_spawned_animal_fat
+		has_province_flag = newly_spawned_eggs
+		has_province_flag = newly_spawned_bones
+		has_province_flag = newly_spawned_horns
+		has_province_flag = newly_spawned_feathers
+		has_province_flag = newly_spawned_hide
+		has_province_flag = newly_spawned_silkthread
+		has_province_flag = newly_spawned_wool
+		has_province_flag = newly_spawned_camel_hair
+		has_province_flag = newly_spawned_animal_hair
+		has_province_flag = newly_spawned_pelts
+		has_province_flag = newly_spawned_musk
+		has_province_flag = newly_spawned_ivory
+		has_province_flag = newly_spawned_corals
+		has_province_flag = newly_spawned_murex_snails
+		has_province_flag = newly_spawned_pearls
+		has_province_flag = newly_spawned_cowry_shells
+		has_province_flag = newly_spawned_ambergris
+		has_province_flag = newly_spawned_sepia
+		has_province_flag = newly_spawned_honey
+		has_province_flag = newly_spawned_beeswax
+		has_province_flag = newly_spawned_shellac
+		has_province_flag = newly_spawned_kermes
+		has_province_flag = newly_spawned_carmine
+		has_province_flag = newly_spawned_captured_wild_animals
+		has_province_flag = newly_spawned_tortoise_shells
+		has_province_flag = newly_spawned_byssus
+		has_province_flag = newly_spawned_cashmere
+		has_province_flag = newly_spawned_yak_wool
+		has_province_flag = newly_spawned_dromedaries
+		has_province_flag = newly_spawned_elephant_mounts
+		has_province_flag = newly_spawned_steeds
+	}
+}
+
+
+### Spawn allows for 2nd product
+## This MUST be called in an province scope to work properly
+# Checks whether spawn output can even be split up, because some spawns only allow for a single product (e.g. silk)
+
+# Spawn allows 2nd product
+chosen_spawn_allows_for_2nd_product_CTD_trigger = {
+	# simply checks the opposite, i.e. if spawn can NOT output more than one resource
+	NOR = {
+		# all of these have only a sinlge resource they can output:
+		has_province_flag = chosen_spawn_is_salt_evaporation
+		has_province_flag = chosen_spawn_is_paddy_fields
+		has_province_flag = chosen_spawn_is_olibanum_groves
+		has_province_flag = chosen_spawn_is_olibanum_groves
+		has_province_flag = chosen_spawn_is_sericulture
+		has_province_flag = chosen_spawn_is_kermes_insects
+		has_province_flag = chosen_spawn_is_cochineal_insects
+		has_province_flag = chosen_spawn_is_lac_insects
+	}
+}
+
+
+### Match spawn to cap
+## This MUST be called in an province scope to work properly
+# Matches the spawn variable to (in some cases: dynamic or unique) spawn type cap and also workforce
+
+# Unique:
+match_spawn_hunting_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_wildlife	# Unique, hidden cap type
+			}
+		}
+		set_variable = {
+			which = var_spawn_hunting
+			which = province_cap_wildlife
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_hunting
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_gathering_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_vegetation	# Unique, hidden cap type
+			}
+		}
+		set_variable = {
+			which = var_spawn_gathering
+			which = province_cap_vegetation
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_gathering
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_fishing_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_fishing	# Unique, hidden cap type
+			}
+		}
+		set_variable = {
+			which = var_spawn_fishing
+			which = province_cap_fishing
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_fishing
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_whaling_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_whaling	# Unique, hidden cap type
+			}
+		}
+		set_variable = {
+			which = var_spawn_whaling
+			which = province_cap_whaling
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_whaling
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_diving_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_diving	# Unique, hidden cap type
+			}
+		}
+		set_variable = {
+			which = var_spawn_diving
+			which = province_cap_diving
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_diving
+			which = province_workforce_simple_labour
+		}
+	}
+}
+# Forests:
+match_spawn_coniferous_forest_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_forests
+			}
+		}
+		set_variable = {
+			which = var_spawn_coniferous_forest
+			which = province_cap_forests
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_coniferous_forest
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_broadleave_forest_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_forests
+			}
+		}
+		set_variable = {
+			which = var_spawn_broadleave_forest
+			which = province_cap_forests
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_broadleave_forest
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_tropical_rainforest_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_forests
+			}
+		}
+		set_variable = {
+			which = var_spawn_tropical_rainforest
+			which = province_cap_forests
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_tropical_rainforest
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_bamboo_forest_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_forests
+			}
+		}
+		set_variable = {
+			which = var_spawn_bamboo_forest
+			which = province_cap_forests
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_bamboo_forest
+			which = province_workforce_simple_labour
+		}
+	}
+}
+# Mining:
+match_spawn_open_pit_mining_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_mining
+			}
+		}
+		set_variable = {
+			which = var_spawn_open_pit_mining
+			which = province_cap_mining
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_open_pit_mining
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_underground_mining_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_mining
+			}
+		}
+		set_variable = {
+			which = var_spawn_underground_mining
+			which = province_cap_mining
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_underground_mining
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_placer_mining_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_mining
+			}
+		}
+		set_variable = {
+			which = var_spawn_placer_mining
+			which = province_cap_mining
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_placer_mining
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_digging_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_mining
+			}
+		}
+		set_variable = {
+			which = var_spawn_digging
+			which = province_cap_mining
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_digging
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_quarrying_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_mining
+			}
+		}
+		set_variable = {
+			which = var_spawn_quarrying
+			which = province_cap_mining
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_quarrying
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_salt_evaporation_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_mining
+			}
+		}
+		set_variable = {
+			which = var_spawn_salt_evaporation
+			which = province_cap_mining
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_salt_evaporation
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_natural_wells_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_mining
+			}
+		}
+		set_variable = {
+			which = var_spawn_natural_wells
+			which = province_cap_mining
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_natural_wells
+			which = province_workforce_simple_labour
+		}
+	}
+}
+# Agriculture:
+match_spawn_crop_fields_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_crop_fields
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_crop_fields
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_paddy_fields_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_paddy_fields
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_paddy_fields
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_gardening_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_gardening
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_gardening
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_vineyards_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_vineyards
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_vineyards
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_copse_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_copse
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_copse
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_cork_oak_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_cork_oak_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_cork_oak_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_nut_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_nut_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_nut_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_fruit_orchards_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_fruit_orchards
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_fruit_orchards
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_citrus_orchards_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_citrus_orchards
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_citrus_orchards
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_tamarind_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_tamarind_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_tamarind_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_almond_orchards_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_almond_orchards
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_almond_orchards
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_olive_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_olive_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_olive_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_palm_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_palm_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_palm_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_date_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_date_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_date_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_areca_palm_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_areca_palm_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_areca_palm_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_coconut_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_coconut_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_coconut_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_gum_acacia_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_gum_acacia_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_gum_acacia_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_sandarac_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_sandarac_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_sandarac_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_olibanum_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_olibanum_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_olibanum_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_myrrh_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_myrrh_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_myrrh_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_lentisk_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_lentisk_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_lentisk_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_cinnamon_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_cinnamon_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_cinnamon_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_moringa_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_moringa_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_moringa_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_argan_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_argan_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_argan_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_neem_groves_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_agriculture
+			}
+		}
+		set_variable = {
+			which = var_spawn_neem_groves
+			which = province_cap_agriculture
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_neem_groves
+			which = province_workforce_simple_labour
+		}
+	}
+}
+# Livestock:
+match_spawn_cattle_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_cattle
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_cattle
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_sheep_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_sheep
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_sheep
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_goats_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_goats
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_goats
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_pigs_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_pigs
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_pigs
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_poultry_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_poultry
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_poultry
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_horses_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_horses
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_horses
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_camels_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_camels
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_camels
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_reindeers_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_reindeers
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_reindeers
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_elephants_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_elephants
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_elephants
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_yaks_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_yaks
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_yaks
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_sericulture_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_sericulture
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_sericulture
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_apiculture_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_apiculture
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_apiculture
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_kermes_insects_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_kermes_insects
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_kermes_insects
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_cochineal_insects_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_cochineal_insects
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_cochineal_insects
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_lac_insects_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_lac_insects
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_lac_insects
+			which = province_workforce_simple_labour
+		}
+	}
+}
+match_spawn_fish_farming_to_caps_CTD_effect = {
+	# Check whether spawn type cap or workforce is limiting factor (smaller), then do stuff
+	if = {	# Spawn type cap is limiting
+		limit = {
+			check_variable = {
+				which = province_workforce_simple_labour
+				which = province_cap_livestock
+			}
+		}
+		set_variable = {
+			which = var_spawn_fish_farming
+			which = province_cap_livestock
+		}
+	}
+	else = {	# Workforce is limiting
+		set_variable = {
+			which = var_spawn_fish_farming
+			which = province_workforce_simple_labour
+		}
+	}
+}

@@ -5,7 +5,7 @@
 #################################
 
 
-### Set/remove special population demand
+### Set/remove special population demand - and NEW, also workforce (name remains unchanged for compatibility)
 ## These MUST be called in a province scope to work properly
 # They add/subtract the demand of one pop of a certain population (for multiple pops, has to be repeated). Originally because certain pops are indistinguishable on province scope.
 
@@ -24,6 +24,8 @@ add_one_peasants_demand = {
 		value = 1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_one_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_peasants_demand = {
 	change_variable = {
@@ -39,6 +41,8 @@ remove_one_peasants_demand = {
 		value = -1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_one_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Artisans: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -56,6 +60,8 @@ add_one_artisans_demand = {
 		value = 2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_one_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_artisans_demand = {
 	change_variable = {
@@ -71,6 +77,8 @@ remove_one_artisans_demand = {
 		value = -2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_one_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Merchants: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -91,6 +99,8 @@ add_one_merchants_demand = {
 		which = province_demand_luxuries
 		value = 1
 	}
+	# WORKFORCE:
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_merchants_demand = {
 	change_variable = {
@@ -109,6 +119,8 @@ remove_one_merchants_demand = {
 		which = province_demand_luxuries
 		value = -1
 	}
+	# WORKFORCE:
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Elite: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -129,6 +141,7 @@ add_one_elite_demand = {
 		which = province_demand_luxuries
 		value = 2
 	}
+	# Elites do not contribute to workforce at all
 }
 remove_one_elite_demand = {
 	change_variable = {
@@ -147,6 +160,7 @@ remove_one_elite_demand = {
 		which = province_demand_luxuries
 		value = -2
 	}
+	# Elites do not contribute to workforce at all
 }
 
 # Soldiers:
@@ -167,6 +181,7 @@ add_one_soldiers_demand = {
 		which = province_demand_luxuries
 		value = 0.5
 	}
+	# Soldiers do not contribute to workforce at all
 }
 remove_one_soldiers_demand = {
 	change_variable = {
@@ -185,6 +200,7 @@ remove_one_soldiers_demand = {
 		which = province_demand_luxuries
 		value = -0.5
 	}
+	# Soldiers do not contribute to workforce at all
 }
 
 # Patricians:
@@ -205,6 +221,8 @@ add_one_patricians_demand = {
 		which = province_demand_luxuries
 		value = 1
 	}
+	# WORKFORCE:
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_patricians_demand = {
 	change_variable = {
@@ -223,6 +241,8 @@ remove_one_patricians_demand = {
 		which = province_demand_luxuries
 		value = -1
 	}
+	# WORKFORCE:
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Clercis:
@@ -243,6 +263,9 @@ add_one_clerics_demand = {
 		which = province_demand_luxuries
 		value = 1
 	}
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_clerics_demand = {
 	change_variable = {
@@ -261,6 +284,9 @@ remove_one_clerics_demand = {
 		which = province_demand_luxuries
 		value = -1
 	}
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Scum: are done in "recalc_province_pop_CTD_effect" - but effect is still used in the pop growth effect:
@@ -281,6 +307,7 @@ add_one_scum_demand = {
 		which = province_demand_luxuries
 		value = 0.5
 	}
+	# Scum does not contribute to workforce at all
 }
 remove_one_scum_demand = {
 	change_variable = {
@@ -299,6 +326,7 @@ remove_one_scum_demand = {
 		which = province_demand_luxuries
 		value = -0.5
 	}
+	# Scum does not contribute to workforce at all
 }
 
 # Tribal Foragers:
@@ -316,6 +344,8 @@ add_one_tribal_foragers_demand = {
 		value = 0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_tribal_foragers_demand = {
 	change_variable = {
@@ -331,6 +361,8 @@ remove_one_tribal_foragers_demand = {
 		value = -0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Tribal Farmers:
@@ -348,6 +380,8 @@ add_one_tribal_farmers_demand = {
 		value = 1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_tribal_farmers_demand = {
 	change_variable = {
@@ -363,6 +397,8 @@ remove_one_tribal_farmers_demand = {
 		value = -1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Tribal Herdsmen:
@@ -380,6 +416,8 @@ add_one_tribal_herdsmen_demand = {
 		value = 1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_tribal_herdsmen_demand = {
 	change_variable = {
@@ -395,6 +433,8 @@ remove_one_tribal_herdsmen_demand = {
 		value = -1
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Tribal Craftsmen:
@@ -412,6 +452,8 @@ add_one_tribal_craftsmen_demand = {
 		value = 2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_craftsmanship_CTD_effect = yes
 }
 remove_one_tribal_craftsmen_demand = {
 	change_variable = {
@@ -427,6 +469,52 @@ remove_one_tribal_craftsmen_demand = {
 		value = -2
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
+}
+
+# Nomad Lords:
+add_one_nomad_lords_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = 1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = 0.5
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = 0.5
+	}
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
+	add_half_amount_of_craftsmanship_CTD_effect = yes
+}
+remove_one_nomad_lords_demand = {
+	change_variable = {
+		which = province_demand_food
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_clothing
+		value = -1
+	}
+	change_variable = {
+		which = province_demand_materials
+		value = -0.5
+	}
+	change_variable = {
+		which = province_demand_luxuries
+		value = -0.5
+	}
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
+	remove_half_amount_of_craftsmanship_CTD_effect = yes
 }
 
 # Shudras:
@@ -444,6 +532,8 @@ add_one_shudras_demand = {	# Shudras counted as "special" on province level, so 
 		value = 0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	add_half_amount_of_simple_labour_CTD_effect = yes
 }
 remove_one_shudras_demand = {	# Shudras counted as "special" on province level, so they also need individual demand setting
 	change_variable = {
@@ -459,6 +549,8 @@ remove_one_shudras_demand = {	# Shudras counted as "special" on province level, 
 		value = -0.5
 	}
 	# 0 Luxuries
+	# WORKFORCE:
+	remove_half_amount_of_simple_labour_CTD_effect = yes
 }
 
 # Slaves are *only* done in "recalc_province_pop_CTD_effect" - here just for reference:
@@ -466,6 +558,14 @@ remove_one_shudras_demand = {	# Shudras counted as "special" on province level, 
 # 0.5 Clothing
 # 0.5 Materials
 # 0 Luxuries
+# one amount of simple labour
+
+# Nomads are *only* done in "recalc_province_pop_CTD_effect" - here just for reference:
+# 1 Food
+# 0.5 Clothing
+# 0.5 Materials
+# 0 Luxuries
+# one amount of simple labour
 
 
 ### Recalculate Province Population
@@ -506,8 +606,17 @@ recalc_province_pop_CTD_effect = {
 		which = province_population_tribals
 		value = 0
 	}
-	# IMPORTANT: NOT slaves! They are set per province and thus already right; if they'd be reset they would be lost!!!
-	# Also reset demand
+	# IMPORTANT: NOT Slaves! They are set per province and thus already right; if they'd be reset they would be lost!!!
+	set_variable = {
+		which = province_population_nomads	# This one here can be reset
+		value = 0
+	}
+	# NOTE: NOT -regular- Nomads (i.e. province_population_nomads_regular)! They are set per province; if they'd be reset they would be lost!!!
+	set_variable = { # this helper needs to be reset as well
+		which = province_population_helper_nomads_and_tribals
+		value = 0
+	}
+	# Also reset demand & workforce
 	set_variable = {
 		which = province_demand_food
 		value = 0
@@ -522,6 +631,14 @@ recalc_province_pop_CTD_effect = {
 	}
 	set_variable = {
 		which = province_demand_luxuries
+		value = 0
+	}
+	set_variable = {
+		which = province_workforce_simple_labour
+		value = 0
+	}
+	set_variable = {
+		which = province_workforce_craftsmanship
 		value = 0
 	}
 	# Now increase the individual types to their correct amount
@@ -1211,456 +1328,558 @@ recalc_province_pop_CTD_effect = {
 				}
 			}
 		}
-		# Tribal Foragers
-		if = {
+		if = {	# Tribals: Only in tribal holdings
 			limit = {
-				AND = {
-					has_building = tb_population_tribal_foragers_1
-					NOT = {
+				holding_type = tribal
+			}
+			# Tribal Foragers
+			if = {
+				limit = {
+					AND = {
+						has_building = tb_population_tribal_foragers_1
+						NOT = {
+							has_building = tb_population_tribal_foragers_2
+						}
+					}
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 1
+					}
+					add_one_tribal_foragers_demand = yes
+				}
+			}
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_foragers_2
+						NOT = {
+							has_building = tb_population_tribal_foragers_3
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 1
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 2
+					}
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
 				}
-				add_one_tribal_foragers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_foragers_2
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_foragers_3
+						NOT = {
+							has_building = tb_population_tribal_foragers_4
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 2
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 3
+					}
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
 				}
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_foragers_3
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_foragers_4
+						NOT = {
+							has_building = tb_population_tribal_foragers_5
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 3
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 4
+					}
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
 				}
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_foragers_4
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_foragers_5
+						NOT = {
+							has_building = tb_population_tribal_foragers_6
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 4
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 5
+					}
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
 				}
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_foragers_5
-					NOT = {
-						has_building = tb_population_tribal_foragers_6
+			if = {
+				limit = {
+					has_building = tb_population_tribal_foragers_6
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 6
+					}
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+					add_one_tribal_foragers_demand = yes
+				}
+			}
+			# Tribal Farmers
+			if = {
+				limit = {
+					AND = {
+						has_building = tb_population_tribal_farmers_1
+						NOT = {
+							has_building = tb_population_tribal_farmers_2
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 5
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 1
+					}
+					add_one_tribal_farmers_demand = yes
 				}
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				has_building = tb_population_tribal_foragers_6
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 6
-				}
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-				add_one_tribal_foragers_demand = yes
-			}
-		}
-		# Tribal Farmers
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_farmers_1
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_farmers_2
+						NOT = {
+							has_building = tb_population_tribal_farmers_3
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 1
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 2
+					}
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
 				}
-				add_one_tribal_farmers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_farmers_2
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_farmers_3
+						NOT = {
+							has_building = tb_population_tribal_farmers_4
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 2
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 3
+					}
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
 				}
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_farmers_3
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_farmers_4
+						NOT = {
+							has_building = tb_population_tribal_farmers_5
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 3
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 4
+					}
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
 				}
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_farmers_4
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_farmers_5
+						NOT = {
+							has_building = tb_population_tribal_farmers_6
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 4
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 5
+					}
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
 				}
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_farmers_5
-					NOT = {
-						has_building = tb_population_tribal_farmers_6
+			if = {
+				limit = {
+					has_building = tb_population_tribal_farmers_6
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 6
+					}
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+					add_one_tribal_farmers_demand = yes
+				}
+			}
+			# Tribal Herdsmen
+			if = {
+				limit = {
+					AND = {
+						has_building = tb_population_tribal_herdsmen_1
+						NOT = {
+							has_building = tb_population_tribal_herdsmen_2
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 5
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 1
+					}
+					add_one_tribal_herdsmen_demand = yes
 				}
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				has_building = tb_population_tribal_farmers_6
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 6
-				}
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-				add_one_tribal_farmers_demand = yes
-			}
-		}
-		# Tribal Herdsmen
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_herdsmen_1
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_herdsmen_2
+						NOT = {
+							has_building = tb_population_tribal_herdsmen_3
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 1
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 2
+					}
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
 				}
-				add_one_tribal_herdsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_herdsmen_2
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_herdsmen_3
+						NOT = {
+							has_building = tb_population_tribal_herdsmen_4
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 2
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 3
+					}
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
 				}
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_herdsmen_3
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_herdsmen_4
+						NOT = {
+							has_building = tb_population_tribal_herdsmen_5
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 3
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 4
+					}
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
 				}
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_herdsmen_4
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_herdsmen_5
+						NOT = {
+							has_building = tb_population_tribal_herdsmen_6
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 4
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 5
+					}
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
 				}
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_herdsmen_5
-					NOT = {
-						has_building = tb_population_tribal_herdsmen_6
+			if = {
+				limit = {
+					has_building = tb_population_tribal_herdsmen_6
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 6
+					}
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+					add_one_tribal_herdsmen_demand = yes
+				}
+			}
+			# Tribal Craftsmen
+			if = {
+				limit = {
+					AND = {
+						has_building = tb_population_tribal_craftsmen_1
+						NOT = {
+							has_building = tb_population_tribal_craftsmen_2
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 5
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 1
+					}
+					add_one_tribal_craftsmen_demand = yes
 				}
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				has_building = tb_population_tribal_herdsmen_6
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 6
-				}
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-				add_one_tribal_herdsmen_demand = yes
-			}
-		}
-		# Tribal Craftsmen
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_craftsmen_1
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_craftsmen_2
+						NOT = {
+							has_building = tb_population_tribal_craftsmen_3
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 1
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 2
+					}
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
 				}
-				add_one_tribal_craftsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_craftsmen_2
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_craftsmen_3
+						NOT = {
+							has_building = tb_population_tribal_craftsmen_4
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 2
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 3
+					}
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
 				}
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_craftsmen_3
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_craftsmen_4
+						NOT = {
+							has_building = tb_population_tribal_craftsmen_5
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 3
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 4
+					}
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
 				}
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					has_building = tb_population_tribal_craftsmen_4
-					NOT = {
+			if = {
+				limit = {
+					AND = {
 						has_building = tb_population_tribal_craftsmen_5
+						NOT = {
+							has_building = tb_population_tribal_craftsmen_6
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 4
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 5
+					}
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
 				}
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
+			}
+			if = {
+				limit = {
+					has_building = tb_population_tribal_craftsmen_6
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_tribals
+						value = 6
+					}
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+					add_one_tribal_craftsmen_demand = yes
+				}
 			}
 		}
+		# Nomad Lords: Only in nomad holdings - NOTE: "Regular" nomads are below (per province)
 		if = {
 			limit = {
-				AND = {
-					has_building = tb_population_tribal_craftsmen_5
-					NOT = {
-						has_building = tb_population_tribal_craftsmen_6
+				holding_type = nomad
+			}
+			# Nomad Lords (not regular nomads - for these, see below!)
+			if = {
+				limit = {
+					AND = {
+						has_building = no_population_nomad_lords_1
+						NOT = {
+							has_building = no_population_nomad_lords_2
+						}
 					}
 				}
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 5
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_nomads
+						value = 1
+					}
+					add_one_nomad_lords_demand = yes
 				}
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
 			}
-		}
-		if = {
-			limit = {
-				has_building = tb_population_tribal_craftsmen_6
-			}
-			PREV = {	# The province
-				change_variable = {
-					which = province_population_tribals
-					value = 6
+			if = {
+				limit = {
+					AND = {
+						has_building = no_population_nomad_lords_2
+						NOT = {
+							has_building = no_population_nomad_lords_3
+						}
+					}
 				}
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
-				add_one_tribal_craftsmen_demand = yes
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_nomads
+						value = 2
+					}
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						has_building = no_population_nomad_lords_3
+						NOT = {
+							has_building = no_population_nomad_lords_4
+						}
+					}
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_nomads
+						value = 3
+					}
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						has_building = no_population_nomad_lords_4
+						NOT = {
+							has_building = no_population_nomad_lords_5
+						}
+					}
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_nomads
+						value = 4
+					}
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+				}
+			}
+			if = {
+				limit = {
+					has_building = no_population_nomad_lords_5
+				}
+				PREV = {	# The province
+					change_variable = {
+						which = province_population_nomads
+						value = 5
+					}
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+					add_one_nomad_lords_demand = yes
+				}
 			}
 		}
 		# Shudras (Indian Laborers - counted as Special)
@@ -1814,6 +2033,24 @@ recalc_province_pop_CTD_effect = {
 		which = province_demand_clothing
 		which = helper_variable_population_demand
 	}
+	# Peasant Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_peasants
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_simple_labour_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
+	}
 	# Artisans:
 	set_variable = {
 		which = helper_variable_population_demand
@@ -1834,6 +2071,24 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {	# 2 Materials
 		which = province_demand_materials
 		which = helper_variable_population_demand
+	}
+	# Artisans Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_artisans
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_craftsmanship_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
 	}
 	# Merchants:
 	set_variable = {
@@ -1859,6 +2114,24 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {	# 1.5 Clothing
 		which = province_demand_clothing
 		which = helper_variable_population_demand
+	}
+	# Merchants Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_merchants
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_half_amount_of_craftsmanship_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
 	}
 	# Elite:
 	set_variable = {
@@ -1893,6 +2166,7 @@ recalc_province_pop_CTD_effect = {
 		which = province_demand_clothing
 		which = helper_variable_population_demand
 	}
+	# Elite contributes no workforce
 	# Scum:
 	set_variable = {
 		which = helper_variable_population_demand
@@ -1918,6 +2192,7 @@ recalc_province_pop_CTD_effect = {
 		which = province_demand_luxuries
 		which = helper_variable_population_demand
 	}
+	# Scum contributes no workforce
 	# Slaves:
 	set_variable = {
 		which = helper_variable_population_demand
@@ -1938,6 +2213,68 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {	# 0.5 Materials
 		which = province_demand_materials
 		which = helper_variable_population_demand
+	}
+	# Slaves Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_slaves
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_simple_labour_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
+	}
+	# (Regular) Nomads:
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_nomads_regular	# This one is the regular, permanent, non-shared variable
+	}
+	change_variable = {	# 1 Food
+		which = province_demand_food
+		which = helper_variable_population_demand
+	}
+	multiply_variable = {	# Rather multiply in case it is zero, and with divide stuff would get bad for some reason...
+		which = helper_variable_population_demand
+		value = 0.5
+	}
+	change_variable = {	# 0.5 Clothing
+		which = province_demand_clothing
+		which = helper_variable_population_demand
+	}
+	change_variable = {	# 0.5 Materials
+		which = province_demand_materials
+		which = helper_variable_population_demand
+	}
+	# Nomads Workforce
+	set_variable = {
+		which = helper_variable_population_demand
+		which = province_population_nomads_regular	# This one is the regular, permanent, non-shared variable
+	}
+	while = {	# Calculate workforce
+		limit = {
+			check_variable = {
+				which = helper_variable_population_demand
+				value = 1	# INFO: Need to check for 1 and not 0, otherwise fires one time too often!
+			}
+		}
+		add_one_amount_of_simple_labour_CTD_effect = yes	# 1 Simple labour
+		change_variable = {
+			which = helper_variable_population_demand
+			value = -1
+		}
+	}
+	# Increase total nomad population to include not just nomad lords, but also regular nomdas:
+	change_variable = {
+		which = province_population_nomads
+		which = province_population_nomads_regular	# This one is the regular, permanent, non-shared variable
 	}
 	# Reset helper variable so it can be cleared from savegame
 	set_variable = {
@@ -1977,6 +2314,19 @@ recalc_province_pop_CTD_effect = {
 	change_variable = {
 		which = province_population_total
 		which = province_population_slaves
+	}
+	change_variable = {
+		which = province_population_total
+		which = province_population_nomads
+	}
+	# Also set helper variable nomads+tribals, to be able to check for these pops vs empty space:
+	change_variable = {
+		which = province_population_helper_nomads_and_tribals
+		which = province_population_nomads_regular # Only regular nomads need empty holdings!
+	}
+	change_variable = {
+		which = province_population_helper_nomads_and_tribals
+		which = province_population_tribals
 	}
 }
 
@@ -2865,6 +3215,55 @@ incr_tribal_craftsmen_holding_pop_CTD_effect = {	# NOTE: The inverted order is i
 			# & change population counters!
 			change_variable = {
 				which = province_population_tribals
+				value = 1
+			}
+			change_variable = {
+				which = province_population_total
+				value = 1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
+incr_nomad_lords_holding_pop_CTD_effect = {	# NOTE: The inverted order is important! Else everything will get maxed immediately.
+	# Nomad
+	if = {
+		limit = {
+			holding_type = nomad
+		}
+		if = {
+			limit = {
+				has_building = no_population_nomad_lords_4
+			}
+			add_building = no_population_nomad_lords_5
+		}
+		if = {
+			limit = {
+				has_building = no_population_nomad_lords_3
+			}
+			add_building = no_population_nomad_lords_4
+		}
+		if = {
+			limit = {
+				has_building = no_population_nomad_lords_2
+			}
+			add_building = no_population_nomad_lords_3
+		}
+		if = {
+			limit = {
+				has_building = no_population_nomad_lords_1
+			}
+			add_building = no_population_nomad_lords_2
+		}
+		add_building = no_population_nomad_lords_1
+		# Now also directly change demand on province level:
+		location = {	# The province
+			add_one_nomad_lords_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_nomads
 				value = 1
 			}
 			change_variable = {
@@ -4459,6 +4858,80 @@ decr_tribal_craftsmen_holding_pop_CTD_effect = {
 	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
 }
 
+decr_nomad_lords_holding_pop_CTD_effect = {
+	# Nomad
+	if = {
+		limit = {
+			holding_type = nomad
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = no_population_nomad_lords_1
+					NOT = {
+						has_building = no_population_nomad_lords_2
+					}
+				}
+			}
+			remove_building = no_population_nomad_lords_1
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = no_population_nomad_lords_2
+					NOT = {
+						has_building = no_population_nomad_lords_3
+					}
+				}
+			}
+			remove_building = no_population_nomad_lords_2
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = no_population_nomad_lords_3
+					NOT = {
+						has_building = no_population_nomad_lords_4
+					}
+				}
+			}
+			remove_building = no_population_nomad_lords_3
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = no_population_nomad_lords_4
+					NOT = {
+						has_building = no_population_nomad_lords_5
+					}
+				}
+			}
+			remove_building = no_population_nomad_lords_4
+		}
+		if = {
+			limit = {
+				has_building = no_population_nomad_lords_5
+			}
+			remove_building = no_population_nomad_lords_5
+		}
+		# Now also directly change demand on province level:
+		location = {	# The province
+			remove_one_nomad_lords_demand = yes
+			# & change population counters!
+			change_variable = {
+				which = province_population_nomads
+				value = -1
+			}
+			change_variable = {
+				which = province_population_total
+				value = -1
+			}
+		}
+	}
+	# All others - NOTHING (!)
+	# nothing to do afaik - maybe log something (?), as this would not be a syntactical, but a semantical error...
+}
+
 decr_shudras_holding_pop_CTD_effect = {
 	# Castle
 	if = {
@@ -4697,4 +5170,37 @@ decr_shudras_holding_pop_CTD_effect = {
 			value = -1
 		}
 	}
+}
+
+### Change PROVINCE Population
+## These MUST be called in a province scope to work properly
+# They increase or decrease a certain population one pop at a time. They also automatically call an event to adjust province population
+
+incr_nomads_province_pop_CTD_effect = {
+	change_variable = {
+		which = province_population_nomads_regular	# This one is permanent and must not be cleared!
+		value = 1
+	}
+	change_variable = {
+		which = province_population_nomads	# This one is shared with "Nomad Lords" and will get reset occasionally
+		value = -1
+	}
+	add_province_modifier = {
+		name = nomad_pop
+		duration = -1
+		# hidden = yes # TESTING NOTE
+		stacking = yes
+	}
+}
+
+decr_nomads_province_pop_CTD_effect = {
+	change_variable = {
+		which = province_population_nomads_regular	# This one is permanent and must not be cleared!
+		value = -1
+	}
+	change_variable = {
+		which = province_population_nomads	# This one is shared with "Nomad Lords" and will get reset occasionally
+		value = -1
+	}
+	remove_province_modifier = nomad_pop	# Should remove just a single instance of the modifier
 }

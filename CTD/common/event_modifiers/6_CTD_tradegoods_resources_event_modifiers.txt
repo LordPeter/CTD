@@ -74,494 +74,494 @@
 
 
 ## Minerals:
-resource_minerals_gold_ore = {
+resource_gold_ore = {
 	icon = 11
 }
-resource_minerals_placer_gold = {
+resource_placer_gold = {
 	icon = 11
 }
-resource_minerals_electrum = {
+resource_electrum = {
 	icon = 11
 }
-resource_minerals_chlorargyrite = {
+resource_chlorargyrite = {
 	icon = 11
 }
-resource_minerals_ruby_silver = {
+resource_ruby_silver = {
 	icon = 11
 }
-resource_minerals_chalcopyrite = {
+resource_chalcopyrite = {
 	icon = 11
 }
-resource_minerals_chalcolite = {
+resource_chalcolite = {
 	icon = 11
 }
-resource_minerals_haematite = {
+resource_haematite = {
 	icon = 11
 }
-resource_minerals_magnetite = {
+resource_magnetite = {
 	icon = 11
 }
-resource_minerals_pyrite = {
+resource_pyrite = {
 	icon = 11
 }
-resource_minerals_casserite = {
+resource_casserite = {
 	icon = 11
 }
-resource_minerals_lead_glance = {
+resource_lead_glance = {
 	icon = 11
 }
-resource_minerals_gemstones = {
+resource_gemstones = {
 	icon = 11
 }
-resource_minerals_lapis_lazuli = {
+resource_lapis_lazuli = {
 	icon = 11
 }
-resource_minerals_malachite = {
+resource_malachite = {
 	icon = 11
 }
-resource_minerals_orpiment_realgar = {
+resource_orpiment_realgar = {
 	icon = 11
 }
-resource_minerals_jade = {
+resource_jade = {
 	icon = 11
 }
-resource_minerals_alum = {
+resource_alum = {
 	icon = 11
 }
-resource_minerals_cinnabar = {
+resource_cinnabar = {
 	icon = 11
 }
-resource_minerals_sulfur_ore = {
+resource_sulfur_ore = {
 	icon = 11
 }
-resource_minerals_naphtha = {
+resource_naphtha = {
 	icon = 11
 }
-resource_minerals_coal = {
+resource_coal = {
 	icon = 11
 }
-resource_minerals_calamine = {
+resource_calamine = {
 	icon = 11
 }
-resource_minerals_smaltite = {
+resource_smaltite = {
 	icon = 11
 }
-resource_minerals_antimonit = {
+resource_antimonit = {
 	icon = 11
 }
-resource_minerals_pyrolusit = {
+resource_pyrolusit = {
 	icon = 11
 }
-resource_minerals_sal_ammoniac = {
+resource_sal_ammoniac = {
 	icon = 11
 }
-resource_minerals_marble = {
+resource_marble = {
 	icon = 11
 }
-resource_minerals_stone = {
+resource_stone = {
 	icon = 11
 }
-resource_minerals_limestone = {
+resource_limestone = {
 	icon = 11
 }
-resource_minerals_alabaster = {
+resource_alabaster = {
 	icon = 11
 }
-resource_minerals_gypsum = {
+resource_gypsum = {
 	icon = 11
 }
-resource_minerals_amber = {
+resource_amber = {
 	icon = 11
 }
-resource_minerals_salt = {
+resource_salt = {
 	icon = 11
 }
-resource_minerals_natural_brine = {
+resource_natural_brine = {
 	icon = 11
 }
-resource_minerals_soda = {
+resource_soda = {
 	icon = 11
 }
-resource_minerals_sand = {
+resource_sand = {
 	icon = 11
 }
-resource_minerals_clay = {
+resource_clay = {
 	icon = 11
 }
-resource_minerals_borax = {
+resource_borax = {
 	icon = 11
 }
 
 ## Plants
-resource_plants_grapes = {
+resource_grapes = {
 	icon = 80
 }
-resource_plants_exotic_fruit = {
+resource_exotic_fruit = {
 	icon = 80
 }
-resource_plants_cotton = {
+resource_cotton = {
 	icon = 80
 }
-resource_plants_flax = {
+resource_flax = {
 	icon = 80
 }
-resource_plants_hemp = {
+resource_hemp = {
 	icon = 80
 }
-resource_plants_ramie = {
+resource_ramie = {
 	icon = 80
 }
-resource_plants_kenaf = {
+resource_kenaf = {
 	icon = 80
 }
-resource_plants_jute = {
+resource_jute = {
 	icon = 80
 }
-resource_plants_roselle = {
+resource_roselle = {
 	icon = 80
 }
-resource_plants_sugar_cane = {
+resource_sugar_cane = {
 	icon = 80
 }
-resource_plants_black_pepper = {
+resource_black_pepper = {
 	icon = 80
 }
-resource_plants_ginger = {
+resource_ginger = {
 	icon = 80
 }
-resource_plants_saffron = {
+resource_saffron = {
 	icon = 80
 }
-resource_plants_anise = {
+resource_anise = {
 	icon = 80
 }
-resource_plants_cumin = {
+resource_cumin = {
 	icon = 80
 }
-resource_plants_mustard_seeds = {
+resource_mustard_seeds = {
 	icon = 80
 }
-resource_plants_tanners_sumac = {
+resource_tanners_sumac = {
 	icon = 80
 }
-resource_plants_tea = {
+resource_tea = {
 	icon = 80
 }
-resource_plants_dyers_woad = {
+resource_dyers_woad = {
 	icon = 80
 }
-resource_plants_indigo = {
+resource_indigo = {
 	icon = 80
 }
-resource_plants_henna = {
+resource_henna = {
 	icon = 80
 }
-resource_plants_maddeer = {
+resource_maddeer = {
 	icon = 80
 }
-resource_plants_weld = {
+resource_weld = {
 	icon = 80
 }
-resource_plants_safflower = {
+resource_safflower = {
 	icon = 80
 }
-resource_plants_turnsole = {
+resource_turnsole = {
 	icon = 80
 }
-resource_plants_spikenard = {
+resource_spikenard = {
 	icon = 80
 }
-resource_plants_poppy = {
+resource_poppy = {
 	icon = 80
 }
-resource_plants_sesame = {
+resource_sesame = {
 	icon = 80
 }
-resource_plants_hops = {
+resource_hops = {
 	icon = 80
 }
-resource_plants_saltwort = {
+resource_saltwort = {
 	icon = 80
 }
-resource_plants_straw = {
+resource_straw = {
 	icon = 80
 }
-resource_plants_wheat = {
+resource_wheat = {
 	icon = 80
 }
-resource_plants_barley = {
+resource_barley = {
 	icon = 80
 }
-resource_plants_spelt = {
+resource_spelt = {
 	icon = 80
 }
-resource_plants_rye = {
+resource_rye = {
 	icon = 80
 }
-resource_plants_oat = {
+resource_oat = {
 	icon = 80
 }
-resource_plants_millet = {
+resource_millet = {
 	icon = 80
 }
-resource_plants_buckwheat = {
+resource_buckwheat = {
 	icon = 80
 }
-resource_plants_rice = {
+resource_rice = {
 	icon = 80
 }
-resource_plants_timber = {
+resource_timber = {
 	icon = 80
 }
-resource_plants_firewood = {
+resource_firewood = {
 	icon = 80
 }
-resource_plants_flexible_twigs = {
+resource_flexible_twigs = {
 	icon = 80
 }
-resource_plants_sandalwood = {
+resource_sandalwood = {
 	icon = 80
 }
-resource_plants_ebony = {
+resource_ebony = {
 	icon = 80
 }
-resource_plants_agarwood = {
+resource_agarwood = {
 	icon = 80
 }
-resource_plants_sappanwood = {
+resource_sappanwood = {
 	icon = 80
 }
-resource_plants_cedarwood = {
+resource_cedarwood = {
 	icon = 80
 }
-resource_plants_teak = {
+resource_teak = {
 	icon = 80
 }
-resource_plants_tanbark = {
+resource_tanbark = {
 	icon = 80
 }
-resource_plants_cork = {
+resource_cork = {
 	icon = 80
 }
-resource_plants_birch_bark = {
+resource_birch_bark = {
 	icon = 80
 }
-resource_plants_palm_leaves = {
+resource_palm_leaves = {
 	icon = 80
 }
-resource_plants_cinnamon = {
+resource_cinnamon = {
 	icon = 80
 }
-resource_plants_oak_galls = {
+resource_oak_galls = {
 	icon = 80
 }
-resource_plants_tamarind = {
+resource_tamarind = {
 	icon = 80
 }
-resource_plants_almonds = {
+resource_almonds = {
 	icon = 80
 }
-resource_plants_nuts = {
+resource_nuts = {
 	icon = 80
 }
-resource_plants_tree_fruit = {
+resource_tree_fruit = {
 	icon = 80
 }
-resource_plants_dates = {
+resource_dates = {
 	icon = 80
 }
-resource_plants_citrus_fruit = {
+resource_citrus_fruit = {
 	icon = 80
 }
-resource_plants_olives = {
+resource_olives = {
 	icon = 80
 }
-resource_plants_juniper_berries = {
+resource_juniper_berries = {
 	icon = 80
 }
-resource_plants_resin = {
+resource_resin = {
 	icon = 80
 }
-resource_plants_frankincense = {
+resource_frankincense = {
 	icon = 80
 }
-resource_plants_myrrh = {
+resource_myrrh = {
 	icon = 80
 }
-resource_plants_mastic = {
+resource_mastic = {
 	icon = 80
 }
-resource_plants_dragons_blood = {
+resource_dragons_blood = {
 	icon = 80
 }
-resource_plants_natural_gum = {
+resource_natural_gum = {
 	icon = 80
 }
-resource_plants_birch_sap = {
+resource_birch_sap = {
 	icon = 80
 }
-resource_plants_mushrooms = {
+resource_mushrooms = {
 	icon = 80
 }
-resource_plants_peat = {
+resource_peat = {
 	icon = 80
 }
-resource_plants_seaweed = {
+resource_seaweed = {
 	icon = 80
 }
-resource_plants_reed = {
+resource_reed = {
 	icon = 80
 }
-resource_plants_bracken_fern = {
+resource_bracken_fern = {
 	icon = 80
 }
-resource_plants_herbs = {
+resource_herbs = {
 	icon = 80
 }
-resource_plants_berries = {
+resource_berries = {
 	icon = 80
 }
-resource_plants_vegetables = {
+resource_vegetables = {
 	icon = 80
 }
-resource_plants_nettles = {
+resource_nettles = {
 	icon = 80
 }
-resource_plants_flowers = {
+resource_flowers = {
 	icon = 80
 }
-resource_plants_papyrus_sedge = {
+resource_papyrus_sedge = {
 	icon = 80
 }
-resource_plants_khat = {
+resource_khat = {
 	icon = 80
 }
-resource_plants_betel_leaves = {
+resource_betel_leaves = {
 	icon = 80
 }
-resource_plants_areca_nuts = {
+resource_areca_nuts = {
 	icon = 80
 }
-resource_plants_argan_seeds = {
+resource_argan_seeds = {
 	icon = 80
 }
-resource_plants_palm_pulp = {
+resource_palm_pulp = {
 	icon = 80
 }
-resource_plants_moringa_kernels = {
+resource_moringa_kernels = {
 	icon = 80
 }
-resource_plants_coffee_beans = {
+resource_coffee_beans = {
 	icon = 80
 }
 
 
 ## Animalproducts:
-resource_animalproducts_milk = {
+resource_milk = {
 	icon = 85
 }
-resource_animalproducts_caviar = {
+resource_caviar = {
 	icon = 85
 }
-resource_animalproducts_raw_fish = {
+resource_raw_fish = {
 	icon = 85
 }
-resource_animalproducts_raw_meat = {
+resource_raw_meat = {
 	icon = 85
 }
-resource_animalproducts_animal_fat = {
+resource_animal_fat = {
 	icon = 85
 }
-resource_animalproducts_eggs = {
+resource_eggs = {
 	icon = 85
 }
-resource_animalproducts_bones = {
+resource_bones = {
 	icon = 85
 }
-resource_animalproducts_horns = {
+resource_horns = {
 	icon = 85
 }
-resource_animalproducts_feathers = {
+resource_feathers = {
 	icon = 85
 }
-resource_animalproducts_hide = {
+resource_hide = {
 	icon = 85
 }
-resource_animalproducts_silkthread = {
+resource_silkthread = {
 	icon = 85
 }
-resource_animalproducts_wool = {
+resource_wool = {
 	icon = 85
 }
-resource_animalproducts_camel_hair = {
+resource_camel_hair = {
 	icon = 85
 }
-resource_animalproducts_animal_hair = {
+resource_animal_hair = {
 	icon = 85
 }
-resource_animalproducts_pelts = {
+resource_pelts = {
 	icon = 85
 }
-resource_animalproducts_musk = {
+resource_musk = {
 	icon = 85
 }
-resource_animalproducts_ivory = {
+resource_ivory = {
 	icon = 85
 }
-resource_animalproducts_corals = {
+resource_corals = {
 	icon = 85
 }
-resource_animalproducts_murex_snails = {
+resource_murex_snails = {
 	icon = 85
 }
-resource_animalproducts_pearls = {
+resource_pearls = {
 	icon = 85
 }
-resource_animalproducts_cowry_shells = {
+resource_cowry_shells = {
 	icon = 85
 }
-resource_animalproducts_ambergris = {
+resource_ambergris = {
 	icon = 85
 }
-resource_animalproducts_sepia = {
+resource_sepia = {
 	icon = 85
 }
-resource_animalproducts_honey = {
+resource_honey = {
 	icon = 85
 }
-resource_animalproducts_beeswax = {
+resource_beeswax = {
 	icon = 85
 }
-resource_animalproducts_shellac = {
+resource_shellac = {
 	icon = 85
 }
-resource_animalproducts_kermes = {
+resource_kermes = {
 	icon = 85
 }
-resource_animalproducts_carmine = {
+resource_carmine = {
 	icon = 85
 }
-resource_animalproducts_captive_wild_animals = {
+resource_captive_wild_animals = {
 	icon = 85
 }
-resource_animalproducts_tortoise_shells = {
+resource_tortoise_shells = {
 	icon = 85
 }
-resource_animalproducts_byssus = {
+resource_byssus = {
 	icon = 85
 }
-resource_animalproducts_cashmere = {
+resource_cashmere = {
 	icon = 85
 }
-resource_animalproducts_yak_wool = {
+resource_yak_wool = {
 	icon = 85
 }
-resource_animalproducts_dromedaries = {
+resource_dromedaries = {
 	icon = 85
 }
-resource_animalproducts_elephant_mounts = {
+resource_elephant_mounts = {
 	icon = 85
 }
-resource_animalproducts_steeds = {
+resource_steeds = {
 	icon = 85
 }

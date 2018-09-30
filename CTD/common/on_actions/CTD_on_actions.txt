@@ -1,5 +1,5 @@
 #character
-on_chronicle_start = {	# Only fires when a new session is started, not when loading a save!
+on_startup = {	# Checks every time game is started, but sets a safety flag so it doesn't fire.
 	events = {
 		CTD.0001		# Initialization event
 	}

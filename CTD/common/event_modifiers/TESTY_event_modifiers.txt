@@ -81,6 +81,11 @@ yet_another_test_modifier = {
 	icon = 104
 }
 
+testy_movement_blocked = {
+	icon = 31
+	local_movement_speed = -200
+}
+
 tradegood_slot_dummy_products_1 = {
 	icon = 541
 }

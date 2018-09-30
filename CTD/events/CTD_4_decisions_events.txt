@@ -14,7 +14,7 @@ namespace = CTD
 
 ## Growth Incentives
 
-province_event = {	# Province fires invisible event to be in scope, then fires player decision
+character_event = {	# AI gets all options at once
 	id = CTD.0401
 	desc =  CTDDESC_0001		# Generic "invisible" localisation
 	
@@ -23,10 +23,267 @@ province_event = {	# Province fires invisible event to be in scope, then fires p
 	hide_window = yes
 	
 	immediate = {
-		save_event_target_as = target_edict_province	# save province
-		owner = {
-			character_event = {	# Give owner actual choice now
-				id = CTD.0402
+		 # Go to province directly here - INFO: Structure is a bit different thus from player version, beware!
+		event_target:target_edict_province = {
+			random_list = {
+				# Growth Incentive: Peasants
+				10 = {
+					modifier = {	# More likely if can be grown currently
+						factor = 3
+						any_province_holding = {
+							can_grow_peasants_CTD_trigger = yes
+						}
+					}
+					# Cost depends on existing pop amount (cheaper if low pops):
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = province_population_peasants
+									value = 10
+								}
+							}
+						}
+						owner = {
+							wealth = -25
+						}
+					}
+					else = {
+						owner = {
+							wealth = -50
+						}
+					}
+					# Get Modifier:
+					add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+						name = peasants_growth_incentive
+						duration = 1825	# 5 years
+						hidden = yes
+					}
+				}
+				# Growth Incentive: Artisans
+				10 = {
+					modifier = {	# More likely if can be grown currently
+					factor = 3
+						any_province_holding = {
+							can_grow_artisans_CTD_trigger = yes
+						}
+					}
+					# No fee, but -10% tax reduction!
+					# Get Modifier:
+					add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+						name = artisans_growth_incentive
+						duration = 1825	# 5 years
+						hidden = yes
+					}
+				}
+				# Growth Incentive: Merchants
+				10 = {
+					modifier = {	# More likely if can be grown currently
+						factor = 3
+						any_province_holding = {
+							can_grow_merchants_CTD_trigger = yes
+						}
+					}
+					# Cost depends on existing pop amount (cheaper if low pops):
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = province_population_merchants
+									value = 6
+								}
+							}
+						}
+						owner = {
+							prestige = -12.5
+							wealth = -25
+						}
+					}
+					else = {
+						owner = {
+							prestige = -25
+							wealth = -50
+						}
+					}
+					# Get Modifier:
+					add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+						name = merchants_growth_incentive
+						duration = 1825	# 5 years
+						hidden = yes
+					}
+				}
+				# Growth Incentive: Elite
+				10 = {
+					modifier = {	# More likely if can be grown currently
+						factor = 3
+						any_province_holding = {
+							can_grow_elite_CTD_trigger = yes
+						}
+					}
+					# Cost depends on existing pop amount (cheaper if low pops):
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = province_population_elite
+									value = 4
+								}
+							}
+						}
+						owner = {
+							prestige = -50
+						}
+					}
+					else = {
+						limit = {
+							check_variable = {
+								which = province_population_elite
+								value = 4
+							}
+						}
+						owner = {
+							prestige = -100
+						}
+					}
+					# Get Modifier:
+					add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+						name = elite_growth_incentive
+						duration = 1825	# 5 years
+						hidden = yes
+					}
+				}
+				# Growth Incentive: Special
+				10 = {
+					modifier = {	# More likely if can be grown currently
+						factor = 3
+						any_province_holding = {
+							OR = {
+								can_grow_soldiers_CTD_trigger = yes
+								can_grow_patricians_CTD_trigger = yes
+								can_grow_clerics_CTD_trigger = yes
+							}
+						}
+					}
+					# Cost depends on existing pop amount (cheaper if low pops):
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = province_population_special
+									value = 10
+								}
+							}
+						}
+						owner = {
+							prestige = -50
+						}
+					}
+					else = {
+						owner = {
+							prestige = -100
+						}
+					}
+					# Get Modifier:
+					add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+						name = special_growth_incentive
+						duration = 1825	# 5 years
+						hidden = yes
+					}
+				}
+				# Growth Incentive: Scum
+				10 = {
+					modifier = {	# More likely if can be grown currently
+						factor = 3
+						any_province_holding = {
+							can_grow_scum_CTD_trigger = yes
+						}
+					}
+					modifier = {	# AI is unlikely to do this unless it is either to dumb to understand or too compassionate - or arbitrary.
+						factor = 0.01
+						owner = {
+							NOR = {
+								trait = lunatic
+								trait = possessed
+								trait = stubborn
+								is_dumb_trigger = yes
+								trait = inbred
+								trait = arbitrary
+								trait = kind
+							}
+						}
+					}
+					# Cost depends on existing pop amount (cheaper if low pops):
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = province_population_scum
+									value = 10
+								}
+							}
+						}
+						owner = {
+							piety = -25
+						}
+					}
+					else = {
+						owner = {
+							piety = -50
+						}
+					}
+					add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+						name = scum_growth_incentive
+						duration = 1825	# 5 years
+						hidden = yes
+					}
+				}
+				# Enforce Law: Scum
+				10 = {
+					modifier = {	# More likely if can be *shrunk* currently
+						factor = 3
+						any_province_holding = {
+							will_shrink_scum_CTD_trigger = yes
+						}
+					}
+					modifier = {	# AI is more likely to do this if it doesn't like scum, or has other reasons to uphold the law
+						factor = 2
+						owner = {
+							OR = {
+								trait = just
+								trait = cruel
+								trait = paranoid
+								trait = impaler
+							}
+						}
+					}
+					# Cost depends on existing pop amount (*cheaper* if high pops!):
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = province_population_scum
+									value = 10
+								}
+							}
+						}
+						owner = {
+							wealth = -12.5
+							prestige = -12.5
+						}
+					}
+					else = {
+						owner = {
+							wealth = -25
+							prestige = -25
+						}
+					}
+					add_province_modifier = {	# Modifier hidden to avoid interface cluttering, but visible in major province modifier
+						name = enforced_law_on_scum
+						duration = 1825	# 5 years
+						hidden = yes
+					}
+				}
+				# AI will always "chose" something if it has taken the decision, no need for blank option.
 			}
 		}
 	}
@@ -37,7 +294,7 @@ character_event = {	# Owner is given edict choice (part 1/3)
 	desc =  CTDDESC_0402
 	picture = "GFX_evt_council"
 	
-	is_triggered_only = yes		# by event
+	is_triggered_only = yes		# by decision/event
 	
 	option = {
 		name = CTDOPTA_0402	# Growth Incentive: Peasants
@@ -55,15 +312,7 @@ character_event = {	# Owner is given edict choice (part 1/3)
 			}
 			wealth = -25
 		}
-		if = {
-			limit = {
-				event_target:target_edict_province = {
-					check_variable = {
-						which = province_population_peasants
-						value = 10
-					}
-				}
-			}
+		else = {
 			wealth = -50
 		}
 		event_target:target_edict_province = {
@@ -73,22 +322,11 @@ character_event = {	# Owner is given edict choice (part 1/3)
 				hidden = yes
 			}
 		}
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						can_grow_peasants_CTD_trigger = yes
-					}
-				}
-			}
-		}
 	}
 	
 	option = {
 		name = CTDOPTB_0402	# Growth Incentive: Artisans
-		custom_tooltip = {
+		custom_tooltip = {	# Inform player on impending -10% tax reduction
 			text = CTDTOOL_0402
 		}
 		event_target:target_edict_province = {
@@ -96,17 +334,6 @@ character_event = {	# Owner is given edict choice (part 1/3)
 				name = artisans_growth_incentive
 				duration = 1825	# 5 years
 				hidden = yes
-			}
-		}
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						can_grow_artisans_CTD_trigger = yes
-					}
-				}
 			}
 		}
 	}
@@ -128,15 +355,7 @@ character_event = {	# Owner is given edict choice (part 1/3)
 			prestige = -12.5
 			wealth = -25
 		}
-		if = {
-			limit = {
-				event_target:target_edict_province = {
-					check_variable = {
-						which = province_population_merchants
-						value = 6
-					}
-				}
-			}
+		else = {
 			prestige = -25
 			wealth = -50
 		}
@@ -147,59 +366,12 @@ character_event = {	# Owner is given edict choice (part 1/3)
 				hidden = yes
 			}
 		}
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						can_grow_merchants_CTD_trigger = yes
-					}
-				}
-			}
-		}
 	}
 	
 	option = {
-		name = CTDOPTD_0402	# Show next options
+		name = CTDshowmoreoptions	# Show next options
 		character_event = {
 			id = CTD.0403
-		}
-																												# NOTE: not correct, needs additive?_modifiers... IMPORTANT
-		ai_chance = {
-			factor = 5	# 5-times as likely since four cycling options remain
-			# modifier = {	# x3 if at least one of the later options could grow (total: 5+2=7)
-				# factor = 3
-				# any_province_holding = {
-					# calc_true_if = {
-						# amount = 1
-						# can_grow_elite_CTD_trigger = yes
-						# OR = {
-							# can_grow_soldiers_CTD_trigger = yes
-							# can_grow_patricians_CTD_trigger = yes
-							# can_grow_clerics_CTD_trigger = yes
-						# }
-						# can_grow_scum_CTD_trigger = yes
-						# will_shrink_scum_CTD_trigger = yes
-					# }
-				# }
-			# }
-			# modifier = {	# x2 if at least two of the later options could grow (total: x6)
-				# factor = 3
-				# any_province_holding = {
-					# calc_true_if = {
-						# amount = 1
-						# can_grow_elite_CTD_trigger = yes
-						# OR = {
-							# can_grow_soldiers_CTD_trigger = yes
-							# can_grow_patricians_CTD_trigger = yes
-							# can_grow_clerics_CTD_trigger = yes
-						# }
-						# can_grow_scum_CTD_trigger = yes
-						# will_shrink_scum_CTD_trigger = yes
-					# }
-				# }
-			# }
 		}
 	}
 }
@@ -227,15 +399,7 @@ character_event = {	# Owner is given edict choice (part 2/3)
 			}
 			prestige = -50
 		}
-		if = {
-			limit = {
-				event_target:target_edict_province = {
-					check_variable = {
-						which = province_population_elite
-						value = 4
-					}
-				}
-			}
+		else = {
 			prestige = -100
 		}
 		event_target:target_edict_province = {
@@ -243,17 +407,6 @@ character_event = {	# Owner is given edict choice (part 2/3)
 				name = elite_growth_incentive
 				duration = 1825	# 5 years
 				hidden = yes
-			}
-		}
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						can_grow_elite_CTD_trigger = yes
-					}
-				}
 			}
 		}
 	}
@@ -274,15 +427,7 @@ character_event = {	# Owner is given edict choice (part 2/3)
 			}
 			prestige = -50
 		}
-		if = {
-			limit = {
-				event_target:target_edict_province = {
-					check_variable = {
-						which = province_population_special
-						value = 10
-					}
-				}
-			}
+		else = {
 			prestige = -100
 		}
 		event_target:target_edict_province = {
@@ -292,44 +437,12 @@ character_event = {	# Owner is given edict choice (part 2/3)
 				hidden = yes
 			}
 		}
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						OR = {
-							can_grow_soldiers_CTD_trigger = yes
-							can_grow_patricians_CTD_trigger = yes
-							can_grow_clerics_CTD_trigger = yes
-						}
-					}
-				}
-			}
-		}
 	}
 	
 	option = {
-		name = CTDOPTC_0403	# Show next options
+		name = CTDshowmoreoptions	# Show next options
 		character_event = {
 			id = CTD.0404
-		}
-		ai_chance = {
-			factor = 3	# 3-times as likely since three cycling options remain
-			modifier = {	# More likely if one of the later options can be grown currently
-				factor = 3
-				any_province_holding = {
-					can_grow_scum_CTD_trigger = yes
-				}
-			}
-			modifier = {	# More likely if one of the later options can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						will_shrink_scum_CTD_trigger = yes
-					}
-				}
-			}
 		}
 	}
 }
@@ -357,15 +470,7 @@ character_event = {	# Owner is given edict choice (part 3/3)
 			}
 			piety = -25
 		}
-		if = {
-			limit = {
-				event_target:target_edict_province = {
-					check_variable = {
-						which = province_population_scum
-						value = 10
-					}
-				}
-			}
+		else = {
 			piety = -50
 		}
 		event_target:target_edict_province = {
@@ -373,17 +478,6 @@ character_event = {	# Owner is given edict choice (part 3/3)
 				name = scum_growth_incentive
 				duration = 1825	# 5 years
 				hidden = yes
-			}
-		}
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						can_grow_scum_CTD_trigger = yes
-					}
-				}
 			}
 		}
 	}
@@ -405,15 +499,7 @@ character_event = {	# Owner is given edict choice (part 3/3)
 			wealth = -12.5
 			prestige = -12.5
 		}
-		if = {
-			limit = {
-				event_target:target_edict_province = {
-					check_variable = {
-						which = province_population_scum
-						value = 10
-					}
-				}
-			}
+		else = {
 			wealth = -25
 			prestige = -25
 		}
@@ -424,54 +510,14 @@ character_event = {	# Owner is given edict choice (part 3/3)
 				hidden = yes
 			}
 		}
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if can be grown currently
-				factor = 3
-				event_target:target_edict_province = {
-					any_province_holding = {
-						will_shrink_scum_CTD_trigger = yes
-					}
-				}
-			}
-		}
 	}
 	
 	option = {
 		name = CTDOPTC_0404	# Do nothing
-		# NOTE: Add AI blocking timer maybe?
-		ai_chance = {
-			factor = 1
-			modifier = {	# More likely if NOTHING can be grown currently
-				factor = 3
-				NOT = {
-					event_target:target_edict_province = {
-						any_province_holding = {
-							OR = {
-								can_grow_peasants_CTD_trigger = yes
-								can_grow_artisans_CTD_trigger = yes
-								can_grow_merchants_CTD_trigger = yes
-								can_grow_elite_CTD_trigger = yes
-								OR = {
-									can_grow_soldiers_CTD_trigger = yes
-									can_grow_patricians_CTD_trigger = yes
-									can_grow_clerics_CTD_trigger = yes
-								}
-								can_grow_scum_CTD_trigger = yes
-								will_shrink_scum_CTD_trigger = yes
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 	
 	option = {
-		name = CTDOPTD_0404	# Show next options
-		trigger = {
-			ai = no	# AI can not cycle back - but it can chose nothing (option above)
-		}
+		name = CTDshowmoreoptions	# Show next options
 		character_event = {
 			id = CTD.0402
 		}
@@ -483,33 +529,15 @@ character_event = {	# Owner is given edict choice (part 3/3)
 
 ## Trade Fair
 
-province_event = {	# Province fires invisible event to be in scope, then fires player decision
-	id = CTD.0410
-	desc =  CTDDESC_0001		# Generic "invisible" localisation
-	
-	is_triggered_only = yes		# by decision
-	
-	hide_window = yes
-	
-	immediate = {
-		save_event_target_as = target_trade_fair_province	# save province
-		owner = {
-			character_event = {	# Give owner actual choice now
-				id = CTD.0411
-			}
-		}
-	}
-}
-
 character_event = {	# Owner is asked to confirm
-	id = CTD.0411
-	desc =  CTDDESC_0411
+	id = CTD.0410
+	desc =  CTDDESC_0410
 	picture = "GFX_evt_market"
 	
 	is_triggered_only = yes		# by event
 	
 	option = {	# Yes
-		name = CTDOPTA_0411
+		name = CTDOPTA_0410
 		wealth = -100
 		prestige = -100
 		event_target:target_trade_fair_province = {
@@ -524,7 +552,7 @@ character_event = {	# Owner is asked to confirm
 	}
 	
 	option = {	# No
-		name = CTDOPTB_0411
+		name = CTDOPTB_0410
 		event_target:target_trade_fair_province = {
 			# Clear flag:
 			clr_province_flag = trade_fair_decision_taken
@@ -534,33 +562,15 @@ character_event = {	# Owner is asked to confirm
 
 ## Staple Right
 
-province_event = {	# Province fires invisible event to be in scope, then fires player decision
-	id = CTD.0412
-	desc =  CTDDESC_0001		# Generic "invisible" localisation
-	
-	is_triggered_only = yes		# by decision
-	
-	hide_window = yes
-	
-	immediate = {
-		save_event_target_as = target_staple_right_province	# save province
-		owner = {
-			character_event = {	# Give owner actual choice now
-				id = CTD.0413
-			}
-		}
-	}
-}
-
 character_event = {	# Owner is asked to confirm
-	id = CTD.0413
-	desc =  CTDDESC_0413
+	id = CTD.0411
+	desc =  CTDDESC_0411
 	picture = "GFX_evt_market"
 	
 	is_triggered_only = yes		# by event
 	
 	option = {	# Yes
-		name = CTDOPTA_0413
+		name = CTDOPTA_0411
 		wealth = -50
 		prestige = -200
 		event_target:target_staple_right_province = {
@@ -575,7 +585,7 @@ character_event = {	# Owner is asked to confirm
 	}
 	
 	option = {	# No
-		name = CTDOPTB_0413
+		name = CTDOPTB_0411
 		event_target:target_staple_right_province = {
 			# Clear flag:
 			clr_province_flag = staple_right_decision_taken
@@ -596,8 +606,6 @@ province_event = {	# Ping from province, save target, set flag
 	hide_window = yes
 	
 	immediate = {
-		# Save event target:
-		save_event_target_as = target_prospected_province	# save province
 		# Calculate prospection outcome (for now just hidden):
 		random_list = {
 			100 = {

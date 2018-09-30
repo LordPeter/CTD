@@ -3,7 +3,6 @@
 # To not display anything, you can use 'localisation_key = ""'
 
 ## Import Priority Level
-# Food
 defined_text = {
 	name = Province_Import_Priority_Level_Check
 	
@@ -160,6 +159,46 @@ defined_text = {
 			has_province_flag = luxuries_supply_poor
 		}
 		localisation_key = Poor_Luxuries
+	}
+}
+
+## Dynamic Info about Weather/Disaster Cap reduction
+# Agriculture
+defined_text = {
+	name = Weather_Disaster_Cap_Reduction_Agriculture
+	
+	text = {
+		trigger = {
+			has_province_flag = temp_cap_reduction_agriculture	# NOTE IMPORTANT: This (and below) flag need to be set IMMEDIATELY when variable is increased/decreased
+		}
+		localisation_key = Temp_Cap_Red_Agriculture
+	}
+	text = {
+		trigger = {
+			NOT = {
+				has_province_flag = temp_cap_reduction_agriculture
+			}
+		}
+		localisation_key = ""
+	}
+}
+# Livestock
+defined_text = {
+	name = Weather_Disaster_Cap_Reduction_Livestock
+	
+	text = {
+		trigger = {
+			has_province_flag = temp_cap_reduction_livestock
+		}
+		localisation_key = Temp_Cap_Red_Livestock
+	}
+	text = {
+		trigger = {
+			NOT = {
+				has_province_flag = temp_cap_reduction_livestock
+			}
+		}
+		localisation_key = ""
 	}
 }
 
