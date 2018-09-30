@@ -2458,6 +2458,13 @@ province_event = {	# Calculate population growth - yearly, but does not repeat o
 						factor = 1.5
 						has_far_too_less_empty_holdings_for_tribals_or_nomads = yes
 					}
+					# More likely to shrink if province overlord is not Nomadic
+					modifier = {
+						factor = 1.5
+						owner = { # the -province- owner
+							is_nomadic = no
+						}
+					}
 					# Nomads care little about war, as they can just move away from danger
 					# Peasants don't care about other pops.
 					# Do pop increase:

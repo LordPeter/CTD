@@ -746,6 +746,12 @@ can_grow_nomads_CTD_trigger = {
 			which = province_supply_materials
 			which = province_demand_materials
 		}
+		# Nomads need empty holding slots to grow "in"
+		has_surplus_empty_holdings_for_tribals_or_nomads = yes
+		# Nomads can only grow if the province overlord is a Nomad!
+		owner = { # the -province- owner
+			is_nomadic = yes
+		}
 		# Nomads can grow regardless of other population
 	}
 }
@@ -1537,6 +1543,10 @@ will_shrink_nomads_CTD_trigger = {
 				which = province_demand_clothing
 			}
 		}
+		# Nomads shrink if there are not enough empty holding slots!
+		NOT = {
+			has_enough_empty_holdings_for_tribals_or_nomads = yes
+		}
 		# Nomads will shrink regardless of other population
 	}
 }
@@ -1961,7 +1971,7 @@ has_surplus_empty_holdings_for_tribals_or_nomads = {
 		AND = {
 			# Excactly 6 empty holdings (6 empty holding is the max for tribals - not for nomads!)
 			num_of_empty_holdings = 6
-			NOT = 
+			NOT = {
 				num_of_empty_holdings = 7
 			}
 			# Has less than 24 tribals/nomads currently

@@ -4903,6 +4903,12 @@ incr_nomads_province_pop_CTD_effect = {
 		which = province_population_nomads
 		value = 1
 	}
+	add_province_modifier = {
+		name = nomad_pop
+		duration = -1
+		# hidden = yes # TESTING NOTE
+		stacking = yes
+	}
 }
 
 decr_nomads_province_pop_CTD_effect = {
@@ -4910,4 +4916,5 @@ decr_nomads_province_pop_CTD_effect = {
 		which = province_population_nomads
 		value = -1
 	}
+	remove_province_modifier = nomad_pop	# Should remove just a single instance of the modifier
 }

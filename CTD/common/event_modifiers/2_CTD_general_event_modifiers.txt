@@ -106,6 +106,13 @@ tradegood_slot_dummy_finalized_3 = {
 }
 
 
+## Nomad Pops (stacking modifiers):
+nomad_pop = {
+	icon = 18
+	max_population = 250
+}
+
+
 ## Slavery:
 slave_hunt_province = {	# Not stacking for balance reasons - gives 20% of the province population as slaves
 	icon = 145
