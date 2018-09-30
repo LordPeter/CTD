@@ -388,11 +388,11 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 			}
 			# Also set hidden baseline caps
 			change_variable = {
-				which = province_cap_hunting
+				which = province_cap_wildlife
 				value = 5
 			}
 			change_variable = {
-				which = province_cap_gathering
+				which = province_cap_vegetation
 				value = 5
 			}
 			# NOTE: The following caps are water-related and thus not influenced by terrain or features on land
@@ -476,10 +476,10 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 					}
 					# Livestock: No change
 					change_variable = {
-						which = province_cap_hunting
+						which = province_cap_wildlife
 						value = -1
 					}
-					# Gathering: No change
+					# Vegetation: No change
 				}
 				plains = {
 					# Supplies:
@@ -502,8 +502,8 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						which = province_cap_livestock
 						value = 1
 					}
-					# Hunting: No change
-					# Gathering: No change
+					# Wildlife: No change
+					# Vegetation: No change
 				}
 				steppe = {
 					# Supplies:
@@ -530,11 +530,11 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						value = 1
 					}
 					change_variable = {
-						which = province_cap_hunting
+						which = province_cap_wildlife
 						value = 1
 					}
 					change_variable = {
-						which = province_cap_gathering
+						which = province_cap_vegetation
 						value = -1
 					}
 				}
@@ -557,10 +557,10 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						value = 1
 					}
 					change_variable = {
-						which = province_cap_hunting
+						which = province_cap_wildlife
 						value = 1
 					}
-					# Gathering: No change
+					# Vegetation: No change
 				}
 				jungle = {
 					# Supplies:
@@ -580,8 +580,8 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						value = 2
 					}
 					# Livestock: No change
-					# Hunting: No change
-					# Gathering: No change
+					# Wildlife: No change
+					# Vegetation: No change
 				}
 				forest = {
 					# Supplies:
@@ -602,11 +602,11 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 					}
 					# Livestock: No change
 					change_variable = {
-						which = province_cap_hunting
+						which = province_cap_wildlife
 						value = 1
 					}
 					change_variable = {
-						which = province_cap_gathering
+						which = province_cap_vegetation
 						value = 1
 					}
 				}
@@ -631,8 +631,8 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						value = 1
 					}
 					# Livestock: No change
-					# Hunting: No change
-					# Gathering: No change
+					# Wildlife: No change
+					# Vegetation: No change
 				}
 				mountain = {
 					# Supplies:
@@ -662,11 +662,11 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						value = -1
 					}
 					change_variable = {
-						which = province_cap_hunting
+						which = province_cap_wildlife
 						value = -1
 					}
 					change_variable = {
-						which = province_cap_gathering
+						which = province_cap_vegetation
 						value = -2
 					}
 				}
@@ -697,9 +697,9 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						which = province_cap_livestock
 						value = -1
 					}
-					# Hunting: No change
+					# Wildlife: No change
 					change_variable = {
-						which = province_cap_gathering
+						which = province_cap_vegetation
 						value = -1
 					}
 				}
@@ -728,11 +728,11 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 						value = -1
 					}
 					change_variable = {
-						which = province_cap_hunting
+						which = province_cap_wildlife
 						value = -2
 					}
 					change_variable = {
-						which = province_cap_gathering
+						which = province_cap_vegetation
 						value = -3
 					}
 				}

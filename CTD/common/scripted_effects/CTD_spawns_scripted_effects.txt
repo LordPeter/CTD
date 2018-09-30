@@ -211,12 +211,12 @@ match_spawn_hunting_to_caps_CTD_effect = {
 		limit = {
 			check_variable = {
 				which = province_workforce_simple_labour
-				which = province_cap_hunting	# Unique, hidden cap type
+				which = province_cap_wildlife	# Unique, hidden cap type
 			}
 		}
 		set_variable = {
 			which = var_spawn_hunting
-			which = province_cap_hunting
+			which = province_cap_wildlife
 		}
 	}
 	else = {	# Workforce is limiting
@@ -232,12 +232,12 @@ match_spawn_gathering_to_caps_CTD_effect = {
 		limit = {
 			check_variable = {
 				which = province_workforce_simple_labour
-				which = province_cap_gathering	# Unique, hidden cap type
+				which = province_cap_vegetation	# Unique, hidden cap type
 			}
 		}
 		set_variable = {
 			which = var_spawn_gathering
-			which = province_cap_gathering
+			which = province_cap_vegetation
 		}
 	}
 	else = {	# Workforce is limiting

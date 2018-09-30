@@ -2905,11 +2905,11 @@ gain_deep_woods_CTD_effect = {
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = 1
 	}
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = 1
 	}
 }
@@ -2955,11 +2955,11 @@ remove_deep_woods_CTD_effect = {
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = -1
 	}
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = -1
 	}
 }
@@ -3004,11 +3004,11 @@ gain_swamps_CTD_effect = {
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = 1
 	}
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = 1
 	}
 	if = {
@@ -3060,11 +3060,11 @@ remove_swamps_CTD_effect = {
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = -1
 	}
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = -1
 	}
 	if = {
@@ -3126,9 +3126,9 @@ gain_mangroves_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
+	# Wildlife: No change
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = 1
 	}
 	if = {
@@ -3187,9 +3187,9 @@ remove_mangroves_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
+	# Wildlife: No change
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = -1
 	}
 	if = {
@@ -3238,8 +3238,8 @@ gain_heath_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3269,8 +3269,8 @@ remove_heath_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3305,8 +3305,8 @@ gain_volcano_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3336,8 +3336,8 @@ remove_volcano_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3357,8 +3357,8 @@ gain_mountain_pass_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3373,8 +3373,8 @@ remove_mountain_pass_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3403,8 +3403,8 @@ gain_hot_springs_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3428,8 +3428,8 @@ remove_hot_springs_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3461,8 +3461,8 @@ gain_estuary_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	if = {
 		limit = {
 			OR = {
@@ -3512,8 +3512,8 @@ remove_estuary_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	if = {
 		limit = {
 			OR = {
@@ -3556,8 +3556,8 @@ gain_natural_harbour_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	if = {
 		limit = {
 			OR = {
@@ -3595,8 +3595,8 @@ remove_natural_harbour_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	if = {
 		limit = {
 			OR = {
@@ -3642,8 +3642,8 @@ gain_coral_reefs_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	if = {
 		limit = {
 			OR = {
@@ -3684,8 +3684,8 @@ remove_coral_reefs_CTD_effect = {
 	# Agriculture: No change
 	# Forests: No change
 	# Livestock: No change
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	if = {
 		limit = {
 			OR = {
@@ -3744,11 +3744,11 @@ gain_flood_plains_CTD_effect = {
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = 1
 	}
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = 1
 	}
 	# Fishing: No change
@@ -3780,14 +3780,14 @@ remove_flood_plains_CTD_effect = {
 		}
 		match_dynamic_agriculture_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
+	# Wildlife: No change
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = -1
 	}
-	# Gathering: No change
+	# Vegetation: No change
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = -1
 	}
 	# Fishing: No change
@@ -3837,11 +3837,11 @@ gain_salt_pans_CTD_effect = {
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = -1
 	}
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = -1
 	}
 	# Fishing: No change
@@ -3886,11 +3886,11 @@ remove_salt_pans_CTD_effect = {
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = 1
 	}
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = 1
 	}
 	# Fishing: No change
@@ -3919,10 +3919,10 @@ gain_caves_CTD_effect = {
 	# Forests: No change
 	# Livestock: No change
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = 1
 	}
-	# Gathering: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3944,10 +3944,10 @@ remove_caves_CTD_effect = {
 	# Forests: No change
 	# Livestock: No change
 	change_variable = {
-		which = province_cap_hunting
+		which = province_cap_wildlife
 		value = -1
 	}
-	# Gathering: No change
+	# Vegetation: No change
 	# Fishing: No change
 	# Diving: No change
 }
@@ -3991,10 +3991,10 @@ gain_glaciers_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
-	# Gathering: No change
+	# Wildlife: No change
+	# Vegetation: No change
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = -2
 	}
 	# Fishing: No change
@@ -4035,9 +4035,9 @@ remove_glaciers_CTD_effect = {
 		}
 		match_dynamic_livestock_cap_to_static_CTD_effect = yes
 	}
-	# Hunting: No change
+	# Wildlife: No change
 	change_variable = {
-		which = province_cap_gathering
+		which = province_cap_vegetation
 		value = 2
 	}
 	# Fishing: No change
@@ -4711,7 +4711,7 @@ update_global_import_priority_levels_CTD_effect = {
 			set_province_flag = import_priority_9
 		}
 	}
-	# Going to the next priority level is now irrelebant, as only one level remains
+	# Going to the next priority level is now irrelevant, as only one level remains
 	any_province = {	# NOTE: WARNING EXPENSIVE !
 		if = {
 			limit = {
