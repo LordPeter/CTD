@@ -141,25 +141,33 @@ tb_population_tribal_craftsmen_5;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
 tb_population_tribal_craftsmen_6;§YPopulation (Tribe):§! Craftsmen;;;;;;;;;;;;;x
 population_tribal_craftsmen_desc;\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y2§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
 
+# Nomads:
+no_population_nomad_lords_1;§YPopulation:§! Nomad Lords;;;;;;;;;;;;;x
+no_population_nomad_lords_2;§YPopulation:§! Nomad Lords;;;;;;;;;;;;;x
+no_population_nomad_lords_3;§YPopulation:§! Nomad Lords;;;;;;;;;;;;;x
+no_population_nomad_lords_4;§YPopulation:§! Nomad Lords;;;;;;;;;;;;;x
+no_population_nomad_lords_5;§YPopulation:§! Nomad Lords;;;;;;;;;;;;;x
+population_nomad_lords_desc;\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y0.5§! Materials / §Y0.5§! Luxuries;;;;;;;;;;;;;x
+
 # Indian Bonus: Shudras:
-ca_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ca_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ca_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ca_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ca_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ct_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ct_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ct_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ct_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-ct_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tp_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tp_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tp_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tp_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tp_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tb_population_shudras_1;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tb_population_shudras_2;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tb_population_shudras_3;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tb_population_shudras_4;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
-tb_population_shudras_5;§YPopulation§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_1;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_2;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_3;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_4;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ca_population_shudras_5;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_1;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_2;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_3;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_4;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+ct_population_shudras_5;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_1;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_2;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_3;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_4;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tp_population_shudras_5;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_1;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_2;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_3;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_4;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
+tb_population_shudras_5;§YPopulation:§! Shudras (Laborers);;;;;;;;;;;;;x
 population_shudras_desc;Indian Laborers bla\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y0.5§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x

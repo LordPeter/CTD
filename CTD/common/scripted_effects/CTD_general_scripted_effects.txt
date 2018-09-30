@@ -1167,8 +1167,27 @@ update_province_holding_supply_CTD_effect = {
 				# Tribals produce no luxuries
 			}
 		}
+		if = {	# For nomads
+			limit = {
+				holding_type = nomad
+			}
+			PREV = {	# The province
+				change_variable = {
+					which = helper_province_supply_food_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_clothing_holdings
+					value = 2
+				}
+				change_variable = {
+					which = helper_province_supply_materials_holdings
+					value = 1
+				}
+				# Tribals produce no luxuries
+			}
+		}
 	}
-	# Nomads and their holdings ofc do not abide by this, as they don't use CTD's population system at all
 	# Fourth: Add helper supply to province supply
 	change_variable = {
 		which = province_supply_food

@@ -18,7 +18,7 @@ character_event = {	# SINGLE-PROVINCE-EVENT Player character fires an invisible 
 	
 	hide_window = yes
 	
-	is_triggered_only = yes	# via on_action "on_chronicle_start"
+	is_triggered_only = yes	# via on_action "on_startup"	# was "on_chronicle_start", but that causes issues with nomads...
 	
 	trigger = {	# should only be fired once, no more if global flag has been set (to avoid weirdness with ruler-designed characters)
 		NOT = {
