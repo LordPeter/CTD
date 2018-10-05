@@ -1,0 +1,255 @@
+#############################
+# CTD import scripted effects
+#
+# by LordPeter
+#############################
+
+### Match resource variables to spawns
+## This MUST be called in an province scope to work properly
+# Matches the tradegood variable to spawn caps (also halved for spawns that spawn 2 resources)
+
+# Just a proof of concept mockup:
+# first, the event/effect calling this effect has to set a variable to the desired import amount
+# let it be called "local_desired_amount_variable" for now.
+# local_ prefix makes the variable inaccessible outside of event chain!
+# Hopefully everything is self-explanatory - but it neds to be redone correctly later!
+import_wheat_amount_CTD_effect = {
+	# First check if the tradegood can be "imported" from the same province:
+	if = {
+		limit = {
+			check_variable = {
+				which = wheat_amount
+				value = 0.5		# values below one half are not imported and ignored (though they can still be used for consumption)
+			}
+		}
+		if = {	# available wheat is at least equal to desired amount
+			limit = {
+				check_variable = {
+					which = wheat_amount
+					which = local_desired_amount_variable
+				}
+			}
+			subtract_variable = {	# import full amount
+				which = wheat_amount
+				which = local_desired_amount_variable
+			}
+			set_variable = {
+				which = local_desired_amount_variable
+				value = 0
+			}
+		}
+		else = {
+			subtract_variable = {	# import as much as possible
+				which = local_desired_amount_variable
+				which = wheat_amount
+			}
+			set_variable = {
+				which = wheat_amount
+				value = 0
+			}
+		}
+	}
+	# First verify that it still needs to be imported:
+	if = {
+		limit = {
+			NOT = {
+				is_variable_equal = {
+					which = local_desired_amount_variable
+					value = 0
+				}
+			}
+		}
+		# Now check if it can be imported from a neighboring province:
+		if = {
+			limit = {
+				any_neighbor_province = {
+					check_variable = {
+						which = wheat_amount
+						value = 0.5		# values below one half are not imported and ignored (though they can still be used for consumption)
+					}
+				}
+			}
+			while = {	# repeat until no neighbor province has wheat anymore, or if none has to be imported anymore
+				limit = {
+					AND = {
+						any_neighbor_province = {
+							check_variable = {
+								which = wheat_amount
+								value = 0.5		# values below one half are not imported and ignored (though they can still be used for consumption)
+							}
+						}
+						NOT = {
+							is_variable_equal = {
+								which = local_desired_amount_variable
+								value = 0
+							}
+						}
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						check_variable = {
+							which = wheat_amount
+							value = 0.5		# values below one half are not imported and ignored (though they can still be used for consumption)
+						}
+					}
+					# IMPORTANT NOTE: We are now in a different province scope, meaning we can no longer directly access local_desired_amount_variable from the original province.
+					# So first, we have to transfer this variable to the new province, via its scope
+					set_variable = {
+						which = local_desired_amount_variable
+						which = PREV	# the original province
+					}
+					if = {	# available wheat is at least equal to desired amount
+						limit = {
+							check_variable = {
+								which = wheat_amount
+								which = local_desired_amount_variable
+							}
+						}
+						subtract_variable = {	# import full amount
+							which = wheat_amount
+							which = local_desired_amount_variable
+						}
+						set_variable = {
+							which = local_desired_amount_variable
+							value = 0
+						}
+					}
+					else = {
+						subtract_variable = {	# import as much as possible
+							which = local_desired_amount_variable
+							which = wheat_amount
+						}
+						set_variable = {
+							which = wheat_amount
+							value = 0
+						}
+					}
+					# Now transfer back the value to the original province:
+					ROOT = {
+						set_variable = {
+							which = local_desired_amount_variable
+							which = PREV	# the neighbor province
+						}
+					}
+				}
+			}
+		}
+	}
+	# NOTE TODO: In between here, demesne, realm and traderoute provinces should be checked first,
+	# before finally going to any_province.
+	# Again: First verify that it still needs to be imported:
+	if = {
+		limit = {
+			NOT = {
+				is_variable_equal = {
+					which = local_desired_amount_variable
+					value = 0
+				}
+			}
+		}
+		# Now check if it can be imported from any province in traderange:
+		if = {
+			limit = {
+				any_province = {	# WARNING: Expensive!
+					AND = {
+						lies_within_traderange_medium = yes	# NOTE TODO decide if the importing or exporting province is deciding factor
+						# or instead of above, can_import_wheat_from or sth like that
+						check_variable = {
+							which = wheat_amount
+							value = 0.5		# values below one half are not imported and ignored (though they can still be used for consumption)
+						}
+					}
+				}
+			}
+			while = {	# repeat until no province has wheat anymore, or if none has to be imported anymore
+				limit = {
+					AND = {
+						NOT = {
+							is_variable_equal = {
+								which = local_desired_amount_variable
+								value = 0
+							}
+						}
+						any_province = {
+							check_variable = {
+								which = wheat_amount
+								value = 0.5		# values below one half are not imported and ignored (though they can still be used for consumption)
+							}
+						}
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						check_variable = {
+							which = wheat_amount
+							value = 0.5		# values below one half are not imported and ignored (though they can still be used for consumption)
+						}
+					}
+					# IMPORTANT NOTE: We are now in a different province scope, meaning we can no longer directly access local_desired_amount_variable from the original province.
+					# So first, we have to transfer this variable to the new province, via its scope
+					set_variable = {
+						which = local_desired_amount_variable
+						which = PREV	# the original province
+					}
+					if = {	# available wheat is at least equal to desired amount
+						limit = {
+							check_variable = {
+								which = wheat_amount
+								which = local_desired_amount_variable
+							}
+						}
+						subtract_variable = {	# import full amount
+							which = wheat_amount
+							which = local_desired_amount_variable
+						}
+						set_variable = {
+							which = local_desired_amount_variable
+							value = 0
+						}
+					}
+					else = {
+						subtract_variable = {	# import as much as possible
+							which = local_desired_amount_variable
+							which = wheat_amount
+						}
+						set_variable = {
+							which = wheat_amount
+							value = 0
+						}
+					}
+					# Now transfer back the value to the original province:
+					ROOT = {
+						set_variable = {
+							which = local_desired_amount_variable
+							which = PREV	# the neighbor province
+						}
+					}
+				}
+			}
+		}
+	}
+	# if still not enough wheat could be imported, throw an error or sth and abort the effort
+	if = {
+		limit = {
+			NOT = {
+				is_variable_equal = {
+					which = local_desired_amount_variable
+					value = 0
+				}
+			}
+		}
+		# dada
+		owner = {
+			character_event = {
+				id = XYZ.1
+			}
+		}
+		break = yes
+		
+		# Oh wait - now we have already imported lots of wheat, which would be lost if we "breaked" here!
+		# F*CK F*CK F*CK
+		# NOTE figure out how to properly abort, or not even start this madness
+		# IMPORTANT TODO WARNING
+	}
+}

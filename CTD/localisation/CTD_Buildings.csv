@@ -21,7 +21,7 @@ tb_population_peasants_2;§YPopulation:§! Peasants;;;;;;;;;;;;;x
 tb_population_peasants_3;§YPopulation:§! Peasants;;;;;;;;;;;;;x
 tb_population_peasants_4;§YPopulation:§! Peasants;;;;;;;;;;;;;x
 tb_population_peasants_5;§YPopulation:§! Peasants;;;;;;;;;;;;;x
-population_peasants_desc;The backbone of every medieval society. Hardy, simple folks living a frugal life, working hard to feed the rest of the population.\nGameplay: A higher peasant population allows a province to produce more resources!\nEach pop consumes: §Y1§! Food / §Y0.5§! Clothing / §Y1§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+population_peasants_desc;The backbone of every medieval society: Hardy, simple folks living a frugal life, working hard to feed the rest of the population.\nEach pop consumes: §Y1§! Food / §Y0.5§! Clothing / §Y1§! Materials / §F0§! Luxuries\nEach pop provides: §Y1§! Simple Labour / §F0§! Craftsmanship;;;;;;;;;;;;;x
 
 # Artisans:
 ca_population_artisans_1;§YPopulation:§! Artisans;;;;;;;;;;;;;x
@@ -40,7 +40,7 @@ tb_population_artisans_1;§YPopulation:§! Artisans;;;;;;;;;;;;;x
 tb_population_artisans_2;§YPopulation:§! Artisans;;;;;;;;;;;;;x
 tb_population_artisans_3;§YPopulation:§! Artisans;;;;;;;;;;;;;x
 tb_population_artisans_4;§YPopulation:§! Artisans;;;;;;;;;;;;;x
-population_artisans_desc; . Skilled workers turning raw materials into products, building the .\nGameplay: A higher artisan population allows a province to produce more refined & finalized products!\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y2§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
+population_artisans_desc; . Skilled workers turning raw materials into refined products and thus laying the base for .\nEach pop consumes: §Y1§! Food / §Y1§! Clothing / §Y2§! Materials / §F0§! Luxuries;;;;;;;;;;;;;x
 
 # Merchants:
 ca_population_merchants_1;§YPopulation:§! Merchants;;;;;;;;;;;;;x
@@ -55,7 +55,7 @@ tp_population_merchants_3;§YPopulation:§! Merchants;;;;;;;;;;;;;x
 tb_population_merchants_1;§YPopulation:§! Merchants;;;;;;;;;;;;;x
 tb_population_merchants_2;§YPopulation:§! Merchants;;;;;;;;;;;;;x
 tb_population_merchants_3;§YPopulation:§! Merchants;;;;;;;;;;;;;x
-population_merchants_desc; showing great buisness acumen.\nGameplay: A higher merchant population allows a province to import from more provinces(/more goods. we'll see NOTE)!\nEach pop consumes: §Y1.5§! Food / §Y1.5§! Clothing / §Y1§! Materials / §Y1§! Luxuries;;;;;;;;;;;;;x
+population_merchants_desc; showing great buisness acumen.\nEach pop consumes: §Y1.5§! Food / §Y1.5§! Clothing / §Y1§! Materials / §Y1§! Luxuries;;;;;;;;;;;;;x
 
 # Elite:
 ca_population_elite_1;§YPopulation:§! Elite;;;;;;;;;;;;;x
@@ -66,7 +66,7 @@ tp_population_elite_1;§YPopulation:§! Elite;;;;;;;;;;;;;x
 tp_population_elite_2;§YPopulation:§! Elite;;;;;;;;;;;;;x
 tb_population_elite_1;§YPopulation:§! Elite;;;;;;;;;;;;;x
 tb_population_elite_2;§YPopulation:§! Elite;;;;;;;;;;;;;x
-population_elite_desc;Minor nobles, bureocrats or other petty . They see to the  of the holding, and ever strive to display their wealth.\nEach pop consumes: §Y1.5§! Food / §Y1.5§! Clothing / §Y1§! Materials / §Y2§! Luxuries;;;;;;;;;;;;;x
+population_elite_desc;Bureaucrats, revees or other petty nobles. They keep up the public order of the settlement, dispense justice, and ever strive to display their wealth and prestige.\nEach pop consumes: §Y1.5§! Food / §Y1.5§! Clothing / §Y1§! Materials / §Y2§! Luxuries;;;;;;;;;;;;;x
 
 #Special:
 ca_population_soldiers_1;§YPopulation:§! Soldiers;;;;;;;;;;;;;x
