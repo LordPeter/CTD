@@ -319,15 +319,90 @@ character_event = {
 			limit = {
 				port = yes
 			}
-			save_event_target_as = target_testy_target
+			set_variable = {
+				which = local_test_variable
+				value = 5
+			}
 		}
 	}
 	
 	option = {
 		name = CTDDESC_0702
-		event_target:target_testy_target = {
+		any_province = {
+			limit = {
+				check_variable = {
+					which = local_test_variable
+					value = 1
+				}
+			}
 			add_province_modifier = {
 				name = testy_movement_blocked
+				duration = -1
+			}
+		}
+	}
+}
+
+character_event = {
+	id = TST.10
+	window = EventWindowVertical
+	picture = GFX_evt_standing_king_viewing_VERTICAL
+	desc = CTDDESC_0002		# Generic "invisible" localisation LONG version
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		any_province = {
+			limit = {
+				port = yes
+			}
+			set_variable = {
+				which = local_test_variable
+				value = 10
+			}
+		}
+	}
+	
+	option = {
+		name = CTDDESC_0702
+		any_province = {
+			limit = {
+				check_variable = {
+					which = local_test_variable
+					value = 6
+				}
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_products_1
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = CTDDESC_equal
+		any_province = {
+			limit = {
+				port = yes
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_products_4
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = CTDDESC_lower
+		any_province = {
+			limit = {
+				check_variable = {
+					which = province_population_total
+					value = 5
+				}
+			}
+			add_province_modifier = {
+				name = tradegood_slot_dummy_products_3
 				duration = -1
 			}
 		}

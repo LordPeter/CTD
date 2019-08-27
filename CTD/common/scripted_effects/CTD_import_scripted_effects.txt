@@ -251,5 +251,12 @@ import_wheat_amount_CTD_effect = {
 		# F*CK F*CK F*CK
 		# NOTE figure out how to properly abort, or not even start this madness
 		# IMPORTANT TODO WARNING
+		
+		# Potential solution: Introduce yet another temporary local variable, which serves as a substitute for wheat_amount
+		# during the effect it gets checked and diminshed in wheat_amount's stead,
+		# and only if the effect succeeds in allocating enough wheat it will, in a final any_province scope,
+		# excecute and actually diminish wheat amount
+		# if the effect fails, however, the local variable will just be discarded and nothing was broken
+		# TADA! solution. or did I miss anything?
 	}
 }

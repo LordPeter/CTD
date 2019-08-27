@@ -1,0 +1,14 @@
+STEP A
+province 1
+calc <name> variable required_amount_<name>
+search provinces with tradegood <name> and NOT flag considering_trading_offer_<name>
+province 2: has available tradegood <name>
+set flag considering_trading_offer_<name>
+set variable helper_comparison_<name> = available amount <name>
+province 1
+increase variable helper_comparison_<name>(prov_1) = which?= helper_comparison_<name>(prov_2)
+while variable helper_comparison_<name>(prov_1) < required_amount_<name> , contine searching for provinces and add amounts
+once variable helper_comparison_<name>(prov_1) >= required_amount_<name> , do step B
+
+STEP B
+province 1
